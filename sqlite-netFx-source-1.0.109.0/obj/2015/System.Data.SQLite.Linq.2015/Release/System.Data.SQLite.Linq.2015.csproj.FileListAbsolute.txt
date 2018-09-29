@@ -1,0 +1,16 @@
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\System.Data.SQLite.Linq.xml
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\System.Data.SQLite.Linq.dll
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\System.Data.SQLite.Linq.pdb
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.2015.csprojResolveAssemblyReference.cache
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.Properties.Resources.resources
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.2015.csproj.GenerateResource.Cache
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.dll
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\System.Data.SQLite.Linq.xml
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\System.Data.SQLite.Linq.dll
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\System.Data.SQLite.Linq.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.2015.csprojResolveAssemblyReference.cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.Properties.Resources.resources
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.2015.csproj.GenerateResource.Cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.dll
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\System.Data.SQLite.Linq.2015\Release\System.Data.SQLite.Linq.pdb

@@ -1,0 +1,11 @@
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\Installer.exe
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\Installer.pdb
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\Installer.2015\Release\Installer.2015.csprojResolveAssemblyReference.cache
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\Installer.2015\Release\Installer.exe
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\Installer.2015\Release\Installer.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\Installer.exe.config
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\Installer.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Release\bin\Installer.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\Installer.2015\Release\Installer.2015.csprojResolveAssemblyReference.cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\Installer.2015\Release\Installer.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\Installer.2015\Release\Installer.pdb

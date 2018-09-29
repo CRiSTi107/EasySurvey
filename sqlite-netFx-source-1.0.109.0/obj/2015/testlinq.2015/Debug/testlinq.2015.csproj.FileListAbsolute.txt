@@ -1,0 +1,14 @@
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\northwindEF.db
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\testlinq.exe.config
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\testlinq.exe
+E:\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\testlinq.pdb
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\testlinq.2015\Debug\testlinq.2015.csprojResolveAssemblyReference.cache
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\testlinq.2015\Debug\testlinq.exe
+E:\sqlite-netFx-source-1.0.109.0\obj\2015\testlinq.2015\Debug\testlinq.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\northwindEF.db
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\testlinq.exe.config
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\testlinq.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\bin\2015\Debug\bin\testlinq.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\testlinq.2015\Debug\testlinq.2015.csprojResolveAssemblyReference.cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\testlinq.2015\Debug\testlinq.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\sqlite-netFx-source-1.0.109.0\obj\2015\testlinq.2015\Debug\testlinq.pdb
