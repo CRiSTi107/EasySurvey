@@ -41,13 +41,50 @@ namespace EasySurvey
 
                     SQLiteDataReader dr = cmd.ExecuteReader();
 
-                    MessageBox.Show("Connected successfully!");
+                    while (dr.Read())
+                    {
+                        //MessageBox.Show(dr[1].ToString());
+                    }
+
+                    //MessageBox.Show("Connected successfully!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void materialSingleLineTextField1_TextChanged(object sender, EventArgs e)
+        {
+            lbl_AutoComplete1.Text = txt_Username.Text + " 1";
+            lbl_AutoComplete2.Text = txt_Username.Text + " 2";
+            lbl_AutoComplete3.Text = txt_Username.Text + " 3";
+            lbl_AutoComplete4.Text = txt_Username.Text + " 4";
+            lbl_AutoComplete5.Text = txt_Username.Text + " 5";
+        }
+
+        private void lbl_AutoComplete_MouseEnter(object sender, EventArgs e)
+        {
+            (sender as MaterialLabel).BackColor = Color.Gray;
+        }
+
+        private void lbl_AutoComplete_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as MaterialLabel).BackColor = Color.Transparent;
+        }
+
+        private void lbl_AutoComplete_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_Username.Text = (sender as MaterialLabel).Text;
+        }
+
+        private void lbl_AutoComplete_TextChanged(object sender, EventArgs e)
+        {
+            if ((sender as MaterialLabel).Text == String.Empty)
+                (sender as MaterialLabel).Visible = false;
+            else
+                (sender as MaterialLabel).Visible = true;
         }
     }
 }
