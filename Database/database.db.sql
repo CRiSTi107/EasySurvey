@@ -33,3 +33,4 @@ CREATE TABLE IF NOT EXISTS `Attitude` (
 	`AttitudeName`	TEXT NOT NULL UNIQUE
 );
 COMMIT;
+
