@@ -1,0 +1,9 @@
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.csprojResolveAssemblyReference.cache
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.frm_Main.resources
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.Properties.Resources.resources
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.csproj.GenerateResource.Cache
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EasySurvey.exe
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EasySurvey.pdb
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\MaterialSkin.dll
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.exe
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.pdb
