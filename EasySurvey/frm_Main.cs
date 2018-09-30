@@ -37,27 +37,43 @@ namespace EasySurvey
 
         private void frm_Main_Load(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=database.db;Version=3;"))
+            //    using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM Question", conn))
+            //    {
+            //        conn.Open();
+
+            //        SQLiteDataReader dr = cmd.ExecuteReader();
+
+            //        while (dr.Read())
+            //        {
+            //            //MessageBox.Show(dr[1].ToString());
+            //        }
+
+            //        //MessageBox.Show("Connected successfully!");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+
             try
             {
-                using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=database.db;Version=3;"))
-                using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM Question", conn))
+                using (var c = new DatabaseConnectionString())
                 {
-                    conn.Open();
-
-                    SQLiteDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
+                    foreach (var item in c.Question)
                     {
-                        //MessageBox.Show(dr[1].ToString());
+                        MessageBox.Show(item.Question1);
                     }
-
-                    //MessageBox.Show("Connected successfully!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
 
         private void materialSingleLineTextField1_TextChanged(object sender, EventArgs e)
