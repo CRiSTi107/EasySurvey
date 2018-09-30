@@ -180,6 +180,7 @@
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.txt_Password);
             this.Name = "frm_Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Survey";
             this.Load += new System.EventHandler(this.frm_Main_Load);
             this.panel1.ResumeLayout(false);

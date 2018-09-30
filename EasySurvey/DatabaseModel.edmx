@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\database.db&quot;;version=3" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attitude">
+          <Key>
+            <PropertyRef Name="AttitudeID" />
+          </Key>
+          <Property Name="AttitudeID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttitudeName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttitudeDefinition">
+          <Key>
+            <PropertyRef Name="AttitudeDefinitionID" />
+          </Key>
+          <Property Name="AttitudeDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttitudeID" Type="integer" Nullable="false" />
+          <Property Name="QuestionID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="ResultID" />
+          </Key>
+          <Property Name="ResultID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurveyID" Type="integer" Nullable="false" />
+          <Property Name="ResultName" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="UserID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultDefinition">
+          <Key>
+            <PropertyRef Name="ResultDefinitionID" />
+          </Key>
+          <Property Name="ResultDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResultID" Type="integer" Nullable="false" />
+          <Property Name="ResultAnswer" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Name="SurveyID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurveyName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveyDefinition">
+          <Key>
+            <PropertyRef Name="SurveyDefinitionID" />
+          </Key>
+          <Property Name="SurveyDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurveyID" Type="integer" Nullable="false" />
+          <Property Name="QuestionID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="Attitude" EntityType="Self.Attitude" store:Type="Tables" />
+          <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" store:Type="Tables" />
+          <EntitySet Name="Result" EntityType="Self.Result" store:Type="Tables" />
+          <EntitySet Name="ResultDefinition" EntityType="Self.ResultDefinition" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" store:Type="Tables" />
+          <EntitySet Name="Survey" EntityType="Self.Survey" store:Type="Tables" />
+          <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attitude">
+          <Key>
+            <PropertyRef Name="AttitudeID" />
+          </Key>
+          <Property Name="AttitudeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttitudeName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttitudeDefinition">
+          <Key>
+            <PropertyRef Name="AttitudeDefinitionID" />
+          </Key>
+          <Property Name="AttitudeDefinitionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttitudeID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="ResultID" />
+          </Key>
+          <Property Name="ResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurveyID" Type="Int64" Nullable="false" />
+          <Property Name="ResultName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultDefinition">
+          <Key>
+            <PropertyRef Name="ResultDefinitionID" />
+          </Key>
+          <Property Name="ResultDefinitionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResultID" Type="Int64" Nullable="false" />
+          <Property Name="ResultAnswer" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Name="SurveyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurveyName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveyDefinition">
+          <Key>
+            <PropertyRef Name="SurveyDefinitionID" />
+          </Key>
+          <Property Name="SurveyDefinitionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurveyID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attitude" EntityType="Self.Attitude" />
+          <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" />
+          <EntitySet Name="Question" EntityType="Self.Question" />
+          <EntitySet Name="Result" EntityType="Self.Result" />
+          <EntitySet Name="ResultDefinition" EntityType="Self.ResultDefinition" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Survey" EntityType="Self.Survey" />
+          <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseConnectionString">
+          <EntitySetMapping Name="Attitude">
+            <EntityTypeMapping TypeName="DatabaseModel.Attitude">
+              <MappingFragment StoreEntitySet="Attitude">
+                <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
+                <ScalarProperty Name="AttitudeName" ColumnName="AttitudeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttitudeDefinition">
+            <EntityTypeMapping TypeName="DatabaseModel.AttitudeDefinition">
+              <MappingFragment StoreEntitySet="AttitudeDefinition">
+                <ScalarProperty Name="AttitudeDefinitionID" ColumnName="AttitudeDefinitionID" />
+                <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Question">
+            <EntityTypeMapping TypeName="DatabaseModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="Question1" ColumnName="Question" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Result">
+            <EntityTypeMapping TypeName="DatabaseModel.Result">
+              <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="ResultName" ColumnName="ResultName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultDefinition">
+            <EntityTypeMapping TypeName="DatabaseModel.ResultDefinition">
+              <MappingFragment StoreEntitySet="ResultDefinition">
+                <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
+                <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+                <ScalarProperty Name="ResultAnswer" ColumnName="ResultAnswer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="DatabaseModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Survey">
+            <EntityTypeMapping TypeName="DatabaseModel.Survey">
+              <MappingFragment StoreEntitySet="Survey">
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveyDefinition">
+            <EntityTypeMapping TypeName="DatabaseModel.SurveyDefinition">
+              <MappingFragment StoreEntitySet="SurveyDefinition">
+                <ScalarProperty Name="SurveyDefinitionID" ColumnName="SurveyDefinitionID" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DatabaseModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="DatabaseModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
