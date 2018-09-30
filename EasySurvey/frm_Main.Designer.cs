@@ -35,6 +35,8 @@
             this.lbl_AutoComplete4 = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_AutoComplete5 = new MaterialSkin.Controls.MaterialLabel();
             this.txt_Password = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_Username
@@ -61,7 +63,7 @@
             this.lbl_AutoComplete1.Depth = 0;
             this.lbl_AutoComplete1.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_AutoComplete1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_AutoComplete1.Location = new System.Drawing.Point(228, 176);
+            this.lbl_AutoComplete1.Location = new System.Drawing.Point(-4, 0);
             this.lbl_AutoComplete1.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_AutoComplete1.Name = "lbl_AutoComplete1";
             this.lbl_AutoComplete1.Size = new System.Drawing.Size(353, 22);
@@ -78,7 +80,7 @@
             this.lbl_AutoComplete2.Depth = 0;
             this.lbl_AutoComplete2.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_AutoComplete2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_AutoComplete2.Location = new System.Drawing.Point(228, 198);
+            this.lbl_AutoComplete2.Location = new System.Drawing.Point(-4, 22);
             this.lbl_AutoComplete2.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_AutoComplete2.Name = "lbl_AutoComplete2";
             this.lbl_AutoComplete2.Size = new System.Drawing.Size(353, 22);
@@ -95,7 +97,7 @@
             this.lbl_AutoComplete3.Depth = 0;
             this.lbl_AutoComplete3.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_AutoComplete3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_AutoComplete3.Location = new System.Drawing.Point(228, 220);
+            this.lbl_AutoComplete3.Location = new System.Drawing.Point(-4, 44);
             this.lbl_AutoComplete3.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_AutoComplete3.Name = "lbl_AutoComplete3";
             this.lbl_AutoComplete3.Size = new System.Drawing.Size(353, 22);
@@ -112,7 +114,7 @@
             this.lbl_AutoComplete4.Depth = 0;
             this.lbl_AutoComplete4.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_AutoComplete4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_AutoComplete4.Location = new System.Drawing.Point(228, 242);
+            this.lbl_AutoComplete4.Location = new System.Drawing.Point(-4, 66);
             this.lbl_AutoComplete4.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_AutoComplete4.Name = "lbl_AutoComplete4";
             this.lbl_AutoComplete4.Size = new System.Drawing.Size(353, 22);
@@ -129,7 +131,7 @@
             this.lbl_AutoComplete5.Depth = 0;
             this.lbl_AutoComplete5.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_AutoComplete5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_AutoComplete5.Location = new System.Drawing.Point(228, 264);
+            this.lbl_AutoComplete5.Location = new System.Drawing.Point(-4, 88);
             this.lbl_AutoComplete5.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_AutoComplete5.Name = "lbl_AutoComplete5";
             this.lbl_AutoComplete5.Size = new System.Drawing.Size(353, 22);
@@ -144,7 +146,7 @@
             // 
             this.txt_Password.Depth = 0;
             this.txt_Password.Hint = "";
-            this.txt_Password.Location = new System.Drawing.Point(232, 302);
+            this.txt_Password.Location = new System.Drawing.Point(232, 173);
             this.txt_Password.MaxLength = 32767;
             this.txt_Password.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Password.Name = "txt_Password";
@@ -157,21 +159,30 @@
             this.txt_Password.TabStop = false;
             this.txt_Password.UseSystemPasswordChar = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbl_AutoComplete1);
+            this.panel1.Controls.Add(this.lbl_AutoComplete2);
+            this.panel1.Controls.Add(this.lbl_AutoComplete3);
+            this.panel1.Controls.Add(this.lbl_AutoComplete5);
+            this.panel1.Controls.Add(this.lbl_AutoComplete4);
+            this.panel1.Location = new System.Drawing.Point(232, 170);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(349, 110);
+            this.panel1.TabIndex = 7;
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 401);
-            this.Controls.Add(this.txt_Password);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_Username);
-            this.Controls.Add(this.lbl_AutoComplete5);
-            this.Controls.Add(this.lbl_AutoComplete4);
-            this.Controls.Add(this.lbl_AutoComplete3);
-            this.Controls.Add(this.lbl_AutoComplete2);
-            this.Controls.Add(this.lbl_AutoComplete1);
+            this.Controls.Add(this.txt_Password);
             this.Name = "frm_Main";
             this.Text = "Easy Survey";
             this.Load += new System.EventHandler(this.frm_Main_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -185,6 +196,7 @@
         private MaterialSkin.Controls.MaterialLabel lbl_AutoComplete4;
         private MaterialSkin.Controls.MaterialLabel lbl_AutoComplete5;
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_Password;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

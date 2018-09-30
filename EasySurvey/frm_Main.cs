@@ -15,6 +15,8 @@ namespace EasySurvey
 {
     public partial class frm_Main : MaterialForm
     {
+        private List<MaterialLabel> AutocompleteLabels = new List<MaterialLabel>();
+
         public frm_Main()
         {
             InitializeComponent();
@@ -28,6 +30,9 @@ namespace EasySurvey
 
             // GREEN
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.Green800, Primary.Green900, Primary.Green500, Accent.LightGreen200, TextShade.WHITE);
+
+            //Add Labels to Autocomplete List
+            AutocompleteLabels.Add(lbl_AutoComplete1); AutocompleteLabels.Add(lbl_AutoComplete2); AutocompleteLabels.Add(lbl_AutoComplete3); AutocompleteLabels.Add(lbl_AutoComplete4); AutocompleteLabels.Add(lbl_AutoComplete5);
         }
 
         private void frm_Main_Load(object sender, EventArgs e)
@@ -57,11 +62,12 @@ namespace EasySurvey
 
         private void materialSingleLineTextField1_TextChanged(object sender, EventArgs e)
         {
-            lbl_AutoComplete1.Text = txt_Username.Text + " 1";
-            lbl_AutoComplete2.Text = txt_Username.Text + " 2";
-            lbl_AutoComplete3.Text = txt_Username.Text + " 3";
-            lbl_AutoComplete4.Text = txt_Username.Text + " 4";
-            lbl_AutoComplete5.Text = txt_Username.Text + " 5";
+            bool hide = true;
+
+            if (txt_Username.Text == "" || txt_Username.Text == String.Empty || txt_Username.Text.Trim() == String.Empty)
+                hide = false;
+
+            panel1.Visible = (hide) ? true : false;
         }
 
         private void lbl_AutoComplete_MouseEnter(object sender, EventArgs e)
@@ -82,9 +88,9 @@ namespace EasySurvey
         private void lbl_AutoComplete_TextChanged(object sender, EventArgs e)
         {
             if ((sender as MaterialLabel).Text == String.Empty)
-                (sender as MaterialLabel).Visible = false;
+            { (sender as MaterialLabel).Visible = false; panel1.Visible = false; }
             else
-                (sender as MaterialLabel).Visible = true;
+            { (sender as MaterialLabel).Visible = true; panel1.Visible = true; }
         }
     }
 }
