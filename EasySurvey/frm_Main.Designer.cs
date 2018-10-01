@@ -36,6 +36,10 @@
             this.lbl_AutoComplete5 = new MaterialSkin.Controls.MaterialLabel();
             this.txt_Password = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_Username = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl_Password = new MaterialSkin.Controls.MaterialLabel();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +161,7 @@
             this.txt_Password.Size = new System.Drawing.Size(349, 23);
             this.txt_Password.TabIndex = 6;
             this.txt_Password.TabStop = false;
-            this.txt_Password.UseSystemPasswordChar = false;
+            this.txt_Password.UseSystemPasswordChar = true;
             // 
             // panel1
             // 
@@ -171,20 +175,83 @@
             this.panel1.Size = new System.Drawing.Size(349, 110);
             this.panel1.TabIndex = 7;
             // 
+            // lbl_Username
+            // 
+            this.lbl_Username.AutoSize = true;
+            this.lbl_Username.Depth = 0;
+            this.lbl_Username.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Username.Location = new System.Drawing.Point(72, 145);
+            this.lbl_Username.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Username.Name = "lbl_Username";
+            this.lbl_Username.Size = new System.Drawing.Size(70, 19);
+            this.lbl_Username.TabIndex = 8;
+            this.lbl_Username.Text = "Utilizator";
+            // 
+            // lbl_Password
+            // 
+            this.lbl_Password.AutoSize = true;
+            this.lbl_Password.Depth = 0;
+            this.lbl_Password.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Password.Location = new System.Drawing.Point(72, 173);
+            this.lbl_Password.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Password.Name = "lbl_Password";
+            this.lbl_Password.Size = new System.Drawing.Size(52, 19);
+            this.lbl_Password.TabIndex = 9;
+            this.lbl_Password.Text = "Parola";
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.AutoSize = true;
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(232, 330);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(118, 36);
+            this.materialRaisedButton1.TabIndex = 10;
+            this.materialRaisedButton1.Text = "Intra in cont";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(357, 330);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(118, 36);
+            this.materialFlatButton1.TabIndex = 11;
+            this.materialFlatButton1.Text = "Intra in cont";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 401);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.materialFlatButton1);
+            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.lbl_Password);
+            this.Controls.Add(this.lbl_Username);
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.txt_Password);
+            this.Controls.Add(this.panel1);
             this.Name = "frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Survey";
             this.Load += new System.EventHandler(this.frm_Main_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -198,6 +265,10 @@
         private MaterialSkin.Controls.MaterialLabel lbl_AutoComplete5;
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_Password;
         private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialLabel lbl_Username;
+        private MaterialSkin.Controls.MaterialLabel lbl_Password;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
     }
 }
 

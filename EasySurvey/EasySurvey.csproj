@@ -117,6 +117,7 @@
     <Compile Include="Role.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SHA256.cs" />
     <Compile Include="Survey.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>

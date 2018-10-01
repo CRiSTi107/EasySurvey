@@ -61,7 +61,7 @@ namespace EasySurvey
 
             try
             {
-                using (var c = new DatabaseConnectionString())
+                using (var c = new DatabaseEntity())
                 {
                     foreach (var item in c.Question)
                     {
@@ -107,6 +107,11 @@ namespace EasySurvey
             { (sender as MaterialLabel).Visible = false; panel1.Visible = false; }
             else
             { (sender as MaterialLabel).Visible = true; panel1.Visible = true; }
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(SHA256.Hash(txt_Password.Text));
         }
     }
 }

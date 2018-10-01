@@ -12,19 +12,19 @@ namespace EasySurvey
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class DatabaseConnectionString : DbContext
+
+    public partial class DatabaseEntity : DbContext
     {
-        public DatabaseConnectionString()
+        public DatabaseEntity()
             : base("name=DatabaseConnectionString")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Attitude> Attitude { get; set; }
         public virtual DbSet<AttitudeDefinition> AttitudeDefinition { get; set; }
         public virtual DbSet<Question> Question { get; set; }
