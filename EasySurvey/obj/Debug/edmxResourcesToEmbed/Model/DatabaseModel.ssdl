@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Database\database.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attitude">
+    <Key>
+      <PropertyRef Name="AttitudeID" />
+    </Key>
+    <Property Name="AttitudeID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AttitudeName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AttitudeDefinition">
+    <Key>
+      <PropertyRef Name="AttitudeDefinitionID" />
+    </Key>
+    <Property Name="AttitudeDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AttitudeID" Type="integer" Nullable="false" />
+    <Property Name="QuestionID" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="ResultID" />
+    </Key>
+    <Property Name="ResultID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurveyID" Type="integer" Nullable="false" />
+    <Property Name="ResultName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="UserID" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResultDefinition">
+    <Key>
+      <PropertyRef Name="ResultDefinitionID" />
+    </Key>
+    <Property Name="ResultDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResultID" Type="integer" Nullable="false" />
+    <Property Name="ResultAnswer" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="SurveyID" />
+    </Key>
+    <Property Name="SurveyID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurveyName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SurveyDefinition">
+    <Key>
+      <PropertyRef Name="SurveyDefinitionID" />
+    </Key>
+    <Property Name="SurveyDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurveyID" Type="integer" Nullable="false" />
+    <Property Name="QuestionID" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'main.UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="integer" Nullable="false" />
+    <Property Name="RoleID" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="Attitude" EntityType="Self.Attitude" store:Type="Tables" />
+    <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" store:Type="Tables" />
+    <EntitySet Name="Result" EntityType="Self.Result" store:Type="Tables" />
+    <EntitySet Name="ResultDefinition" EntityType="Self.ResultDefinition" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" store:Type="Tables" />
+    <EntitySet Name="Survey" EntityType="Self.Survey" store:Type="Tables" />
+    <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables">
+      <DefiningQuery>SELECT 
+[UserRole].[UserID] AS [UserID], 
+[UserRole].[RoleID] AS [RoleID]
+FROM [UserRole] AS [UserRole]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

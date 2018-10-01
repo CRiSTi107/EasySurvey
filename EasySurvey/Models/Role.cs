@@ -7,14 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EasySurvey
+namespace EasySurvey.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Question
+    public partial class Role
     {
-        public long QuestionID { get; set; }
-        public string Question1 { get; set; }
+        public long RoleID { get; set; }
+        public string RoleName { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EasySurvey
 {
-    partial class frm_Main
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             // 
             this.txt_Username.Depth = 0;
             this.txt_Username.Hint = "";
-            this.txt_Username.Location = new System.Drawing.Point(232, 141);
+            this.txt_Username.Location = new System.Drawing.Point(232, 96);
             this.txt_Username.MaxLength = 32767;
             this.txt_Username.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Username.Name = "txt_Username";
@@ -150,7 +150,7 @@
             // 
             this.txt_Password.Depth = 0;
             this.txt_Password.Hint = "";
-            this.txt_Password.Location = new System.Drawing.Point(232, 173);
+            this.txt_Password.Location = new System.Drawing.Point(232, 268);
             this.txt_Password.MaxLength = 32767;
             this.txt_Password.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Password.Name = "txt_Password";
@@ -170,7 +170,7 @@
             this.panel1.Controls.Add(this.lbl_AutoComplete3);
             this.panel1.Controls.Add(this.lbl_AutoComplete5);
             this.panel1.Controls.Add(this.lbl_AutoComplete4);
-            this.panel1.Location = new System.Drawing.Point(232, 170);
+            this.panel1.Location = new System.Drawing.Point(232, 125);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 110);
             this.panel1.TabIndex = 7;
@@ -181,7 +181,7 @@
             this.lbl_Username.Depth = 0;
             this.lbl_Username.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Username.Location = new System.Drawing.Point(72, 145);
+            this.lbl_Username.Location = new System.Drawing.Point(72, 100);
             this.lbl_Username.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Username.Name = "lbl_Username";
             this.lbl_Username.Size = new System.Drawing.Size(70, 19);
@@ -194,7 +194,7 @@
             this.lbl_Password.Depth = 0;
             this.lbl_Password.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Password.Location = new System.Drawing.Point(72, 173);
+            this.lbl_Password.Location = new System.Drawing.Point(72, 268);
             this.lbl_Password.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Password.Name = "lbl_Password";
             this.lbl_Password.Size = new System.Drawing.Size(52, 19);
@@ -207,7 +207,7 @@
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(232, 330);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(232, 315);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -223,7 +223,7 @@
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
             this.materialFlatButton1.Icon = null;
-            this.materialFlatButton1.Location = new System.Drawing.Point(357, 330);
+            this.materialFlatButton1.Location = new System.Drawing.Point(357, 315);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -233,11 +233,11 @@
             this.materialFlatButton1.Text = "Intra in cont";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             // 
-            // frm_Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 401);
+            this.ClientSize = new System.Drawing.Size(656, 387);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.lbl_Password);
@@ -245,7 +245,7 @@
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.panel1);
-            this.Name = "frm_Main";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Survey";
             this.Load += new System.EventHandler(this.frm_Main_Load);

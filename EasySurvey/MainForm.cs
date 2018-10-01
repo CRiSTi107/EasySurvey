@@ -10,21 +10,28 @@ using System.Text;
 using System.Windows.Forms;
 
 using System.Data.SQLite;
+using System.Threading.Tasks;
+using EasySurvey.Models;
+using EasySurvey.Controller;
 
 namespace EasySurvey
 {
-    public partial class frm_Main : MaterialForm
+    public partial class MainForm : MaterialForm
     {
         private List<MaterialLabel> AutocompleteLabels = new List<MaterialLabel>();
 
-        public frm_Main()
+        private List<string> Users = new List<string>();
+
+        public MainForm()
         {
             InitializeComponent();
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+
             // BLUE
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue800, Primary.Blue900, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
 
@@ -33,6 +40,12 @@ namespace EasySurvey
 
             //Add Labels to Autocomplete List
             AutocompleteLabels.Add(lbl_AutoComplete1); AutocompleteLabels.Add(lbl_AutoComplete2); AutocompleteLabels.Add(lbl_AutoComplete3); AutocompleteLabels.Add(lbl_AutoComplete4); AutocompleteLabels.Add(lbl_AutoComplete5);
+        }
+
+        private List<UserModelDataTransferObject> GetUsers()
+        {
+            UserController userController = new UserController();
+            return userController.GetUsers();
         }
 
         private void frm_Main_Load(object sender, EventArgs e)
@@ -58,6 +71,8 @@ namespace EasySurvey
             //{
             //    MessageBox.Show(ex.Message);
             //}
+
+            // MessageBox.Show(GetUsers()[0].UserName);
 
             try
             {

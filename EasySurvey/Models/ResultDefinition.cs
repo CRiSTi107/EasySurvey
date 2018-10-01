@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EasySurvey
+namespace EasySurvey.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class ResultDefinition
     {
-        public long UserID { get; set; }
-        public string UserName { get; set; }
-        public string UserPassword { get; set; }
+        public long ResultDefinitionID { get; set; }
+        public long ResultID { get; set; }
+        public long ResultAnswer { get; set; }
     }
 }
