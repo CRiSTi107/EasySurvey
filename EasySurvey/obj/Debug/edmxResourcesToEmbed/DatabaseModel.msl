@@ -82,7 +82,7 @@
     <EntitySetMapping Name="UserRole">
       <EntityTypeMapping TypeName="DatabaseModel.UserRole">
         <MappingFragment StoreEntitySet="UserRole">
-          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
         </MappingFragment>
       </EntityTypeMapping>

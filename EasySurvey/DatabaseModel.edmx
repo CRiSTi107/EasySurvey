@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\database.db&quot;;version=3" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Database\database.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Attitude">
           <Key>
             <PropertyRef Name="AttitudeID" />
@@ -74,11 +74,14 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="UserPassword" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'main.UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="UserRole">
           <Key>
-            <PropertyRef Name="UserRoleID" />
+            <PropertyRef Name="UserID" />
+            
           </Key>
-          <Property Name="UserRoleID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="integer" Nullable="false" />
           <Property Name="RoleID" Type="integer" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DatabaseModelStoreContainer">
@@ -91,10 +94,14 @@
           <EntitySet Name="Survey" EntityType="Self.Survey" store:Type="Tables" />
           <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
-          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables">
+            <DefiningQuery>SELECT 
+[UserRole].[UserID] AS [UserID], 
+[UserRole].[RoleID] AS [RoleID]
+FROM [UserRole] AS [UserRole]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -169,10 +176,10 @@
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
-            <PropertyRef Name="UserRoleID" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserRoleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoleID" Type="Int64" Nullable="false" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DatabaseConnectionString" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Attitude" EntityType="Self.Attitude" />
@@ -273,7 +280,7 @@
           <EntitySetMapping Name="UserRole">
             <EntityTypeMapping TypeName="DatabaseModel.UserRole">
               <MappingFragment StoreEntitySet="UserRole">
-                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>
             </EntityTypeMapping>

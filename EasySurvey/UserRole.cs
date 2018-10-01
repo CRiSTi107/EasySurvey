@@ -14,7 +14,7 @@ namespace EasySurvey
     
     public partial class UserRole
     {
-        public long UserRoleID { get; set; }
         public long RoleID { get; set; }
+        public long UserID { get; set; }
     }
 }

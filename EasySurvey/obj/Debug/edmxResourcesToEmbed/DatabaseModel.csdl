@@ -71,10 +71,10 @@
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
-      <PropertyRef Name="UserRoleID" />
+      <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="UserRoleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoleID" Type="Int64" Nullable="false" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
   </EntityType>
   <EntityContainer Name="DatabaseConnectionString" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Attitude" EntityType="Self.Attitude" />
