@@ -20,7 +20,7 @@ namespace EasySurvey
     {
         private List<MaterialLabel> AutocompleteLabels = new List<MaterialLabel>();
 
-        private List<string> Users = new List<string>();
+        private List<UserModelDataTransferObject> Users = new List<UserModelDataTransferObject>();
 
         public MainForm()
         {
@@ -30,9 +30,10 @@ namespace EasySurvey
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
+            // GREY BLUE
             //materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
-            // BLUE
+            // LIGHT BLUE
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue800, Primary.Blue900, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
 
             // GREEN
@@ -48,23 +49,18 @@ namespace EasySurvey
             return userController.GetUsers();
         }
 
-        private void frm_Main_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
+            Users = GetUsers();
+
             //try
             //{
-            //    using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=database.db;Version=3;"))
-            //    using (SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM Question", conn))
+            //    using (var c = new DatabaseEntity())
             //    {
-            //        conn.Open();
-
-            //        SQLiteDataReader dr = cmd.ExecuteReader();
-
-            //        while (dr.Read())
+            //        foreach (var item in c.Question)
             //        {
-            //            //MessageBox.Show(dr[1].ToString());
+            //            MessageBox.Show(item.Question1);
             //        }
-
-            //        //MessageBox.Show("Connected successfully!");
             //    }
             //}
             //catch (Exception ex)
@@ -72,33 +68,18 @@ namespace EasySurvey
             //    MessageBox.Show(ex.Message);
             //}
 
-            // MessageBox.Show(GetUsers()[0].UserName);
-
-            try
-            {
-                using (var c = new DatabaseEntity())
-                {
-                    foreach (var item in c.Question)
-                    {
-                        MessageBox.Show(item.Question1);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
 
-        private void materialSingleLineTextField1_TextChanged(object sender, EventArgs e)
+        private void txt_Username_TextChanged(object sender, EventArgs e)
         {
             bool hide = true;
 
             if (txt_Username.Text == "" || txt_Username.Text == String.Empty || txt_Username.Text.Trim() == String.Empty)
                 hide = false;
 
-            panel1.Visible = (hide) ? true : false;
+            panel_Autocomplete.Visible = hide;
+
+
         }
 
         private void lbl_AutoComplete_MouseEnter(object sender, EventArgs e)
@@ -119,9 +100,9 @@ namespace EasySurvey
         private void lbl_AutoComplete_TextChanged(object sender, EventArgs e)
         {
             if ((sender as MaterialLabel).Text == String.Empty)
-            { (sender as MaterialLabel).Visible = false; panel1.Visible = false; }
+            { (sender as MaterialLabel).Visible = false; panel_Autocomplete.Visible = false; }
             else
-            { (sender as MaterialLabel).Visible = true; panel1.Visible = true; }
+            { (sender as MaterialLabel).Visible = true; panel_Autocomplete.Visible = true; }
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)

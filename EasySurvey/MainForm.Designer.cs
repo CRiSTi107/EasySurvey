@@ -35,12 +35,12 @@
             this.lbl_AutoComplete4 = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_AutoComplete5 = new MaterialSkin.Controls.MaterialLabel();
             this.txt_Password = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_Autocomplete = new System.Windows.Forms.Panel();
             this.lbl_Username = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_Password = new MaterialSkin.Controls.MaterialLabel();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.panel1.SuspendLayout();
+            this.panel_Autocomplete.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_Username
@@ -59,7 +59,7 @@
             this.txt_Username.TabIndex = 0;
             this.txt_Username.TabStop = false;
             this.txt_Username.UseSystemPasswordChar = false;
-            this.txt_Username.TextChanged += new System.EventHandler(this.materialSingleLineTextField1_TextChanged);
+            this.txt_Username.TextChanged += new System.EventHandler(this.txt_Username_TextChanged);
             // 
             // lbl_AutoComplete1
             // 
@@ -163,17 +163,17 @@
             this.txt_Password.TabStop = false;
             this.txt_Password.UseSystemPasswordChar = true;
             // 
-            // panel1
+            // panel_Autocomplete
             // 
-            this.panel1.Controls.Add(this.lbl_AutoComplete1);
-            this.panel1.Controls.Add(this.lbl_AutoComplete2);
-            this.panel1.Controls.Add(this.lbl_AutoComplete3);
-            this.panel1.Controls.Add(this.lbl_AutoComplete5);
-            this.panel1.Controls.Add(this.lbl_AutoComplete4);
-            this.panel1.Location = new System.Drawing.Point(232, 125);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 110);
-            this.panel1.TabIndex = 7;
+            this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete1);
+            this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete2);
+            this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete3);
+            this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete5);
+            this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete4);
+            this.panel_Autocomplete.Location = new System.Drawing.Point(232, 125);
+            this.panel_Autocomplete.Name = "panel_Autocomplete";
+            this.panel_Autocomplete.Size = new System.Drawing.Size(349, 110);
+            this.panel_Autocomplete.TabIndex = 7;
             // 
             // lbl_Username
             // 
@@ -244,12 +244,12 @@
             this.Controls.Add(this.lbl_Username);
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.txt_Password);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_Autocomplete);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Survey";
-            this.Load += new System.EventHandler(this.frm_Main_Load);
-            this.panel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.panel_Autocomplete.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,7 +264,7 @@
         private MaterialSkin.Controls.MaterialLabel lbl_AutoComplete4;
         private MaterialSkin.Controls.MaterialLabel lbl_AutoComplete5;
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_Password;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_Autocomplete;
         private MaterialSkin.Controls.MaterialLabel lbl_Username;
         private MaterialSkin.Controls.MaterialLabel lbl_Password;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
