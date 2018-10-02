@@ -15,4 +15,5 @@ C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EntityFramework.xml
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\System.Data.SQLite.xml
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.Login.resources
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.MainForm.resources
