@@ -59,8 +59,8 @@
             // listView1
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -153,7 +153,7 @@
             this.tabPage_AllSurveys.Size = new System.Drawing.Size(413, 409);
             this.tabPage_AllSurveys.TabIndex = 0;
             this.tabPage_AllSurveys.Text = "All Surveys";
-            this.tabPage_AllSurveys.UseVisualStyleBackColor = true;
+            this.tabPage_AllSurveys.UseVisualStyleBackColor = false;
             // 
             // tabPage2
             // 
@@ -163,11 +163,11 @@
             this.tabPage2.Size = new System.Drawing.Size(413, 409);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.UseVisualStyleBackColor = false;
             // 
             // materialTabSelector
             // 
-            this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabSelector.BaseTabControl = this.materialTabControl;
             this.materialTabSelector.Depth = 0;
