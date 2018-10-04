@@ -52,6 +52,16 @@ namespace EasySurvey
         {
             Users = GetUsers();
             SetHorizontalMiddle(btn_Login);
+
+            try
+            {
+                Updater updater = new Updater();
+                updater.GetLastVersion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txt_Username_TextChanged(object sender, EventArgs e)
