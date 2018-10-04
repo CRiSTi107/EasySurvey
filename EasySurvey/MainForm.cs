@@ -26,7 +26,10 @@ namespace EasySurvey
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            splitContainer1.SplitterWidth = 50;
 
+            for (int i = 0; i <= 499; i++)
+                listView1.Items.Add(new ListViewItem("Survey - " + i.ToString()));
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
