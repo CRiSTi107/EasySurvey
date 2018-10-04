@@ -131,15 +131,19 @@ namespace EasySurvey
             string Username = txt_Username.Text;
             string Password = txt_Password.Text;
 
-            if (userController.Login(Username, (RequiresPassword) ? Password : null))
+            User user = userController.Login(Username, (RequiresPassword) ? Password : null);
+
+            if (user != null)
             {
                 txt_Username.Clear();
                 txt_Password.Clear();
                 lbl_Status.Text = String.Empty;
 
+                UserModelDataTransferObject User = userController.GetUserByID(user.UserID);
+
                 // Move to MainForm
                 Program.frm_Login.Hide();
-                Program.frm_MainForm = new MainForm();
+                Program.frm_MainForm = new MainForm(User);
                 Program.frm_MainForm.Show();
             }
             else

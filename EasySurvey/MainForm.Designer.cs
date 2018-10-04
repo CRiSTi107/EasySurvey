@@ -45,22 +45,24 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage_AllSurveys = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_AllSurveysSearchBar = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
-            this.txt_AllSurveysSearchBar = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_Welcome = new System.Windows.Forms.Label();
             this.materialContextMenuStrip1.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -153,30 +155,15 @@
             this.tabPage_AllSurveys.Size = new System.Drawing.Size(413, 409);
             this.tabPage_AllSurveys.TabIndex = 0;
             this.tabPage_AllSurveys.Text = "All Surveys";
-            this.tabPage_AllSurveys.UseVisualStyleBackColor = false;
             // 
-            // tabPage2
+            // pictureBox1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(413, 409);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = false;
-            // 
-            // materialTabSelector
-            // 
-            this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabSelector.BaseTabControl = this.materialTabControl;
-            this.materialTabSelector.Depth = 0;
-            this.materialTabSelector.Location = new System.Drawing.Point(0, 64);
-            this.materialTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector.Name = "materialTabSelector";
-            this.materialTabSelector.Size = new System.Drawing.Size(866, 37);
-            this.materialTabSelector.TabIndex = 3;
-            this.materialTabSelector.Text = "Material Tab Selector Home";
+            this.pictureBox1.BackgroundImage = global::EasySurvey.Properties.Resources.search_icon_24x24;
+            this.pictureBox1.Location = new System.Drawing.Point(383, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // txt_AllSurveysSearchBar
             // 
@@ -195,17 +182,31 @@
             this.txt_AllSurveysSearchBar.TabStop = false;
             this.txt_AllSurveysSearchBar.UseSystemPasswordChar = false;
             // 
-            // pictureBox1
+            // tabPage2
             // 
-            this.pictureBox1.BackgroundImage = global::EasySurvey.Properties.Resources.search_icon_24x24;
-            this.pictureBox1.Location = new System.Drawing.Point(383, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(413, 409);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            // 
+            // materialTabSelector
+            // 
+            this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialTabSelector.BaseTabControl = this.materialTabControl;
+            this.materialTabSelector.Depth = 0;
+            this.materialTabSelector.Location = new System.Drawing.Point(0, 64);
+            this.materialTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialTabSelector.Name = "materialTabSelector";
+            this.materialTabSelector.Size = new System.Drawing.Size(866, 37);
+            this.materialTabSelector.TabIndex = 3;
+            this.materialTabSelector.Text = "Material Tab Selector Home";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_Welcome);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox1.Location = new System.Drawing.Point(439, 107);
             this.groupBox1.Name = "groupBox1";
@@ -213,6 +214,15 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selected Survey - Details";
+            // 
+            // lbl_Welcome
+            // 
+            this.lbl_Welcome.AutoSize = true;
+            this.lbl_Welcome.Location = new System.Drawing.Point(132, 214);
+            this.lbl_Welcome.Name = "lbl_Welcome";
+            this.lbl_Welcome.Size = new System.Drawing.Size(38, 13);
+            this.lbl_Welcome.TabIndex = 0;
+            this.lbl_Welcome.Text = "label1";
             // 
             // MainForm
             // 
@@ -231,6 +241,8 @@
             this.materialTabControl.ResumeLayout(false);
             this.tabPage_AllSurveys.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -250,5 +262,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_AllSurveysSearchBar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lbl_Welcome;
     }
 }

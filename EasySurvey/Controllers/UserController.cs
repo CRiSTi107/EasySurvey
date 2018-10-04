@@ -42,6 +42,33 @@ namespace EasySurvey.Controller
             return Users;
         }
 
+        public UserModelDataTransferObject GetUserByID(long ID)
+        {
+            var user = from usr in DatabaseModel.User
+                       join usrRole in DatabaseModel.UserRole on usr.UserID equals usrRole.UserID
+                       where usr.UserID == ID
+                       select new
+                       {
+                           usr.UserID,
+                           usr.UserName,
+                           usr.UserPassword,
+                           usrRole.RoleID
+                       };
+
+            var firstUser = user.First();
+
+            RoleController roleController = new RoleController();
+
+            return new UserModelDataTransferObject()
+            {
+                UserID = firstUser.UserID,
+                UserName = firstUser.UserName,
+                UserPassword = firstUser.UserPassword,
+                RoleID = firstUser.RoleID,
+                RoleName = roleController.GetRoleName(firstUser.RoleID)
+            };
+        }
+
         public IEnumerable<UserModelDataTransferObject> Search(List<UserModelDataTransferObject> all_users, string search_in, bool caseSensitive = false, int limit = 5)
         {
             IEnumerable<UserModelDataTransferObject> result;
@@ -60,7 +87,7 @@ namespace EasySurvey.Controller
             return result;
         }
 
-        public bool Login(string Username, string Password = null)
+        public User Login(string Username, string Password = null)
         {
             if (Password != null)
             {
@@ -72,11 +99,11 @@ namespace EasySurvey.Controller
                                      select usr;
             if (user.Count() == 1)
             {
-                return true;
+                return user.First();
             }
             else
             {
-                return false;
+                return null;
             }
         }
 
