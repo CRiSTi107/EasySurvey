@@ -147,6 +147,7 @@
             this.txt_Password.TabStop = false;
             this.txt_Password.UseSystemPasswordChar = true;
             this.txt_Password.Visible = false;
+            this.txt_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Password_KeyDown);
             // 
             // panel_Autocomplete
             // 

@@ -26,10 +26,12 @@ namespace EasySurvey
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            splitContainer1.SplitterWidth = 50;
-
             for (int i = 0; i <= 499; i++)
-                listView1.Items.Add(new ListViewItem("Survey - " + i.ToString()));
+            {
+                listView1.Items.Add(new ListViewItem("Test de inteligenta pentru avansati - " + i.ToString(), listView1.Groups["listViewGroup4"]));
+                //materialListView1.Items.Add(new ListViewItem("Survey - " + i.ToString(), listView1.Groups["listViewGroup4"]));
+            }
+
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

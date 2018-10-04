@@ -150,5 +150,11 @@ namespace EasySurvey
         {
             panel_Autocomplete.Visible = false;
         }
+
+        private void txt_Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btn_Login.PerformClick();
+        }
     }
 }
