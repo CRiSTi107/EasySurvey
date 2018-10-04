@@ -14,7 +14,7 @@ namespace EasySurvey
         private const string VERSION_URL_GIT = @"https://raw.githubusercontent.com/CRiSTi107/EasySurvey/master/VERSION";
         private Version lastVersion;
 
-        public void GetLastVersion()
+        public void CheckForUpdates()
         {
             try
             {

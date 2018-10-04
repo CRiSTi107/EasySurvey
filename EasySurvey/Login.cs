@@ -56,7 +56,7 @@ namespace EasySurvey
             try
             {
                 Updater updater = new Updater();
-                updater.GetLastVersion();
+                updater.CheckForUpdates();
             }
             catch (Exception ex)
             {
