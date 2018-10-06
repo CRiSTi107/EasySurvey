@@ -38,19 +38,25 @@ namespace EasySurvey
             return surveyController.GetSurveys();
         }
 
+        private void UpdateListView(List<Survey> list)
+        {
+            listView_AllSurveys.Items.Clear();
+            foreach (Survey survey in list)
+            {
+                listView_AllSurveys.Items.Add(new ListViewItem(survey.SurveyName, listView_AllSurveys.Groups["listViewGroup4"]));
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             Surveys = GetSurveys();
 
-            foreach (Survey survey in Surveys)
-            {
-                listView1.Items.Add(new ListViewItem(survey.SurveyName, listView1.Groups["listViewGroup4"]));
-            }
+            UpdateListView(Surveys);
 
-            //for (int i = 0; i <= 499; i++)
-            //{
-            //    listView1.Items.Add(new ListViewItem("Test de inteligenta pentru avansati - " + i.ToString(), listView1.Groups["listViewGroup4"]));
-            //}
+            if (LoggedUser.RoleName.ToUpper() == "ADMIN")
+            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; }
+            else
+            { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; }
 
             lbl_Welcome.Text = "Welcome " + LoggedUser.UserName;
         }
@@ -58,6 +64,73 @@ namespace EasySurvey
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.frm_Login.Show();
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            Surveys = GetSurveys();
+
+            UpdateListView(Surveys);
+        }
+
+        #region Search
+
+        private bool Search = false;
+
+        private void txt_AllSurveysSearchBar_Enter(object sender, EventArgs e)
+        {
+            string Query = txt_AllSurveysSearchBar.Text;
+            if (Query == "Search...")
+            {
+                txt_AllSurveysSearchBar.Text = "";
+                txt_AllSurveysSearchBar.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void txt_AllSurveysSearchBar_Leave(object sender, EventArgs e)
+        {
+            string Query = txt_AllSurveysSearchBar.Text;
+            if (Query == "")
+            {
+                txt_AllSurveysSearchBar.Text = "Search...";
+                txt_AllSurveysSearchBar.ForeColor = Color.Gray;
+            }
+
+        }
+
+        private void txt_AllSurveysSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string Query = txt_AllSurveysSearchBar.Text;
+
+            if (Query == "Search...") return;
+
+            SearchSurveys = new List<Survey>();
+
+            SurveyController surveyController = new SurveyController();
+            SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref Search));
+
+            UpdateListView(SearchSurveys);
+        }
+
+
+        #endregion
+
+        //For ADMIN
+        private void UpdateEditSurveyDetails(string SurveyName)
+        {
+
+        }
+
+        //For USER
+        private void UpdateViewSurveyDetails(string SurveyName)
+        {
+
+        }
+
+        private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
