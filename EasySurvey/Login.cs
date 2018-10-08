@@ -79,7 +79,7 @@ namespace EasySurvey
             for (; index <= AutocompleteLabels.Count - 1; index++)
                 AutocompleteLabels[index].Text = String.Empty;
 
-            if (SearchUsers.Count == 1 && SearchUsers.First().UserName.ToLower() == Username.ToLower() && SearchUsers.First().RoleName.ToUpper() == "ADMIN")
+            if (SearchUsers.Count == 1 && SearchUsers.First().UserName.ToLower() == Username.ToLower() && SearchUsers.First().UserPassword != null)
             {
                 lbl_Password.Visible = true;
                 txt_Password.Visible = true;

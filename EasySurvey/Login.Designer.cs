@@ -40,6 +40,8 @@
             this.lbl_Password = new MaterialSkin.Controls.MaterialLabel();
             this.btn_Login = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel_Autocomplete.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -217,11 +219,46 @@
             this.lbl_Status.TabIndex = 11;
             this.lbl_Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(64, 253);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(135, 36);
+            this.materialFlatButton1.TabIndex = 12;
+            this.materialFlatButton1.Text = "Creaza un cont";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            // 
+            // materialFlatButton2
+            // 
+            this.materialFlatButton2.AutoSize = true;
+            this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialFlatButton2.Depth = 0;
+            this.materialFlatButton2.Icon = null;
+            this.materialFlatButton2.Location = new System.Drawing.Point(434, 253);
+            this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton2.Name = "materialFlatButton2";
+            this.materialFlatButton2.Primary = false;
+            this.materialFlatButton2.Size = new System.Drawing.Size(16, 36);
+            this.materialFlatButton2.TabIndex = 13;
+            this.materialFlatButton2.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 353);
+            this.Controls.Add(this.materialFlatButton2);
+            this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.lbl_Status);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.lbl_Password);
@@ -257,6 +294,8 @@
         private MaterialSkin.Controls.MaterialLabel lbl_Password;
         private MaterialSkin.Controls.MaterialRaisedButton btn_Login;
         private MaterialSkin.Controls.MaterialLabel lbl_Status;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
     }
 }
 
