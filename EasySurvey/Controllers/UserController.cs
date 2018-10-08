@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EasySurvey.Models;
-using EasySurvey.Controllers;
 
-namespace EasySurvey.Controller
+namespace EasySurvey.Controllers
 {
     public class UserController
     {

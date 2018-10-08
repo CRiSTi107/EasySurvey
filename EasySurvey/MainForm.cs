@@ -43,7 +43,9 @@ namespace EasySurvey
             listView_AllSurveys.Items.Clear();
             foreach (Survey survey in list)
             {
-                listView_AllSurveys.Items.Add(new ListViewItem(survey.SurveyName, listView_AllSurveys.Groups["listViewGroup4"]));
+                ListViewItem item = new ListViewItem(survey.SurveyName, listView_AllSurveys.Groups["listViewGroup4"]);
+                item.Tag = survey.SurveyID;
+                listView_AllSurveys.Items.Add(item);
             }
         }
 
@@ -53,7 +55,7 @@ namespace EasySurvey
 
             UpdateListView(Surveys);
 
-            if (LoggedUser.RoleName.ToUpper() == "ADMIN")
+            if (LoggedUser.IsAdministrator())
             { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; }
             else
             { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; }
@@ -116,10 +118,12 @@ namespace EasySurvey
 
         #endregion
 
+        #region Select Survey
+
         //For ADMIN
         private void UpdateEditSurveyDetails(string SurveyName)
         {
-
+            txt_EditSurveyDetailsName.Text = SurveyName;
         }
 
         //For USER
@@ -130,7 +134,18 @@ namespace EasySurvey
 
         private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listView_AllSurveys.SelectedItems.Count != 1)
+            { txt_EditSurveyDetailsName.Text = "Select one"; return; }
+
+            ListViewItem selectedItem = listView_AllSurveys.SelectedItems[0];
+
+            if (LoggedUser.IsAdministrator())
+                UpdateEditSurveyDetails(selectedItem.Text);
+            else
+                UpdateViewSurveyDetails(selectedItem.Text);
 
         }
+
+        #endregion
     }
 }

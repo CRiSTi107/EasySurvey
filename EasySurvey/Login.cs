@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Threading.Tasks;
 using EasySurvey.Models;
-using EasySurvey.Controller;
+using EasySurvey.Controllers;
 
 namespace EasySurvey
 {

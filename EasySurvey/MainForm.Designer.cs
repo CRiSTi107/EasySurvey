@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "adsfsafsdfsdfsdfsdfsdfasdfdfadfadfddfsdfdsfsdfasdfsdfsd",
-            "gfgdgdf",
-            "fgdfgf"}, -1);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,16 +47,19 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.grb_SelectedSurveyAdmin = new System.Windows.Forms.GroupBox();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.txt_EditSurveyDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lbl_EditSurveyDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.grb_SelectedSurveyUser = new System.Windows.Forms.GroupBox();
             this.lbl_Welcome = new MaterialSkin.Controls.MaterialLabel();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialContextMenuStrip1.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllSurveys)).BeginInit();
             this.grb_SelectedSurveyAdmin.SuspendLayout();
+            this.grb_SelectedSurveyUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView_AllSurveys
@@ -73,21 +73,19 @@
             this.columnHeader2});
             this.listView_AllSurveys.ContextMenuStrip = this.materialContextMenuStrip1;
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup2";
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup3";
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.Name = "listViewGroup4";
+            listViewGroup5.Header = "ListViewGroup";
+            listViewGroup5.Name = "listViewGroup1";
+            listViewGroup6.Header = "ListViewGroup";
+            listViewGroup6.Name = "listViewGroup2";
+            listViewGroup7.Header = "ListViewGroup";
+            listViewGroup7.Name = "listViewGroup3";
+            listViewGroup8.Header = "ListViewGroup";
+            listViewGroup8.Name = "listViewGroup4";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4});
-            this.listView_AllSurveys.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewGroup5,
+            listViewGroup6,
+            listViewGroup7,
+            listViewGroup8});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 51);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
@@ -215,8 +213,8 @@
             // 
             // grb_SelectedSurveyAdmin
             // 
-            this.grb_SelectedSurveyAdmin.Controls.Add(this.materialSingleLineTextField1);
-            this.grb_SelectedSurveyAdmin.Controls.Add(this.materialLabel1);
+            this.grb_SelectedSurveyAdmin.Controls.Add(this.txt_EditSurveyDetailsName);
+            this.grb_SelectedSurveyAdmin.Controls.Add(this.lbl_EditSurveyDetailsName);
             this.grb_SelectedSurveyAdmin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.grb_SelectedSurveyAdmin.Location = new System.Drawing.Point(439, 106);
             this.grb_SelectedSurveyAdmin.Name = "grb_SelectedSurveyAdmin";
@@ -225,38 +223,40 @@
             this.grb_SelectedSurveyAdmin.TabStop = false;
             this.grb_SelectedSurveyAdmin.Text = "Selected Survey - Details";
             // 
-            // materialSingleLineTextField1
+            // txt_EditSurveyDetailsName
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(24, 54);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(385, 23);
-            this.materialSingleLineTextField1.TabIndex = 1;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.txt_EditSurveyDetailsName.Depth = 0;
+            this.txt_EditSurveyDetailsName.Hint = "";
+            this.txt_EditSurveyDetailsName.Location = new System.Drawing.Point(24, 54);
+            this.txt_EditSurveyDetailsName.MaxLength = 32767;
+            this.txt_EditSurveyDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txt_EditSurveyDetailsName.Name = "txt_EditSurveyDetailsName";
+            this.txt_EditSurveyDetailsName.PasswordChar = '\0';
+            this.txt_EditSurveyDetailsName.SelectedText = "";
+            this.txt_EditSurveyDetailsName.SelectionLength = 0;
+            this.txt_EditSurveyDetailsName.SelectionStart = 0;
+            this.txt_EditSurveyDetailsName.Size = new System.Drawing.Size(371, 23);
+            this.txt_EditSurveyDetailsName.TabIndex = 1;
+            this.txt_EditSurveyDetailsName.TabStop = false;
+            this.txt_EditSurveyDetailsName.UseSystemPasswordChar = false;
             // 
-            // materialLabel1
+            // lbl_EditSurveyDetailsName
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(20, 32);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(49, 19);
-            this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "Nume";
+            this.lbl_EditSurveyDetailsName.AutoSize = true;
+            this.lbl_EditSurveyDetailsName.Depth = 0;
+            this.lbl_EditSurveyDetailsName.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_EditSurveyDetailsName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_EditSurveyDetailsName.Location = new System.Drawing.Point(20, 32);
+            this.lbl_EditSurveyDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_EditSurveyDetailsName.Name = "lbl_EditSurveyDetailsName";
+            this.lbl_EditSurveyDetailsName.Size = new System.Drawing.Size(49, 19);
+            this.lbl_EditSurveyDetailsName.TabIndex = 0;
+            this.lbl_EditSurveyDetailsName.Text = "Nume";
             // 
             // grb_SelectedSurveyUser
             // 
+            this.grb_SelectedSurveyUser.Controls.Add(this.materialSingleLineTextField1);
+            this.grb_SelectedSurveyUser.Controls.Add(this.materialLabel1);
             this.grb_SelectedSurveyUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.grb_SelectedSurveyUser.Location = new System.Drawing.Point(439, 106);
             this.grb_SelectedSurveyUser.Name = "grb_SelectedSurveyUser";
@@ -272,7 +272,7 @@
             this.lbl_Welcome.Depth = 0;
             this.lbl_Welcome.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Welcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Welcome.Location = new System.Drawing.Point(618, 38);
+            this.lbl_Welcome.Location = new System.Drawing.Point(400, 32);
             this.lbl_Welcome.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Welcome.Name = "lbl_Welcome";
             this.lbl_Welcome.Size = new System.Drawing.Size(108, 19);
@@ -296,6 +296,36 @@
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
+            // materialSingleLineTextField1
+            // 
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(24, 54);
+            this.materialSingleLineTextField1.MaxLength = 32767;
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(371, 23);
+            this.materialSingleLineTextField1.TabIndex = 3;
+            this.materialSingleLineTextField1.TabStop = false;
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(20, 32);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(49, 19);
+            this.materialLabel1.TabIndex = 2;
+            this.materialLabel1.Text = "Nume";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,6 +337,7 @@
             this.Controls.Add(this.materialTabControl);
             this.Controls.Add(this.grb_SelectedSurveyAdmin);
             this.Controls.Add(this.grb_SelectedSurveyUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EasySurvey - Home";
@@ -318,6 +349,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllSurveys)).EndInit();
             this.grb_SelectedSurveyAdmin.ResumeLayout(false);
             this.grb_SelectedSurveyAdmin.PerformLayout();
+            this.grb_SelectedSurveyUser.ResumeLayout(false);
+            this.grb_SelectedSurveyUser.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,8 +373,10 @@
         private System.Windows.Forms.GroupBox grb_SelectedSurveyAdmin;
         private System.Windows.Forms.GroupBox grb_SelectedSurveyUser;
         private MaterialSkin.Controls.MaterialLabel lbl_Welcome;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txt_EditSurveyDetailsName;
+        private MaterialSkin.Controls.MaterialLabel lbl_EditSurveyDetailsName;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
     }
 }

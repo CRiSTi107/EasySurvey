@@ -1,14 +1,9 @@
-C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.csprojResolveAssemblyReference.cache
-C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.Properties.Resources.resources
-C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.csproj.GenerateResource.Cache
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EasySurvey.exe.config
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EasySurvey.exe
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EasySurvey.pdb
-C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\MaterialSkin.dll
-C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.exe
-C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.pdb
-C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EasySurvey.exe.config
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EntityFramework.dll
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\MaterialSkin.dll
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\System.Data.SQLite.dll
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\System.Data.SQLite.EF6.dll
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\System.Data.SQLite.Linq.dll
@@ -17,3 +12,7 @@ C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\bin\Debug\System.Data.SQLite.xml
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.Login.resources
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.MainForm.resources
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.Properties.Resources.resources
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.csproj.GenerateResource.Cache
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.exe
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.pdb

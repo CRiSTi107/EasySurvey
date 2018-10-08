@@ -1,3 +1,5 @@
 search_icon_24x24.png
 https://www.iconfinder.com/icons/314807/search_icon
 
+Survey.ico
+https://www.iconfinder.com/icons/315162/clipboard_list_icon

@@ -12,7 +12,12 @@ namespace EasySurvey.Controllers
 
         public string GetRoleName(long RoleID)
         {
-            return (from role in DatabaseModel.Role where role.RoleID == RoleID select role.RoleName).First();
+            return (from roleName in DatabaseModel.Role where roleName.RoleID == RoleID select roleName.RoleName).First();
+        }
+
+        public long GetRoleID(string RoleName)
+        {
+            return (from roleID in DatabaseModel.Role where roleID.RoleName.ToLower() == RoleName.ToLower() select roleID.RoleID).First();
         }
     }
 }

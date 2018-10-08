@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.txt_Username = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_AutoComplete1 = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_AutoComplete2 = new MaterialSkin.Controls.MaterialLabel();
@@ -228,6 +229,7 @@
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.panel_Autocomplete);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(623, 353);
             this.MinimumSize = new System.Drawing.Size(623, 353);

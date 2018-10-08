@@ -36,6 +36,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Survey.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
@@ -79,6 +82,7 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="GUID.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +194,7 @@
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\search_icon_24x24.png" />
+    <Content Include="Survey.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

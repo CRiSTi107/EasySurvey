@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EasySurvey")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("EasySurvey is a survey software and questionnaire tool that focuses on the built quality.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("CRiSTi")]
 [assembly: AssemblyProduct("EasySurvey")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Voiculescu Cristian ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
