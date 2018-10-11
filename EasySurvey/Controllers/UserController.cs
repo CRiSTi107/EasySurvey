@@ -86,6 +86,24 @@ namespace EasySurvey.Controllers
             return result;
         }
 
+        public IEnumerable<UserModelDataTransferObject> Search(string search_in, bool caseSensitive = false, int limit = 5)
+        {
+            IEnumerable<UserModelDataTransferObject> result;
+            if (!caseSensitive)
+                result = (
+                    from user in this.GetUsers()
+                    where user.UserName.ToLower().Contains(search_in.ToLower())
+                    select user
+                    ).Take(limit);
+            else
+                result = (
+                    from user in this.GetUsers()
+                    where user.UserName.Contains(search_in)
+                    select user
+                    ).Take(limit);
+            return result;
+        }
+
         public User Login(string Username, string Password = null)
         {
             if (Password != null)

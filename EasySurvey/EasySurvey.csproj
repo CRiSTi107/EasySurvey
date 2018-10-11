@@ -131,6 +131,12 @@
     <Compile Include="Models\Role.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
     <Compile Include="SHA256.cs" />
     <Compile Include="Models\Survey.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
@@ -162,6 +168,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="app.manifest" />
     <EntityDeploy Include="Models\DatabaseModel.edmx">

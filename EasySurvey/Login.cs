@@ -170,5 +170,22 @@ namespace EasySurvey
             if (e.KeyCode == Keys.Enter)
                 btn_Login.PerformClick();
         }
+
+        private void btn_Register_Click(object sender, EventArgs e)
+        {
+            Program.frm_Login.Hide();
+
+            if (Program.frm_Register != null)
+            {
+                if (Program.frm_Register.IsDisposed)
+                    Program.frm_Register = new Register();
+            }
+            else
+            {
+                Program.frm_Register = new Register();
+            }
+
+            Program.frm_Register.Show();
+        }
     }
 }

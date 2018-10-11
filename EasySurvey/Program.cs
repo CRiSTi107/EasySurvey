@@ -9,6 +9,7 @@ namespace EasySurvey
     static class Program
     {
         public static MaterialForm frm_Login;
+        public static MaterialForm frm_Register;
         public static MaterialForm frm_MainForm;
 
         /// <summary>
