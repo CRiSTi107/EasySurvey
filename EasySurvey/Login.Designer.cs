@@ -41,7 +41,6 @@
             this.btn_Login = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel_Autocomplete.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +48,7 @@
             // 
             this.txt_Username.Depth = 0;
             this.txt_Username.Hint = "";
-            this.txt_Username.Location = new System.Drawing.Point(220, 131);
+            this.txt_Username.Location = new System.Drawing.Point(200, 129);
             this.txt_Username.MaxLength = 32767;
             this.txt_Username.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Username.Name = "txt_Username";
@@ -137,7 +136,7 @@
             // 
             this.txt_Password.Depth = 0;
             this.txt_Password.Hint = "";
-            this.txt_Password.Location = new System.Drawing.Point(220, 182);
+            this.txt_Password.Location = new System.Drawing.Point(200, 180);
             this.txt_Password.MaxLength = 32767;
             this.txt_Password.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_Password.Name = "txt_Password";
@@ -158,7 +157,7 @@
             this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete2);
             this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete3);
             this.panel_Autocomplete.Controls.Add(this.lbl_AutoComplete4);
-            this.panel_Autocomplete.Location = new System.Drawing.Point(220, 157);
+            this.panel_Autocomplete.Location = new System.Drawing.Point(200, 155);
             this.panel_Autocomplete.Name = "panel_Autocomplete";
             this.panel_Autocomplete.Size = new System.Drawing.Size(349, 88);
             this.panel_Autocomplete.TabIndex = 7;
@@ -169,7 +168,7 @@
             this.lbl_Username.Depth = 0;
             this.lbl_Username.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Username.Location = new System.Drawing.Point(60, 135);
+            this.lbl_Username.Location = new System.Drawing.Point(40, 133);
             this.lbl_Username.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Username.Name = "lbl_Username";
             this.lbl_Username.Size = new System.Drawing.Size(70, 19);
@@ -182,7 +181,7 @@
             this.lbl_Password.Depth = 0;
             this.lbl_Password.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Password.Location = new System.Drawing.Point(60, 182);
+            this.lbl_Password.Location = new System.Drawing.Point(40, 180);
             this.lbl_Password.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Password.Name = "lbl_Password";
             this.lbl_Password.Size = new System.Drawing.Size(52, 19);
@@ -197,7 +196,7 @@
             this.btn_Login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Login.Depth = 0;
             this.btn_Login.Icon = null;
-            this.btn_Login.Location = new System.Drawing.Point(254, 253);
+            this.btn_Login.Location = new System.Drawing.Point(431, 253);
             this.btn_Login.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Primary = true;
@@ -212,10 +211,10 @@
             this.lbl_Status.Depth = 0;
             this.lbl_Status.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Status.Location = new System.Drawing.Point(12, 304);
+            this.lbl_Status.Location = new System.Drawing.Point(12, 309);
             this.lbl_Status.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Status.Name = "lbl_Status";
-            this.lbl_Status.Size = new System.Drawing.Size(599, 40);
+            this.lbl_Status.Size = new System.Drawing.Size(555, 40);
             this.lbl_Status.TabIndex = 11;
             this.lbl_Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -226,7 +225,7 @@
             this.materialFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialFlatButton1.Depth = 0;
             this.materialFlatButton1.Icon = null;
-            this.materialFlatButton1.Location = new System.Drawing.Point(64, 253);
+            this.materialFlatButton1.Location = new System.Drawing.Point(44, 253);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -236,28 +235,11 @@
             this.materialFlatButton1.Text = "Creaza un cont";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             // 
-            // materialFlatButton2
-            // 
-            this.materialFlatButton2.AutoSize = true;
-            this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialFlatButton2.Depth = 0;
-            this.materialFlatButton2.Icon = null;
-            this.materialFlatButton2.Location = new System.Drawing.Point(434, 253);
-            this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton2.Name = "materialFlatButton2";
-            this.materialFlatButton2.Primary = false;
-            this.materialFlatButton2.Size = new System.Drawing.Size(16, 36);
-            this.materialFlatButton2.TabIndex = 13;
-            this.materialFlatButton2.UseVisualStyleBackColor = true;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 353);
-            this.Controls.Add(this.materialFlatButton2);
+            this.ClientSize = new System.Drawing.Size(579, 358);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.lbl_Status);
             this.Controls.Add(this.btn_Login);
@@ -268,8 +250,6 @@
             this.Controls.Add(this.panel_Autocomplete);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(623, 353);
-            this.MinimumSize = new System.Drawing.Size(623, 353);
             this.Name = "Login";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -295,7 +275,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton btn_Login;
         private MaterialSkin.Controls.MaterialLabel lbl_Status;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
     }
 }
 
