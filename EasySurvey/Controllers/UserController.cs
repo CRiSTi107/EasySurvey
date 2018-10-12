@@ -104,6 +104,18 @@ namespace EasySurvey.Controllers
             return result;
         }
 
+        public User Exists(string Username)
+        {
+            List<User> user = (from usr in DatabaseModel.User
+                               where usr.UserName.ToLower() == Username.ToLower()
+                               select usr).ToList();
+
+            if (user.Count == 1)
+                return user.First();
+
+            return null;
+        }
+
         public User Login(string Username, string Password = null)
         {
             if (Password != null)

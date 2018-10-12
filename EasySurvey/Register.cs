@@ -1,4 +1,5 @@
 ﻿using EasySurvey.Controllers;
+using EasySurvey.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
@@ -8,6 +9,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace EasySurvey
@@ -51,7 +54,24 @@ namespace EasySurvey
             Program.frm_Login.Show();
         }
 
+        private KeyValuePair<bool, string> Validate(string Username)
+        {
+            KeyValuePair<bool, string> validation = new KeyValuePair<bool, string>(false, "Username is avabile");
+            UserController userController = new UserController();
 
+            if (Username == String.Empty || Username.Trim() == String.Empty)
+                validation = new KeyValuePair<bool, string>(true, "Username cannot be empty");
+            else if (Username.Length <= 2)
+                validation = new KeyValuePair<bool, string>(true, "Username must be atleast 3 characters long");
+            else if (Username.First() == ' ' || Username.Last() == ' ')
+                validation = new KeyValuePair<bool, string>(true, "Username cannot start/end with a space");
+            else if (new Regex(@"\s{2,}").IsMatch(Username))
+                validation = new KeyValuePair<bool, string>(true, "Username cannot contain more than 2 consecutive spaces");
+            else if (userController.Exists(Username) != null)
+                validation = new KeyValuePair<bool, string>(true, "Username already exists");
+
+            return validation;
+        }
 
         private void btn_BackToLogin_Click(object sender, EventArgs e)
         {
@@ -67,20 +87,12 @@ namespace EasySurvey
         {
             string Username = txt_Username.Text;
 
-            UserController userController = new UserController();
+            KeyValuePair<bool, string> userValidate = Validate(Username);
 
-            if (Username == String.Empty || Username.Trim() == String.Empty)
-            {
-                SetStatus("Username cannot be empty", true);
-            }
-            //else if (userController.Search(Username, false, 1).Count() > 0)
-            //{
-            //    SetStatus("Username already exists", true);
-            //}
-            else
-            {
-                SetStatus("Username is avabile", false);
-            }
+            int LastPosition = txt_Username.SelectionStart;
+            txt_Username.Text = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(Username.ToLower());
+            SetStatus(userValidate.Value, userValidate.Key);
+            txt_Username.SelectionStart = LastPosition;
         }
     }
 }
