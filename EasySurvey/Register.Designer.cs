@@ -66,6 +66,7 @@
             this.txt_Username.TabIndex = 9;
             this.txt_Username.TabStop = false;
             this.txt_Username.UseSystemPasswordChar = false;
+            this.txt_Username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Username_KeyDown);
             this.txt_Username.TextChanged += new System.EventHandler(this.txt_Username_TextChanged);
             // 
             // btn_BackToLogin

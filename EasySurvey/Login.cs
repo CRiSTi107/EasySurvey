@@ -43,6 +43,14 @@ namespace EasySurvey
             return userController.GetUsers();
         }
 
+        private void ClearCredentials(bool clearStatus = true)
+        {
+            txt_Username.Clear();
+            txt_Password.Clear();
+            if (clearStatus)
+                lbl_Status.Text = String.Empty;
+        }
+
         private void SetHorizontalMiddle(MaterialRaisedButton control)
         {
             control.Location = new Point(base.Width / 2 - control.Size.Width / 2, control.Location.Y);
@@ -135,8 +143,8 @@ namespace EasySurvey
 
             if (user != null)
             {
-                txt_Username.Clear();
-                txt_Password.Clear();
+                ClearCredentials();
+
                 lbl_Status.Text = String.Empty;
 
                 UserModelDataTransferObject User = userController.GetUserByID(user.UserID);
@@ -174,6 +182,8 @@ namespace EasySurvey
         private void btn_Register_Click(object sender, EventArgs e)
         {
             Program.frm_Login.Hide();
+
+            ClearCredentials();
 
             if (Program.frm_Register != null)
             {

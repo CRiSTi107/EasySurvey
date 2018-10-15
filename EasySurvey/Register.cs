@@ -87,9 +87,9 @@ namespace EasySurvey
             UserController userController = new UserController();
 
             if (userController.AddUser(Username))
-                MessageBox.Show("Account succesfully created!");
+            { MessageBox.Show("Account succesfully created!", "Easy Survey - Register", MessageBoxButtons.OK, MessageBoxIcon.Information); base.Close(); }
             else
-                MessageBox.Show("Could not create user");
+            { MessageBox.Show("Could not create user", "Easy Survey - Register", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         private void txt_Username_TextChanged(object sender, EventArgs e)
@@ -102,6 +102,12 @@ namespace EasySurvey
             txt_Username.Text = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(Username.ToLower());
             SetStatus(userValidate.Value, userValidate.Key);
             txt_Username.SelectionStart = LastPosition;
+        }
+
+        private void txt_Username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btn_Register.PerformClick();
         }
     }
 }
