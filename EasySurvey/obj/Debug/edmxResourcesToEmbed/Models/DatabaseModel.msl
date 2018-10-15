@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseConnectionString">
+  <EntityContainerMapping StorageEntityContainer="DatabaseEntityStoreContainer" CdmEntityContainer="DatabaseConnectionString">
     <EntitySetMapping Name="Attitude">
-      <EntityTypeMapping TypeName="DatabaseModel.Attitude">
+      <EntityTypeMapping TypeName="DatabaseEntity.Attitude">
         <MappingFragment StoreEntitySet="Attitude">
           <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
           <ScalarProperty Name="AttitudeName" ColumnName="AttitudeName" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AttitudeDefinition">
-      <EntityTypeMapping TypeName="DatabaseModel.AttitudeDefinition">
+      <EntityTypeMapping TypeName="DatabaseEntity.AttitudeDefinition">
         <MappingFragment StoreEntitySet="AttitudeDefinition">
           <ScalarProperty Name="AttitudeDefinitionID" ColumnName="AttitudeDefinitionID" />
           <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Question">
-      <EntityTypeMapping TypeName="DatabaseModel.Question">
+      <EntityTypeMapping TypeName="DatabaseEntity.Question">
         <MappingFragment StoreEntitySet="Question">
           <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
           <ScalarProperty Name="Question1" ColumnName="Question" />
@@ -27,7 +27,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Result">
-      <EntityTypeMapping TypeName="DatabaseModel.Result">
+      <EntityTypeMapping TypeName="DatabaseEntity.Result">
         <MappingFragment StoreEntitySet="Result">
           <ScalarProperty Name="ResultID" ColumnName="ResultID" />
           <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
@@ -37,7 +37,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ResultDefinition">
-      <EntityTypeMapping TypeName="DatabaseModel.ResultDefinition">
+      <EntityTypeMapping TypeName="DatabaseEntity.ResultDefinition">
         <MappingFragment StoreEntitySet="ResultDefinition">
           <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
           <ScalarProperty Name="ResultID" ColumnName="ResultID" />
@@ -46,7 +46,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Role">
-      <EntityTypeMapping TypeName="DatabaseModel.Role">
+      <EntityTypeMapping TypeName="DatabaseEntity.Role">
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Survey">
-      <EntityTypeMapping TypeName="DatabaseModel.Survey">
+      <EntityTypeMapping TypeName="DatabaseEntity.Survey">
         <MappingFragment StoreEntitySet="Survey">
           <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
           <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
@@ -62,7 +62,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SurveyDefinition">
-      <EntityTypeMapping TypeName="DatabaseModel.SurveyDefinition">
+      <EntityTypeMapping TypeName="DatabaseEntity.SurveyDefinition">
         <MappingFragment StoreEntitySet="SurveyDefinition">
           <ScalarProperty Name="SurveyDefinitionID" ColumnName="SurveyDefinitionID" />
           <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
@@ -71,7 +71,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="DatabaseModel.User">
+      <EntityTypeMapping TypeName="DatabaseEntity.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -80,10 +80,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserRole">
-      <EntityTypeMapping TypeName="DatabaseModel.UserRole">
+      <EntityTypeMapping TypeName="DatabaseEntity.UserRole">
         <MappingFragment StoreEntitySet="UserRole">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

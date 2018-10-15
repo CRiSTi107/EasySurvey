@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="84a04ec9d753490697011dff91cf307f" Name="Diagram1">
-        <EntityTypeShape EntityType="DatabaseModel.Attitude" Width="1.5" PointX="0.625" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.AttitudeDefinition" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Question" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Result" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.ResultDefinition" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Role" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Survey" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.SurveyDefinition" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.UserRole" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="9b91c2937ed94af18f059124cd5ad09d" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseEntity.Attitude" Width="1.5" PointX="0.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.AttitudeDefinition" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.Question" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.Result" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.ResultDefinition" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.Role" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.Survey" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.SurveyDefinition" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.User" Width="1.5" PointX="7.125" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseEntity.UserRole" Width="1.5" PointX="7.5" PointY="5.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

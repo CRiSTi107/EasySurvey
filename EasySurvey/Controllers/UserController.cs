@@ -68,7 +68,7 @@ namespace EasySurvey.Controllers
             };
         }
 
-        public IEnumerable<UserModelDataTransferObject> Search(List<UserModelDataTransferObject> all_users, string search_in, bool caseSensitive = false, int limit = 5)
+        public IEnumerable<UserModelDataTransferObject> Search(List<UserModelDataTransferObject> all_users, string search_in, bool caseSensitive = false, int limit = 4)
         {
             IEnumerable<UserModelDataTransferObject> result;
             if (!caseSensitive)
@@ -86,7 +86,7 @@ namespace EasySurvey.Controllers
             return result;
         }
 
-        public IEnumerable<UserModelDataTransferObject> Search(string search_in, bool caseSensitive = false, int limit = 5)
+        public IEnumerable<UserModelDataTransferObject> Search(string search_in, bool caseSensitive = false, int limit = 4)
         {
             IEnumerable<UserModelDataTransferObject> result;
             if (!caseSensitive)
@@ -134,6 +134,24 @@ namespace EasySurvey.Controllers
             {
                 return null;
             }
+        }
+
+        public bool AddUser(string Username)
+        {
+            if (Exists(Username) != null)
+                return false;
+
+            User user = DatabaseModel.User.Add(new User() { UserName = Username, UserPassword = null });
+            DatabaseModel.SaveChanges();
+
+            RoleController roleController = new RoleController();
+
+            if (roleController.GetUserRole(user.UserID) == null)
+            {
+                roleController.SetUserRole(user.UserID, roleController.GetRoleID("User"));
+            }
+
+            return true;
         }
 
     }

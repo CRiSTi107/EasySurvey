@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DatabaseEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Attitude">
     <Key>
       <PropertyRef Name="AttitudeID" />
@@ -69,13 +69,6 @@
     <Property Name="UserName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserPassword" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="UserRole">
-    <Key>
-      <PropertyRef Name="UserID" />
-    </Key>
-    <Property Name="RoleID" Type="Int64" Nullable="false" />
-    <Property Name="UserID" Type="Int64" Nullable="false" />
-  </EntityType>
   <EntityContainer Name="DatabaseConnectionString" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Attitude" EntityType="Self.Attitude" />
     <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" />
@@ -86,6 +79,13 @@
     <EntitySet Name="Survey" EntityType="Self.Survey" />
     <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" />
     <EntitySet Name="User" EntityType="Self.User" />
-    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="UserRole" EntityType="DatabaseEntity.UserRole" />
   </EntityContainer>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="RoleID" Type="Int64" Nullable="false" />
+  </EntityType>
 </Schema>

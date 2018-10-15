@@ -187,5 +187,11 @@ namespace EasySurvey
 
             Program.frm_Register.Show();
         }
+
+        private void Login_VisibleChanged(object sender, EventArgs e)
+        {
+            if (base.Visible)
+                Users = GetUsers();
+        }
     }
 }

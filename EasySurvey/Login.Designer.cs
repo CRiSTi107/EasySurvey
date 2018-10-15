@@ -258,6 +258,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Survey - Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            this.VisibleChanged += new System.EventHandler(this.Login_VisibleChanged);
             this.panel_Autocomplete.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

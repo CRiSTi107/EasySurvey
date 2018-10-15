@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Database\database.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseEntity.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=&quot;C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Database\database.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Attitude">
           <Key>
             <PropertyRef Name="AttitudeID" />
@@ -74,17 +74,14 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="UserPassword" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'main.UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="UserRole">
           <Key>
             <PropertyRef Name="UserID" />
-            
           </Key>
           <Property Name="UserID" Type="integer" Nullable="false" />
           <Property Name="RoleID" Type="integer" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="DatabaseModelStoreContainer">
+        <EntityContainer Name="DatabaseEntityStoreContainer">
           <EntitySet Name="Attitude" EntityType="Self.Attitude" store:Type="Tables" />
           <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" store:Type="Tables" />
@@ -94,17 +91,12 @@ warning 6002: The table/view 'main.UserRole' does not have a primary key defined
           <EntitySet Name="Survey" EntityType="Self.Survey" store:Type="Tables" />
           <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" />
-          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables">
-            <DefiningQuery>SELECT 
-[UserRole].[UserID] AS [UserID], 
-[UserRole].[RoleID] AS [RoleID]
-FROM [UserRole] AS [UserRole]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DatabaseEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Attitude">
           <Key>
             <PropertyRef Name="AttitudeID" />
@@ -174,13 +166,6 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
           <Property Name="UserName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserPassword" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="UserRole">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="RoleID" Type="Int64" Nullable="false" />
-          <Property Name="UserID" Type="Int64" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="DatabaseConnectionString" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Attitude" EntityType="Self.Attitude" />
           <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" />
@@ -191,16 +176,23 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
           <EntitySet Name="Survey" EntityType="Self.Survey" />
           <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+          <EntitySet Name="UserRole" EntityType="DatabaseEntity.UserRole" />
         </EntityContainer>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="RoleID" Type="Int64" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseConnectionString">
+        <EntityContainerMapping StorageEntityContainer="DatabaseEntityStoreContainer" CdmEntityContainer="DatabaseConnectionString">
           <EntitySetMapping Name="Attitude">
-            <EntityTypeMapping TypeName="DatabaseModel.Attitude">
+            <EntityTypeMapping TypeName="DatabaseEntity.Attitude">
               <MappingFragment StoreEntitySet="Attitude">
                 <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
                 <ScalarProperty Name="AttitudeName" ColumnName="AttitudeName" />
@@ -208,7 +200,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AttitudeDefinition">
-            <EntityTypeMapping TypeName="DatabaseModel.AttitudeDefinition">
+            <EntityTypeMapping TypeName="DatabaseEntity.AttitudeDefinition">
               <MappingFragment StoreEntitySet="AttitudeDefinition">
                 <ScalarProperty Name="AttitudeDefinitionID" ColumnName="AttitudeDefinitionID" />
                 <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
@@ -217,7 +209,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Question">
-            <EntityTypeMapping TypeName="DatabaseModel.Question">
+            <EntityTypeMapping TypeName="DatabaseEntity.Question">
               <MappingFragment StoreEntitySet="Question">
                 <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
                 <ScalarProperty Name="Question1" ColumnName="Question" />
@@ -225,7 +217,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Result">
-            <EntityTypeMapping TypeName="DatabaseModel.Result">
+            <EntityTypeMapping TypeName="DatabaseEntity.Result">
               <MappingFragment StoreEntitySet="Result">
                 <ScalarProperty Name="ResultID" ColumnName="ResultID" />
                 <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
@@ -235,7 +227,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ResultDefinition">
-            <EntityTypeMapping TypeName="DatabaseModel.ResultDefinition">
+            <EntityTypeMapping TypeName="DatabaseEntity.ResultDefinition">
               <MappingFragment StoreEntitySet="ResultDefinition">
                 <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
                 <ScalarProperty Name="ResultID" ColumnName="ResultID" />
@@ -244,7 +236,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="DatabaseModel.Role">
+            <EntityTypeMapping TypeName="DatabaseEntity.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
@@ -252,7 +244,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Survey">
-            <EntityTypeMapping TypeName="DatabaseModel.Survey">
+            <EntityTypeMapping TypeName="DatabaseEntity.Survey">
               <MappingFragment StoreEntitySet="Survey">
                 <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
                 <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
@@ -260,7 +252,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SurveyDefinition">
-            <EntityTypeMapping TypeName="DatabaseModel.SurveyDefinition">
+            <EntityTypeMapping TypeName="DatabaseEntity.SurveyDefinition">
               <MappingFragment StoreEntitySet="SurveyDefinition">
                 <ScalarProperty Name="SurveyDefinitionID" ColumnName="SurveyDefinitionID" />
                 <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
@@ -269,7 +261,7 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="DatabaseModel.User">
+            <EntityTypeMapping TypeName="DatabaseEntity.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -278,10 +270,10 @@ FROM [UserRole] AS [UserRole]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserRole">
-            <EntityTypeMapping TypeName="DatabaseModel.UserRole">
+            <EntityTypeMapping TypeName="DatabaseEntity.UserRole">
               <MappingFragment StoreEntitySet="UserRole">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

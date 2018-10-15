@@ -80,7 +80,16 @@ namespace EasySurvey
 
         private void btn_Register_Click(object sender, EventArgs e)
         {
+            string Username = txt_Username.Text;
 
+            //txt_Username_TextChanged(sender, e);
+
+            UserController userController = new UserController();
+
+            if (userController.AddUser(Username))
+                MessageBox.Show("Account succesfully created!");
+            else
+                MessageBox.Show("Could not create user");
         }
 
         private void txt_Username_TextChanged(object sender, EventArgs e)
