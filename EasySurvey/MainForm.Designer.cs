@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,10 +50,10 @@
             this.txt_EditSurveyDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_EditSurveyDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.grb_SelectedSurveyUser = new System.Windows.Forms.GroupBox();
-            this.lbl_Welcome = new MaterialSkin.Controls.MaterialLabel();
-            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl_Welcome = new MaterialSkin.Controls.MaterialLabel();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialContextMenuStrip1.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
@@ -73,19 +73,19 @@
             this.columnHeader2});
             this.listView_AllSurveys.ContextMenuStrip = this.materialContextMenuStrip1;
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup5.Header = "ListViewGroup";
-            listViewGroup5.Name = "listViewGroup1";
-            listViewGroup6.Header = "ListViewGroup";
-            listViewGroup6.Name = "listViewGroup2";
-            listViewGroup7.Header = "ListViewGroup";
-            listViewGroup7.Name = "listViewGroup3";
-            listViewGroup8.Header = "ListViewGroup";
-            listViewGroup8.Name = "listViewGroup4";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup2";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup3";
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup4";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup5,
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 51);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
@@ -216,7 +216,7 @@
             this.grb_SelectedSurveyAdmin.Controls.Add(this.txt_EditSurveyDetailsName);
             this.grb_SelectedSurveyAdmin.Controls.Add(this.lbl_EditSurveyDetailsName);
             this.grb_SelectedSurveyAdmin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.grb_SelectedSurveyAdmin.Location = new System.Drawing.Point(439, 106);
+            this.grb_SelectedSurveyAdmin.Location = new System.Drawing.Point(439, 107);
             this.grb_SelectedSurveyAdmin.Name = "grb_SelectedSurveyAdmin";
             this.grb_SelectedSurveyAdmin.Size = new System.Drawing.Size(415, 435);
             this.grb_SelectedSurveyAdmin.TabIndex = 4;
@@ -265,37 +265,6 @@
             this.grb_SelectedSurveyUser.TabStop = false;
             this.grb_SelectedSurveyUser.Text = "Selected Survey - Details";
             // 
-            // lbl_Welcome
-            // 
-            this.lbl_Welcome.AutoSize = true;
-            this.lbl_Welcome.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Welcome.Depth = 0;
-            this.lbl_Welcome.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_Welcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Welcome.Location = new System.Drawing.Point(400, 32);
-            this.lbl_Welcome.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_Welcome.Name = "lbl_Welcome";
-            this.lbl_Welcome.Size = new System.Drawing.Size(108, 19);
-            this.lbl_Welcome.TabIndex = 6;
-            this.lbl_Welcome.Text = "materialLabel1";
-            // 
-            // materialFlatButton1
-            // 
-            this.materialFlatButton1.AutoSize = true;
-            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Icon = null;
-            this.materialFlatButton1.Location = new System.Drawing.Point(314, 64);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton1.Name = "materialFlatButton1";
-            this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(79, 36);
-            this.materialFlatButton1.TabIndex = 2;
-            this.materialFlatButton1.Text = "REFRESH";
-            this.materialFlatButton1.UseVisualStyleBackColor = true;
-            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
-            // 
             // materialSingleLineTextField1
             // 
             this.materialSingleLineTextField1.Depth = 0;
@@ -326,16 +295,47 @@
             this.materialLabel1.TabIndex = 2;
             this.materialLabel1.Text = "Nume";
             // 
+            // lbl_Welcome
+            // 
+            this.lbl_Welcome.AutoSize = true;
+            this.lbl_Welcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Welcome.Depth = 0;
+            this.lbl_Welcome.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Welcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Welcome.Location = new System.Drawing.Point(400, 32);
+            this.lbl_Welcome.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Welcome.Name = "lbl_Welcome";
+            this.lbl_Welcome.Size = new System.Drawing.Size(108, 19);
+            this.lbl_Welcome.TabIndex = 6;
+            this.lbl_Welcome.Text = "materialLabel1";
+            // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(294, 65);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(79, 36);
+            this.materialFlatButton1.TabIndex = 2;
+            this.materialFlatButton1.Text = "REFRESH";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 553);
+            this.Controls.Add(this.grb_SelectedSurveyAdmin);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.lbl_Welcome);
             this.Controls.Add(this.materialTabSelector);
             this.Controls.Add(this.materialTabControl);
-            this.Controls.Add(this.grb_SelectedSurveyAdmin);
             this.Controls.Add(this.grb_SelectedSurveyUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
