@@ -94,7 +94,7 @@
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
             this.listView_AllSurveys.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listView_AllSurveys.Size = new System.Drawing.Size(401, 352);
+            this.listView_AllSurveys.Size = new System.Drawing.Size(460, 327);
             this.listView_AllSurveys.TabIndex = 0;
             this.listView_AllSurveys.TileSize = new System.Drawing.Size(120, 40);
             this.listView_AllSurveys.UseCompatibleStateImageBehavior = false;
@@ -141,6 +141,9 @@
             // 
             // materialTabControl
             // 
+            this.materialTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl.Controls.Add(this.tabPage_AllSurveys);
             this.materialTabControl.Controls.Add(this.tabPage2);
             this.materialTabControl.Depth = 0;
@@ -148,25 +151,28 @@
             this.materialTabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl.Name = "materialTabControl";
             this.materialTabControl.SelectedIndex = 0;
-            this.materialTabControl.Size = new System.Drawing.Size(421, 435);
+            this.materialTabControl.Size = new System.Drawing.Size(901, 410);
             this.materialTabControl.TabIndex = 2;
             // 
             // tabPage_AllSurveys
             // 
             this.tabPage_AllSurveys.Controls.Add(this.pic_SearchAllSurveys);
             this.tabPage_AllSurveys.Controls.Add(this.txt_AllSurveysSearchBar);
+            this.tabPage_AllSurveys.Controls.Add(this.grb_SelectedSurveyAdmin);
             this.tabPage_AllSurveys.Controls.Add(this.listView_AllSurveys);
+            this.tabPage_AllSurveys.Controls.Add(this.grb_SelectedSurveyUser);
             this.tabPage_AllSurveys.Location = new System.Drawing.Point(4, 22);
             this.tabPage_AllSurveys.Name = "tabPage_AllSurveys";
             this.tabPage_AllSurveys.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_AllSurveys.Size = new System.Drawing.Size(413, 409);
+            this.tabPage_AllSurveys.Size = new System.Drawing.Size(893, 384);
             this.tabPage_AllSurveys.TabIndex = 0;
             this.tabPage_AllSurveys.Text = "All Surveys";
             // 
             // pic_SearchAllSurveys
             // 
+            this.pic_SearchAllSurveys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_SearchAllSurveys.BackgroundImage = global::EasySurvey.Properties.Resources.search_icon_24x24;
-            this.pic_SearchAllSurveys.Location = new System.Drawing.Point(383, 21);
+            this.pic_SearchAllSurveys.Location = new System.Drawing.Point(442, 22);
             this.pic_SearchAllSurveys.Name = "pic_SearchAllSurveys";
             this.pic_SearchAllSurveys.Size = new System.Drawing.Size(24, 24);
             this.pic_SearchAllSurveys.TabIndex = 5;
@@ -174,6 +180,8 @@
             // 
             // txt_AllSurveysSearchBar
             // 
+            this.txt_AllSurveysSearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_AllSurveysSearchBar.Depth = 0;
             this.txt_AllSurveysSearchBar.Hint = "";
             this.txt_AllSurveysSearchBar.Location = new System.Drawing.Point(6, 22);
@@ -184,7 +192,7 @@
             this.txt_AllSurveysSearchBar.SelectedText = "";
             this.txt_AllSurveysSearchBar.SelectionLength = 0;
             this.txt_AllSurveysSearchBar.SelectionStart = 0;
-            this.txt_AllSurveysSearchBar.Size = new System.Drawing.Size(371, 23);
+            this.txt_AllSurveysSearchBar.Size = new System.Drawing.Size(430, 23);
             this.txt_AllSurveysSearchBar.TabIndex = 4;
             this.txt_AllSurveysSearchBar.TabStop = false;
             this.txt_AllSurveysSearchBar.Text = "Search...";
@@ -211,18 +219,20 @@
             this.materialTabSelector.Location = new System.Drawing.Point(0, 64);
             this.materialTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector.Name = "materialTabSelector";
-            this.materialTabSelector.Size = new System.Drawing.Size(861, 37);
+            this.materialTabSelector.Size = new System.Drawing.Size(925, 37);
             this.materialTabSelector.TabIndex = 3;
             this.materialTabSelector.Text = "Material Tab Selector Home";
             // 
             // grb_SelectedSurveyAdmin
             // 
+            this.grb_SelectedSurveyAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grb_SelectedSurveyAdmin.Controls.Add(this.txt_EditSurveyDetailsName);
             this.grb_SelectedSurveyAdmin.Controls.Add(this.lbl_EditSurveyDetailsName);
             this.grb_SelectedSurveyAdmin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.grb_SelectedSurveyAdmin.Location = new System.Drawing.Point(439, 107);
+            this.grb_SelectedSurveyAdmin.Location = new System.Drawing.Point(472, 6);
             this.grb_SelectedSurveyAdmin.Name = "grb_SelectedSurveyAdmin";
-            this.grb_SelectedSurveyAdmin.Size = new System.Drawing.Size(415, 435);
+            this.grb_SelectedSurveyAdmin.Size = new System.Drawing.Size(415, 372);
             this.grb_SelectedSurveyAdmin.TabIndex = 4;
             this.grb_SelectedSurveyAdmin.TabStop = false;
             this.grb_SelectedSurveyAdmin.Text = "Selected Survey - Details";
@@ -259,12 +269,14 @@
             // 
             // grb_SelectedSurveyUser
             // 
+            this.grb_SelectedSurveyUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grb_SelectedSurveyUser.Controls.Add(this.materialSingleLineTextField1);
             this.grb_SelectedSurveyUser.Controls.Add(this.materialLabel1);
             this.grb_SelectedSurveyUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.grb_SelectedSurveyUser.Location = new System.Drawing.Point(439, 106);
+            this.grb_SelectedSurveyUser.Location = new System.Drawing.Point(472, 6);
             this.grb_SelectedSurveyUser.Name = "grb_SelectedSurveyUser";
-            this.grb_SelectedSurveyUser.Size = new System.Drawing.Size(415, 434);
+            this.grb_SelectedSurveyUser.Size = new System.Drawing.Size(415, 370);
             this.grb_SelectedSurveyUser.TabIndex = 5;
             this.grb_SelectedSurveyUser.TabStop = false;
             this.grb_SelectedSurveyUser.Text = "Selected Survey - Details";
@@ -305,7 +317,7 @@
             this.lbl_AboutUser.BackColor = System.Drawing.Color.Transparent;
             this.lbl_AboutUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_AboutUser.Depth = 0;
-            this.lbl_AboutUser.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_AboutUser.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_AboutUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_AboutUser.Location = new System.Drawing.Point(0, 0);
             this.lbl_AboutUser.MouseState = MaterialSkin.MouseState.HOVER;
@@ -344,7 +356,7 @@
             this.panel_AboutUser.Controls.Add(this.lbl_AboutUser);
             this.panel_AboutUser.Controls.Add(this.pic_AboutUser);
             this.panel_AboutUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel_AboutUser.Location = new System.Drawing.Point(656, 24);
+            this.panel_AboutUser.Location = new System.Drawing.Point(720, 24);
             this.panel_AboutUser.Name = "panel_AboutUser";
             this.panel_AboutUser.Size = new System.Drawing.Size(205, 40);
             this.panel_AboutUser.TabIndex = 7;
@@ -372,17 +384,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 553);
+            this.ClientSize = new System.Drawing.Size(925, 528);
             this.Controls.Add(this.panel_AboutUser);
-            this.Controls.Add(this.grb_SelectedSurveyAdmin);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.materialTabSelector);
             this.Controls.Add(this.materialTabControl);
-            this.Controls.Add(this.grb_SelectedSurveyUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EasySurvey - Home";
+            this.Text = "Easy Survey - Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.materialContextMenuStrip1.ResumeLayout(false);
