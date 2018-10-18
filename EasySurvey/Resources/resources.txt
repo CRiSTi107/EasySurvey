@@ -3,3 +3,6 @@ https://www.iconfinder.com/icons/314807/search_icon
 
 Survey.ico
 https://www.iconfinder.com/icons/315162/clipboard_list_icon
+
+user_icon_48x48.png
+https://www.iconfinder.com/icons/285641/id_user_icon
