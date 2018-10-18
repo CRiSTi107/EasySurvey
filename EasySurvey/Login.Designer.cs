@@ -145,7 +145,7 @@
             this.txt_Password.SelectionLength = 0;
             this.txt_Password.SelectionStart = 0;
             this.txt_Password.Size = new System.Drawing.Size(349, 23);
-            this.txt_Password.TabIndex = 6;
+            this.txt_Password.TabIndex = 5;
             this.txt_Password.TabStop = false;
             this.txt_Password.UseSystemPasswordChar = true;
             this.txt_Password.Visible = false;
@@ -201,7 +201,7 @@
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Primary = true;
             this.btn_Login.Size = new System.Drawing.Size(118, 36);
-            this.btn_Login.TabIndex = 10;
+            this.btn_Login.TabIndex = 6;
             this.btn_Login.Text = "Intra in cont";
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
@@ -231,7 +231,7 @@
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Primary = false;
             this.btn_Register.Size = new System.Drawing.Size(135, 36);
-            this.btn_Register.TabIndex = 12;
+            this.btn_Register.TabIndex = 7;
             this.btn_Register.Text = "Creaza un cont";
             this.btn_Register.UseVisualStyleBackColor = true;
             this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
@@ -241,13 +241,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 358);
+            this.Controls.Add(this.lbl_Password);
+            this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.btn_Register);
             this.Controls.Add(this.lbl_Status);
             this.Controls.Add(this.btn_Login);
-            this.Controls.Add(this.lbl_Password);
             this.Controls.Add(this.lbl_Username);
             this.Controls.Add(this.txt_Username);
-            this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.panel_Autocomplete);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

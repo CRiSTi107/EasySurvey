@@ -51,6 +51,22 @@ namespace EasySurvey
                 lbl_Status.Text = String.Empty;
         }
 
+        private void HidePasswordField()
+        {
+            lbl_Password.Visible = false;
+            txt_Password.Visible = false;
+            txt_Password.Enabled = false;
+            txt_Password.Clear();
+        }
+
+        private void ShowPasswordField()
+        {
+            lbl_Password.Visible = true;
+            txt_Password.Visible = true;
+            txt_Password.Enabled = true;
+            txt_Password.Clear();
+        }
+
         private void SetHorizontalMiddle(MaterialRaisedButton control)
         {
             control.Location = new Point(base.Width / 2 - control.Size.Width / 2, control.Location.Y);
@@ -87,18 +103,19 @@ namespace EasySurvey
             for (; index <= AutocompleteLabels.Count - 1; index++)
                 AutocompleteLabels[index].Text = String.Empty;
 
-            if (SearchUsers.Count == 1 && SearchUsers.First().UserName.ToLower() == Username.ToLower() && SearchUsers.First().UserPassword != null)
+            HidePasswordField();
+
+            if (SearchUsers.Count == 1 && SearchUsers.First().UserName.ToLower() == Username.ToLower())
             {
-                lbl_Password.Visible = true;
-                txt_Password.Visible = true;
                 txt_Password.Clear();
-                RequiresPassword = true;
             }
-            else
+
+            if (userController.Exists(Username) != null)
             {
-                lbl_Password.Visible = false;
-                txt_Password.Visible = false;
-                RequiresPassword = false;
+                if (SearchUsers.First().UserPassword != null)
+                { RequiresPassword = true; }
+                else
+                { RequiresPassword = false; }
             }
 
         }
@@ -145,6 +162,9 @@ namespace EasySurvey
             {
                 ClearCredentials();
 
+                lbl_Password.Visible = false;
+                txt_Password.Visible = false;
+
                 lbl_Status.Text = String.Empty;
 
                 UserModelDataTransferObject User = userController.GetUserByID(user.UserID);
@@ -167,10 +187,28 @@ namespace EasySurvey
         private void txt_Username_Enter(object sender, EventArgs e)
         {
             panel_Autocomplete.Visible = true;
+            HidePasswordField();
+            txt_Username.Focus();
+            txt_Username_TextChanged(sender, e);
         }
+
         private void txt_Username_Leave(object sender, EventArgs e)
         {
             panel_Autocomplete.Visible = false;
+
+            UserController userController = new UserController();
+
+            if (userController.Exists(txt_Username.Text) != null)
+
+                if (RequiresPassword)
+                {
+                    ShowPasswordField();
+                    txt_Password.Focus();
+                }
+                else if (!RequiresPassword)
+                {
+                    HidePasswordField();
+                }
         }
 
         private void txt_Password_KeyDown(object sender, KeyEventArgs e)

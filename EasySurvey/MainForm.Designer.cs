@@ -206,7 +206,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(413, 409);
+            this.tabPage2.Size = new System.Drawing.Size(893, 384);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -227,6 +227,7 @@
             // 
             this.grb_SelectedSurveyAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grb_SelectedSurveyAdmin.BackColor = System.Drawing.SystemColors.Control;
             this.grb_SelectedSurveyAdmin.Controls.Add(this.txt_EditSurveyDetailsName);
             this.grb_SelectedSurveyAdmin.Controls.Add(this.lbl_EditSurveyDetailsName);
             this.grb_SelectedSurveyAdmin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));

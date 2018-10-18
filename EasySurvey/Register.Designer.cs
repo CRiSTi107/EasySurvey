@@ -105,6 +105,7 @@
             this.btn_Register.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_Register.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Register.Depth = 0;
+            this.btn_Register.Enabled = false;
             this.btn_Register.Icon = null;
             this.btn_Register.Location = new System.Drawing.Point(414, 253);
             this.btn_Register.MouseState = MaterialSkin.MouseState.HOVER;
