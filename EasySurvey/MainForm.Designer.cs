@@ -52,14 +52,18 @@
             this.grb_SelectedSurveyUser = new System.Windows.Forms.GroupBox();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.lbl_Welcome = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl_AboutUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.panel_AboutUser = new System.Windows.Forms.Panel();
+            this.pic_AboutUser = new System.Windows.Forms.PictureBox();
             this.materialContextMenuStrip1.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllSurveys)).BeginInit();
             this.grb_SelectedSurveyAdmin.SuspendLayout();
             this.grb_SelectedSurveyUser.SuspendLayout();
+            this.panel_AboutUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).BeginInit();
             this.SuspendLayout();
             // 
             // listView_AllSurveys
@@ -295,19 +299,26 @@
             this.materialLabel1.TabIndex = 2;
             this.materialLabel1.Text = "Nume";
             // 
-            // lbl_Welcome
+            // lbl_AboutUser
             // 
-            this.lbl_Welcome.AutoSize = true;
-            this.lbl_Welcome.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Welcome.Depth = 0;
-            this.lbl_Welcome.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_Welcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Welcome.Location = new System.Drawing.Point(400, 32);
-            this.lbl_Welcome.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_Welcome.Name = "lbl_Welcome";
-            this.lbl_Welcome.Size = new System.Drawing.Size(108, 19);
-            this.lbl_Welcome.TabIndex = 6;
-            this.lbl_Welcome.Text = "materialLabel1";
+            this.lbl_AboutUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_AboutUser.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_AboutUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_AboutUser.Depth = 0;
+            this.lbl_AboutUser.Font = new System.Drawing.Font("Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_AboutUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_AboutUser.Location = new System.Drawing.Point(0, 0);
+            this.lbl_AboutUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_AboutUser.Name = "lbl_AboutUser";
+            this.lbl_AboutUser.Size = new System.Drawing.Size(149, 40);
+            this.lbl_AboutUser.TabIndex = 6;
+            this.lbl_AboutUser.Text = "root";
+            this.lbl_AboutUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_AboutUser.FontChanged += new System.EventHandler(this.lbl_AboutUser_FontChanged);
+            this.lbl_AboutUser.ForeColorChanged += new System.EventHandler(this.lbl_AboutUser_ForeColorChanged);
+            this.lbl_AboutUser.Click += new System.EventHandler(this.AboutUser_Click);
+            this.lbl_AboutUser.MouseEnter += new System.EventHandler(this.AboutUser_MouseEnter);
+            this.lbl_AboutUser.MouseLeave += new System.EventHandler(this.AboutUser_MouseLeave);
             // 
             // materialFlatButton1
             // 
@@ -326,14 +337,45 @@
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
+            // panel_AboutUser
+            // 
+            this.panel_AboutUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_AboutUser.BackColor = System.Drawing.Color.Transparent;
+            this.panel_AboutUser.Controls.Add(this.lbl_AboutUser);
+            this.panel_AboutUser.Controls.Add(this.pic_AboutUser);
+            this.panel_AboutUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel_AboutUser.Location = new System.Drawing.Point(656, 24);
+            this.panel_AboutUser.Name = "panel_AboutUser";
+            this.panel_AboutUser.Size = new System.Drawing.Size(205, 40);
+            this.panel_AboutUser.TabIndex = 7;
+            this.panel_AboutUser.Click += new System.EventHandler(this.AboutUser_Click);
+            this.panel_AboutUser.MouseEnter += new System.EventHandler(this.AboutUser_MouseEnter);
+            this.panel_AboutUser.MouseLeave += new System.EventHandler(this.AboutUser_MouseLeave);
+            // 
+            // pic_AboutUser
+            // 
+            this.pic_AboutUser.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pic_AboutUser.BackColor = System.Drawing.Color.Transparent;
+            this.pic_AboutUser.BackgroundImage = global::EasySurvey.Properties.Resources.user_icon_48x48;
+            this.pic_AboutUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_AboutUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_AboutUser.Location = new System.Drawing.Point(151, 0);
+            this.pic_AboutUser.Name = "pic_AboutUser";
+            this.pic_AboutUser.Size = new System.Drawing.Size(52, 40);
+            this.pic_AboutUser.TabIndex = 8;
+            this.pic_AboutUser.TabStop = false;
+            this.pic_AboutUser.Click += new System.EventHandler(this.AboutUser_Click);
+            this.pic_AboutUser.MouseEnter += new System.EventHandler(this.AboutUser_MouseEnter);
+            this.pic_AboutUser.MouseLeave += new System.EventHandler(this.AboutUser_MouseLeave);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 553);
+            this.Controls.Add(this.panel_AboutUser);
             this.Controls.Add(this.grb_SelectedSurveyAdmin);
             this.Controls.Add(this.materialFlatButton1);
-            this.Controls.Add(this.lbl_Welcome);
             this.Controls.Add(this.materialTabSelector);
             this.Controls.Add(this.materialTabControl);
             this.Controls.Add(this.grb_SelectedSurveyUser);
@@ -351,6 +393,8 @@
             this.grb_SelectedSurveyAdmin.PerformLayout();
             this.grb_SelectedSurveyUser.ResumeLayout(false);
             this.grb_SelectedSurveyUser.PerformLayout();
+            this.panel_AboutUser.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,11 +416,13 @@
         private System.Windows.Forms.PictureBox pic_SearchAllSurveys;
         private System.Windows.Forms.GroupBox grb_SelectedSurveyAdmin;
         private System.Windows.Forms.GroupBox grb_SelectedSurveyUser;
-        private MaterialSkin.Controls.MaterialLabel lbl_Welcome;
+        private MaterialSkin.Controls.MaterialLabel lbl_AboutUser;
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_EditSurveyDetailsName;
         private MaterialSkin.Controls.MaterialLabel lbl_EditSurveyDetailsName;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.Panel panel_AboutUser;
+        private System.Windows.Forms.PictureBox pic_AboutUser;
     }
 }

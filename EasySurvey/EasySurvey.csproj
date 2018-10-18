@@ -204,6 +204,7 @@
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\search_icon_24x24.png" />
+    <None Include="Resources\user_icon_48x48.png" />
     <Content Include="Survey.ico" />
   </ItemGroup>
   <ItemGroup>
