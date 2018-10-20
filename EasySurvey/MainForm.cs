@@ -26,10 +26,13 @@ namespace EasySurvey
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue800, Primary.Blue900, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
 
-            #region Initialize Component - About User
+            #region Initialize Component
 
             lbl_AboutUser.ForeColor = AboutUser_ForeColor;
             lbl_AboutUser.Font = AboutUser_FontDefault;
+
+            grb_SelectedSurveyAdmin.Location = new Point(472, 6);
+            grb_SelectedSurveyUser.Location = new Point(472, 6);
 
             #endregion
 
@@ -136,7 +139,7 @@ namespace EasySurvey
         //For USER
         private void UpdateViewSurveyDetails(string SurveyName)
         {
-
+            txt_ViewSurveyDetailsName.Text = SurveyName;
         }
 
         private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,8 +205,12 @@ namespace EasySurvey
             // TODO: Open - About User Dialog here
         }
 
+
         #endregion
 
+        private void tabPage_AllSurveys_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

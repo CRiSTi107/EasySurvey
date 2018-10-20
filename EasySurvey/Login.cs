@@ -189,7 +189,8 @@ namespace EasySurvey
             panel_Autocomplete.Visible = true;
             HidePasswordField();
             txt_Username.Focus();
-            txt_Username_TextChanged(sender, e);
+            if (txt_Username.Text != String.Empty)
+                txt_Username_TextChanged(sender, e);
         }
 
         private void txt_Username_Leave(object sender, EventArgs e)
