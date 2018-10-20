@@ -42,6 +42,8 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage_AllSurveys = new System.Windows.Forms.TabPage();
+            this.splitContainer_AllSurveys = new System.Windows.Forms.SplitContainer();
+            this.panel_AllSurveys = new System.Windows.Forms.Panel();
             this.pic_SearchAllSurveys = new System.Windows.Forms.PictureBox();
             this.txt_AllSurveysSearchBar = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.grb_SelectedSurveyUser = new System.Windows.Forms.GroupBox();
@@ -56,21 +58,19 @@
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel_AboutUser = new System.Windows.Forms.Panel();
             this.pic_AboutUser = new System.Windows.Forms.PictureBox();
-            this.splitContainer_AllSurveys = new System.Windows.Forms.SplitContainer();
-            this.panel_AllSurveys = new System.Windows.Forms.Panel();
             this.materialContextMenuStrip1.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllSurveys)).BeginInit();
-            this.grb_SelectedSurveyUser.SuspendLayout();
-            this.grb_SelectedSurveyAdmin.SuspendLayout();
-            this.panel_AboutUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllSurveys)).BeginInit();
             this.splitContainer_AllSurveys.Panel1.SuspendLayout();
             this.splitContainer_AllSurveys.Panel2.SuspendLayout();
             this.splitContainer_AllSurveys.SuspendLayout();
             this.panel_AllSurveys.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllSurveys)).BeginInit();
+            this.grb_SelectedSurveyUser.SuspendLayout();
+            this.grb_SelectedSurveyAdmin.SuspendLayout();
+            this.panel_AboutUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).BeginInit();
             this.SuspendLayout();
             // 
             // listView_AllSurveys
@@ -101,7 +101,7 @@
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
             this.listView_AllSurveys.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listView_AllSurveys.Size = new System.Drawing.Size(378, 372);
+            this.listView_AllSurveys.Size = new System.Drawing.Size(428, 372);
             this.listView_AllSurveys.TabIndex = 0;
             this.listView_AllSurveys.TileSize = new System.Drawing.Size(120, 40);
             this.listView_AllSurveys.UseCompatibleStateImageBehavior = false;
@@ -158,7 +158,7 @@
             this.materialTabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl.Name = "materialTabControl";
             this.materialTabControl.SelectedIndex = 0;
-            this.materialTabControl.Size = new System.Drawing.Size(784, 443);
+            this.materialTabControl.Size = new System.Drawing.Size(884, 443);
             this.materialTabControl.TabIndex = 2;
             // 
             // tabPage_AllSurveys
@@ -167,16 +167,45 @@
             this.tabPage_AllSurveys.Location = new System.Drawing.Point(4, 22);
             this.tabPage_AllSurveys.Name = "tabPage_AllSurveys";
             this.tabPage_AllSurveys.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_AllSurveys.Size = new System.Drawing.Size(776, 417);
+            this.tabPage_AllSurveys.Size = new System.Drawing.Size(876, 417);
             this.tabPage_AllSurveys.TabIndex = 0;
             this.tabPage_AllSurveys.Text = "All Surveys";
             this.tabPage_AllSurveys.Click += new System.EventHandler(this.tabPage_AllSurveys_Click);
+            // 
+            // splitContainer_AllSurveys
+            // 
+            this.splitContainer_AllSurveys.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_AllSurveys.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer_AllSurveys.Name = "splitContainer_AllSurveys";
+            // 
+            // splitContainer_AllSurveys.Panel1
+            // 
+            this.splitContainer_AllSurveys.Panel1.Controls.Add(this.panel_AllSurveys);
+            // 
+            // splitContainer_AllSurveys.Panel2
+            // 
+            this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyUser);
+            this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyAdmin);
+            this.splitContainer_AllSurveys.Size = new System.Drawing.Size(870, 411);
+            this.splitContainer_AllSurveys.SplitterDistance = 441;
+            this.splitContainer_AllSurveys.TabIndex = 8;
+            // 
+            // panel_AllSurveys
+            // 
+            this.panel_AllSurveys.Controls.Add(this.pic_SearchAllSurveys);
+            this.panel_AllSurveys.Controls.Add(this.txt_AllSurveysSearchBar);
+            this.panel_AllSurveys.Controls.Add(this.listView_AllSurveys);
+            this.panel_AllSurveys.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_AllSurveys.Location = new System.Drawing.Point(0, 0);
+            this.panel_AllSurveys.Name = "panel_AllSurveys";
+            this.panel_AllSurveys.Size = new System.Drawing.Size(441, 411);
+            this.panel_AllSurveys.TabIndex = 9;
             // 
             // pic_SearchAllSurveys
             // 
             this.pic_SearchAllSurveys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_SearchAllSurveys.BackgroundImage = global::EasySurvey.Properties.Resources.search_icon_24x24;
-            this.pic_SearchAllSurveys.Location = new System.Drawing.Point(360, 5);
+            this.pic_SearchAllSurveys.Location = new System.Drawing.Point(410, 5);
             this.pic_SearchAllSurveys.Name = "pic_SearchAllSurveys";
             this.pic_SearchAllSurveys.Size = new System.Drawing.Size(24, 24);
             this.pic_SearchAllSurveys.TabIndex = 5;
@@ -196,7 +225,7 @@
             this.txt_AllSurveysSearchBar.SelectedText = "";
             this.txt_AllSurveysSearchBar.SelectionLength = 0;
             this.txt_AllSurveysSearchBar.SelectionStart = 0;
-            this.txt_AllSurveysSearchBar.Size = new System.Drawing.Size(348, 23);
+            this.txt_AllSurveysSearchBar.Size = new System.Drawing.Size(398, 23);
             this.txt_AllSurveysSearchBar.TabIndex = 4;
             this.txt_AllSurveysSearchBar.TabStop = false;
             this.txt_AllSurveysSearchBar.Text = "Search...";
@@ -214,7 +243,7 @@
             this.grb_SelectedSurveyUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.grb_SelectedSurveyUser.Location = new System.Drawing.Point(0, 0);
             this.grb_SelectedSurveyUser.Name = "grb_SelectedSurveyUser";
-            this.grb_SelectedSurveyUser.Size = new System.Drawing.Size(375, 411);
+            this.grb_SelectedSurveyUser.Size = new System.Drawing.Size(425, 411);
             this.grb_SelectedSurveyUser.TabIndex = 5;
             this.grb_SelectedSurveyUser.TabStop = false;
             this.grb_SelectedSurveyUser.Text = "Selected Survey - Details";
@@ -229,7 +258,7 @@
             this.txt_ViewSurveyDetailsName.Location = new System.Drawing.Point(24, 58);
             this.txt_ViewSurveyDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_ViewSurveyDetailsName.Name = "txt_ViewSurveyDetailsName";
-            this.txt_ViewSurveyDetailsName.Size = new System.Drawing.Size(331, 60);
+            this.txt_ViewSurveyDetailsName.Size = new System.Drawing.Size(381, 60);
             this.txt_ViewSurveyDetailsName.TabIndex = 4;
             this.txt_ViewSurveyDetailsName.Text = "name name name name name name name name name name name name name name name name n" +
     "ame name name name name  ";
@@ -256,7 +285,7 @@
             this.grb_SelectedSurveyAdmin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.grb_SelectedSurveyAdmin.Location = new System.Drawing.Point(0, 0);
             this.grb_SelectedSurveyAdmin.Name = "grb_SelectedSurveyAdmin";
-            this.grb_SelectedSurveyAdmin.Size = new System.Drawing.Size(375, 411);
+            this.grb_SelectedSurveyAdmin.Size = new System.Drawing.Size(425, 411);
             this.grb_SelectedSurveyAdmin.TabIndex = 4;
             this.grb_SelectedSurveyAdmin.TabStop = false;
             this.grb_SelectedSurveyAdmin.Text = "Selected Survey - Details";
@@ -275,7 +304,7 @@
             this.txt_EditSurveyDetailsName.SelectedText = "";
             this.txt_EditSurveyDetailsName.SelectionLength = 0;
             this.txt_EditSurveyDetailsName.SelectionStart = 0;
-            this.txt_EditSurveyDetailsName.Size = new System.Drawing.Size(331, 23);
+            this.txt_EditSurveyDetailsName.Size = new System.Drawing.Size(381, 23);
             this.txt_EditSurveyDetailsName.TabIndex = 1;
             this.txt_EditSurveyDetailsName.TabStop = false;
             this.txt_EditSurveyDetailsName.UseSystemPasswordChar = false;
@@ -298,7 +327,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(893, 384);
+            this.tabPage2.Size = new System.Drawing.Size(919, 417);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -311,7 +340,7 @@
             this.materialTabSelector.Location = new System.Drawing.Point(0, 64);
             this.materialTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector.Name = "materialTabSelector";
-            this.materialTabSelector.Size = new System.Drawing.Size(808, 37);
+            this.materialTabSelector.Size = new System.Drawing.Size(908, 37);
             this.materialTabSelector.TabIndex = 3;
             this.materialTabSelector.Text = "Material Tab Selector Home";
             // 
@@ -360,7 +389,7 @@
             this.panel_AboutUser.Controls.Add(this.lbl_AboutUser);
             this.panel_AboutUser.Controls.Add(this.pic_AboutUser);
             this.panel_AboutUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel_AboutUser.Location = new System.Drawing.Point(603, 24);
+            this.panel_AboutUser.Location = new System.Drawing.Point(703, 24);
             this.panel_AboutUser.Name = "panel_AboutUser";
             this.panel_AboutUser.Size = new System.Drawing.Size(205, 40);
             this.panel_AboutUser.TabIndex = 7;
@@ -384,40 +413,11 @@
             this.pic_AboutUser.MouseEnter += new System.EventHandler(this.AboutUser_MouseEnter);
             this.pic_AboutUser.MouseLeave += new System.EventHandler(this.AboutUser_MouseLeave);
             // 
-            // splitContainer_AllSurveys
-            // 
-            this.splitContainer_AllSurveys.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_AllSurveys.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer_AllSurveys.Name = "splitContainer_AllSurveys";
-            // 
-            // splitContainer_AllSurveys.Panel1
-            // 
-            this.splitContainer_AllSurveys.Panel1.Controls.Add(this.panel_AllSurveys);
-            // 
-            // splitContainer_AllSurveys.Panel2
-            // 
-            this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyUser);
-            this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyAdmin);
-            this.splitContainer_AllSurveys.Size = new System.Drawing.Size(770, 411);
-            this.splitContainer_AllSurveys.SplitterDistance = 391;
-            this.splitContainer_AllSurveys.TabIndex = 8;
-            // 
-            // panel_AllSurveys
-            // 
-            this.panel_AllSurveys.Controls.Add(this.pic_SearchAllSurveys);
-            this.panel_AllSurveys.Controls.Add(this.txt_AllSurveysSearchBar);
-            this.panel_AllSurveys.Controls.Add(this.listView_AllSurveys);
-            this.panel_AllSurveys.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_AllSurveys.Location = new System.Drawing.Point(0, 0);
-            this.panel_AllSurveys.Name = "panel_AllSurveys";
-            this.panel_AllSurveys.Size = new System.Drawing.Size(391, 411);
-            this.panel_AllSurveys.TabIndex = 9;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 561);
+            this.ClientSize = new System.Drawing.Size(908, 561);
             this.Controls.Add(this.panel_AboutUser);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.materialTabSelector);
@@ -428,9 +428,15 @@
             this.Text = "Easy Survey - Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
             this.materialContextMenuStrip1.ResumeLayout(false);
             this.materialTabControl.ResumeLayout(false);
             this.tabPage_AllSurveys.ResumeLayout(false);
+            this.splitContainer_AllSurveys.Panel1.ResumeLayout(false);
+            this.splitContainer_AllSurveys.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllSurveys)).EndInit();
+            this.splitContainer_AllSurveys.ResumeLayout(false);
+            this.panel_AllSurveys.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllSurveys)).EndInit();
             this.grb_SelectedSurveyUser.ResumeLayout(false);
             this.grb_SelectedSurveyUser.PerformLayout();
@@ -438,11 +444,6 @@
             this.grb_SelectedSurveyAdmin.PerformLayout();
             this.panel_AboutUser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).EndInit();
-            this.splitContainer_AllSurveys.Panel1.ResumeLayout(false);
-            this.splitContainer_AllSurveys.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllSurveys)).EndInit();
-            this.splitContainer_AllSurveys.ResumeLayout(false);
-            this.panel_AllSurveys.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

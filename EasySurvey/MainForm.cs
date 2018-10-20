@@ -212,5 +212,15 @@ namespace EasySurvey
         {
 
         }
+
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+            // Designer things **
+            // decimal phi = (1 + (decimal)Math.Sqrt(5)) / 2;
+            // 
+            // base.Size = new Size(Convert.ToInt32(base.Height * phi), base.Height);
+            // 
+            // MessageBox.Show(base.Size.ToString());
+        }
     }
 }
