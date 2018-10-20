@@ -184,8 +184,8 @@
             // 
             // splitContainer_AllSurveys.Panel2
             // 
-            this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyUser);
             this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyAdmin);
+            this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyUser);
             this.splitContainer_AllSurveys.Size = new System.Drawing.Size(870, 411);
             this.splitContainer_AllSurveys.SplitterDistance = 441;
             this.splitContainer_AllSurveys.TabIndex = 8;
