@@ -66,5 +66,9 @@ namespace EasySurvey.Controllers
             ListToAddTo = temp;
         }
 
+        public Survey GetSurvey(long SurveyID)
+        {
+            return (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();
+        }
     }
 }

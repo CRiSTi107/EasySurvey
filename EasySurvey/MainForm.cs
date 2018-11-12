@@ -138,9 +138,21 @@ namespace EasySurvey
         }
 
         //For USER
-        private void UpdateViewSurveyDetails(string SurveyName)
+        private void UpdateViewSurveyDetails(long SurveyID)
         {
-            txt_ViewSurveyDetailsName.Text = SurveyName;
+            SurveyController surveyController = new SurveyController();
+            Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
+            txt_ViewSurveyDetailsName.Text = selectedSurvey.SurveyName;
+
+            listView_ViewSurveyQuestions.Clear();
+
+            QuestionController questionController = new QuestionController();
+
+            List<Question> Questions = questionController.GetQuestions(SurveyID);
+            foreach (Question question in Questions)
+            {
+                listView_ViewSurveyQuestions.Items.Add(new ListViewItem(question.Question1));
+            }
         }
 
         private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,11 +161,12 @@ namespace EasySurvey
             { txt_EditSurveyDetailsName.Text = "Select one"; return; }
 
             ListViewItem selectedItem = listView_AllSurveys.SelectedItems[0];
+            long SurveyID = Convert.ToInt64(selectedItem.Tag);
 
             if (LoggedUser.IsAdministrator())
                 UpdateEditSurveyDetails(selectedItem.Text);
             else
-                UpdateViewSurveyDetails(selectedItem.Text);
+                UpdateViewSurveyDetails(SurveyID);
 
         }
 
