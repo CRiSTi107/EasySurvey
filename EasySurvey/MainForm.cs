@@ -245,15 +245,22 @@ namespace EasySurvey
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SurveyController surveyController = new SurveyController();
+            MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti chestionarele selectate?", "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
 
-            foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
+            if (MaterialMessageBox._Result == MaterialMessageBox.MessageBoxResult.Yes)
             {
-                long SurveyID = Convert.ToInt64(selectedItem.Tag);
+                SurveyController surveyController = new SurveyController();
 
-                Surveys.Remove(Surveys.Find(i => i.SurveyID == SurveyID));
-                surveyController.Delete(SurveyID);
-                listView_AllSurveys.Items.Remove(selectedItem);
+                foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
+                {
+                    long SurveyID = Convert.ToInt64(selectedItem.Tag);
+
+                    Surveys.Remove(Surveys.Find(i => i.SurveyID == SurveyID));
+                    surveyController.Delete(SurveyID);
+                    listView_AllSurveys.Items.Remove(selectedItem);
+                }
+
+
             }
         }
     }
