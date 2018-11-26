@@ -71,7 +71,7 @@ namespace EasySurvey
             UpdateListView(Surveys);
 
             if (LoggedUser.IsAdministrator())
-            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; listView_AllSurveys.ContextMenuStrip = materialContextMenuStrip_Admin; }
+            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurveys_Admin; }
             else
             { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; listView_AllSurveys.ContextMenuStrip = null; }
 
@@ -136,9 +136,21 @@ namespace EasySurvey
         #region Select Survey
 
         //For ADMIN
-        private void UpdateEditSurveyDetails(string SurveyName)
+        private void UpdateEditSurveyDetails(long SurveyID)
         {
-            txt_EditSurveyDetailsName.Text = SurveyName;
+            SurveyController surveyController = new SurveyController();
+            Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
+            txt_EditSurveyDetailsName.Text = selectedSurvey.SurveyName;
+
+            listView_EditSurveyQuestions.Clear();
+
+            QuestionController questionController = new QuestionController();
+
+            List<Question> Questions = questionController.GetQuestions(SurveyID);
+            foreach (Question question in Questions)
+            {
+                listView_EditSurveyQuestions.Items.Add(new ListViewItem(question.Question1));
+            }
         }
 
         //For USER
@@ -162,7 +174,12 @@ namespace EasySurvey
         private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView_AllSurveys.SelectedItems.Count != 1)
-            { txt_EditSurveyDetailsName.Text = "Select one"; btn_StartSurvey.Enabled = btn_StartSurvey.Visible = false; return; }
+            {
+                txt_EditSurveyDetailsName.Text = ""; txt_ViewSurveyDetailsName.Text = "";
+                listView_ViewSurveyQuestions.Items.Clear(); listView_EditSurveyQuestions.Items.Clear();
+                btn_StartSurvey.Enabled = btn_StartSurvey.Visible = false;
+                return;
+            }
             else
             { btn_StartSurvey.Enabled = btn_StartSurvey.Visible = true; }
 
@@ -170,7 +187,7 @@ namespace EasySurvey
             long SurveyID = Convert.ToInt64(selectedItem.Tag);
 
             if (LoggedUser.IsAdministrator())
-                UpdateEditSurveyDetails(selectedItem.Text);
+                UpdateEditSurveyDetails(SurveyID);
             else
                 UpdateViewSurveyDetails(SurveyID);
 
@@ -245,9 +262,9 @@ namespace EasySurvey
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti chestionarele selectate?", "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti chestionarele selectate?", "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
 
-            if (MaterialMessageBox._Result == MaterialMessageBox.MessageBoxResult.Yes)
+            if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
                 SurveyController surveyController = new SurveyController();
 
@@ -262,6 +279,33 @@ namespace EasySurvey
 
 
             }
+        }
+
+        private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Ce nume are noul chestionar?", "Easy Survey - Add New Survey", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
+
+            if (result == MaterialMessageInput.MessageBoxResultInput.OK)
+            {
+                SurveyController surveyController = new SurveyController();
+                string SurveyName = MaterialMessageInput.Answer;
+
+                Survey newSurvey = new Survey { SurveyName = SurveyName };
+                surveyController.Add(ref newSurvey);
+                Surveys.Add(newSurvey);
+                ListViewItem newSurveyItem = new ListViewItem(listView_AllSurveys.Groups["listViewGroup4"]) { Tag = newSurvey.SurveyID.ToString(), Text = newSurvey.SurveyName };
+                listView_AllSurveys.Items.Add(newSurveyItem);
+                int SurveyIndex = listView_AllSurveys.Items.Count - 1;
+                listView_AllSurveys.Items[SurveyIndex].Selected = true;
+                listView_AllSurveys.Items[SurveyIndex].Focused = true;
+                listView_AllSurveys.Items[SurveyIndex].EnsureVisible();
+            }
+
+        }
+
+        private void btn_StartSurvey_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

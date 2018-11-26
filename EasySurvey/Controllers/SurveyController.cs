@@ -83,5 +83,18 @@ namespace EasySurvey.Controllers
             DatabaseModel.Survey.Remove(surveyToDelete);
             DatabaseModel.SaveChanges();
         }
+
+        // public void Add(string SurveyName)
+        // {
+        //     Survey survey = new Survey { SurveyName = SurveyName };
+        //     DatabaseModel.Survey.Add(survey);
+        //     DatabaseModel.SaveChanges();
+        // }
+
+        public void Add(ref Survey NewSurvey)
+        {
+            DatabaseModel.Survey.Add(NewSurvey);
+            DatabaseModel.SaveChanges();
+        }
     }
 }

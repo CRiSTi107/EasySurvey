@@ -96,7 +96,14 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaterialMessageBox.cs" />
+    <Compile Include="MaterialMessageBox\MaterialMessageBox.cs" />
+    <Compile Include="MaterialMessageInput\MaterialMessageInput.cs" />
+    <Compile Include="MaterialMessageInput\MsgInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterialMessageInput\MsgInput.Designer.cs">
+      <DependentUpon>MsgInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Attitude.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
@@ -143,10 +150,10 @@
     <Compile Include="Models\UserRole.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MsgBox.cs">
+    <Compile Include="MaterialMessageBox\MsgBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MsgBox.Designer.cs">
+    <Compile Include="MaterialMessageBox\MsgBox.Designer.cs">
       <DependentUpon>MsgBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -166,8 +173,11 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MsgBox.resx">
+    <EmbeddedResource Include="MaterialMessageBox\MsgBox.resx">
       <DependentUpon>MsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialMessageInput\MsgInput.resx">
+      <DependentUpon>MsgInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
