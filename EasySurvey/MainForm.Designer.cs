@@ -28,24 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
         "sbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcv");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
         "fvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdvvsdsds");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("adsgfasd");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("asdfds");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("adsgfasd");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("asdfds");
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialContextMenuStrip_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage_AllSurveys = new System.Windows.Forms.TabPage();
@@ -54,6 +52,9 @@
             this.pic_SearchAllSurveys = new System.Windows.Forms.PictureBox();
             this.txt_AllSurveysSearchBar = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.grb_SelectedSurveyUser = new System.Windows.Forms.GroupBox();
+            this.btn_StartSurvey = new MaterialSkin.Controls.MaterialFlatButton();
+            this.listView_ViewSurveyQuestions = new System.Windows.Forms.ListView();
+            this.lbl_ViewSurveyQuestions = new MaterialSkin.Controls.MaterialLabel();
             this.txt_ViewSurveyDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_ViewSurveyDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.grb_SelectedSurveyAdmin = new System.Windows.Forms.GroupBox();
@@ -65,9 +66,8 @@
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel_AboutUser = new System.Windows.Forms.Panel();
             this.pic_AboutUser = new System.Windows.Forms.PictureBox();
-            this.lbl_ViewSurveyQuestions = new MaterialSkin.Controls.MaterialLabel();
-            this.listView_ViewSurveyQuestions = new System.Windows.Forms.ListView();
-            this.materialContextMenuStrip1.SuspendLayout();
+            this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialContextMenuStrip_Admin.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllSurveys)).BeginInit();
@@ -91,21 +91,20 @@
             this.listView_AllSurveys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listView_AllSurveys.ContextMenuStrip = this.materialContextMenuStrip1;
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup2";
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup3";
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.Name = "listViewGroup4";
+            listViewGroup9.Header = "ListViewGroup";
+            listViewGroup9.Name = "listViewGroup1";
+            listViewGroup10.Header = "ListViewGroup";
+            listViewGroup10.Name = "listViewGroup2";
+            listViewGroup11.Header = "ListViewGroup";
+            listViewGroup11.Name = "listViewGroup3";
+            listViewGroup12.Header = "ListViewGroup";
+            listViewGroup12.Name = "listViewGroup4";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup9,
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 34);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
@@ -125,35 +124,23 @@
             // 
             this.columnHeader2.Width = 122;
             // 
-            // materialContextMenuStrip1
+            // materialContextMenuStrip_Admin
             // 
-            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStrip1.Depth = 0;
-            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectToolStripMenuItem,
-            this.testToolStripMenuItem,
+            this.materialContextMenuStrip_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialContextMenuStrip_Admin.Depth = 0;
+            this.materialContextMenuStrip_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewToolStripMenuItem,
             this.deleteToolStripMenuItem});
-            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(108, 70);
-            // 
-            // selectToolStripMenuItem
-            // 
-            this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
-            this.selectToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.selectToolStripMenuItem.Text = "Select";
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.testToolStripMenuItem.Text = "Test";
+            this.materialContextMenuStrip_Admin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStrip_Admin.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStrip_Admin.Size = new System.Drawing.Size(205, 70);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.deleteToolStripMenuItem.Text = "Delete selected Survey(s)";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // materialTabControl
             // 
@@ -246,6 +233,7 @@
             // grb_SelectedSurveyUser
             // 
             this.grb_SelectedSurveyUser.BackColor = System.Drawing.Color.White;
+            this.grb_SelectedSurveyUser.Controls.Add(this.btn_StartSurvey);
             this.grb_SelectedSurveyUser.Controls.Add(this.listView_ViewSurveyQuestions);
             this.grb_SelectedSurveyUser.Controls.Add(this.lbl_ViewSurveyQuestions);
             this.grb_SelectedSurveyUser.Controls.Add(this.txt_ViewSurveyDetailsName);
@@ -258,6 +246,58 @@
             this.grb_SelectedSurveyUser.TabIndex = 5;
             this.grb_SelectedSurveyUser.TabStop = false;
             this.grb_SelectedSurveyUser.Text = "Selected Survey - Details";
+            // 
+            // btn_StartSurvey
+            // 
+            this.btn_StartSurvey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_StartSurvey.AutoSize = true;
+            this.btn_StartSurvey.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_StartSurvey.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_StartSurvey.Depth = 0;
+            this.btn_StartSurvey.Enabled = false;
+            this.btn_StartSurvey.Icon = null;
+            this.btn_StartSurvey.Location = new System.Drawing.Point(24, 471);
+            this.btn_StartSurvey.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn_StartSurvey.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_StartSurvey.Name = "btn_StartSurvey";
+            this.btn_StartSurvey.Primary = false;
+            this.btn_StartSurvey.Size = new System.Drawing.Size(152, 36);
+            this.btn_StartSurvey.TabIndex = 7;
+            this.btn_StartSurvey.Text = "Start this survey";
+            this.btn_StartSurvey.UseVisualStyleBackColor = true;
+            this.btn_StartSurvey.Visible = false;
+            // 
+            // listView_ViewSurveyQuestions
+            // 
+            this.listView_ViewSurveyQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15});
+            this.listView_ViewSurveyQuestions.Location = new System.Drawing.Point(24, 166);
+            this.listView_ViewSurveyQuestions.Name = "listView_ViewSurveyQuestions";
+            this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(381, 296);
+            this.listView_ViewSurveyQuestions.TabIndex = 6;
+            this.listView_ViewSurveyQuestions.TileSize = new System.Drawing.Size(188, 30);
+            this.listView_ViewSurveyQuestions.UseCompatibleStateImageBehavior = false;
+            this.listView_ViewSurveyQuestions.View = System.Windows.Forms.View.Tile;
+            // 
+            // lbl_ViewSurveyQuestions
+            // 
+            this.lbl_ViewSurveyQuestions.AutoSize = true;
+            this.lbl_ViewSurveyQuestions.Depth = 0;
+            this.lbl_ViewSurveyQuestions.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_ViewSurveyQuestions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_ViewSurveyQuestions.Location = new System.Drawing.Point(20, 144);
+            this.lbl_ViewSurveyQuestions.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_ViewSurveyQuestions.Name = "lbl_ViewSurveyQuestions";
+            this.lbl_ViewSurveyQuestions.Size = new System.Drawing.Size(77, 19);
+            this.lbl_ViewSurveyQuestions.TabIndex = 5;
+            this.lbl_ViewSurveyQuestions.Text = "Questions";
             // 
             // txt_ViewSurveyDetailsName
             // 
@@ -424,37 +464,11 @@
             this.pic_AboutUser.MouseEnter += new System.EventHandler(this.AboutUser_MouseEnter);
             this.pic_AboutUser.MouseLeave += new System.EventHandler(this.AboutUser_MouseLeave);
             // 
-            // lbl_ViewSurveyQuestions
+            // addNewToolStripMenuItem
             // 
-            this.lbl_ViewSurveyQuestions.AutoSize = true;
-            this.lbl_ViewSurveyQuestions.Depth = 0;
-            this.lbl_ViewSurveyQuestions.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_ViewSurveyQuestions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_ViewSurveyQuestions.Location = new System.Drawing.Point(20, 144);
-            this.lbl_ViewSurveyQuestions.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_ViewSurveyQuestions.Name = "lbl_ViewSurveyQuestions";
-            this.lbl_ViewSurveyQuestions.Size = new System.Drawing.Size(77, 19);
-            this.lbl_ViewSurveyQuestions.TabIndex = 5;
-            this.lbl_ViewSurveyQuestions.Text = "Questions";
-            // 
-            // listView_ViewSurveyQuestions
-            // 
-            this.listView_ViewSurveyQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5});
-            this.listView_ViewSurveyQuestions.Location = new System.Drawing.Point(24, 166);
-            this.listView_ViewSurveyQuestions.Name = "listView_ViewSurveyQuestions";
-            this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(381, 334);
-            this.listView_ViewSurveyQuestions.TabIndex = 6;
-            this.listView_ViewSurveyQuestions.TileSize = new System.Drawing.Size(188, 30);
-            this.listView_ViewSurveyQuestions.UseCompatibleStateImageBehavior = false;
-            this.listView_ViewSurveyQuestions.View = System.Windows.Forms.View.Tile;
+            this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
+            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.addNewToolStripMenuItem.Text = "Add new Survey";
             // 
             // MainForm
             // 
@@ -472,7 +486,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
-            this.materialContextMenuStrip1.ResumeLayout(false);
+            this.materialContextMenuStrip_Admin.ResumeLayout(false);
             this.materialTabControl.ResumeLayout(false);
             this.tabPage_AllSurveys.ResumeLayout(false);
             this.splitContainer_AllSurveys.Panel1.ResumeLayout(false);
@@ -496,9 +510,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         public System.Windows.Forms.ListView listView_AllSurveys;
-        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip_Admin;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl;
         private System.Windows.Forms.TabPage tabPage_AllSurveys;
@@ -520,5 +532,7 @@
         private System.Windows.Forms.Panel panel_AllSurveys;
         private MaterialSkin.Controls.MaterialLabel lbl_ViewSurveyQuestions;
         private System.Windows.Forms.ListView listView_ViewSurveyQuestions;
+        private MaterialSkin.Controls.MaterialFlatButton btn_StartSurvey;
+        private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem;
     }
 }

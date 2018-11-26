@@ -62,14 +62,18 @@ namespace EasySurvey
         // 908; 561
         private void MainForm_Load(object sender, EventArgs e)
         {
+            txt_EditSurveyDetailsName.Clear();
+            txt_ViewSurveyDetailsName.Text = String.Empty;
+            listView_ViewSurveyQuestions.Clear();
+
             Surveys = GetSurveys();
 
             UpdateListView(Surveys);
 
             if (LoggedUser.IsAdministrator())
-            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; }
+            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; listView_AllSurveys.ContextMenuStrip = materialContextMenuStrip_Admin; }
             else
-            { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; }
+            { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; listView_AllSurveys.ContextMenuStrip = null; }
 
             lbl_AboutUser.Text = LoggedUser.UserName;
         }
@@ -158,7 +162,9 @@ namespace EasySurvey
         private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView_AllSurveys.SelectedItems.Count != 1)
-            { txt_EditSurveyDetailsName.Text = "Select one"; return; }
+            { txt_EditSurveyDetailsName.Text = "Select one"; btn_StartSurvey.Enabled = btn_StartSurvey.Visible = false; return; }
+            else
+            { btn_StartSurvey.Enabled = btn_StartSurvey.Visible = true; }
 
             ListViewItem selectedItem = listView_AllSurveys.SelectedItems[0];
             long SurveyID = Convert.ToInt64(selectedItem.Tag);
@@ -235,6 +241,20 @@ namespace EasySurvey
             // base.Size = new Size(Convert.ToInt32(base.Height * phi), base.Height);
             // 
             // MessageBox.Show(base.Size.ToString());
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SurveyController surveyController = new SurveyController();
+
+            foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
+            {
+                long SurveyID = Convert.ToInt64(selectedItem.Tag);
+
+                Surveys.Remove(Surveys.Find(i => i.SurveyID == SurveyID));
+                surveyController.Delete(SurveyID);
+                listView_AllSurveys.Items.Remove(selectedItem);
+            }
         }
     }
 }
