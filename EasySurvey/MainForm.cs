@@ -141,6 +141,7 @@ namespace EasySurvey
             SurveyController surveyController = new SurveyController();
             Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
             txt_EditSurveyDetailsName.Text = selectedSurvey.SurveyName;
+            txt_EditSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
 
             listView_EditSurveyQuestions.Clear();
 
@@ -260,6 +261,8 @@ namespace EasySurvey
             // MessageBox.Show(base.Size.ToString());
         }
 
+        #region ToolStripMenuItem_EditSurveys
+
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti chestionarele selectate?", "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
@@ -303,9 +306,58 @@ namespace EasySurvey
 
         }
 
+        #endregion
+
         private void btn_StartSurvey_Click(object sender, EventArgs e)
         {
 
         }
+
+        #region ToolStripMenuItem_EditQuestions
+
+        private void toolStripMenuItem_AddNewQuestion_Click(object sender, EventArgs e)
+        {
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Noua intrebare care sa fie adaugata in chestionar:", "Easy Survey - Add New Question", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
+
+            if (result == MaterialMessageInput.MessageBoxResultInput.OK)
+            {
+                QuestionController questionController = new QuestionController();
+                string QuestionName = MaterialMessageInput.Answer;
+                long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
+                Question newQuestion = new Question { Question1 = QuestionName };
+                questionController.Add(ref newQuestion, SurveyID);
+
+                ListViewItem newQuestionItem = new ListViewItem() { Tag = newQuestion.QuestionID.ToString(), Text = newQuestion.Question1 };
+                listView_EditSurveyQuestions.Items.Add(newQuestionItem);
+                int QuestionIndex = listView_EditSurveyQuestions.Items.Count - 1;
+                listView_EditSurveyQuestions.Items[QuestionIndex].Selected = true;
+                listView_EditSurveyQuestions.Items[QuestionIndex].Focused = true;
+                listView_EditSurveyQuestions.Items[QuestionIndex].EnsureVisible();
+            }
+        }
+
+        private void toolStripMenuItem_DeleteQuestions_Click(object sender, EventArgs e)
+        {
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti intrebarile selectate?", "Easy Survey - Delete Questions", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+
+            if (result == MaterialMessageBox.MessageBoxResult.Yes)
+            {
+                QuestionController questionController = new QuestionController();
+
+                foreach (ListViewItem selectedItem in listView_EditSurveyQuestions.SelectedItems)
+                {
+                    long QuestionID = Convert.ToInt64(selectedItem.Tag);
+
+                    questionController.Delete(QuestionID);
+                    listView_EditSurveyQuestions.Items.Remove(selectedItem);
+                }
+
+
+            }
+        }
+
+        #endregion
+
+
     }
 }

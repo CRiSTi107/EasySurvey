@@ -20,5 +20,23 @@ namespace EasySurvey.Controllers
 
             return Questions;
         }
+
+        public void Add(ref Question question, long SurveyID)
+        {
+            DatabaseModel.Question.Add(question);
+            DatabaseModel.SaveChanges();
+
+            SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController();
+
+            surveyDefinitionController.AddRelation(SurveyID, question.QuestionID);
+        }
+
+        public void Delete(long QuestionID)
+        {
+            Question QuestionToDelete = (from question in DatabaseModel.Question where question.QuestionID == QuestionID select question).First();
+
+
+
+        }
     }
 }
