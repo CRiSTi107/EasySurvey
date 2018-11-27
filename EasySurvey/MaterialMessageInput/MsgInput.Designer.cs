@@ -34,6 +34,7 @@
             this.btn_OK = new MaterialSkin.Controls.MaterialFlatButton();
             this.btn_Cancel = new MaterialSkin.Controls.MaterialFlatButton();
             this.Divider_Menu = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // lbl_Text
@@ -70,6 +71,8 @@
             this.txt_Answer.TabIndex = 1;
             this.txt_Answer.TabStop = false;
             this.txt_Answer.UseSystemPasswordChar = false;
+            this.txt_Answer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Answer_KeyDown);
+            this.txt_Answer.TextChanged += new System.EventHandler(this.txt_Answer_TextChanged);
             // 
             // btn_OK
             // 
@@ -120,18 +123,33 @@
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Divider_Menu.Depth = 0;
             this.Divider_Menu.Icon = null;
-            this.Divider_Menu.Location = new System.Drawing.Point(-5, 188);
+            this.Divider_Menu.Location = new System.Drawing.Point(-12, 188);
             this.Divider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Divider_Menu.Name = "Divider_Menu";
             this.Divider_Menu.Primary = true;
-            this.Divider_Menu.Size = new System.Drawing.Size(558, 10);
+            this.Divider_Menu.Size = new System.Drawing.Size(589, 10);
             this.Divider_Menu.TabIndex = 24;
+            // 
+            // lbl_Status
+            // 
+            this.lbl_Status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Status.Depth = 0;
+            this.lbl_Status.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Status.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Status.Location = new System.Drawing.Point(66, 207);
+            this.lbl_Status.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Status.Name = "lbl_Status";
+            this.lbl_Status.Size = new System.Drawing.Size(374, 36);
+            this.lbl_Status.TabIndex = 25;
+            this.lbl_Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MsgInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 257);
+            this.Controls.Add(this.lbl_Status);
             this.Controls.Add(this.Divider_Menu);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_OK);
@@ -158,5 +176,6 @@
         private MaterialSkin.Controls.MaterialFlatButton btn_OK;
         private MaterialSkin.Controls.MaterialFlatButton btn_Cancel;
         private MaterialSkin.Controls.MaterialRaisedButton Divider_Menu;
+        private MaterialSkin.Controls.MaterialLabel lbl_Status;
     }
 }

@@ -15,7 +15,7 @@ namespace EasySurvey
     {
         internal readonly MaterialSkinManager __materialSkinManager;
 
-        public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons)
+        public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons, string defaultValue = "")
         {
             InitializeComponent();
 
@@ -26,6 +26,8 @@ namespace EasySurvey
 
             base.Text = caption;
             lbl_Text.Text = text;
+
+            txt_Answer.Text = defaultValue;
 
             switch (buttons)
             {
@@ -39,6 +41,8 @@ namespace EasySurvey
                 default:
                     break;
             }
+
+            Divider_Menu.AutoSize = false;
         }
 
         #region Shade the form
@@ -56,20 +60,52 @@ namespace EasySurvey
 
         private void MsgInput_Load(object sender, EventArgs e)
         {
-            Divider_Menu.AutoSize = false;
+
         }
+
+        private bool AnswerIsEmpty = true;
+        private string Status = String.Empty;
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            MaterialMessageInput.Answer = txt_Answer.Text;
-            MaterialMessageInput._Result = MaterialMessageInput.MessageBoxResultInput.OK;
-            base.Close();
+            if (txt_Answer.Text == null || txt_Answer.Text == "" || txt_Answer.Text == String.Empty || txt_Answer.Text.Trim() == String.Empty)
+            {
+                AnswerIsEmpty = true;
+                Status = "Text cannot be empty";
+            }
+            else
+            { AnswerIsEmpty = false; }
+
+            if (!AnswerIsEmpty)
+            {
+                MaterialMessageInput.Answer = txt_Answer.Text;
+                MaterialMessageInput._Result = MaterialMessageInput.MessageBoxResultInput.OK;
+                base.Close();
+            }
+            else
+            {
+                lbl_Status.Text = Status;
+                lbl_Status.ForeColor = Color.Red;
+            }
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             MaterialMessageInput._Result = MaterialMessageInput.MessageBoxResultInput.Cancel;
             base.Close();
+        }
+
+        private void txt_Answer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btn_OK.PerformClick();
+            else if (e.KeyCode == Keys.Escape)
+                btn_Cancel.PerformClick();
+        }
+
+        private void txt_Answer_TextChanged(object sender, EventArgs e)
+        {
+            lbl_Status.Text = String.Empty;
         }
     }
 }

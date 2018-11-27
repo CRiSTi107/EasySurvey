@@ -71,29 +71,26 @@ namespace EasySurvey.Controllers
             return (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();
         }
 
-        // public void Delete(List<long> SurveysID)
-        // {
-        //     foreach (long SurveyID in SurveysID)
-        //         this.Delete(SurveysID);
-        // }
-
         public void Delete(long SurveyID)
         {
             Survey surveyToDelete = (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();
+
+            QuestionController questionController = new QuestionController();
+            questionController.DeleteAll(SurveyID);
+
             DatabaseModel.Survey.Remove(surveyToDelete);
             DatabaseModel.SaveChanges();
         }
 
-        // public void Add(string SurveyName)
-        // {
-        //     Survey survey = new Survey { SurveyName = SurveyName };
-        //     DatabaseModel.Survey.Add(survey);
-        //     DatabaseModel.SaveChanges();
-        // }
-
         public void Add(ref Survey NewSurvey)
         {
             DatabaseModel.Survey.Add(NewSurvey);
+            DatabaseModel.SaveChanges();
+        }
+
+        public void UpdateSurveyName(long SurveyID, string NewSurveyName)
+        {
+            DatabaseModel.Survey.Where(item => item.SurveyID == SurveyID).ToList().ForEach(item => item.SurveyName = NewSurveyName);
             DatabaseModel.SaveChanges();
         }
     }

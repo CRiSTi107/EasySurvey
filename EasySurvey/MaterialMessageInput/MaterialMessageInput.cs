@@ -32,9 +32,11 @@ namespace EasySurvey
         public static MessageBoxResultInput _Result = MessageBoxResultInput.None;
         public static string Answer = String.Empty;
 
-        public static MessageBoxResultInput Show(string text, string caption, MessageBoxButtonsInput buttons)
+        public static MessageBoxResultInput Show(string text, string caption, MessageBoxButtonsInput buttons, string defaultValue = "")
         {
-            MsgInput frm_MessageBoxInput = new MsgInput(text, caption, buttons);
+            _Result = MessageBoxResultInput.None;
+
+            MsgInput frm_MessageBoxInput = new MsgInput(text, caption, buttons, defaultValue);
 
             frm_MessageBoxInput.ShowDialog();
 

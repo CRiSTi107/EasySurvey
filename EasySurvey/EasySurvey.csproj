@@ -230,6 +230,8 @@
     <Content Include="Resources\Icons\icon_question_64x64.png" />
     <Content Include="Resources\Icons\icon_warning_128x128.png" />
     <Content Include="Resources\Icons\icon_warning_64x64.png" />
+    <None Include="Resources\save_icon_disabled_24x24.png" />
+    <None Include="Resources\save_icon_24x24.png" />
     <Content Include="Resources\search_icon_24x24.png" />
     <None Include="Resources\user_icon_48x48.png" />
     <Content Include="Survey.ico" />

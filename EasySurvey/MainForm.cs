@@ -140,6 +140,10 @@ namespace EasySurvey
         {
             SurveyController surveyController = new SurveyController();
             Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
+
+            SelectedSurveyOriginalName = selectedSurvey.SurveyName;
+            IsSelectedSurveyOriginalNameChanged = false;
+
             txt_EditSurveyDetailsName.Text = selectedSurvey.SurveyName;
             txt_EditSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
 
@@ -178,7 +182,11 @@ namespace EasySurvey
             {
                 txt_EditSurveyDetailsName.Text = ""; txt_ViewSurveyDetailsName.Text = "";
                 listView_ViewSurveyQuestions.Items.Clear(); listView_EditSurveyQuestions.Items.Clear();
+                txt_ViewSurveyDetailsName.Tag = null; txt_EditSurveyDetailsName.Tag = null;
                 btn_StartSurvey.Enabled = btn_StartSurvey.Visible = false;
+                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveChanges.Cursor = Cursors.Arrow;
+                IsSelectedSurveyOriginalNameChanged = false;
                 return;
             }
             else
@@ -279,8 +287,6 @@ namespace EasySurvey
                 {
                     long SurveyID = Convert.ToInt64(selectedItem.Tag);
 
-                    // TODO : Remove All Questions that belongs to specified Survey.
-
                     Surveys.Remove(Surveys.Find(i => i.SurveyID == SurveyID));
                     surveyController.Delete(SurveyID);
                     listView_AllSurveys.Items.Remove(selectedItem);
@@ -363,11 +369,102 @@ namespace EasySurvey
             }
         }
 
+        private void editToolStripMenuItem_EditQuestion_Click(object sender, EventArgs e)
+        {
+            int SelectedQuestionsCount = listView_EditSurveyQuestions.SelectedItems.Count;
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.MessageBoxResultInput.None;
+
+            if (SelectedQuestionsCount == 0)
+                return;
+
+            int CurrentQuestion = 0;
+
+            foreach (ListViewItem SelectedQuestion in listView_EditSurveyQuestions.SelectedItems)
+            {
+                result = MaterialMessageInput.MessageBoxResultInput.None;
+
+                result = MaterialMessageInput.Show("Editeaza intrebarea:", "Easy Survey - Edit Question (" + ++CurrentQuestion + "/" + SelectedQuestionsCount + ")", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, SelectedQuestion.Text);
+
+                if (result == MaterialMessageInput.MessageBoxResultInput.OK)
+                {
+                    QuestionController questionController = new QuestionController();
+                    string NewQuestionName = MaterialMessageInput.Answer;
+                    long QuestionID = Convert.ToInt64(SelectedQuestion.Tag.ToString());
+
+                    questionController.Update(QuestionID, NewQuestionName);
+
+                    int QuestionIndex = listView_EditSurveyQuestions.Items.IndexOf(SelectedQuestion);
+                    listView_EditSurveyQuestions.Items[QuestionIndex].Text = NewQuestionName;
+                }
+                else if (result == MaterialMessageInput.MessageBoxResultInput.None)
+                {
+                    break;
+                }
+            }
+
+
+
+        }
+
         #endregion
 
         private void btn_StartSurvey_Click(object sender, EventArgs e)
         {
 
         }
+
+        #region Admin - Save Changes - Survey Name
+
+        private string SelectedSurveyOriginalName = String.Empty;
+        private bool IsSelectedSurveyOriginalNameChanged = false;
+
+        private void txt_EditSurveyDetailsName_TextChanged(object sender, EventArgs e)
+        {
+            string CurrentSurveyName = txt_EditSurveyDetailsName.Text;
+
+            if (CurrentSurveyName != SelectedSurveyOriginalName)
+            {
+                IsSelectedSurveyOriginalNameChanged = true;
+                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_24x24;
+                pic_SaveChanges.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                IsSelectedSurveyOriginalNameChanged = false;
+                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveChanges.Cursor = Cursors.Arrow;
+            }
+        }
+
+        private void pic_SaveChanges_Click(object sender, EventArgs e)
+        {
+            if (IsSelectedSurveyOriginalNameChanged)
+            {
+                SurveyController surveyController = new SurveyController();
+
+                long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag.ToString());
+                string NewSurveyName = txt_EditSurveyDetailsName.Text;
+
+                surveyController.UpdateSurveyName(SurveyID, NewSurveyName);
+                int SurveyListItemIndex = -1;
+                foreach (ListViewItem SurveyListItem in listView_AllSurveys.SelectedItems)
+                {
+                    if (Convert.ToInt64(SurveyListItem.Tag.ToString()) == SurveyID)
+                    {
+                        SurveyListItemIndex = listView_AllSurveys.Items.IndexOf(SurveyListItem);
+                        Surveys.Where(item => item.SurveyID == SurveyID).ToList().ForEach(item => item.SurveyName = NewSurveyName);
+                        listView_AllSurveys.Items[SurveyListItemIndex].Text = NewSurveyName;
+                    }
+                }
+
+                IsSelectedSurveyOriginalNameChanged = false;
+                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveChanges.Cursor = Cursors.Arrow;
+            }
+        }
+
+        #endregion
+
+
     }
 }

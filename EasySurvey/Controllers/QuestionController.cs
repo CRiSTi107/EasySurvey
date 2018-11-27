@@ -40,5 +40,21 @@ namespace EasySurvey.Controllers
 
             DatabaseModel.Question.Remove(QuestionToDelete);
         }
+
+        public void DeleteAll(long SurveyID)
+        {
+            List<Question> Questions = GetQuestions(SurveyID);
+
+            foreach (Question question in Questions)
+            {
+                Delete(question.QuestionID, SurveyID);
+            }
+        }
+
+        public void Update(long QuestionID, string NewQuestionName)
+        {
+            DatabaseModel.Question.Where(item => item.QuestionID == QuestionID).ToList().ForEach(item => item.Question1 = NewQuestionName);
+            DatabaseModel.SaveChanges();
+        }
     }
 }

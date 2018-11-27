@@ -6,3 +6,6 @@ https://www.iconfinder.com/icons/315162/clipboard_list_icon
 
 user_icon_48x48.png
 https://www.iconfinder.com/icons/285641/id_user_icon
+
+save_icon_24x24.png
+https://www.iconfinder.com/icons/285657/floppy_guardar_save_icon
