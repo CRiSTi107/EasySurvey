@@ -19,3 +19,4 @@ C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.exe
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.pdb
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.MsgBox.resources
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.csprojResolveAssemblyReference.cache

@@ -71,9 +71,9 @@ namespace EasySurvey
             UpdateListView(Surveys);
 
             if (LoggedUser.IsAdministrator())
-            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurveys_Admin; }
+            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurveys_Admin; listView_EditSurveyQuestions.ContextMenuStrip = materialContextMenuStrip_Admin; }
             else
-            { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; listView_AllSurveys.ContextMenuStrip = null; }
+            { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; listView_AllSurveys.ContextMenuStrip = null; listView_EditSurveyQuestions.ContextMenuStrip = null; }
 
             lbl_AboutUser.Text = LoggedUser.UserName;
         }
@@ -149,7 +149,7 @@ namespace EasySurvey
             List<Question> Questions = questionController.GetQuestions(SurveyID);
             foreach (Question question in Questions)
             {
-                listView_EditSurveyQuestions.Items.Add(new ListViewItem(question.Question1));
+                listView_EditSurveyQuestions.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
             }
         }
 
@@ -167,7 +167,7 @@ namespace EasySurvey
             List<Question> Questions = questionController.GetQuestions(SurveyID);
             foreach (Question question in Questions)
             {
-                listView_ViewSurveyQuestions.Items.Add(new ListViewItem(question.Question1));
+                listView_ViewSurveyQuestions.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
             }
         }
 
