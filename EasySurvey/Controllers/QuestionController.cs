@@ -31,12 +31,14 @@ namespace EasySurvey.Controllers
             surveyDefinitionController.AddRelation(SurveyID, question.QuestionID);
         }
 
-        public void Delete(long QuestionID)
+        public void Delete(long QuestionID, long SurveyID)
         {
             Question QuestionToDelete = (from question in DatabaseModel.Question where question.QuestionID == QuestionID select question).First();
 
+            SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController();
+            surveyDefinitionController.DeleteRelation(SurveyID, QuestionID);
 
-
+            DatabaseModel.Question.Remove(QuestionToDelete);
         }
     }
 }

@@ -261,11 +261,15 @@ namespace EasySurvey
             // MessageBox.Show(base.Size.ToString());
         }
 
-        #region ToolStripMenuItem_EditSurveys
+        #region ToolStripMenuItem - Add | Edit | Delete - Surveys
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti chestionarele selectate?", "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+            int SelectedSurveysCount = listView_AllSurveys.SelectedItems.Count;
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+
+            if (SelectedSurveysCount > 0)
+                result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti chestionarele selectate?", "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
@@ -274,6 +278,8 @@ namespace EasySurvey
                 foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
                 {
                     long SurveyID = Convert.ToInt64(selectedItem.Tag);
+
+                    // TODO : Remove All Questions that belongs to specified Survey.
 
                     Surveys.Remove(Surveys.Find(i => i.SurveyID == SurveyID));
                     surveyController.Delete(SurveyID);
@@ -308,12 +314,9 @@ namespace EasySurvey
 
         #endregion
 
-        private void btn_StartSurvey_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        #region ToolStripMenuItem_EditQuestions
+        #region ToolStripMenuItem - Add | Edit | Delete - Questions
 
         private void toolStripMenuItem_AddNewQuestion_Click(object sender, EventArgs e)
         {
@@ -338,7 +341,11 @@ namespace EasySurvey
 
         private void toolStripMenuItem_DeleteQuestions_Click(object sender, EventArgs e)
         {
-            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti intrebarile selectate?", "Easy Survey - Delete Questions", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+            int SelectedQuestionsCount = listView_EditSurveyQuestions.SelectedItems.Count;
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+
+            if (SelectedQuestionsCount > 0)
+                result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti intrebarile selectate?", "Easy Survey - Delete Questions", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
@@ -347,17 +354,20 @@ namespace EasySurvey
                 foreach (ListViewItem selectedItem in listView_EditSurveyQuestions.SelectedItems)
                 {
                     long QuestionID = Convert.ToInt64(selectedItem.Tag);
+                    long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
 
-                    questionController.Delete(QuestionID);
+                    questionController.Delete(QuestionID, SurveyID);
                     listView_EditSurveyQuestions.Items.Remove(selectedItem);
                 }
-
 
             }
         }
 
         #endregion
 
+        private void btn_StartSurvey_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
