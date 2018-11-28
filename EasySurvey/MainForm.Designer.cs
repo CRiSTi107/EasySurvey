@@ -28,23 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
         "sbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcv");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
         "fvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdvvsdsds");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("adsgfasd");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("asdfds");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("adsgfasd");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("asdfds");
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialContextMenuStripSurveys_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage_AllSurveys = new System.Windows.Forms.TabPage();
@@ -74,6 +73,7 @@
             this.pic_AboutUser = new System.Windows.Forms.PictureBox();
             this.pic_SearchAllSurveys = new System.Windows.Forms.PictureBox();
             this.pic_SaveChanges = new System.Windows.Forms.PictureBox();
+            this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialContextMenuStripSurveys_Admin.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
@@ -101,24 +101,24 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup2";
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup3";
-            listViewGroup4.Header = "Surveys";
-            listViewGroup4.Name = "listViewGroup4";
+            listViewGroup13.Header = "ListViewGroup";
+            listViewGroup13.Name = "listViewGroup1";
+            listViewGroup14.Header = "ListViewGroup";
+            listViewGroup14.Name = "listViewGroup2";
+            listViewGroup15.Header = "ListViewGroup";
+            listViewGroup15.Name = "listViewGroup3";
+            listViewGroup16.Header = "Surveys";
+            listViewGroup16.Name = "listViewGroup4";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 34);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
             this.listView_AllSurveys.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listView_AllSurveys.Size = new System.Drawing.Size(391, 376);
+            this.listView_AllSurveys.Size = new System.Drawing.Size(390, 376);
             this.listView_AllSurveys.TabIndex = 0;
             this.listView_AllSurveys.TileSize = new System.Drawing.Size(120, 40);
             this.listView_AllSurveys.UseCompatibleStateImageBehavior = false;
@@ -144,15 +144,9 @@
             this.materialContextMenuStripSurveys_Admin.Name = "materialContextMenuStrip1";
             this.materialContextMenuStripSurveys_Admin.Size = new System.Drawing.Size(205, 48);
             // 
-            // addNewToolStripMenuItem
-            // 
-            this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
-            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.addNewToolStripMenuItem.Text = "Add new Survey";
-            this.addNewToolStripMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
-            // 
             // deleteToolStripMenuItem
             // 
+            this.deleteToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.deleteToolStripMenuItem.Text = "Delete selected Survey(s)";
@@ -199,7 +193,7 @@
             this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyAdmin);
             this.splitContainer_AllSurveys.Panel2.Controls.Add(this.grb_SelectedSurveyUser);
             this.splitContainer_AllSurveys.Size = new System.Drawing.Size(889, 415);
-            this.splitContainer_AllSurveys.SplitterDistance = 402;
+            this.splitContainer_AllSurveys.SplitterDistance = 401;
             this.splitContainer_AllSurveys.TabIndex = 8;
             // 
             // panel_AllSurveys
@@ -210,7 +204,7 @@
             this.panel_AllSurveys.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_AllSurveys.Location = new System.Drawing.Point(0, 0);
             this.panel_AllSurveys.Name = "panel_AllSurveys";
-            this.panel_AllSurveys.Size = new System.Drawing.Size(402, 415);
+            this.panel_AllSurveys.Size = new System.Drawing.Size(401, 415);
             this.panel_AllSurveys.TabIndex = 9;
             // 
             // txt_AllSurveysSearchBar
@@ -227,7 +221,7 @@
             this.txt_AllSurveysSearchBar.SelectedText = "";
             this.txt_AllSurveysSearchBar.SelectionLength = 0;
             this.txt_AllSurveysSearchBar.SelectionStart = 0;
-            this.txt_AllSurveysSearchBar.Size = new System.Drawing.Size(361, 23);
+            this.txt_AllSurveysSearchBar.Size = new System.Drawing.Size(360, 23);
             this.txt_AllSurveysSearchBar.TabIndex = 4;
             this.txt_AllSurveysSearchBar.TabStop = false;
             this.txt_AllSurveysSearchBar.Text = "Search...";
@@ -248,7 +242,7 @@
             this.grb_SelectedSurveyAdmin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.grb_SelectedSurveyAdmin.Location = new System.Drawing.Point(0, 0);
             this.grb_SelectedSurveyAdmin.Name = "grb_SelectedSurveyAdmin";
-            this.grb_SelectedSurveyAdmin.Size = new System.Drawing.Size(483, 415);
+            this.grb_SelectedSurveyAdmin.Size = new System.Drawing.Size(484, 415);
             this.grb_SelectedSurveyAdmin.TabIndex = 4;
             this.grb_SelectedSurveyAdmin.TabStop = false;
             this.grb_SelectedSurveyAdmin.Text = "Selected Survey - Details";
@@ -260,7 +254,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_EditSurveyQuestions.Location = new System.Drawing.Point(24, 121);
             this.listView_EditSurveyQuestions.Name = "listView_EditSurveyQuestions";
-            this.listView_EditSurveyQuestions.Size = new System.Drawing.Size(442, 239);
+            this.listView_EditSurveyQuestions.Size = new System.Drawing.Size(443, 284);
             this.listView_EditSurveyQuestions.TabIndex = 8;
             this.listView_EditSurveyQuestions.TileSize = new System.Drawing.Size(188, 30);
             this.listView_EditSurveyQuestions.UseCompatibleStateImageBehavior = false;
@@ -293,9 +287,10 @@
             this.txt_EditSurveyDetailsName.SelectedText = "";
             this.txt_EditSurveyDetailsName.SelectionLength = 0;
             this.txt_EditSurveyDetailsName.SelectionStart = 0;
-            this.txt_EditSurveyDetailsName.Size = new System.Drawing.Size(412, 23);
+            this.txt_EditSurveyDetailsName.Size = new System.Drawing.Size(413, 23);
             this.txt_EditSurveyDetailsName.TabIndex = 1;
             this.txt_EditSurveyDetailsName.TabStop = false;
+            this.txt_EditSurveyDetailsName.Tag = "-1";
             this.txt_EditSurveyDetailsName.UseSystemPasswordChar = false;
             this.txt_EditSurveyDetailsName.TextChanged += new System.EventHandler(this.txt_EditSurveyDetailsName_TextChanged);
             // 
@@ -324,7 +319,7 @@
             this.grb_SelectedSurveyUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.grb_SelectedSurveyUser.Location = new System.Drawing.Point(0, 0);
             this.grb_SelectedSurveyUser.Name = "grb_SelectedSurveyUser";
-            this.grb_SelectedSurveyUser.Size = new System.Drawing.Size(483, 415);
+            this.grb_SelectedSurveyUser.Size = new System.Drawing.Size(484, 415);
             this.grb_SelectedSurveyUser.TabIndex = 5;
             this.grb_SelectedSurveyUser.TabStop = false;
             this.grb_SelectedSurveyUser.Text = "Selected Survey - Details";
@@ -356,14 +351,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5});
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20});
             this.listView_ViewSurveyQuestions.Location = new System.Drawing.Point(24, 166);
             this.listView_ViewSurveyQuestions.Name = "listView_ViewSurveyQuestions";
-            this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(442, 194);
+            this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(443, 194);
             this.listView_ViewSurveyQuestions.TabIndex = 6;
             this.listView_ViewSurveyQuestions.TileSize = new System.Drawing.Size(188, 30);
             this.listView_ViewSurveyQuestions.UseCompatibleStateImageBehavior = false;
@@ -392,7 +387,7 @@
             this.txt_ViewSurveyDetailsName.Location = new System.Drawing.Point(24, 58);
             this.txt_ViewSurveyDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_ViewSurveyDetailsName.Name = "txt_ViewSurveyDetailsName";
-            this.txt_ViewSurveyDetailsName.Size = new System.Drawing.Size(442, 60);
+            this.txt_ViewSurveyDetailsName.Size = new System.Drawing.Size(443, 60);
             this.txt_ViewSurveyDetailsName.TabIndex = 4;
             this.txt_ViewSurveyDetailsName.Text = "name name name name name name name name name name name name name name name name n" +
     "ame name name name name  ";
@@ -415,7 +410,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(825, 421);
+            this.tabPage2.Size = new System.Drawing.Size(895, 421);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -499,13 +494,18 @@
             // 
             // toolStripMenuItem_AddNewQuestion
             // 
+            this.toolStripMenuItem_AddNewQuestion.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
             this.toolStripMenuItem_AddNewQuestion.Name = "toolStripMenuItem_AddNewQuestion";
+            this.toolStripMenuItem_AddNewQuestion.ShortcutKeyDisplayString = "";
+            this.toolStripMenuItem_AddNewQuestion.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.toolStripMenuItem_AddNewQuestion.ShowShortcutKeys = false;
             this.toolStripMenuItem_AddNewQuestion.Size = new System.Drawing.Size(217, 22);
             this.toolStripMenuItem_AddNewQuestion.Text = "Add new Question";
             this.toolStripMenuItem_AddNewQuestion.Click += new System.EventHandler(this.toolStripMenuItem_AddNewQuestion_Click);
             // 
             // editToolStripMenuItem_EditQuestion
             // 
+            this.editToolStripMenuItem_EditQuestion.Image = global::EasySurvey.Properties.Resources.edit_icon_24x24;
             this.editToolStripMenuItem_EditQuestion.Name = "editToolStripMenuItem_EditQuestion";
             this.editToolStripMenuItem_EditQuestion.Size = new System.Drawing.Size(217, 22);
             this.editToolStripMenuItem_EditQuestion.Text = "Edit selected Question(s)";
@@ -513,6 +513,7 @@
             // 
             // toolStripMenuItem_DeleteQuestions
             // 
+            this.toolStripMenuItem_DeleteQuestions.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
             this.toolStripMenuItem_DeleteQuestions.Name = "toolStripMenuItem_DeleteQuestions";
             this.toolStripMenuItem_DeleteQuestions.Size = new System.Drawing.Size(217, 22);
             this.toolStripMenuItem_DeleteQuestions.Text = "Delete selected Question(s)";
@@ -538,7 +539,7 @@
             // 
             this.pic_SearchAllSurveys.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_SearchAllSurveys.BackgroundImage = global::EasySurvey.Properties.Resources.search_icon_24x24;
-            this.pic_SearchAllSurveys.Location = new System.Drawing.Point(373, 4);
+            this.pic_SearchAllSurveys.Location = new System.Drawing.Point(372, 4);
             this.pic_SearchAllSurveys.Name = "pic_SearchAllSurveys";
             this.pic_SearchAllSurveys.Size = new System.Drawing.Size(24, 24);
             this.pic_SearchAllSurveys.TabIndex = 5;
@@ -548,12 +549,23 @@
             // 
             this.pic_SaveChanges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_SaveChanges.BackgroundImage = global::EasySurvey.Properties.Resources.save_icon_disabled_24x24;
-            this.pic_SaveChanges.Location = new System.Drawing.Point(442, 53);
+            this.pic_SaveChanges.Location = new System.Drawing.Point(443, 53);
             this.pic_SaveChanges.Name = "pic_SaveChanges";
             this.pic_SaveChanges.Size = new System.Drawing.Size(24, 24);
             this.pic_SaveChanges.TabIndex = 9;
             this.pic_SaveChanges.TabStop = false;
             this.pic_SaveChanges.Click += new System.EventHandler(this.pic_SaveChanges_Click);
+            // 
+            // addNewToolStripMenuItem
+            // 
+            this.addNewToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
+            this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
+            this.addNewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.addNewToolStripMenuItem.ShowShortcutKeys = false;
+            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.addNewToolStripMenuItem.Text = "Add new Survey";
+            this.addNewToolStripMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
             // 
             // MainForm
             // 

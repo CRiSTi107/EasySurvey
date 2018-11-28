@@ -187,6 +187,7 @@ namespace EasySurvey
                 pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
                 pic_SaveChanges.Cursor = Cursors.Arrow;
                 IsSelectedSurveyOriginalNameChanged = false;
+                txt_EditSurveyDetailsName.Tag = -1;
                 return;
             }
             else
@@ -326,13 +327,17 @@ namespace EasySurvey
 
         private void toolStripMenuItem_AddNewQuestion_Click(object sender, EventArgs e)
         {
-            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Noua intrebare care sa fie adaugata in chestionar:", "Easy Survey - Add New Question", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.MessageBoxResultInput.None;
+            long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
+
+            if (SurveyID != -1)
+                result = MaterialMessageInput.Show("Noua intrebare care sa fie adaugata in chestionar:", "Easy Survey - Add New Question", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
             {
                 QuestionController questionController = new QuestionController();
                 string QuestionName = MaterialMessageInput.Answer;
-                long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
+                // long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
                 Question newQuestion = new Question { Question1 = QuestionName };
                 questionController.Add(ref newQuestion, SurveyID);
 
@@ -421,8 +426,9 @@ namespace EasySurvey
         private void txt_EditSurveyDetailsName_TextChanged(object sender, EventArgs e)
         {
             string CurrentSurveyName = txt_EditSurveyDetailsName.Text;
+            long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
 
-            if (CurrentSurveyName != SelectedSurveyOriginalName)
+            if (CurrentSurveyName != SelectedSurveyOriginalName && SurveyID != -1)
             {
                 IsSelectedSurveyOriginalNameChanged = true;
                 pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_24x24;

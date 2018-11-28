@@ -225,6 +225,9 @@
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\add_icon_24x24.png" />
+    <None Include="Resources\delete_icon_24x24.png" />
+    <None Include="Resources\edit_icon_24x24.png" />
     <Content Include="Resources\Icons\icon_error_64x64.png" />
     <Content Include="Resources\Icons\icon_information_64x64.png" />
     <Content Include="Resources\Icons\icon_question_64x64.png" />
