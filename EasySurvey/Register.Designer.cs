@@ -35,6 +35,8 @@
             this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
             this.btn_Register = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbl_ChooseUsername = new MaterialSkin.Controls.MaterialLabel();
+            this.pic_Username = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Username)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Username
@@ -43,7 +45,7 @@
             this.lbl_Username.Depth = 0;
             this.lbl_Username.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Username.Location = new System.Drawing.Point(40, 168);
+            this.lbl_Username.Location = new System.Drawing.Point(74, 168);
             this.lbl_Username.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Username.Name = "lbl_Username";
             this.lbl_Username.Size = new System.Drawing.Size(70, 19);
@@ -130,11 +132,22 @@
             this.lbl_ChooseUsername.TabIndex = 16;
             this.lbl_ChooseUsername.Text = "Alegeti-va un nume de utilizator.";
             // 
+            // pic_Username
+            // 
+            this.pic_Username.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Username.BackgroundImage = global::EasySurvey.Properties.Resources.userslogin_icon_24x24;
+            this.pic_Username.Location = new System.Drawing.Point(44, 163);
+            this.pic_Username.Name = "pic_Username";
+            this.pic_Username.Size = new System.Drawing.Size(24, 24);
+            this.pic_Username.TabIndex = 17;
+            this.pic_Username.TabStop = false;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 358);
+            this.Controls.Add(this.pic_Username);
             this.Controls.Add(this.lbl_ChooseUsername);
             this.Controls.Add(this.btn_BackToLogin);
             this.Controls.Add(this.lbl_Status);
@@ -148,6 +161,7 @@
             this.Text = "Easy Survey - Create Account";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.Load += new System.EventHandler(this.Register_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Username)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +175,6 @@
         private MaterialSkin.Controls.MaterialLabel lbl_Status;
         private MaterialSkin.Controls.MaterialRaisedButton btn_Register;
         private MaterialSkin.Controls.MaterialLabel lbl_ChooseUsername;
+        private System.Windows.Forms.PictureBox pic_Username;
     }
 }

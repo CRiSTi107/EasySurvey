@@ -143,6 +143,26 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap password_icon_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("password_icon_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap question_icon_20x20 {
+            get {
+                object obj = ResourceManager.GetObject("question_icon_20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap save_icon_24x24 {
             get {
                 object obj = ResourceManager.GetObject("save_icon_24x24", resourceCulture);
@@ -173,9 +193,39 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap survey_icon_20x20 {
+            get {
+                object obj = ResourceManager.GetObject("survey_icon_20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_icon_48x48 {
             get {
                 object obj = ResourceManager.GetObject("user_icon_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap userlogin_icon_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("userlogin_icon_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap userslogin_icon_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("userslogin_icon_24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

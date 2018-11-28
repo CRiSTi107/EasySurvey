@@ -41,7 +41,11 @@
             this.btn_Login = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
             this.btn_Register = new MaterialSkin.Controls.MaterialFlatButton();
+            this.pic_Password = new System.Windows.Forms.PictureBox();
+            this.pic_Username = new System.Windows.Forms.PictureBox();
             this.panel_Autocomplete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Password)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Username)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_Username
@@ -168,7 +172,7 @@
             this.lbl_Username.Depth = 0;
             this.lbl_Username.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Username.Location = new System.Drawing.Point(40, 133);
+            this.lbl_Username.Location = new System.Drawing.Point(74, 133);
             this.lbl_Username.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Username.Name = "lbl_Username";
             this.lbl_Username.Size = new System.Drawing.Size(70, 19);
@@ -181,7 +185,7 @@
             this.lbl_Password.Depth = 0;
             this.lbl_Password.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Password.Location = new System.Drawing.Point(40, 180);
+            this.lbl_Password.Location = new System.Drawing.Point(74, 180);
             this.lbl_Password.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Password.Name = "lbl_Password";
             this.lbl_Password.Size = new System.Drawing.Size(52, 19);
@@ -236,11 +240,34 @@
             this.btn_Register.UseVisualStyleBackColor = true;
             this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
+            // pic_Password
+            // 
+            this.pic_Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Password.BackgroundImage = global::EasySurvey.Properties.Resources.password_icon_24x24;
+            this.pic_Password.Location = new System.Drawing.Point(44, 175);
+            this.pic_Password.Name = "pic_Password";
+            this.pic_Password.Size = new System.Drawing.Size(24, 24);
+            this.pic_Password.TabIndex = 13;
+            this.pic_Password.TabStop = false;
+            this.pic_Password.Visible = false;
+            // 
+            // pic_Username
+            // 
+            this.pic_Username.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Username.BackgroundImage = global::EasySurvey.Properties.Resources.userlogin_icon_24x24;
+            this.pic_Username.Location = new System.Drawing.Point(44, 128);
+            this.pic_Username.Name = "pic_Username";
+            this.pic_Username.Size = new System.Drawing.Size(24, 24);
+            this.pic_Username.TabIndex = 12;
+            this.pic_Username.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 358);
+            this.Controls.Add(this.pic_Password);
+            this.Controls.Add(this.pic_Username);
             this.Controls.Add(this.lbl_Password);
             this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.btn_Register);
@@ -260,6 +287,8 @@
             this.Load += new System.EventHandler(this.Login_Load);
             this.VisibleChanged += new System.EventHandler(this.Login_VisibleChanged);
             this.panel_Autocomplete.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Password)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Username)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +308,8 @@
         private MaterialSkin.Controls.MaterialRaisedButton btn_Login;
         private MaterialSkin.Controls.MaterialLabel lbl_Status;
         private MaterialSkin.Controls.MaterialFlatButton btn_Register;
+        private System.Windows.Forms.PictureBox pic_Username;
+        private System.Windows.Forms.PictureBox pic_Password;
     }
 }
 

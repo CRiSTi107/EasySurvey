@@ -235,8 +235,13 @@
     <Content Include="Resources\Icons\icon_warning_64x64.png" />
     <None Include="Resources\save_icon_disabled_24x24.png" />
     <None Include="Resources\save_icon_24x24.png" />
+    <None Include="Resources\question_icon_20x20.png" />
+    <None Include="Resources\password_icon_24x24.png" />
     <Content Include="Resources\search_icon_24x24.png" />
     <None Include="Resources\user_icon_48x48.png" />
+    <None Include="Resources\survey_icon_20x20.png" />
+    <None Include="Resources\userslogin_icon_24x24.png" />
+    <None Include="Resources\userlogin_icon_24x24.png" />
     <Content Include="Survey.ico" />
   </ItemGroup>
   <ItemGroup>

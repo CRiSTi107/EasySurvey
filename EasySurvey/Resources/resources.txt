@@ -9,3 +9,27 @@ https://www.iconfinder.com/icons/285641/id_user_icon
 
 save_icon_24x24.png
 https://www.iconfinder.com/icons/285657/floppy_guardar_save_icon
+
+add_icon_24x24.png
+https://www.iconfinder.com/icons/299068/add_sign_icon
+
+edit_icon_24x24.png
+https://www.iconfinder.com/icons/285638/pencil_icon
+
+delete_icon_24x24.png
+https://www.iconfinder.com/icons/299045/error_sign_icon
+
+question_icon_20x20.png
+https://www.iconfinder.com/icons/811462/information_mark_question_sign_icon
+
+survey_icon_20x20.png
+https://www.iconfinder.com/icons/811498/check_checklist_document_list_to_do_icon
+
+password_icon_24x24.png
+https://www.iconfinder.com/icons/299105/lock_icon
+
+userlogin_icon_24x24.png
+https://www.iconfinder.com/icons/285645/user_icon
+
+userslogin_icon_24x24.png
+https://www.iconfinder.com/icons/285648/group_user_icon

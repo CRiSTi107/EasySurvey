@@ -53,6 +53,7 @@ namespace EasySurvey
 
         private void HidePasswordField()
         {
+            pic_Password.Visible = false;
             lbl_Password.Visible = false;
             txt_Password.Visible = false;
             txt_Password.Enabled = false;
@@ -61,6 +62,7 @@ namespace EasySurvey
 
         private void ShowPasswordField()
         {
+            pic_Password.Visible = true;
             lbl_Password.Visible = true;
             txt_Password.Visible = true;
             txt_Password.Enabled = true;
