@@ -71,9 +71,20 @@ namespace EasySurvey
             UpdateListView(Surveys);
 
             if (LoggedUser.IsAdministrator())
-            { grb_SelectedSurveyUser.Visible = false; grb_SelectedSurveyAdmin.Visible = true; listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurveys_Admin; listView_EditSurveyQuestions.ContextMenuStrip = materialContextMenuStrip_Admin; }
+            {
+                grb_SelectedSurveyUser.Visible = false;
+                grb_SelectedSurveyAdmin.Visible = true;
+                listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurveys_Admin;
+                listView_EditSurveyQuestions.ContextMenuStrip = materialContextMenuStrip_Admin;
+            }
             else
-            { grb_SelectedSurveyUser.Visible = true; grb_SelectedSurveyAdmin.Visible = false; listView_AllSurveys.ContextMenuStrip = null; listView_EditSurveyQuestions.ContextMenuStrip = null; }
+            {
+                grb_SelectedSurveyUser.Visible = true;
+                grb_SelectedSurveyAdmin.Visible = false;
+                listView_AllSurveys.ContextMenuStrip = null;
+                listView_EditSurveyQuestions.ContextMenuStrip = null;
+                materialTabControl.TabPages.Remove(tabPage_Attitudes);
+            }
 
             lbl_AboutUser.Text = LoggedUser.UserName;
         }
@@ -90,7 +101,7 @@ namespace EasySurvey
             UpdateListView(Surveys);
         }
 
-        #region Search
+        #region Search Survey
 
         private bool Search = false;
 
@@ -321,8 +332,6 @@ namespace EasySurvey
 
         #endregion
 
-
-
         #region ToolStripMenuItem - Add | Edit | Delete - Questions
 
         private void toolStripMenuItem_AddNewQuestion_Click(object sender, EventArgs e)
@@ -471,6 +480,10 @@ namespace EasySurvey
 
         #endregion
 
+        #region !== Attitudes ==!
 
+
+
+        #endregion
     }
 }
