@@ -39,6 +39,8 @@ namespace EasySurvey
             this.LoggedUser = loggedUser;
         }
 
+        #region !== Surveys == !
+
         private List<Survey> Surveys = new List<Survey>();
         private List<Survey> SearchSurveys = new List<Survey>();
 
@@ -48,16 +50,7 @@ namespace EasySurvey
             return surveyController.GetSurveys();
         }
 
-        private void UpdateListView(List<Survey> list)
-        {
-            listView_AllSurveys.Items.Clear();
-            foreach (Survey survey in list)
-            {
-                ListViewItem item = new ListViewItem(survey.SurveyName, listView_AllSurveys.Groups["listViewGroup4"]);
-                item.Tag = survey.SurveyID;
-                listView_AllSurveys.Items.Add(item);
-            }
-        }
+        #endregion
 
         // 908; 561
         private void MainForm_Load(object sender, EventArgs e)
@@ -67,8 +60,10 @@ namespace EasySurvey
             listView_ViewSurveyQuestions.Clear();
 
             Surveys = GetSurveys();
+            Attitudes = GetAttitudes();
 
-            UpdateListView(Surveys);
+            UpdateListView(Surveys, listView_AllSurveys);
+            UpdateListView(Attitudes, listView_AllAttitudes);
 
             if (LoggedUser.IsAdministrator())
             {
@@ -83,7 +78,8 @@ namespace EasySurvey
                 grb_SelectedSurveyAdmin.Visible = false;
                 listView_AllSurveys.ContextMenuStrip = null;
                 listView_EditSurveyQuestions.ContextMenuStrip = null;
-                materialTabControl.TabPages.Remove(tabPage_Attitudes);
+
+                materialTabControl.TabPages.Remove(tabPage_AllAttitudes);
             }
 
             lbl_AboutUser.Text = LoggedUser.UserName;
@@ -98,7 +94,7 @@ namespace EasySurvey
         {
             Surveys = GetSurveys();
 
-            UpdateListView(Surveys);
+            UpdateListView(Surveys, listView_AllSurveys, "listViewGroup4");
         }
 
         #region Search Survey
@@ -138,7 +134,7 @@ namespace EasySurvey
             SurveyController surveyController = new SurveyController();
             SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref Search));
 
-            UpdateListView(SearchSurveys);
+            UpdateListView(SearchSurveys, listView_AllSurveys);
         }
 
 
@@ -482,7 +478,49 @@ namespace EasySurvey
 
         #region !== Attitudes ==!
 
+        private List<Attitude> Attitudes = new List<Attitude>();
+        private List<Attitude> SearchAttitudes = new List<Attitude>();
 
+        private List<Attitude> GetAttitudes()
+        {
+            AttitudeController attitudeController = new AttitudeController();
+            return attitudeController.GetAttitudes();
+        }
+
+        #endregion
+
+        #region !== Update Views ==!
+
+        private void UpdateListView(List<Survey> surveys, ListView listView, string group_key = "default")
+        {
+            List<KeyValuePair<long, string>> IdNamePair = new List<KeyValuePair<long, string>>();
+
+            foreach (Survey survey in surveys)
+                IdNamePair.Add(new KeyValuePair<long, string>(survey.SurveyID, survey.SurveyName));
+
+            UpdateListView(IdNamePair, listView, group_key);
+        }
+
+        private void UpdateListView(List<Attitude> attitudes, ListView listView, string group_key = "default")
+        {
+            List<KeyValuePair<long, string>> IdNamePair = new List<KeyValuePair<long, string>>();
+
+            foreach (Attitude attitude in attitudes)
+                IdNamePair.Add(new KeyValuePair<long, string>(attitude.AttitudeID, attitude.AttitudeName));
+
+            UpdateListView(IdNamePair, listView, group_key);
+        }
+
+        private void UpdateListView(List<KeyValuePair<long, string>> list, ListView listView, string group_key = "default")
+        {
+            listView.Items.Clear();
+            foreach (KeyValuePair<long, string> pair in list)
+            {
+                ListViewItem item = new ListViewItem(pair.Value, listView.Groups[group_key]);
+                item.Tag = pair.Key;
+                listView.Items.Add(item);
+            }
+        }
 
         #endregion
     }
