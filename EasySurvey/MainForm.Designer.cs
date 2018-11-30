@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
         "sbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcv");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
         "fvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdvvsdsds");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("adsgfasd");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("asdfds");
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("adsgfasd");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("asdfds");
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -133,10 +133,10 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup1.Header = "Surveys";
-            listViewGroup1.Name = "default";
+            listViewGroup5.Header = "Surveys";
+            listViewGroup5.Name = "default";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup5});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 34);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
@@ -450,11 +450,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5});
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15});
             this.listView_ViewSurveyQuestions.Location = new System.Drawing.Point(36, 144);
             this.listView_ViewSurveyQuestions.Name = "listView_ViewSurveyQuestions";
             this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(431, 216);
@@ -571,6 +571,9 @@
             this.txt_AllAttitudesSearchBar.TabStop = false;
             this.txt_AllAttitudesSearchBar.Text = "Search...";
             this.txt_AllAttitudesSearchBar.UseSystemPasswordChar = false;
+            this.txt_AllAttitudesSearchBar.Enter += new System.EventHandler(this.txt_AllAttitudesSearchBar_Enter);
+            this.txt_AllAttitudesSearchBar.Leave += new System.EventHandler(this.txt_AllAttitudesSearchBar_Leave);
+            this.txt_AllAttitudesSearchBar.TextChanged += new System.EventHandler(this.txt_AllAttitudesSearchBar_TextChanged);
             // 
             // listView_AllAttitudes
             // 
@@ -582,10 +585,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView_AllAttitudes.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup2.Header = "Attitudes";
-            listViewGroup2.Name = "default";
+            listViewGroup6.Header = "Attitudes";
+            listViewGroup6.Name = "default";
             this.listView_AllAttitudes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup6});
             this.listView_AllAttitudes.Location = new System.Drawing.Point(6, 34);
             this.listView_AllAttitudes.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllAttitudes.Name = "listView_AllAttitudes";

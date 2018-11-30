@@ -50,6 +50,8 @@ namespace EasySurvey
             return surveyController.GetSurveys();
         }
 
+        private bool SearchSurvey = false;
+
         #endregion
 
         // 908; 561
@@ -99,28 +101,14 @@ namespace EasySurvey
 
         #region Search Survey
 
-        private bool Search = false;
-
         private void txt_AllSurveysSearchBar_Enter(object sender, EventArgs e)
         {
-            string Query = txt_AllSurveysSearchBar.Text;
-            if (Query == "Search...")
-            {
-                txt_AllSurveysSearchBar.Text = "";
-                txt_AllSurveysSearchBar.ForeColor = Color.Black;
-            }
-
+            SearchBarEnter(txt_AllSurveysSearchBar);
         }
 
         private void txt_AllSurveysSearchBar_Leave(object sender, EventArgs e)
         {
-            string Query = txt_AllSurveysSearchBar.Text;
-            if (Query == "")
-            {
-                txt_AllSurveysSearchBar.Text = "Search...";
-                txt_AllSurveysSearchBar.ForeColor = Color.Gray;
-            }
-
+            SearchBarLeave(txt_AllAttitudesSearchBar);
         }
 
         private void txt_AllSurveysSearchBar_TextChanged(object sender, EventArgs e)
@@ -132,11 +120,10 @@ namespace EasySurvey
             SearchSurveys = new List<Survey>();
 
             SurveyController surveyController = new SurveyController();
-            SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref Search));
+            SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref SearchSurvey));
 
             UpdateListView(SearchSurveys, listView_AllSurveys);
         }
-
 
         #endregion
 
@@ -487,9 +474,43 @@ namespace EasySurvey
             return attitudeController.GetAttitudes();
         }
 
+        #region Search Attitude
+
+        private bool SearchAttitude = false;
+
+        private void txt_AllAttitudesSearchBar_Enter(object sender, EventArgs e)
+        {
+            SearchBarEnter(txt_AllAttitudesSearchBar);
+        }
+
+        private void txt_AllAttitudesSearchBar_Leave(object sender, EventArgs e)
+        {
+            SearchBarLeave(txt_AllAttitudesSearchBar);
+        }
+
+        private void txt_AllAttitudesSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string Query = txt_AllAttitudesSearchBar.Text;
+
+            if (Query == "Search...") return;
+
+            SearchAttitudes = new List<Attitude>();
+
+            AttitudeController attitudeController = new AttitudeController();
+            SearchAttitudes = new List<Attitude>(attitudeController.Search(Attitudes, Query, ref SearchAttitude));
+
+            UpdateListView(SearchAttitudes, listView_AllAttitudes);
+        }
+
         #endregion
 
+        #endregion
+
+
+
         #region !== Update Views ==!
+
+        #region Update List View
 
         private void UpdateListView(List<Survey> surveys, ListView listView, string group_key = "default")
         {
@@ -521,6 +542,37 @@ namespace EasySurvey
                 listView.Items.Add(item);
             }
         }
+
+        #endregion
+
+        #region Search
+
+        private void SearchBarEnter(MaterialSingleLineTextField txt_SearchBar)
+        {
+            string Query = txt_SearchBar.Text;
+            if (Query == "Search...")
+            {
+                txt_SearchBar.Text = "";
+                txt_SearchBar.ForeColor = Color.Black;
+            }
+        }
+
+        private void SearchBarLeave(MaterialSingleLineTextField txt_SearchBar)
+        {
+            string Query = txt_SearchBar.Text;
+            if (Query == "")
+            {
+                txt_SearchBar.Text = "Search...";
+                txt_SearchBar.ForeColor = Color.Gray;
+            }
+        }
+
+        private void SearchBarTextChanged()
+        {
+
+        }
+
+        #endregion
 
         #endregion
     }
