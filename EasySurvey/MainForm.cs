@@ -50,7 +50,79 @@ namespace EasySurvey
             return surveyController.GetSurveys();
         }
 
+        #region Select Survey
+
+        //For ADMIN
+        private void UpdateEditSurveyDetails(long SurveyID)
+        {
+            UpdateSelectedSurvey(SurveyID, listView_EditSurveyQuestions);
+        }
+
+        //For USER
+        private void UpdateViewSurveyDetails(long SurveyID)
+        {
+            UpdateSelectedSurvey(SurveyID, listView_ViewSurveyQuestions);
+        }
+
+        private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView_AllSurveys.SelectedItems.Count != 1)
+            {
+                txt_EditSurveyDetailsName.Text = ""; txt_ViewSurveyDetailsName.Text = "";
+                listView_ViewSurveyQuestions.Items.Clear(); listView_EditSurveyQuestions.Items.Clear();
+                txt_ViewSurveyDetailsName.Tag = null; txt_EditSurveyDetailsName.Tag = null;
+                btn_StartSurvey.Enabled = btn_StartSurvey.Visible = false;
+                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveChanges.Cursor = Cursors.Arrow;
+                IsSelectedSurveyOriginalNameChanged = false;
+                txt_EditSurveyDetailsName.Tag = -1;
+                return;
+            }
+            else
+            { btn_StartSurvey.Enabled = btn_StartSurvey.Visible = true; }
+
+            ListViewItem selectedItem = listView_AllSurveys.SelectedItems[0];
+            long SurveyID = Convert.ToInt64(selectedItem.Tag);
+
+            if (LoggedUser.IsAdministrator())
+                UpdateEditSurveyDetails(SurveyID);
+            else
+                UpdateViewSurveyDetails(SurveyID);
+
+        }
+
+        #endregion
+
+
+        #region Search Survey
+
         private bool SearchSurvey = false;
+
+        private void txt_AllSurveysSearchBar_Enter(object sender, EventArgs e)
+        {
+            SearchBarEnter(txt_AllSurveysSearchBar);
+        }
+
+        private void txt_AllSurveysSearchBar_Leave(object sender, EventArgs e)
+        {
+            SearchBarLeave(txt_AllAttitudesSearchBar);
+        }
+
+        private void txt_AllSurveysSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string Query = txt_AllSurveysSearchBar.Text;
+
+            if (Query == "Search...") return;
+
+            SearchSurveys = new List<Survey>();
+
+            SurveyController surveyController = new SurveyController();
+            SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref SearchSurvey));
+
+            UpdateListView(SearchSurveys, listView_AllSurveys);
+        }
+
+        #endregion
 
         #endregion
 
@@ -96,108 +168,8 @@ namespace EasySurvey
         {
             Surveys = GetSurveys();
 
-            UpdateListView(Surveys, listView_AllSurveys, "listViewGroup4");
+            UpdateListView(Surveys, listView_AllSurveys);
         }
-
-        #region Search Survey
-
-        private void txt_AllSurveysSearchBar_Enter(object sender, EventArgs e)
-        {
-            SearchBarEnter(txt_AllSurveysSearchBar);
-        }
-
-        private void txt_AllSurveysSearchBar_Leave(object sender, EventArgs e)
-        {
-            SearchBarLeave(txt_AllAttitudesSearchBar);
-        }
-
-        private void txt_AllSurveysSearchBar_TextChanged(object sender, EventArgs e)
-        {
-            string Query = txt_AllSurveysSearchBar.Text;
-
-            if (Query == "Search...") return;
-
-            SearchSurveys = new List<Survey>();
-
-            SurveyController surveyController = new SurveyController();
-            SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref SearchSurvey));
-
-            UpdateListView(SearchSurveys, listView_AllSurveys);
-        }
-
-        #endregion
-
-        #region Select Survey
-
-        //For ADMIN
-        private void UpdateEditSurveyDetails(long SurveyID)
-        {
-            SurveyController surveyController = new SurveyController();
-            Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
-
-            SelectedSurveyOriginalName = selectedSurvey.SurveyName;
-            IsSelectedSurveyOriginalNameChanged = false;
-
-            txt_EditSurveyDetailsName.Text = selectedSurvey.SurveyName;
-            txt_EditSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
-
-            listView_EditSurveyQuestions.Clear();
-
-            QuestionController questionController = new QuestionController();
-
-            List<Question> Questions = questionController.GetQuestions(SurveyID);
-            foreach (Question question in Questions)
-            {
-                listView_EditSurveyQuestions.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
-            }
-        }
-
-        //For USER
-        private void UpdateViewSurveyDetails(long SurveyID)
-        {
-            SurveyController surveyController = new SurveyController();
-            Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
-            txt_ViewSurveyDetailsName.Text = selectedSurvey.SurveyName;
-
-            listView_ViewSurveyQuestions.Clear();
-
-            QuestionController questionController = new QuestionController();
-
-            List<Question> Questions = questionController.GetQuestions(SurveyID);
-            foreach (Question question in Questions)
-            {
-                listView_ViewSurveyQuestions.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
-            }
-        }
-
-        private void listView_AllSurveys_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView_AllSurveys.SelectedItems.Count != 1)
-            {
-                txt_EditSurveyDetailsName.Text = ""; txt_ViewSurveyDetailsName.Text = "";
-                listView_ViewSurveyQuestions.Items.Clear(); listView_EditSurveyQuestions.Items.Clear();
-                txt_ViewSurveyDetailsName.Tag = null; txt_EditSurveyDetailsName.Tag = null;
-                btn_StartSurvey.Enabled = btn_StartSurvey.Visible = false;
-                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
-                pic_SaveChanges.Cursor = Cursors.Arrow;
-                IsSelectedSurveyOriginalNameChanged = false;
-                txt_EditSurveyDetailsName.Tag = -1;
-                return;
-            }
-            else
-            { btn_StartSurvey.Enabled = btn_StartSurvey.Visible = true; }
-
-            ListViewItem selectedItem = listView_AllSurveys.SelectedItems[0];
-            long SurveyID = Convert.ToInt64(selectedItem.Tag);
-
-            if (LoggedUser.IsAdministrator())
-                UpdateEditSurveyDetails(SurveyID);
-            else
-                UpdateViewSurveyDetails(SurveyID);
-
-        }
-
-        #endregion
 
         #region About User - FontChanged and ForeColorChanged Events
 
@@ -463,6 +435,8 @@ namespace EasySurvey
 
         #endregion
 
+
+
         #region !== Attitudes ==!
 
         private List<Attitude> Attitudes = new List<Attitude>();
@@ -512,6 +486,7 @@ namespace EasySurvey
 
         #region Update List View
 
+        // START - Update All Surveys | Attitudes
         private void UpdateListView(List<Survey> surveys, ListView listView, string group_key = "default")
         {
             List<KeyValuePair<long, string>> IdNamePair = new List<KeyValuePair<long, string>>();
@@ -542,6 +517,40 @@ namespace EasySurvey
                 listView.Items.Add(item);
             }
         }
+        // END - Update All Surveys | Attitudes
+
+
+        // START - Update Selected Survey | Attitude
+        private void UpdateSelectedSurvey(long SurveyID, ListView listView)
+        {
+            SurveyController surveyController = new SurveyController();
+            Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
+
+            if (LoggedUser.IsAdministrator())
+            {
+                txt_EditSurveyDetailsName.Text = selectedSurvey.SurveyName;
+                txt_EditSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
+
+                SelectedSurveyOriginalName = selectedSurvey.SurveyName;
+                IsSelectedSurveyOriginalNameChanged = false;
+            }
+            else
+            {
+                txt_ViewSurveyDetailsName.Text = selectedSurvey.SurveyName;
+                txt_ViewSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
+            }
+
+            listView.Clear();
+
+            QuestionController questionController = new QuestionController();
+
+            List<Question> Questions = questionController.GetQuestions(SurveyID);
+            foreach (Question question in Questions)
+            {
+                listView.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
+            }
+        }
+        // END - Update Selected Survey | Attitude
 
         #endregion
 
@@ -565,11 +574,6 @@ namespace EasySurvey
                 txt_SearchBar.Text = "Search...";
                 txt_SearchBar.ForeColor = Color.Gray;
             }
-        }
-
-        private void SearchBarTextChanged()
-        {
-
         }
 
         #endregion
