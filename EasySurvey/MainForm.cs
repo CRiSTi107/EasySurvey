@@ -72,8 +72,8 @@ namespace EasySurvey
                 listView_ViewSurveyQuestions.Items.Clear(); listView_EditSurveyQuestions.Items.Clear();
                 txt_ViewSurveyDetailsName.Tag = null; txt_EditSurveyDetailsName.Tag = null;
                 btn_StartSurvey.Enabled = btn_StartSurvey.Visible = false;
-                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
-                pic_SaveChanges.Cursor = Cursors.Arrow;
+                pic_SaveSurveyChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveSurveyChanges.Cursor = Cursors.Arrow;
                 IsSelectedSurveyOriginalNameChanged = false;
                 txt_EditSurveyDetailsName.Tag = -1;
                 return;
@@ -143,8 +143,8 @@ namespace EasySurvey
             {
                 grb_SelectedSurveyUser.Visible = false;
                 grb_SelectedSurveyAdmin.Visible = true;
-                listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurveys_Admin;
-                listView_EditSurveyQuestions.ContextMenuStrip = materialContextMenuStrip_Admin;
+                listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurvey_Admin;
+                listView_EditSurveyQuestions.ContextMenuStrip = materialContextMenuStripQuestion_Admin;
             }
             else
             {
@@ -275,7 +275,7 @@ namespace EasySurvey
                 Survey newSurvey = new Survey { SurveyName = SurveyName };
                 surveyController.Add(ref newSurvey);
                 Surveys.Add(newSurvey);
-                ListViewItem newSurveyItem = new ListViewItem(listView_AllSurveys.Groups["listViewGroup4"]) { Tag = newSurvey.SurveyID.ToString(), Text = newSurvey.SurveyName };
+                ListViewItem newSurveyItem = new ListViewItem(listView_AllSurveys.Groups["default"]) { Tag = newSurvey.SurveyID.ToString(), Text = newSurvey.SurveyName };
                 listView_AllSurveys.Items.Add(newSurveyItem);
                 int SurveyIndex = listView_AllSurveys.Items.Count - 1;
                 listView_AllSurveys.Items[SurveyIndex].Selected = true;
@@ -395,14 +395,14 @@ namespace EasySurvey
             if (CurrentSurveyName != SelectedSurveyOriginalName && SurveyID != -1)
             {
                 IsSelectedSurveyOriginalNameChanged = true;
-                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_24x24;
-                pic_SaveChanges.Cursor = Cursors.Hand;
+                pic_SaveSurveyChanges.BackgroundImage = Properties.Resources.save_icon_24x24;
+                pic_SaveSurveyChanges.Cursor = Cursors.Hand;
             }
             else
             {
                 IsSelectedSurveyOriginalNameChanged = false;
-                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
-                pic_SaveChanges.Cursor = Cursors.Arrow;
+                pic_SaveSurveyChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveSurveyChanges.Cursor = Cursors.Arrow;
             }
         }
 
@@ -428,8 +428,8 @@ namespace EasySurvey
                 }
 
                 IsSelectedSurveyOriginalNameChanged = false;
-                pic_SaveChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
-                pic_SaveChanges.Cursor = Cursors.Arrow;
+                pic_SaveSurveyChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveSurveyChanges.Cursor = Cursors.Arrow;
             }
         }
 

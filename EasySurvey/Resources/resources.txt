@@ -36,3 +36,6 @@ https://www.iconfinder.com/icons/285648/group_user_icon
 
 attitude_icon_20x20.png
 https://www.iconfinder.com/icons/1011792/behaviour_communication_hair_human_style_swag_icon
+
+modify_icon_20x20.png
+https://www.iconfinder.com/icons/513929/draw_edit_options_pen_pencil_tool_write_icon
