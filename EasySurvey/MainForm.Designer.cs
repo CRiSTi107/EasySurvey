@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
         "sbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcv");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
         "fvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdvvsdsds");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("adsgfasd");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("asdfds");
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("adsgfasd");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("asdfds");
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -75,13 +75,13 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pic_AttitudeEdit = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.txt_EditAttituddeDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lbl_EditAttituddeDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.lbl_AboutUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -115,7 +115,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllAttitudes)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AttitudeEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel_AboutUser.SuspendLayout();
@@ -133,10 +133,10 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup5.Header = "Surveys";
-            listViewGroup5.Name = "default";
+            listViewGroup1.Header = "Surveys";
+            listViewGroup1.Name = "default";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup5});
+            listViewGroup1});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 34);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
@@ -450,11 +450,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5});
             this.listView_ViewSurveyQuestions.Location = new System.Drawing.Point(36, 144);
             this.listView_ViewSurveyQuestions.Name = "listView_ViewSurveyQuestions";
             this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(431, 216);
@@ -585,10 +585,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView_AllAttitudes.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup6.Header = "Attitudes";
-            listViewGroup6.Name = "default";
+            listViewGroup2.Header = "Attitudes";
+            listViewGroup2.Name = "default";
             this.listView_AllAttitudes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6});
+            listViewGroup2});
             this.listView_AllAttitudes.Location = new System.Drawing.Point(6, 34);
             this.listView_AllAttitudes.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllAttitudes.Name = "listView_AllAttitudes";
@@ -598,6 +598,7 @@
             this.listView_AllAttitudes.TileSize = new System.Drawing.Size(120, 40);
             this.listView_AllAttitudes.UseCompatibleStateImageBehavior = false;
             this.listView_AllAttitudes.View = System.Windows.Forms.View.Tile;
+            this.listView_AllAttitudes.SelectedIndexChanged += new System.EventHandler(this.listView_AllAttitudes_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
@@ -610,13 +611,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pic_AttitudeEdit);
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.listView2);
             this.groupBox1.Controls.Add(this.materialLabel1);
-            this.groupBox1.Controls.Add(this.materialSingleLineTextField2);
-            this.groupBox1.Controls.Add(this.materialLabel2);
+            this.groupBox1.Controls.Add(this.txt_EditAttituddeDetailsName);
+            this.groupBox1.Controls.Add(this.lbl_EditAttituddeDetailsName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -626,15 +627,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selected Survey - Details";
             // 
-            // pictureBox2
+            // pic_AttitudeEdit
             // 
-            this.pictureBox2.BackgroundImage = global::EasySurvey.Properties.Resources.survey_icon_20x20;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 31);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
+            this.pic_AttitudeEdit.BackgroundImage = global::EasySurvey.Properties.Resources.attitude_icon_20x20;
+            this.pic_AttitudeEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_AttitudeEdit.Location = new System.Drawing.Point(6, 31);
+            this.pic_AttitudeEdit.Name = "pic_AttitudeEdit";
+            this.pic_AttitudeEdit.Size = new System.Drawing.Size(20, 20);
+            this.pic_AttitudeEdit.TabIndex = 11;
+            this.pic_AttitudeEdit.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -682,38 +683,38 @@
             this.materialLabel1.TabIndex = 7;
             this.materialLabel1.Text = "Questions";
             // 
-            // materialSingleLineTextField2
+            // txt_EditAttituddeDetailsName
             // 
-            this.materialSingleLineTextField2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_EditAttituddeDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(36, 54);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(401, 23);
-            this.materialSingleLineTextField2.TabIndex = 1;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.Tag = "-1";
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.txt_EditAttituddeDetailsName.Depth = 0;
+            this.txt_EditAttituddeDetailsName.Hint = "";
+            this.txt_EditAttituddeDetailsName.Location = new System.Drawing.Point(36, 54);
+            this.txt_EditAttituddeDetailsName.MaxLength = 32767;
+            this.txt_EditAttituddeDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txt_EditAttituddeDetailsName.Name = "txt_EditAttituddeDetailsName";
+            this.txt_EditAttituddeDetailsName.PasswordChar = '\0';
+            this.txt_EditAttituddeDetailsName.SelectedText = "";
+            this.txt_EditAttituddeDetailsName.SelectionLength = 0;
+            this.txt_EditAttituddeDetailsName.SelectionStart = 0;
+            this.txt_EditAttituddeDetailsName.Size = new System.Drawing.Size(401, 23);
+            this.txt_EditAttituddeDetailsName.TabIndex = 1;
+            this.txt_EditAttituddeDetailsName.TabStop = false;
+            this.txt_EditAttituddeDetailsName.Tag = "-1";
+            this.txt_EditAttituddeDetailsName.UseSystemPasswordChar = false;
             // 
-            // materialLabel2
+            // lbl_EditAttituddeDetailsName
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(32, 32);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(49, 19);
-            this.materialLabel2.TabIndex = 0;
-            this.materialLabel2.Text = "Nume";
+            this.lbl_EditAttituddeDetailsName.AutoSize = true;
+            this.lbl_EditAttituddeDetailsName.Depth = 0;
+            this.lbl_EditAttituddeDetailsName.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_EditAttituddeDetailsName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_EditAttituddeDetailsName.Location = new System.Drawing.Point(32, 32);
+            this.lbl_EditAttituddeDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_EditAttituddeDetailsName.Name = "lbl_EditAttituddeDetailsName";
+            this.lbl_EditAttituddeDetailsName.Size = new System.Drawing.Size(49, 19);
+            this.lbl_EditAttituddeDetailsName.TabIndex = 0;
+            this.lbl_EditAttituddeDetailsName.Text = "Nume";
             // 
             // materialTabSelector
             // 
@@ -879,7 +880,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllAttitudes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AttitudeEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel_AboutUser.ResumeLayout(false);
@@ -929,13 +930,13 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pic_AttitudeEdit;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.ListView listView2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txt_EditAttituddeDetailsName;
+        private MaterialSkin.Controls.MaterialLabel lbl_EditAttituddeDetailsName;
         private System.Windows.Forms.GroupBox grb_SelectedSurveyUser;
         private System.Windows.Forms.PictureBox pic_SurveyView;
         private System.Windows.Forms.PictureBox pic_QuestionsView;

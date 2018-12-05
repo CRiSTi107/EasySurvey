@@ -579,5 +579,10 @@ namespace EasySurvey
         #endregion
 
         #endregion
+
+        private void listView_AllAttitudes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
