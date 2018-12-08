@@ -173,6 +173,16 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pencil_icon_20x20 {
+            get {
+                object obj = ResourceManager.GetObject("pencil_icon_20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap question_icon_20x20 {
             get {
                 object obj = ResourceManager.GetObject("question_icon_20x20", resourceCulture);

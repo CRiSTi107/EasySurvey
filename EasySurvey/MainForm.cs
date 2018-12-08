@@ -124,6 +124,15 @@ namespace EasySurvey
 
         #endregion
 
+        #region Start Survey
+
+        private void btn_StartSurvey_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
         #endregion
 
         // 908; 561
@@ -377,11 +386,6 @@ namespace EasySurvey
 
         #endregion
 
-        private void btn_StartSurvey_Click(object sender, EventArgs e)
-        {
-
-        }
-
         #region Admin - Save Changes - Survey Name
 
         private string SelectedSurveyOriginalName = String.Empty;
@@ -478,6 +482,39 @@ namespace EasySurvey
 
         #endregion
 
+        #region Select Attitude
+
+        private string SelectedAttitudeOriginalName = String.Empty;
+        private bool IsSelectedAttitudeOriginalNameChanged = false;
+
+        private void listView_AllAttitudes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView_AllAttitudes.SelectedItems.Count != 1)
+            {
+                txt_EditAttitudeDetailsName.Text = "";
+                listView_EditAttitudeDefinition.Items.Clear();
+                txt_EditAttitudeDetailsName.Tag = null;
+                pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveAttitudeChanges.Cursor = Cursors.Arrow;
+                // TODO : Edit this -> IsSelectedSurveyOriginalNameChanged = false;
+                // txt_EditAttitudeDetailsName.Tag = -1;
+                return;
+            }
+
+            ListViewItem selectedItem = listView_AllAttitudes.SelectedItems[0];
+            long AttitudeID = Convert.ToInt64(selectedItem.Tag);
+
+            if (LoggedUser.IsAdministrator())
+                UpdateEditAttitudeDetails(AttitudeID);
+        }
+
+        private void UpdateEditAttitudeDetails(long AttitudeID)
+        {
+            UpdateSelectedAttitude(AttitudeID, listView_EditAttitudeDefinition);
+        }
+
+        #endregion
+
         #endregion
 
 
@@ -544,7 +581,32 @@ namespace EasySurvey
 
             QuestionController questionController = new QuestionController();
 
-            List<Question> Questions = questionController.GetQuestions(SurveyID);
+            List<Question> Questions = questionController.GetQuestionsForSurvey(SurveyID);
+            foreach (Question question in Questions)
+            {
+                listView.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
+            }
+        }
+
+        private void UpdateSelectedAttitude(long AttitudeID, ListView listView)
+        {
+            AttitudeController attitudeController = new AttitudeController();
+            Attitude selectedAttitude = attitudeController.GetAttitude(AttitudeID);
+
+            if (LoggedUser.IsAdministrator())
+            {
+                txt_EditAttitudeDetailsName.Text = selectedAttitude.AttitudeName;
+                txt_EditAttitudeDetailsName.Tag = selectedAttitude.AttitudeID.ToString();
+
+                SelectedAttitudeOriginalName = selectedAttitude.AttitudeName;
+                IsSelectedAttitudeOriginalNameChanged = false;
+            }
+
+            listView.Clear();
+
+            QuestionController questionController = new QuestionController();
+
+            List<Question> Questions = questionController.GetQuestionsForAttitude(AttitudeID);
             foreach (Question question in Questions)
             {
                 listView.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
@@ -580,9 +642,5 @@ namespace EasySurvey
 
         #endregion
 
-        private void listView_AllAttitudes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

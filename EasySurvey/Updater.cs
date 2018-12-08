@@ -52,7 +52,7 @@ namespace EasySurvey
             }
             catch (WebException we)
             {
-                throw we;
+                // throw we;
             }
         }
     }

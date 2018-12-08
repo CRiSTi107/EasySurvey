@@ -65,10 +65,12 @@
             this.listView_AllAttitudes = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.materialContextMenuStripAttitude_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView_EditAttitudeDefinition = new System.Windows.Forms.ListView();
+            this.materialContextMenuStripAttitudeDefinition_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.lbl_EditAttitudeDefinition = new MaterialSkin.Controls.MaterialLabel();
-            this.txt_EditAttituddeDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txt_EditAttitudeDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_EditAttituddeDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.lbl_AboutUser = new MaterialSkin.Controls.MaterialLabel();
@@ -83,21 +85,19 @@
             this.pic_SurveyView = new System.Windows.Forms.PictureBox();
             this.pic_QuestionsView = new System.Windows.Forms.PictureBox();
             this.pic_SearchAllAttitudes = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pic_AttitudeEdit = new System.Windows.Forms.PictureBox();
             this.pic_EditAttitudeDefinition = new System.Windows.Forms.PictureBox();
             this.pic_SaveAttitudeChanges = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_AddNewQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem_EditQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DeleteQuestions = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialContextMenuStripAttitude_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialContextMenuStripAttitudeDefinition_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.materialContextMenuStripSurvey_Admin.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_AllSurveys.SuspendLayout();
@@ -114,7 +114,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.materialContextMenuStripAttitude_Admin.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.materialContextMenuStripAttitudeDefinition_Admin.SuspendLayout();
             this.panel_AboutUser.SuspendLayout();
             this.materialContextMenuStripQuestion_Admin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).BeginInit();
@@ -128,8 +130,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_AttitudeEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_EditAttitudeDefinition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SaveAttitudeChanges)).BeginInit();
-            this.materialContextMenuStripAttitude_Admin.SuspendLayout();
-            this.materialContextMenuStripAttitudeDefinition_Admin.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView_AllSurveys
@@ -528,6 +528,17 @@
             // 
             this.columnHeader4.Width = 122;
             // 
+            // materialContextMenuStripAttitude_Admin
+            // 
+            this.materialContextMenuStripAttitude_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialContextMenuStripAttitude_Admin.Depth = 0;
+            this.materialContextMenuStripAttitude_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.materialContextMenuStripAttitude_Admin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStripAttitude_Admin.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStripAttitude_Admin.Size = new System.Drawing.Size(213, 48);
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
@@ -536,7 +547,7 @@
             this.groupBox1.Controls.Add(this.pic_SaveAttitudeChanges);
             this.groupBox1.Controls.Add(this.listView_EditAttitudeDefinition);
             this.groupBox1.Controls.Add(this.lbl_EditAttitudeDefinition);
-            this.groupBox1.Controls.Add(this.txt_EditAttituddeDetailsName);
+            this.groupBox1.Controls.Add(this.txt_EditAttitudeDetailsName);
             this.groupBox1.Controls.Add(this.lbl_EditAttituddeDetailsName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -561,6 +572,18 @@
             this.listView_EditAttitudeDefinition.UseCompatibleStateImageBehavior = false;
             this.listView_EditAttitudeDefinition.View = System.Windows.Forms.View.Tile;
             // 
+            // materialContextMenuStripAttitudeDefinition_Admin
+            // 
+            this.materialContextMenuStripAttitudeDefinition_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialContextMenuStripAttitudeDefinition_Admin.Depth = 0;
+            this.materialContextMenuStripAttitudeDefinition_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5});
+            this.materialContextMenuStripAttitudeDefinition_Admin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStripAttitudeDefinition_Admin.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStripAttitudeDefinition_Admin.Size = new System.Drawing.Size(222, 70);
+            // 
             // lbl_EditAttitudeDefinition
             // 
             this.lbl_EditAttitudeDefinition.AutoSize = true;
@@ -574,25 +597,25 @@
             this.lbl_EditAttitudeDefinition.TabIndex = 7;
             this.lbl_EditAttitudeDefinition.Text = "Attitude Definition";
             // 
-            // txt_EditAttituddeDetailsName
+            // txt_EditAttitudeDetailsName
             // 
-            this.txt_EditAttituddeDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_EditAttitudeDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_EditAttituddeDetailsName.Depth = 0;
-            this.txt_EditAttituddeDetailsName.Hint = "";
-            this.txt_EditAttituddeDetailsName.Location = new System.Drawing.Point(36, 54);
-            this.txt_EditAttituddeDetailsName.MaxLength = 32767;
-            this.txt_EditAttituddeDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txt_EditAttituddeDetailsName.Name = "txt_EditAttituddeDetailsName";
-            this.txt_EditAttituddeDetailsName.PasswordChar = '\0';
-            this.txt_EditAttituddeDetailsName.SelectedText = "";
-            this.txt_EditAttituddeDetailsName.SelectionLength = 0;
-            this.txt_EditAttituddeDetailsName.SelectionStart = 0;
-            this.txt_EditAttituddeDetailsName.Size = new System.Drawing.Size(401, 23);
-            this.txt_EditAttituddeDetailsName.TabIndex = 1;
-            this.txt_EditAttituddeDetailsName.TabStop = false;
-            this.txt_EditAttituddeDetailsName.Tag = "-1";
-            this.txt_EditAttituddeDetailsName.UseSystemPasswordChar = false;
+            this.txt_EditAttitudeDetailsName.Depth = 0;
+            this.txt_EditAttitudeDetailsName.Hint = "";
+            this.txt_EditAttitudeDetailsName.Location = new System.Drawing.Point(36, 54);
+            this.txt_EditAttitudeDetailsName.MaxLength = 32767;
+            this.txt_EditAttitudeDetailsName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txt_EditAttitudeDetailsName.Name = "txt_EditAttitudeDetailsName";
+            this.txt_EditAttitudeDetailsName.PasswordChar = '\0';
+            this.txt_EditAttitudeDetailsName.SelectedText = "";
+            this.txt_EditAttitudeDetailsName.SelectionLength = 0;
+            this.txt_EditAttitudeDetailsName.SelectionStart = 0;
+            this.txt_EditAttitudeDetailsName.Size = new System.Drawing.Size(401, 23);
+            this.txt_EditAttitudeDetailsName.TabIndex = 1;
+            this.txt_EditAttitudeDetailsName.TabStop = false;
+            this.txt_EditAttitudeDetailsName.Tag = "-1";
+            this.txt_EditAttitudeDetailsName.UseSystemPasswordChar = false;
             // 
             // lbl_EditAttituddeDetailsName
             // 
@@ -772,6 +795,23 @@
             this.pic_SearchAllAttitudes.TabIndex = 5;
             this.pic_SearchAllAttitudes.TabStop = false;
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.toolStripMenuItem1.ShowShortcutKeys = false;
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
+            this.toolStripMenuItem1.Text = "Add new Attitude";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(212, 22);
+            this.toolStripMenuItem2.Text = "Delete selected Attitude(s)";
+            // 
             // pic_AttitudeEdit
             // 
             this.pic_AttitudeEdit.BackgroundImage = global::EasySurvey.Properties.Resources.attitude_icon_20x20;
@@ -784,7 +824,7 @@
             // 
             // pic_EditAttitudeDefinition
             // 
-            this.pic_EditAttitudeDefinition.BackgroundImage = global::EasySurvey.Properties.Resources.modify_icon_20x20;
+            this.pic_EditAttitudeDefinition.BackgroundImage = global::EasySurvey.Properties.Resources.pencil_icon_20x20;
             this.pic_EditAttitudeDefinition.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_EditAttitudeDefinition.Location = new System.Drawing.Point(6, 98);
             this.pic_EditAttitudeDefinition.Name = "pic_EditAttitudeDefinition";
@@ -801,6 +841,30 @@
             this.pic_SaveAttitudeChanges.Size = new System.Drawing.Size(24, 24);
             this.pic_SaveAttitudeChanges.TabIndex = 9;
             this.pic_SaveAttitudeChanges.TabStop = false;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.ShortcutKeyDisplayString = "";
+            this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.toolStripMenuItem3.ShowShortcutKeys = false;
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(221, 22);
+            this.toolStripMenuItem3.Text = "Add new Attitude Definition";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Image = global::EasySurvey.Properties.Resources.edit_icon_24x24;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(221, 22);
+            this.toolStripMenuItem4.Text = "Edit selected Definition(s)";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(221, 22);
+            this.toolStripMenuItem5.Text = "Delete selected Definition(s)";
             // 
             // addNewToolStripMenuItem
             // 
@@ -848,70 +912,6 @@
             this.toolStripMenuItem_DeleteQuestions.Text = "Delete selected Question(s)";
             this.toolStripMenuItem_DeleteQuestions.Click += new System.EventHandler(this.toolStripMenuItem_DeleteQuestions_Click);
             // 
-            // materialContextMenuStripAttitude_Admin
-            // 
-            this.materialContextMenuStripAttitude_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStripAttitude_Admin.Depth = 0;
-            this.materialContextMenuStripAttitude_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
-            this.materialContextMenuStripAttitude_Admin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStripAttitude_Admin.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStripAttitude_Admin.Size = new System.Drawing.Size(213, 48);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.N)));
-            this.toolStripMenuItem1.ShowShortcutKeys = false;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
-            this.toolStripMenuItem1.Text = "Add new Attitude";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(212, 22);
-            this.toolStripMenuItem2.Text = "Delete selected Attitude(s)";
-            // 
-            // materialContextMenuStripAttitudeDefinition_Admin
-            // 
-            this.materialContextMenuStripAttitudeDefinition_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStripAttitudeDefinition_Admin.Depth = 0;
-            this.materialContextMenuStripAttitudeDefinition_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
-            this.materialContextMenuStripAttitudeDefinition_Admin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStripAttitudeDefinition_Admin.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStripAttitudeDefinition_Admin.Size = new System.Drawing.Size(222, 70);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.ShortcutKeyDisplayString = "";
-            this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.toolStripMenuItem3.ShowShortcutKeys = false;
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem3.Text = "Add new Attitude Definition";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Image = global::EasySurvey.Properties.Resources.edit_icon_24x24;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem4.Text = "Edit selected Definition(s)";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem5.Text = "Delete selected Definition(s)";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -946,8 +946,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.materialContextMenuStripAttitude_Admin.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.materialContextMenuStripAttitudeDefinition_Admin.ResumeLayout(false);
             this.panel_AboutUser.ResumeLayout(false);
             this.materialContextMenuStripQuestion_Admin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).EndInit();
@@ -961,8 +963,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_AttitudeEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_EditAttitudeDefinition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SaveAttitudeChanges)).EndInit();
-            this.materialContextMenuStripAttitude_Admin.ResumeLayout(false);
-            this.materialContextMenuStripAttitudeDefinition_Admin.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1012,7 +1012,7 @@
         private System.Windows.Forms.PictureBox pic_SaveAttitudeChanges;
         private System.Windows.Forms.ListView listView_EditAttitudeDefinition;
         private MaterialSkin.Controls.MaterialLabel lbl_EditAttitudeDefinition;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txt_EditAttituddeDetailsName;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txt_EditAttitudeDetailsName;
         private MaterialSkin.Controls.MaterialLabel lbl_EditAttituddeDetailsName;
         private System.Windows.Forms.GroupBox grb_SelectedSurveyUser;
         private System.Windows.Forms.PictureBox pic_SurveyView;

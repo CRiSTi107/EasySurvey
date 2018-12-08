@@ -39,3 +39,6 @@ https://www.iconfinder.com/icons/1011792/behaviour_communication_hair_human_styl
 
 modify_icon_20x20.png
 https://www.iconfinder.com/icons/513929/draw_edit_options_pen_pencil_tool_write_icon
+
+pencil_icon_20x20.png
+https://www.iconfinder.com/icons/513928/document_draw_edit_pen_pencil_text_write_icon

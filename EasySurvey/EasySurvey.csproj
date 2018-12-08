@@ -240,6 +240,7 @@
     <None Include="Resources\question_icon_20x20.png" />
     <None Include="Resources\password_icon_24x24.png" />
     <None Include="Resources\modify_icon_20x20.png" />
+    <None Include="Resources\pencil_icon_20x20.png" />
     <Content Include="Resources\search_icon_24x24.png" />
     <None Include="Resources\user_icon_48x48.png" />
     <None Include="Resources\survey_icon_20x20.png" />

@@ -10,7 +10,7 @@ namespace EasySurvey.Controllers
     {
         private DatabaseEntity DatabaseModel = new DatabaseEntity();
 
-        public List<Question> GetQuestions(long SurveyID)
+        public List<Question> GetQuestionsForSurvey(long SurveyID)
         {
             List<Question> Questions;
             Questions = new List<Question>(from surveyDefinition in DatabaseModel.SurveyDefinition
@@ -19,6 +19,29 @@ namespace EasySurvey.Controllers
                                            select question);
 
             return Questions;
+        }
+
+        public List<Question> GetQuestionsForAttitude(long AttitudeID)
+        {
+            List<Question> Questions = new List<Question>();
+            List<AttitudeDefinition> AttitudeDefinitionQuestions;
+
+            AttitudeDefinitionQuestions = new List<AttitudeDefinition>(from attitudeDefinition in DatabaseModel.AttitudeDefinition
+                                                                       where attitudeDefinition.AttitudeID == AttitudeID
+                                                                       select attitudeDefinition);
+
+            foreach (AttitudeDefinition attitudeDefinition in AttitudeDefinitionQuestions)
+            {
+                Question currentQuestion = Get(attitudeDefinition.QuestionID);
+                Questions.Add(currentQuestion);
+            }
+
+            return Questions;
+        }
+
+        public Question Get(long QuestionID)
+        {
+            return (from question in DatabaseModel.Question where question.QuestionID == QuestionID select question).First();
         }
 
         public void Add(ref Question question, long SurveyID)
@@ -43,7 +66,7 @@ namespace EasySurvey.Controllers
 
         public void DeleteAll(long SurveyID)
         {
-            List<Question> Questions = GetQuestions(SurveyID);
+            List<Question> Questions = GetQuestionsForSurvey(SurveyID);
 
             foreach (Question question in Questions)
             {

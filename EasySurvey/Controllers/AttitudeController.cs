@@ -65,5 +65,10 @@ namespace EasySurvey.Controllers
 
             ListToAddTo = temp;
         }
+
+        public Attitude GetAttitude(long AttitudeID)
+        {
+            return (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();
+        }
     }
 }
