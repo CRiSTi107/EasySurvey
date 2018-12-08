@@ -66,9 +66,27 @@ namespace EasySurvey.Controllers
             ListToAddTo = temp;
         }
 
+        public void Add(ref Attitude NewAttitude)
+        {
+            DatabaseModel.Attitude.Add(NewAttitude);
+            DatabaseModel.SaveChanges();
+        }
+
         public Attitude GetAttitude(long AttitudeID)
         {
             return (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();
+        }
+
+        public void Delete(long AttitudeID)
+        {
+            Attitude attitudeToDelete = (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();
+
+            //Delete Attitude Definitions
+            AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
+            attitudeDefinitionController.DeleteAll(AttitudeID);
+
+            DatabaseModel.Attitude.Remove(attitudeToDelete);
+            DatabaseModel.SaveChanges();
         }
     }
 }

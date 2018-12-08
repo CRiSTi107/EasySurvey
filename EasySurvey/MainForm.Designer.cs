@@ -85,8 +85,8 @@
             this.pic_SurveyView = new System.Windows.Forms.PictureBox();
             this.pic_QuestionsView = new System.Windows.Forms.PictureBox();
             this.pic_SearchAllAttitudes = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewAttitudeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAttitudeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pic_AttitudeEdit = new System.Windows.Forms.PictureBox();
             this.pic_EditAttitudeDefinition = new System.Windows.Forms.PictureBox();
             this.pic_SaveAttitudeChanges = new System.Windows.Forms.PictureBox();
@@ -533,11 +533,11 @@
             this.materialContextMenuStripAttitude_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialContextMenuStripAttitude_Admin.Depth = 0;
             this.materialContextMenuStripAttitude_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
+            this.addNewAttitudeToolStripMenuItem,
+            this.deleteAttitudeToolStripMenuItem});
             this.materialContextMenuStripAttitude_Admin.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStripAttitude_Admin.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStripAttitude_Admin.Size = new System.Drawing.Size(213, 48);
+            this.materialContextMenuStripAttitude_Admin.Size = new System.Drawing.Size(213, 70);
             // 
             // groupBox1
             // 
@@ -795,22 +795,24 @@
             this.pic_SearchAllAttitudes.TabIndex = 5;
             this.pic_SearchAllAttitudes.TabStop = false;
             // 
-            // toolStripMenuItem1
+            // addNewAttitudeToolStripMenuItem
             // 
-            this.toolStripMenuItem1.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.addNewAttitudeToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
+            this.addNewAttitudeToolStripMenuItem.Name = "addNewAttitudeToolStripMenuItem";
+            this.addNewAttitudeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.N)));
-            this.toolStripMenuItem1.ShowShortcutKeys = false;
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
-            this.toolStripMenuItem1.Text = "Add new Attitude";
+            this.addNewAttitudeToolStripMenuItem.ShowShortcutKeys = false;
+            this.addNewAttitudeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.addNewAttitudeToolStripMenuItem.Text = "Add new Attitude";
+            this.addNewAttitudeToolStripMenuItem.Click += new System.EventHandler(this.addNewAttitudeToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // deleteAttitudeToolStripMenuItem
             // 
-            this.toolStripMenuItem2.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(212, 22);
-            this.toolStripMenuItem2.Text = "Delete selected Attitude(s)";
+            this.deleteAttitudeToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
+            this.deleteAttitudeToolStripMenuItem.Name = "deleteAttitudeToolStripMenuItem";
+            this.deleteAttitudeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.deleteAttitudeToolStripMenuItem.Text = "Delete selected Attitude(s)";
+            this.deleteAttitudeToolStripMenuItem.Click += new System.EventHandler(this.deleteAttitudeToolStripMenuItem_Click);
             // 
             // pic_AttitudeEdit
             // 
@@ -1023,8 +1025,8 @@
         private MaterialSkin.Controls.MaterialLabel txt_ViewSurveyDetailsName;
         private MaterialSkin.Controls.MaterialLabel lbl_ViewSurveyDetailsName;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStripAttitude_Admin;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem addNewAttitudeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAttitudeToolStripMenuItem;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStripAttitudeDefinition_Admin;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;

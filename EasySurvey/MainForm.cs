@@ -496,8 +496,8 @@ namespace EasySurvey
                 txt_EditAttitudeDetailsName.Tag = null;
                 pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
                 pic_SaveAttitudeChanges.Cursor = Cursors.Arrow;
-                // TODO : Edit this -> IsSelectedSurveyOriginalNameChanged = false;
-                // txt_EditAttitudeDetailsName.Tag = -1;
+                IsSelectedAttitudeOriginalNameChanged = false;
+                txt_EditAttitudeDetailsName.Tag = -1;
                 return;
             }
 
@@ -642,5 +642,52 @@ namespace EasySurvey
 
         #endregion
 
+        private void addNewAttitudeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Ce nume are noua atitudine?", "Easy Survey - Add New Attitude", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
+
+            if (result == MaterialMessageInput.MessageBoxResultInput.OK)
+            {
+                AttitudeController attitudeController = new AttitudeController();
+                string AttitudeName = MaterialMessageInput.Answer;
+
+                Attitude newAttitude = new Attitude { AttitudeName = AttitudeName };
+                attitudeController.Add(ref newAttitude);
+                Attitudes.Add(newAttitude);
+
+                ListViewItem newAttitudeItem = new ListViewItem(listView_AllAttitudes.Groups["default"]) { Tag = newAttitude.AttitudeID.ToString(), Text = newAttitude.AttitudeName };
+                listView_AllAttitudes.Items.Add(newAttitudeItem);
+
+                int AttitudeIndex = listView_AllAttitudes.Items.Count - 1;
+                listView_AllAttitudes.Items[AttitudeIndex].Selected = true;
+                listView_AllAttitudes.Items[AttitudeIndex].Focused = true;
+                listView_AllAttitudes.Items[AttitudeIndex].EnsureVisible();
+            }
+        }
+
+        private void deleteAttitudeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedAttitudesCount = listView_AllAttitudes.SelectedItems.Count;
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+
+            if (SelectedAttitudesCount > 0)
+                result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti atitudinile selectate?", "Easy Survey - Delete Attitudes", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+
+            if (result == MaterialMessageBox.MessageBoxResult.Yes)
+            {
+                AttitudeController attitudeController = new AttitudeController();
+
+                foreach (ListViewItem selectedItem in listView_AllAttitudes.SelectedItems)
+                {
+                    long AttitudeID = Convert.ToInt64(selectedItem.Tag);
+
+                    Attitudes.Remove(Attitudes.Find(i => i.AttitudeID == AttitudeID));
+                    attitudeController.Delete(AttitudeID);
+                    listView_AllAttitudes.Items.Remove(selectedItem);
+                }
+
+
+            }
+        }
     }
 }
