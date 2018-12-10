@@ -88,5 +88,11 @@ namespace EasySurvey.Controllers
             DatabaseModel.Attitude.Remove(attitudeToDelete);
             DatabaseModel.SaveChanges();
         }
+
+        public void UpdateAttitudeName(long AttitudeID, string NewAttitudeName)
+        {
+            DatabaseModel.Attitude.Where(item => item.AttitudeID == AttitudeID).ToList().ForEach(item => item.AttitudeName = NewAttitudeName);
+            DatabaseModel.SaveChanges();
+        }
     }
 }

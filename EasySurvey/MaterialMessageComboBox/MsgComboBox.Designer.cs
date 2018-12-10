@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MsgComboBox));
             this.lbl_Status = new MaterialSkin.Controls.MaterialLabel();
             this.btn_Cancel = new MaterialSkin.Controls.MaterialFlatButton();
             this.btn_OK = new MaterialSkin.Controls.MaterialFlatButton();
@@ -39,7 +40,7 @@
             // 
             // lbl_Status
             // 
-            this.lbl_Status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.lbl_Status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Status.Depth = 0;
             this.lbl_Status.Font = new System.Drawing.Font("Roboto", 11F);
@@ -95,7 +96,7 @@
             // 
             // Divider_Menu
             // 
-            this.Divider_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.Divider_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Divider_Menu.AutoSize = true;
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -110,8 +111,8 @@
             // 
             // lbl_Text
             // 
-            this.lbl_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.lbl_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Text.Depth = 0;
             this.lbl_Text.Font = new System.Drawing.Font("Roboto", 11F);
@@ -154,7 +155,9 @@
             this.Controls.Add(this.lbl_Status);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_OK);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MsgComboBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MsgComboBox";
             this.Load += new System.EventHandler(this.MsgComboBox_Load);
             this.ResumeLayout(false);

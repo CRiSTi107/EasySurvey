@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MsgBox));
             this.lbl_text = new MaterialSkin.Controls.MaterialLabel();
             this.btn_No = new MaterialSkin.Controls.MaterialFlatButton();
             this.btn_Yes = new MaterialSkin.Controls.MaterialFlatButton();
@@ -124,6 +125,7 @@
             // 
             // Divider_Menu
             // 
+            this.Divider_Menu.AutoSize = true;
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Divider_Menu.Depth = 0;
             this.Divider_Menu.Enabled = false;
@@ -132,7 +134,7 @@
             this.Divider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Divider_Menu.Name = "Divider_Menu";
             this.Divider_Menu.Primary = true;
-            this.Divider_Menu.Size = new System.Drawing.Size(426, 10);
+            this.Divider_Menu.Size = new System.Drawing.Size(16, 36);
             this.Divider_Menu.TabIndex = 23;
             // 
             // btn_Cancel
@@ -166,6 +168,7 @@
             this.Controls.Add(this.lbl_text);
             this.Controls.Add(this.pic_Icon);
             this.Controls.Add(this.btn_OK);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(420, 280);
             this.MinimizeBox = false;
