@@ -84,8 +84,8 @@
             this.listView_EditAttitudeDefinition = new System.Windows.Forms.ListView();
             this.materialContextMenuStripAttitudeDefinition_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_EditAttitudeDefinitions = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_DeleteAttitudeDefinitions = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_EditAttitudeDefinition = new MaterialSkin.Controls.MaterialLabel();
             this.txt_EditAttitudeDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_EditAttituddeDetailsName = new MaterialSkin.Controls.MaterialLabel();
@@ -665,7 +665,7 @@
             this.groupBox1.Size = new System.Drawing.Size(484, 415);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Selected Survey - Details";
+            this.groupBox1.Text = "Selected Attitude - Details";
             // 
             // pic_AttitudeEdit
             // 
@@ -718,11 +718,11 @@
             this.materialContextMenuStripAttitudeDefinition_Admin.Depth = 0;
             this.materialContextMenuStripAttitudeDefinition_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
+            this.toolStripMenuItem_EditAttitudeDefinitions,
+            this.toolStripMenuItem_DeleteAttitudeDefinitions});
             this.materialContextMenuStripAttitudeDefinition_Admin.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStripAttitudeDefinition_Admin.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStripAttitudeDefinition_Admin.Size = new System.Drawing.Size(222, 70);
+            this.materialContextMenuStripAttitudeDefinition_Admin.Size = new System.Drawing.Size(222, 92);
             // 
             // toolStripMenuItem3
             // 
@@ -734,19 +734,20 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem3.Text = "Add new Attitude Definition";
             // 
-            // toolStripMenuItem4
+            // toolStripMenuItem_EditAttitudeDefinitions
             // 
-            this.toolStripMenuItem4.Image = global::EasySurvey.Properties.Resources.edit_icon_24x24;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem4.Text = "Edit selected Definition(s)";
+            this.toolStripMenuItem_EditAttitudeDefinitions.Image = global::EasySurvey.Properties.Resources.edit_icon_24x24;
+            this.toolStripMenuItem_EditAttitudeDefinitions.Name = "toolStripMenuItem_EditAttitudeDefinitions";
+            this.toolStripMenuItem_EditAttitudeDefinitions.Size = new System.Drawing.Size(221, 22);
+            this.toolStripMenuItem_EditAttitudeDefinitions.Text = "Edit selected Definition(s)";
             // 
-            // toolStripMenuItem5
+            // toolStripMenuItem_DeleteAttitudeDefinitions
             // 
-            this.toolStripMenuItem5.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem5.Text = "Delete selected Definition(s)";
+            this.toolStripMenuItem_DeleteAttitudeDefinitions.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
+            this.toolStripMenuItem_DeleteAttitudeDefinitions.Name = "toolStripMenuItem_DeleteAttitudeDefinitions";
+            this.toolStripMenuItem_DeleteAttitudeDefinitions.Size = new System.Drawing.Size(221, 22);
+            this.toolStripMenuItem_DeleteAttitudeDefinitions.Text = "Delete selected Definition(s)";
+            this.toolStripMenuItem_DeleteAttitudeDefinitions.Click += new System.EventHandler(this.toolStripMenuItem_DeleteAttitudeDefinitions_Click);
             // 
             // lbl_EditAttitudeDefinition
             // 
@@ -1031,7 +1032,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteAttitudeToolStripMenuItem;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStripAttitudeDefinition_Admin;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_EditAttitudeDefinitions;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_DeleteAttitudeDefinitions;
     }
 }

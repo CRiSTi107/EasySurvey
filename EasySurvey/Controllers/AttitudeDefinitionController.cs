@@ -39,5 +39,11 @@ namespace EasySurvey.Controllers
                 Delete(attitudeDefinition);
             }
         }
+
+        public void Delete(long QuestionID, long AttitudeID)
+        {
+            AttitudeDefinition attitudeDefinitionToDelete = GetRelation(AttitudeID, QuestionID);
+            Delete(attitudeDefinitionToDelete);
+        }
     }
 }

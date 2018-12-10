@@ -386,7 +386,7 @@ namespace EasySurvey
 
         #endregion
 
-        #region Admin - Save Changes - Survey Name
+        #region Save Changes - Survey Name
 
         private string SelectedSurveyOriginalName = String.Empty;
         private bool IsSelectedSurveyOriginalNameChanged = false;
@@ -484,9 +484,6 @@ namespace EasySurvey
 
         #region Select Attitude
 
-        private string SelectedAttitudeOriginalName = String.Empty;
-        private bool IsSelectedAttitudeOriginalNameChanged = false;
-
         private void listView_AllAttitudes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView_AllAttitudes.SelectedItems.Count != 1)
@@ -511,6 +508,60 @@ namespace EasySurvey
         private void UpdateEditAttitudeDetails(long AttitudeID)
         {
             UpdateSelectedAttitude(AttitudeID, listView_EditAttitudeDefinition);
+        }
+
+        #endregion
+
+        #region Save Changes - Attitude Name
+
+        private string SelectedAttitudeOriginalName = String.Empty;
+        private bool IsSelectedAttitudeOriginalNameChanged = false;
+
+        private void txt_EditAttitudeDetailsName_TextChanged(object sender, EventArgs e)
+        {
+            string CurrentAttitudeName = txt_EditAttitudeDetailsName.Text;
+            long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+
+            if (CurrentAttitudeName != SelectedAttitudeOriginalName && AttitudeID != -1)
+            {
+                IsSelectedAttitudeOriginalNameChanged = true;
+                pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_24x24;
+                pic_SaveAttitudeChanges.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                IsSelectedAttitudeOriginalNameChanged = false;
+                pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveAttitudeChanges.Cursor = Cursors.Arrow;
+            }
+        }
+
+        private void pic_SaveAttitudeChanges_Click(object sender, EventArgs e)
+        {
+            if (IsSelectedAttitudeOriginalNameChanged)
+            {
+                AttitudeController attitudeController = new AttitudeController();
+
+                long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+                string NewAttitudeName = txt_EditAttitudeDetailsName.Text;
+
+                attitudeController.UpdateAttitudeName(AttitudeID, NewAttitudeName);
+
+                int AttitudeListItemIndex = -1;
+                foreach (ListViewItem AttitudeListItem in listView_AllAttitudes.SelectedItems)
+                {
+                    if (Convert.ToInt64(AttitudeListItem.Tag) == AttitudeID)
+                    {
+                        AttitudeListItemIndex = listView_AllAttitudes.Items.IndexOf(AttitudeListItem);
+                        Attitudes.Where(item => item.AttitudeID == AttitudeID).ToList().ForEach(item => item.AttitudeName = NewAttitudeName);
+                        listView_AllAttitudes.Items[AttitudeListItemIndex].Text = NewAttitudeName;
+                    }
+                }
+
+                IsSelectedAttitudeOriginalNameChanged = false;
+                pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
+                pic_SaveAttitudeChanges.Cursor = Cursors.Arrow;
+            }
         }
 
         #endregion
@@ -690,50 +741,27 @@ namespace EasySurvey
             }
         }
 
-        private void txt_EditAttitudeDetailsName_TextChanged(object sender, EventArgs e)
+        private void toolStripMenuItem_DeleteAttitudeDefinitions_Click(object sender, EventArgs e)
         {
-            string CurrentAttitudeName = txt_EditAttitudeDetailsName.Text;
-            long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+            int SelectedAttributesCount = listView_EditAttitudeDefinition.SelectedItems.Count;
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
 
-            if (CurrentAttitudeName != SelectedAttitudeOriginalName && AttitudeID != -1)
+            if (SelectedAttributesCount > 0)
+                result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti intrebarile selectate din definitia atitudinii?", "Easy Survey - Delete Attitude Definition", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+
+            if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
-                IsSelectedAttitudeOriginalNameChanged = true;
-                pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_24x24;
-                pic_SaveAttitudeChanges.Cursor = Cursors.Hand;
-            }
-            else
-            {
-                IsSelectedAttitudeOriginalNameChanged = false;
-                pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
-                pic_SaveAttitudeChanges.Cursor = Cursors.Arrow;
-            }
-        }
+                AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
 
-        private void pic_SaveAttitudeChanges_Click(object sender, EventArgs e)
-        {
-            if (IsSelectedAttitudeOriginalNameChanged)
-            {
-                AttitudeController attitudeController = new AttitudeController();
-
-                long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
-                string NewAttitudeName = txt_EditAttitudeDetailsName.Text;
-
-                attitudeController.UpdateAttitudeName(AttitudeID, NewAttitudeName);
-
-                int AttitudeListItemIndex = -1;
-                foreach (ListViewItem AttitudeListItem in listView_AllAttitudes.SelectedItems)
+                foreach (ListViewItem selectedItem in listView_EditAttitudeDefinition.SelectedItems)
                 {
-                    if (Convert.ToInt64(AttitudeListItem.Tag) == AttitudeID)
-                    {
-                        AttitudeListItemIndex = listView_AllAttitudes.Items.IndexOf(AttitudeListItem);
-                        Attitudes.Where(item => item.AttitudeID == AttitudeID).ToList().ForEach(item => item.AttitudeName = NewAttitudeName);
-                        listView_AllAttitudes.Items[AttitudeListItemIndex].Text = NewAttitudeName;
-                    }
+                    long QuestionID = Convert.ToInt64(selectedItem.Tag);
+                    long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+
+                    attitudeDefinitionController.Delete(QuestionID, AttitudeID);
+                    listView_EditAttitudeDefinition.Items.Remove(selectedItem);
                 }
 
-                IsSelectedAttitudeOriginalNameChanged = false;
-                pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
-                pic_SaveAttitudeChanges.Cursor = Cursors.Arrow;
             }
         }
     }
