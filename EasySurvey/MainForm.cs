@@ -47,7 +47,7 @@ namespace EasySurvey
         private List<Survey> GetSurveys()
         {
             SurveyController surveyController = new SurveyController();
-            return surveyController.GetSurveys();
+            return surveyController.GetAll();
         }
 
         #region Select Survey
@@ -612,7 +612,7 @@ namespace EasySurvey
         private void UpdateSelectedSurvey(long SurveyID, ListView listView)
         {
             SurveyController surveyController = new SurveyController();
-            Survey selectedSurvey = surveyController.GetSurvey(SurveyID);
+            Survey selectedSurvey = surveyController.Get(SurveyID);
 
             if (LoggedUser.IsAdministrator())
             {
@@ -763,6 +763,11 @@ namespace EasySurvey
                 }
 
             }
+        }
+
+        private void toolStripMenuItem_AddAttitudeDefinitions_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

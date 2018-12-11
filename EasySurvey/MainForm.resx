@@ -120,14 +120,14 @@
   <metadata name="materialContextMenuStripSurvey_Admin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>5, 4</value>
   </metadata>
-  <metadata name="materialContextMenuStripAttitudeDefinition_Admin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>876, 6</value>
-  </metadata>
   <data name="listView_ViewSurveyQuestions.Items" xml:space="preserve">
     <value>asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  asdf   asdf  VV</value>
   </data>
   <metadata name="materialContextMenuStripAttitude_Admin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>608, 5</value>
+  </metadata>
+  <metadata name="materialContextMenuStripAttitudeDefinition_Admin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>876, 6</value>
   </metadata>
   <metadata name="materialContextMenuStripQuestion_Admin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>266, 4</value>

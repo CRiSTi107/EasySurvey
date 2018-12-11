@@ -98,7 +98,6 @@
             // 
             this.Divider_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Divider_Menu.AutoSize = true;
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Divider_Menu.Depth = 0;
             this.Divider_Menu.Icon = null;
@@ -133,6 +132,7 @@
             this.cmb_Answer1.Name = "cmb_Answer1";
             this.cmb_Answer1.Size = new System.Drawing.Size(500, 27);
             this.cmb_Answer1.TabIndex = 31;
+            this.cmb_Answer1.SelectedIndexChanged += new System.EventHandler(this.cmb_Answer1_SelectedIndexChanged);
             // 
             // cmb_Answer2
             // 
@@ -142,6 +142,7 @@
             this.cmb_Answer2.Name = "cmb_Answer2";
             this.cmb_Answer2.Size = new System.Drawing.Size(500, 27);
             this.cmb_Answer2.TabIndex = 32;
+            this.cmb_Answer2.SelectedIndexChanged += new System.EventHandler(this.cmb_Answer2_SelectedIndexChanged);
             // 
             // MsgComboBox
             // 

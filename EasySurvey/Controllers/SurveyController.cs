@@ -10,7 +10,7 @@ namespace EasySurvey.Controllers
     {
         private DatabaseEntity DatabaseModel = new DatabaseEntity();
 
-        public List<Survey> GetSurveys()
+        public List<Survey> GetAll()
         {
             List<Survey> surveys = new List<Survey>();
             surveys = new List<Survey>(from survey in DatabaseModel.Survey select survey);
@@ -66,7 +66,7 @@ namespace EasySurvey.Controllers
             ListToAddTo = temp;
         }
 
-        public Survey GetSurvey(long SurveyID)
+        public Survey Get(long SurveyID)
         {
             return (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();
         }
@@ -93,5 +93,6 @@ namespace EasySurvey.Controllers
             DatabaseModel.Survey.Where(item => item.SurveyID == SurveyID).ToList().ForEach(item => item.SurveyName = NewSurveyName);
             DatabaseModel.SaveChanges();
         }
+
     }
 }

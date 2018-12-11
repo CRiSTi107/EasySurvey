@@ -120,14 +120,16 @@
             // 
             this.Divider_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Divider_Menu.AutoSize = true;
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Divider_Menu.Depth = 0;
+            this.Divider_Menu.Enabled = false;
             this.Divider_Menu.Icon = null;
-            this.Divider_Menu.Location = new System.Drawing.Point(-12, 188);
+            this.Divider_Menu.Location = new System.Drawing.Point(-12, 162);
             this.Divider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Divider_Menu.Name = "Divider_Menu";
             this.Divider_Menu.Primary = true;
-            this.Divider_Menu.Size = new System.Drawing.Size(589, 10);
+            this.Divider_Menu.Size = new System.Drawing.Size(16, 36);
             this.Divider_Menu.TabIndex = 24;
             // 
             // lbl_Status
@@ -136,7 +138,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Status.Depth = 0;
             this.lbl_Status.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_Status.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_Status.Location = new System.Drawing.Point(66, 207);
             this.lbl_Status.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Status.Name = "lbl_Status";

@@ -125,7 +125,6 @@
             // 
             // Divider_Menu
             // 
-            this.Divider_Menu.AutoSize = true;
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Divider_Menu.Depth = 0;
             this.Divider_Menu.Enabled = false;
@@ -134,7 +133,7 @@
             this.Divider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Divider_Menu.Name = "Divider_Menu";
             this.Divider_Menu.Primary = true;
-            this.Divider_Menu.Size = new System.Drawing.Size(16, 36);
+            this.Divider_Menu.Size = new System.Drawing.Size(460, 10);
             this.Divider_Menu.TabIndex = 23;
             // 
             // btn_Cancel

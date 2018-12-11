@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
         "sbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcv");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
         "fvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdvvsdsds");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("adsgfasd");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("asdfds");
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("adsgfasd");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("asdfds");
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -83,7 +83,7 @@
             this.pic_SaveAttitudeChanges = new System.Windows.Forms.PictureBox();
             this.listView_EditAttitudeDefinition = new System.Windows.Forms.ListView();
             this.materialContextMenuStripAttitudeDefinition_Admin = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_AddAttitudeDefinitions = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_EditAttitudeDefinitions = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DeleteAttitudeDefinitions = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_EditAttitudeDefinition = new MaterialSkin.Controls.MaterialLabel();
@@ -142,10 +142,10 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup3.Header = "Surveys";
-            listViewGroup3.Name = "default";
+            listViewGroup1.Header = "Surveys";
+            listViewGroup1.Name = "default";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
+            listViewGroup1});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 34);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
@@ -459,11 +459,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5});
             this.listView_ViewSurveyQuestions.Location = new System.Drawing.Point(36, 144);
             this.listView_ViewSurveyQuestions.Name = "listView_ViewSurveyQuestions";
             this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(431, 216);
@@ -595,10 +595,10 @@
             this.columnHeader4});
             this.listView_AllAttitudes.ContextMenuStrip = this.materialContextMenuStripAttitude_Admin;
             this.listView_AllAttitudes.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup4.Header = "Attitudes";
-            listViewGroup4.Name = "default";
+            listViewGroup2.Header = "Attitudes";
+            listViewGroup2.Name = "default";
             this.listView_AllAttitudes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4});
+            listViewGroup2});
             this.listView_AllAttitudes.Location = new System.Drawing.Point(6, 34);
             this.listView_AllAttitudes.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllAttitudes.Name = "listView_AllAttitudes";
@@ -717,22 +717,23 @@
             this.materialContextMenuStripAttitudeDefinition_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialContextMenuStripAttitudeDefinition_Admin.Depth = 0;
             this.materialContextMenuStripAttitudeDefinition_Admin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
+            this.toolStripMenuItem_AddAttitudeDefinitions,
             this.toolStripMenuItem_EditAttitudeDefinitions,
             this.toolStripMenuItem_DeleteAttitudeDefinitions});
             this.materialContextMenuStripAttitudeDefinition_Admin.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStripAttitudeDefinition_Admin.Name = "materialContextMenuStrip1";
             this.materialContextMenuStripAttitudeDefinition_Admin.Size = new System.Drawing.Size(222, 92);
             // 
-            // toolStripMenuItem3
+            // toolStripMenuItem_AddAttitudeDefinitions
             // 
-            this.toolStripMenuItem3.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.ShortcutKeyDisplayString = "";
-            this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.toolStripMenuItem3.ShowShortcutKeys = false;
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem3.Text = "Add new Attitude Definition";
+            this.toolStripMenuItem_AddAttitudeDefinitions.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
+            this.toolStripMenuItem_AddAttitudeDefinitions.Name = "toolStripMenuItem_AddAttitudeDefinitions";
+            this.toolStripMenuItem_AddAttitudeDefinitions.ShortcutKeyDisplayString = "";
+            this.toolStripMenuItem_AddAttitudeDefinitions.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.toolStripMenuItem_AddAttitudeDefinitions.ShowShortcutKeys = false;
+            this.toolStripMenuItem_AddAttitudeDefinitions.Size = new System.Drawing.Size(221, 22);
+            this.toolStripMenuItem_AddAttitudeDefinitions.Text = "Add new Attitude Definition";
+            this.toolStripMenuItem_AddAttitudeDefinitions.Click += new System.EventHandler(this.toolStripMenuItem_AddAttitudeDefinitions_Click);
             // 
             // toolStripMenuItem_EditAttitudeDefinitions
             // 
@@ -1031,7 +1032,7 @@
         private System.Windows.Forms.ToolStripMenuItem addNewAttitudeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteAttitudeToolStripMenuItem;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStripAttitudeDefinition_Admin;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_AddAttitudeDefinitions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_EditAttitudeDefinitions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_DeleteAttitudeDefinitions;
     }

@@ -39,6 +39,11 @@ namespace EasySurvey.Controllers
             return Questions;
         }
 
+        public List<Question> GetAll()
+        {
+            return (from question in DatabaseModel.Question select question).ToList();
+        }
+
         public Question Get(long QuestionID)
         {
             return (from question in DatabaseModel.Question where question.QuestionID == QuestionID select question).First();
