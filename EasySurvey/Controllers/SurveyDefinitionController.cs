@@ -16,6 +16,7 @@ namespace EasySurvey.Controllers
             DatabaseModel.SaveChanges();
         }
 
+
         public SurveyDefinition GetRelation(long SurveyID, long QuestionID)
         {
             return (from surveyDefinition in DatabaseModel.SurveyDefinition where surveyDefinition.SurveyID == SurveyID && surveyDefinition.QuestionID == QuestionID select surveyDefinition).First();

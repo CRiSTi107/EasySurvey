@@ -29,8 +29,33 @@ namespace EasySurvey
             base.Text = caption;
             lbl_Text.Text = text;
 
+            Divider_Menu.AutoSize = false;
+            Divider_Menu.Location = new Point(-12, 188);
+            Divider_Menu.Size = new Size(568, 10);
+            Divider_Menu.Enabled = false;
+
+            switch (buttons)
+            {
+                case MaterialMessageComboBox.MessageBoxButtons.OKCancel:
+                    btn_OK.Visible = true;
+                    btn_OK.Enabled = true;
+                    btn_Cancel.Visible = true;
+                    btn_Cancel.Enabled = true;
+                    break;
+                default:
+                    break;
+            }
+
             MaterialMessageComboBox._Result = MaterialMessageComboBox.MessageBoxResult.None;
         }
+
+        public MsgComboBox(string text, string caption, MaterialMessageComboBox.MessageBoxButtons buttons, long AttitudeID)
+            : this(text, caption, buttons)
+        {
+            this.AttitudeID = AttitudeID;
+        }
+
+        private long AttitudeID = -1;
 
         private List<Survey> Surveys = new List<Survey>();
         private List<Question> Questions = new List<Question>();
@@ -47,20 +72,36 @@ namespace EasySurvey
             QuestionController questionController = new QuestionController();
             Questions = questionController.GetAll();
 
-            AutoCompleteStringCollection autoCompleteSource = new AutoCompleteStringCollection();
+            //AutoCompleteStringCollection autoCompleteSource = new AutoCompleteStringCollection();
 
-            Surveys.ForEach(item => autoCompleteSource.Add(item.SurveyName));
+            //Surveys.ForEach(item => autoCompleteSource.Add(item.SurveyName));
 
-            cmb_Answer1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmb_Answer1.AutoCompleteCustomSource = autoCompleteSource;
+            //cmb_Answer1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //cmb_Answer1.AutoCompleteCustomSource = autoCompleteSource;
 
-            cmb_Answer2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            foreach (Survey survey in Surveys)
+                cmb_Answer1.Items.Add(survey.SurveyName);
+
+            //cmb_Answer2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
             if (IsValidatedAnswer1 && IsValidatedAnswer2)
-                MaterialMessageComboBox._Result = MaterialMessageComboBox.MessageBoxResult.OK;
+            {
+                long SurveyID = MaterialMessageComboBox.Answer1;
+                long QuestionID = MaterialMessageComboBox.Answer2;
+                AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
+                if (attitudeDefinitionController.Exists(AttitudeID, QuestionID))
+                {
+                    SetStatus("This Question already exists in this Attitude Definition.");
+                }
+                else
+                {
+                    MaterialMessageComboBox._Result = MaterialMessageComboBox.MessageBoxResult.OK;
+                    base.Close();
+                }
+            }
             else
                 SetStatus("Please selected the Survey and Question properly.");
         }
@@ -68,6 +109,7 @@ namespace EasySurvey
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             MaterialMessageComboBox._Result = MaterialMessageComboBox.MessageBoxResult.Cancel;
+            base.Close();
         }
 
         private void cmb_Answer1_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,7 +124,12 @@ namespace EasySurvey
                 QuestionController questionController = new QuestionController();
                 QuestionsOfSurvey = questionController.GetQuestionsForSurvey(SurveyID);
 
-                MaterialMessageComboBox.Answer1 = cmb_Answer1.Text;
+                cmb_Answer2.Items.Clear();
+
+                foreach (Question question in QuestionsOfSurvey)
+                    cmb_Answer2.Items.Add(question.Question1);
+
+                MaterialMessageComboBox.Answer1 = SurveyID;
                 IsValidatedAnswer1 = true;
             }
             else
@@ -96,7 +143,23 @@ namespace EasySurvey
 
         private void cmb_Answer2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MaterialMessageComboBox.Answer2 = cmb_Answer2.Text;
+            string SelectedQuestionName = cmb_Answer2.Text;
+            Question SelectedQuestion = QuestionsOfSurvey.Where(item => item.Question1 == SelectedQuestionName).First();
+
+            if (SelectedQuestion != null)
+            {
+                long QuestionID = SelectedQuestion.QuestionID;
+
+                MaterialMessageComboBox.Answer2 = QuestionID;
+                IsValidatedAnswer2 = true;
+            }
+            else
+            {
+                SetStatus("Please choose from the existing Question list.");
+                IsValidatedAnswer2 = false;
+            }
+
+
         }
 
         private void SetStatus(string text, bool error = true)

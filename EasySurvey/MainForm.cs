@@ -767,6 +767,26 @@ namespace EasySurvey
 
         private void toolStripMenuItem_AddAttitudeDefinitions_Click(object sender, EventArgs e)
         {
+            MaterialMessageComboBox.MessageBoxResult result = MaterialMessageComboBox.MessageBoxResult.None;
+
+            long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+
+            result = MaterialMessageComboBox.Show("Select survey and question.", "Easy Survey - Add New Attitude Definition", MaterialMessageComboBox.MessageBoxButtons.OKCancel, AttitudeID);
+
+            if (result == MaterialMessageComboBox.MessageBoxResult.OK)
+            {
+                long NewSurveyID = MaterialMessageComboBox.Answer1;
+                long NewQuestionID = MaterialMessageComboBox.Answer2;
+
+                QuestionController questionController = new QuestionController();
+                string QuestionName = questionController.Get(NewQuestionID).Question1;
+                AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
+
+                if (attitudeDefinitionController.AddRelation(NewSurveyID, NewQuestionID))
+                {
+                    listView_EditAttitudeDefinition.Items.Add(new ListViewItem() { Text = QuestionName, Tag = NewQuestionID });
+                }
+            }
 
         }
     }

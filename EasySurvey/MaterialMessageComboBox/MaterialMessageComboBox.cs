@@ -30,14 +30,14 @@ namespace EasySurvey
         }
 
         public static MessageBoxResult _Result = MessageBoxResult.None;
-        public static string Answer1 = String.Empty;
-        public static string Answer2 = String.Empty;
+        public static long Answer1 = -1;
+        public static long Answer2 = -1;
 
-        public static MessageBoxResult Show(string text, string caption, MessageBoxButtons buttons)
+        public static MessageBoxResult Show(string text, string caption, MessageBoxButtons buttons, long AttitudeID)
         {
             _Result = MessageBoxResult.None;
 
-            MsgComboBox frm_MessageBox = new MsgComboBox(text, caption, buttons);
+            MsgComboBox frm_MessageBox = new MsgComboBox(text, caption, buttons, AttitudeID);
 
             frm_MessageBox.ShowDialog();
 

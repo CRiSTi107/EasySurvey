@@ -17,6 +17,25 @@ namespace EasySurvey.Controllers
                     select attitudeDefinition).First();
         }
 
+        public bool AddRelation(long AttitudeID, long QuestionID)
+        {
+            if (!Exists(AttitudeID, QuestionID))
+            {
+                DatabaseModel.AttitudeDefinition.Add(new AttitudeDefinition() { AttitudeID = AttitudeID, QuestionID = QuestionID });
+                DatabaseModel.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool Exists(long AttitudeID, long QuestionID)
+        {
+            return (from attitudeDefinition in DatabaseModel.AttitudeDefinition where attitudeDefinition.AttitudeID == AttitudeID && attitudeDefinition.QuestionID == QuestionID select attitudeDefinition).ToList().Count == 0 ? false : true;
+        }
+
         public List<AttitudeDefinition> GetRelation(long AttitudeID)
         {
             return new List<AttitudeDefinition>(from attitudeDefinition in DatabaseModel.AttitudeDefinition

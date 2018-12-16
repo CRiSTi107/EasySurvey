@@ -101,11 +101,11 @@
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Divider_Menu.Depth = 0;
             this.Divider_Menu.Icon = null;
-            this.Divider_Menu.Location = new System.Drawing.Point(-12, 162);
+            this.Divider_Menu.Location = new System.Drawing.Point(-12, 188);
             this.Divider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Divider_Menu.Name = "Divider_Menu";
             this.Divider_Menu.Primary = true;
-            this.Divider_Menu.Size = new System.Drawing.Size(16, 36);
+            this.Divider_Menu.Size = new System.Drawing.Size(568, 10);
             this.Divider_Menu.TabIndex = 29;
             // 
             // lbl_Text
@@ -126,6 +126,8 @@
             // 
             // cmb_Answer1
             // 
+            this.cmb_Answer1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmb_Answer1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Answer1.Font = new System.Drawing.Font("Roboto", 11F);
             this.cmb_Answer1.FormattingEnabled = true;
             this.cmb_Answer1.Location = new System.Drawing.Point(20, 119);
@@ -136,6 +138,8 @@
             // 
             // cmb_Answer2
             // 
+            this.cmb_Answer2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmb_Answer2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Answer2.Font = new System.Drawing.Font("Roboto", 11F);
             this.cmb_Answer2.FormattingEnabled = true;
             this.cmb_Answer2.Location = new System.Drawing.Point(20, 152);
@@ -157,6 +161,10 @@
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_OK);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(542, 257);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(542, 257);
             this.Name = "MsgComboBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MsgComboBox";
