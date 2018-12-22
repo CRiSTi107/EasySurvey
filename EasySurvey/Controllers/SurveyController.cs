@@ -71,6 +71,19 @@ namespace EasySurvey.Controllers
             return (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();
         }
 
+        public Survey GetByQuestion(long QuestionID)
+        {
+            SurveyDefinition selectedSurveyDefinition = (from surveyDefinition in DatabaseModel.SurveyDefinition
+                                                         where surveyDefinition.QuestionID == QuestionID
+                                                         select surveyDefinition).First();
+
+            Survey selectedSurvey = (from survey in DatabaseModel.Survey
+                                     where survey.SurveyID == selectedSurveyDefinition.SurveyID
+                                     select survey).First();
+
+            return selectedSurvey;
+        }
+
         public void Delete(long SurveyID)
         {
             Survey surveyToDelete = (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();

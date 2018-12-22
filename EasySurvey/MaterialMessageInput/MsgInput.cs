@@ -60,7 +60,9 @@ namespace EasySurvey
 
         private void MsgInput_Load(object sender, EventArgs e)
         {
-
+            Divider_Menu.AutoSize = false;
+            Divider_Menu.Location = new Point(-12, 188);
+            Divider_Menu.Size = new Size(613, 10);
         }
 
         private bool AnswerIsEmpty = true;

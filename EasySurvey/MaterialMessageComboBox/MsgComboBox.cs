@@ -49,13 +49,24 @@ namespace EasySurvey
             MaterialMessageComboBox._Result = MaterialMessageComboBox.MessageBoxResult.None;
         }
 
+        //Add
         public MsgComboBox(string text, string caption, MaterialMessageComboBox.MessageBoxButtons buttons, long AttitudeID)
             : this(text, caption, buttons)
         {
             this.AttitudeID = AttitudeID;
         }
 
+        //Edit
+        public MsgComboBox(string text, string caption, MaterialMessageComboBox.MessageBoxButtons buttons, long AttitudeID, long SurveyID, long QuestionID)
+            : this(text, caption, buttons)
+        {
+            this.AttitudeID = AttitudeID;
+            this.QuestionID = QuestionID;
+        }
+
         private long AttitudeID = -1;
+        private long SurveyID = -1;
+        private long QuestionID = -1;
 
         private List<Survey> Surveys = new List<Survey>();
         private List<Question> Questions = new List<Question>();
@@ -103,7 +114,7 @@ namespace EasySurvey
                 }
             }
             else
-                SetStatus("Please selected the Survey and Question properly.");
+                SetStatus("Please select the Survey and Question properly.");
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

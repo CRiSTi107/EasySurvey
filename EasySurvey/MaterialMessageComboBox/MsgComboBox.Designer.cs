@@ -98,14 +98,15 @@
             // 
             this.Divider_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Divider_Menu.AutoSize = true;
             this.Divider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Divider_Menu.Depth = 0;
             this.Divider_Menu.Icon = null;
-            this.Divider_Menu.Location = new System.Drawing.Point(-12, 188);
+            this.Divider_Menu.Location = new System.Drawing.Point(-12, 162);
             this.Divider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Divider_Menu.Name = "Divider_Menu";
             this.Divider_Menu.Primary = true;
-            this.Divider_Menu.Size = new System.Drawing.Size(568, 10);
+            this.Divider_Menu.Size = new System.Drawing.Size(16, 36);
             this.Divider_Menu.TabIndex = 29;
             // 
             // lbl_Text
@@ -166,6 +167,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(542, 257);
             this.Name = "MsgComboBox";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MsgComboBox";
             this.Load += new System.EventHandler(this.MsgComboBox_Load);

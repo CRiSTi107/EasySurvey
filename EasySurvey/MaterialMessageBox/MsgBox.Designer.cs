@@ -129,7 +129,7 @@
             this.Divider_Menu.Depth = 0;
             this.Divider_Menu.Enabled = false;
             this.Divider_Menu.Icon = null;
-            this.Divider_Menu.Location = new System.Drawing.Point(-2, 210);
+            this.Divider_Menu.Location = new System.Drawing.Point(-14, 211);
             this.Divider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Divider_Menu.Name = "Divider_Menu";
             this.Divider_Menu.Primary = true;
@@ -173,6 +173,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(420, 280);
             this.Name = "MsgBox";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Title";
             this.Load += new System.EventHandler(this.MsgBox_Load);

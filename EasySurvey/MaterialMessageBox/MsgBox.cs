@@ -119,6 +119,8 @@ namespace EasySurvey
         private void MsgBox_Load(object sender, EventArgs e)
         {
             Divider_Menu.AutoSize = false;
+            Divider_Menu.Location = new Point(-14, 211);
+            Divider_Menu.Size = new Size(460, 10);
         }
 
         private void btn_Yes_Click(object sender, EventArgs e)

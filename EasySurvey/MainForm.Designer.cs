@@ -741,6 +741,7 @@
             this.toolStripMenuItem_EditAttitudeDefinitions.Name = "toolStripMenuItem_EditAttitudeDefinitions";
             this.toolStripMenuItem_EditAttitudeDefinitions.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem_EditAttitudeDefinitions.Text = "Edit selected Definition(s)";
+            this.toolStripMenuItem_EditAttitudeDefinitions.Click += new System.EventHandler(this.toolStripMenuItem_EditAttitudeDefinitions_Click);
             // 
             // toolStripMenuItem_DeleteAttitudeDefinitions
             // 

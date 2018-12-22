@@ -33,16 +33,22 @@ namespace EasySurvey
         public static long Answer1 = -1;
         public static long Answer2 = -1;
 
+        //Add
         public static MessageBoxResult Show(string text, string caption, MessageBoxButtons buttons, long AttitudeID)
         {
             _Result = MessageBoxResult.None;
-
             MsgComboBox frm_MessageBox = new MsgComboBox(text, caption, buttons, AttitudeID);
-
             frm_MessageBox.ShowDialog();
-
             return _Result;
+        }
 
+        //Edit
+        public static MessageBoxResult Show(string text, string caption, MessageBoxButtons buttons, long AttitudeID, long SurveyID, long QuestionID)
+        {
+            _Result = MessageBoxResult.None;
+            MsgComboBox frm_MessageBox = new MsgComboBox(text, caption, buttons, AttitudeID, SurveyID, QuestionID);
+            frm_MessageBox.ShowDialog();
+            return _Result;
         }
 
     }

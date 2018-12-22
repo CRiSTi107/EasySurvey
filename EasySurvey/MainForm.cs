@@ -789,5 +789,43 @@ namespace EasySurvey
             }
 
         }
+
+        private void toolStripMenuItem_EditAttitudeDefinitions_Click(object sender, EventArgs e)
+        {
+            int SelectedAttitudeDefinitionCount = listView_EditAttitudeDefinition.SelectedItems.Count;
+            MaterialMessageComboBox.MessageBoxResult result = MaterialMessageComboBox.MessageBoxResult.None;
+
+            if (SelectedAttitudeDefinitionCount == 0)
+                return;
+
+            int CurrentAttitudeDefinition = 0;
+
+            long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+
+            foreach (ListViewItem SelectedAttitudeDefinition in listView_EditAttitudeDefinition.SelectedItems)
+            {
+                long SurveyID = -1;
+                long QuestionID = Convert.ToInt64(SelectedAttitudeDefinition.Tag);
+
+                result = MaterialMessageComboBox.MessageBoxResult.None;
+                result = MaterialMessageComboBox.Show("Editeaza definitia atitudinii:", "Easy Survey - Edit Attitude Definition (" + ++CurrentAttitudeDefinition + "/" + SelectedAttitudeDefinitionCount + ")", MaterialMessageComboBox.MessageBoxButtons.OKCancel, AttitudeID, SurveyID, QuestionID);
+
+                if (result == MaterialMessageComboBox.MessageBoxResult.OK)
+                {
+                    // QuestionController questionController = new QuestionController();
+                    // string NewQuestionName = MaterialMessageInput.Answer;
+                    // long QuestionID = Convert.ToInt64(SelectedQuestion.Tag.ToString());
+                    // 
+                    // questionController.Update(QuestionID, NewQuestionName);
+                    // 
+                    // int QuestionIndex = listView_EditSurveyQuestions.Items.IndexOf(SelectedQuestion);
+                    // listView_EditSurveyQuestions.Items[QuestionIndex].Text = NewQuestionName;
+                }
+                else if (result == MaterialMessageComboBox.MessageBoxResult.None)
+                {
+                    break;
+                }
+            }
+        }
     }
 }
