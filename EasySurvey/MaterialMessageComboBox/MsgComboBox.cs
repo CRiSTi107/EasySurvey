@@ -54,6 +54,7 @@ namespace EasySurvey
             : this(text, caption, buttons)
         {
             this.AttitudeID = AttitudeID;
+            AddMode = true;
         }
 
         //Edit
@@ -61,7 +62,9 @@ namespace EasySurvey
             : this(text, caption, buttons)
         {
             this.AttitudeID = AttitudeID;
+            this.SurveyID = SurveyID;
             this.QuestionID = QuestionID;
+            EditMode = true;
         }
 
         private long AttitudeID = -1;
@@ -75,6 +78,9 @@ namespace EasySurvey
         private bool IsValidatedAnswer1 = false;
         private bool IsValidatedAnswer2 = false;
 
+        private bool EditMode = false;
+        private bool AddMode = false;
+
         private void MsgComboBox_Load(object sender, EventArgs e)
         {
             SurveyController surveyController = new SurveyController();
@@ -83,32 +89,52 @@ namespace EasySurvey
             QuestionController questionController = new QuestionController();
             Questions = questionController.GetAll();
 
-            //AutoCompleteStringCollection autoCompleteSource = new AutoCompleteStringCollection();
-
-            //Surveys.ForEach(item => autoCompleteSource.Add(item.SurveyName));
-
-            //cmb_Answer1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //cmb_Answer1.AutoCompleteCustomSource = autoCompleteSource;
-
             foreach (Survey survey in Surveys)
                 cmb_Answer1.Items.Add(survey.SurveyName);
 
-            //cmb_Answer2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            if (EditMode)
+            {
+                string SurveyName = surveyController.Get(SurveyID).SurveyName;
+                cmb_Answer1.Text = SurveyName;
+
+                string QuestionName = questionController.Get(QuestionID).Question1;
+                cmb_Answer2.Text = QuestionName;
+            }
+
         }
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
             if (IsValidatedAnswer1 && IsValidatedAnswer2)
             {
-                long SurveyID = MaterialMessageComboBox.Answer1;
-                long QuestionID = MaterialMessageComboBox.Answer2;
                 AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
-                if (attitudeDefinitionController.Exists(AttitudeID, QuestionID))
+
+                long SelectedSurveyID = MaterialMessageComboBox.Answer1;
+                long SelectedQuestionID = MaterialMessageComboBox.Answer2;
+
+                if (AddMode)
                 {
-                    SetStatus("This Question already exists in this Attitude Definition.");
+                    if (attitudeDefinitionController.Exists(AttitudeID, SelectedQuestionID))
+                    {
+                        SetStatus("This Question already exists in this Attitude Definition.");
+                    }
+                    else
+                    {
+                        MaterialMessageComboBox._Result = MaterialMessageComboBox.MessageBoxResult.OK;
+                        base.Close();
+                    }
                 }
-                else
+                else if (EditMode)
                 {
+                    if (SelectedSurveyID != SurveyID || SelectedQuestionID != QuestionID) // Modified
+                    {
+                        if (attitudeDefinitionController.Exists(AttitudeID, SelectedQuestionID))
+                        {
+                            SetStatus("This Question already exists in this Attitude Definition.");
+                            return;
+                        }
+                    }
+
                     MaterialMessageComboBox._Result = MaterialMessageComboBox.MessageBoxResult.OK;
                     base.Close();
                 }
@@ -142,6 +168,7 @@ namespace EasySurvey
 
                 MaterialMessageComboBox.Answer1 = SurveyID;
                 IsValidatedAnswer1 = true;
+                IsValidatedAnswer2 = false;
             }
             else
             {

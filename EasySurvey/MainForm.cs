@@ -800,26 +800,35 @@ namespace EasySurvey
 
             int CurrentAttitudeDefinition = 0;
 
+            SurveyController surveyController = new SurveyController();
+            QuestionController questionController = new QuestionController();
+
             long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+            long SurveyID = -1;
+            long QuestionID = -1;
 
             foreach (ListViewItem SelectedAttitudeDefinition in listView_EditAttitudeDefinition.SelectedItems)
             {
-                long SurveyID = -1;
-                long QuestionID = Convert.ToInt64(SelectedAttitudeDefinition.Tag);
+                QuestionID = Convert.ToInt64(SelectedAttitudeDefinition.Tag);
+                SurveyID = surveyController.GetByQuestion(QuestionID).SurveyID;
 
                 result = MaterialMessageComboBox.MessageBoxResult.None;
                 result = MaterialMessageComboBox.Show("Editeaza definitia atitudinii:", "Easy Survey - Edit Attitude Definition (" + ++CurrentAttitudeDefinition + "/" + SelectedAttitudeDefinitionCount + ")", MaterialMessageComboBox.MessageBoxButtons.OKCancel, AttitudeID, SurveyID, QuestionID);
 
                 if (result == MaterialMessageComboBox.MessageBoxResult.OK)
                 {
-                    // QuestionController questionController = new QuestionController();
-                    // string NewQuestionName = MaterialMessageInput.Answer;
-                    // long QuestionID = Convert.ToInt64(SelectedQuestion.Tag.ToString());
-                    // 
-                    // questionController.Update(QuestionID, NewQuestionName);
-                    // 
-                    // int QuestionIndex = listView_EditSurveyQuestions.Items.IndexOf(SelectedQuestion);
-                    // listView_EditSurveyQuestions.Items[QuestionIndex].Text = NewQuestionName;
+                    AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
+
+                    long NewSurveyID = MaterialMessageComboBox.Answer1;
+                    long NewQuestionID = MaterialMessageComboBox.Answer2;
+
+                    attitudeDefinitionController.Update(AttitudeID, QuestionID, NewQuestionID);
+
+                    string NewQuestionName = questionController.Get(NewQuestionID).Question1;
+
+                    int AttitudeDefinitionIndex = listView_EditAttitudeDefinition.Items.IndexOf(SelectedAttitudeDefinition);
+                    listView_EditAttitudeDefinition.Items[AttitudeDefinitionIndex].Text = NewQuestionName;
+                    listView_EditAttitudeDefinition.Items[AttitudeDefinitionIndex].Tag = NewQuestionID;
                 }
                 else if (result == MaterialMessageComboBox.MessageBoxResult.None)
                 {

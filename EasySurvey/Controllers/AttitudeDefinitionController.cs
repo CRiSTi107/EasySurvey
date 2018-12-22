@@ -43,6 +43,12 @@ namespace EasySurvey.Controllers
                                                 select attitudeDefinition);
         }
 
+        public void Update(long AttitudeID, long QuestionID, long NewQuestionID)
+        {
+            DatabaseModel.AttitudeDefinition.Where(item => item.AttitudeID == AttitudeID && item.QuestionID == QuestionID).ToList().ForEach(item => item.QuestionID = NewQuestionID);
+            DatabaseModel.SaveChanges();
+        }
+
         public void Delete(AttitudeDefinition attitudeDefinition)
         {
             DatabaseModel.AttitudeDefinition.Remove(attitudeDefinition);
