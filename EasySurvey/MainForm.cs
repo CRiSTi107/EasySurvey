@@ -359,9 +359,29 @@ namespace EasySurvey
         {
             int SelectedQuestionsCount = listView_EditSurveyQuestions.SelectedItems.Count;
             MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+            string TextMessage = "Sunteti sigur ca vrei sa stergeti intrebarile selectate?";
+            MaterialMessageBox.MessageBoxIcon IconMessage = MaterialMessageBox.MessageBoxIcon.Warning;
+
+            long QuestionCount = 0;
+
+            AttitudeController attitudeController = new AttitudeController();
+
+            foreach (ListViewItem selectedItem in listView_EditSurveyQuestions.SelectedItems)
+            {
+                long QuestionID = Convert.ToInt64(selectedItem.Tag);
+
+                if (attitudeController.Contains(QuestionID))
+                    QuestionCount++;
+            }
+
+            if (QuestionCount > 0)
+            {
+                TextMessage += Environment.NewLine + QuestionCount + " (de) intrebari sunt continute in Definitii de Atitudini(daca selectati DA acestea vor fi sterse din Definitii)";
+                IconMessage = MaterialMessageBox.MessageBoxIcon.Error;
+            }
 
             if (SelectedQuestionsCount > 0)
-                result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti intrebarile selectate?", "Easy Survey - Delete Questions", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+                result = MaterialMessageBox.Show(TextMessage, "Easy Survey - Delete Questions", MaterialMessageBox.MessageBoxButtons.YesNo, IconMessage);
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
