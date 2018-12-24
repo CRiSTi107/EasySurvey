@@ -891,5 +891,35 @@ namespace EasySurvey
                 }
             }
         }
+
+        private void materialTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int TabIndex = materialTabControl.SelectedIndex;
+
+            const int SURVEYS = 0;
+            const int ATTITUDES = 1;
+
+            if (TabIndex == SURVEYS)
+            {
+
+            }
+            else if (TabIndex == ATTITUDES)
+            {
+                //Update selected Items and updates if any Question has been modified.
+                List<int> ItemIndexes = new List<int>();
+
+                for (int ItemIndex = 0; ItemIndex <= listView_AllAttitudes.Items.Count - 1; ItemIndex++)
+                    if (listView_AllAttitudes.Items[ItemIndex].Selected)
+                    {
+                        ItemIndexes.Add(ItemIndex);
+                        listView_AllAttitudes.Items[ItemIndex].Selected = false;
+                    }
+
+                foreach (int ItemIndex in ItemIndexes)
+                {
+                    listView_AllAttitudes.Items[ItemIndex].Selected = true;
+                }
+            }
+        }
     }
 }
