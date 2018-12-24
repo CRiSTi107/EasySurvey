@@ -82,6 +82,39 @@ namespace EasySurvey.Controllers
             return (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();
         }
 
+        public List<Question> GetQuestions(long AttitudeID)
+        {
+            List<AttitudeDefinition> attitudeDefinition;
+            attitudeDefinition = (from attitudedefinition in DatabaseModel.AttitudeDefinition where attitudedefinition.AttitudeID == AttitudeID select attitudedefinition).ToList();
+
+            QuestionController questionController = new QuestionController();
+            List<Question> questions = new List<Question>();
+
+            foreach (AttitudeDefinition currentAttitudeDefinition in attitudeDefinition)
+            {
+                Question questionToAdd = questionController.Get(currentAttitudeDefinition.QuestionID);
+                questions.Add(questionToAdd);
+            }
+
+            return questions;
+        }
+
+        public bool Contains(long QuestionID)
+        {
+            List<Attitude> attitudes = GetAttitudes();
+
+            foreach (Attitude attitude in attitudes)
+                if (Contains(attitude.AttitudeID, QuestionID))
+                    return true;
+
+            return false;
+        }
+
+        public bool Contains(long AttitudeID, long QuestionID)
+        {
+            return (from attitudeDefinition in DatabaseModel.AttitudeDefinition where attitudeDefinition.AttitudeID == AttitudeID && attitudeDefinition.QuestionID == QuestionID select attitudeDefinition).Count() == 0 ? false : true;
+        }
+
         public void Delete(long AttitudeID)
         {
             Attitude attitudeToDelete = (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();

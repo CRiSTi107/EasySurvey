@@ -251,9 +251,31 @@ namespace EasySurvey
         {
             int SelectedSurveysCount = listView_AllSurveys.SelectedItems.Count;
             MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+            string TextMessage = "Sunteti sigur ca vrei sa stergeti chestionarele selectate?";
+            MaterialMessageBox.MessageBoxIcon IconMessage = MaterialMessageBox.MessageBoxIcon.Warning;
+
+            //Check if any Question from Surveys are contained into Attitudes
+            AttitudeController attitudeController = new AttitudeController();
+            QuestionController questionController = new QuestionController();
+            long QuestionsCount = 0;
+            foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
+            {
+                long SurveyID = Convert.ToInt64(selectedItem.Tag);
+                List<Question> Questions = questionController.GetQuestionsForSurvey(SurveyID);
+
+                foreach (Question question in Questions)
+                    if (attitudeController.Contains(question.QuestionID))
+                        ++QuestionsCount;
+            }
+
+            if (QuestionsCount > 0)
+            {
+                IconMessage = MaterialMessageBox.MessageBoxIcon.Error;
+                TextMessage += Environment.NewLine + QuestionsCount + " (de) intrebari sunt continute in cateva Definitii de Atitudini(daca selectati DA acestea vor fi sterse din Definitii).";
+            }
 
             if (SelectedSurveysCount > 0)
-                result = MaterialMessageBox.Show("Sunteti sigur ca vrei sa stergeti chestionarele selectate?", "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+                result = MaterialMessageBox.Show(TextMessage, "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, IconMessage);
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
@@ -267,8 +289,6 @@ namespace EasySurvey
                     surveyController.Delete(SurveyID);
                     listView_AllSurveys.Items.Remove(selectedItem);
                 }
-
-
             }
         }
 

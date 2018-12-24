@@ -77,11 +77,13 @@ namespace EasySurvey.Controllers
 
         public void DeleteAll(long SurveyID)
         {
+            AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
             List<Question> Questions = GetQuestionsForSurvey(SurveyID);
 
             foreach (Question question in Questions)
             {
                 Delete(question.QuestionID, SurveyID);
+                attitudeDefinitionController.Delete(question.QuestionID);
             }
         }
 

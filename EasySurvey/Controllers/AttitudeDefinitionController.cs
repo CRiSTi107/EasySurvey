@@ -70,5 +70,20 @@ namespace EasySurvey.Controllers
             AttitudeDefinition attitudeDefinitionToDelete = GetRelation(AttitudeID, QuestionID);
             Delete(attitudeDefinitionToDelete);
         }
+
+        /// <summary>
+        /// Use with caution! This deletes all Question from every Attitude Definition.
+        /// </summary>
+        /// <param name="QuestionID">Question ID to be deleted.</param>
+        public void Delete(long QuestionID)
+        {
+            List<AttitudeDefinition> attitudeDefinitionsToDelete;
+            attitudeDefinitionsToDelete = (from attitudeDefinition in DatabaseModel.AttitudeDefinition where attitudeDefinition.QuestionID == QuestionID select attitudeDefinition).ToList();
+
+            foreach (AttitudeDefinition attitudeDefinition in attitudeDefinitionsToDelete)
+                Delete(attitudeDefinition);
+
+            DatabaseModel.SaveChanges();
+        }
     }
 }
