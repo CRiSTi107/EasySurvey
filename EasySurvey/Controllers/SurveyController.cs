@@ -84,6 +84,11 @@ namespace EasySurvey.Controllers
             return selectedSurvey;
         }
 
+        public bool Exists(string SurveyName)
+        {
+            return (from survey in DatabaseModel.Survey where survey.SurveyName == SurveyName select survey).Count() == 0 ? false : true;
+        }
+
         public void Delete(long SurveyID)
         {
             Survey surveyToDelete = (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();

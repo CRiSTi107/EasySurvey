@@ -1,4 +1,5 @@
-﻿using MaterialSkin;
+﻿using EasySurvey.Controllers;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace EasySurvey
     {
         internal readonly MaterialSkinManager __materialSkinManager;
 
+        private bool AddSurveyMode = false;
+        private bool AddQuestionMode = false;
+        private bool EditQuestionMode = false;
+
+        private string DefaultInputValue = String.Empty;
+
         public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons, string defaultValue = "")
         {
             InitializeComponent();
@@ -28,6 +35,7 @@ namespace EasySurvey
             lbl_Text.Text = text;
 
             txt_Answer.Text = defaultValue;
+            DefaultInputValue = defaultValue;
 
             switch (buttons)
             {
@@ -43,6 +51,15 @@ namespace EasySurvey
             }
 
             Divider_Menu.AutoSize = false;
+        }
+
+        public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons, string defaultValue,
+                        bool addSurvey = false, bool addQuestion = false, bool editQuestion = false)
+            : this(text, caption, buttons, defaultValue)
+        {
+            AddSurveyMode = addSurvey;
+            AddQuestionMode = addQuestion;
+            EditQuestionMode = editQuestion;
         }
 
         #region Shade the form
@@ -70,25 +87,71 @@ namespace EasySurvey
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
+            AnswerIsEmpty = false;
+
             if (txt_Answer.Text == null || txt_Answer.Text == "" || txt_Answer.Text == String.Empty || txt_Answer.Text.Trim() == String.Empty)
             {
                 AnswerIsEmpty = true;
-                Status = "Text cannot be empty";
+                SetStatus("Text cannot be empty");
+                return;
             }
-            else
-            { AnswerIsEmpty = false; }
+
+            string InputText = txt_Answer.Text;
 
             if (!AnswerIsEmpty)
             {
-                MaterialMessageInput.Answer = txt_Answer.Text;
-                MaterialMessageInput._Result = MaterialMessageInput.MessageBoxResultInput.OK;
-                base.Close();
+                SurveyController surveyController = new SurveyController();
+                QuestionController questionController = new QuestionController();
+
+                bool isOK = false;
+
+                if (AddSurveyMode)
+                {
+                    if (surveyController.Exists(InputText))
+                    {
+                        SetStatus("A Survey with the same name already exists");
+                        return;
+                    }
+                    else isOK = true;
+                }
+                else if (AddQuestionMode)
+                {
+                    if (questionController.Exists(InputText))
+                    {
+                        SetStatus("A Question with the same name already exists");
+                        return;
+                    }
+                    else isOK = true;
+                }
+                else if (EditQuestionMode)
+                {
+                    if (DefaultInputValue != InputText)
+                    {
+                        if (questionController.Exists(InputText))
+                        {
+                            SetStatus("A Question with the same name already exists");
+                            return;
+                        }
+                        else isOK = true;
+                    }
+                    else isOK = true;
+                }
+
+                if (isOK || (!AddSurveyMode && !AddQuestionMode && !EditQuestionMode))
+                {
+                    MaterialMessageInput.Answer = txt_Answer.Text;
+                    MaterialMessageInput._Result = MaterialMessageInput.MessageBoxResultInput.OK;
+                    base.Close();
+                }
+
             }
-            else
-            {
-                lbl_Status.Text = Status;
-                lbl_Status.ForeColor = Color.Red;
-            }
+
+        }
+
+        private void SetStatus(string status, bool isError = true)
+        {
+            lbl_Status.Text = status;
+            lbl_Status.ForeColor = isError ? Color.Red : Color.Green;
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

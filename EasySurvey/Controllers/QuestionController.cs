@@ -49,6 +49,11 @@ namespace EasySurvey.Controllers
             return (from question in DatabaseModel.Question where question.QuestionID == QuestionID select question).First();
         }
 
+        public bool Exists(string QuestionName)
+        {
+            return (from question in DatabaseModel.Question where question.Question1 == QuestionName select question).Count() == 0 ? false : true;
+        }
+
         public void Add(ref Question question, long SurveyID)
         {
             DatabaseModel.Question.Add(question);

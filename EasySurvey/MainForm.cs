@@ -274,7 +274,7 @@ namespace EasySurvey
 
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Ce nume are noul chestionar?", "Easy Survey - Add New Survey", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Ce nume are noul chestionar?", "Easy Survey - Add New Survey", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, addSurvey: true);
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
             {
@@ -304,7 +304,7 @@ namespace EasySurvey
             long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
 
             if (SurveyID != -1)
-                result = MaterialMessageInput.Show("Noua intrebare care sa fie adaugata in chestionar:", "Easy Survey - Add New Question", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
+                result = MaterialMessageInput.Show("Noua intrebare care sa fie adaugata in chestionar:", "Easy Survey - Add New Question", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, addQuestion: true);
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
             {
@@ -361,7 +361,7 @@ namespace EasySurvey
             {
                 result = MaterialMessageInput.MessageBoxResultInput.None;
 
-                result = MaterialMessageInput.Show("Editeaza intrebarea:", "Easy Survey - Edit Question (" + ++CurrentQuestion + "/" + SelectedQuestionsCount + ")", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, SelectedQuestion.Text);
+                result = MaterialMessageInput.Show("Editeaza intrebarea:", "Easy Survey - Edit Question (" + ++CurrentQuestion + "/" + SelectedQuestionsCount + ")", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, SelectedQuestion.Text, editQuestion: true);
 
                 if (result == MaterialMessageInput.MessageBoxResultInput.OK)
                 {
