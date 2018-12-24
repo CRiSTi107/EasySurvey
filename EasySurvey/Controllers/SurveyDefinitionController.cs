@@ -26,6 +26,8 @@ namespace EasySurvey.Controllers
         {
             SurveyDefinition surveyDefinitionToDelete = GetRelation(SurveyID, QuestionID);
             DeleteRelation(surveyDefinitionToDelete);
+
+            DatabaseModel.SaveChanges();
         }
 
         public void DeleteRelation(SurveyDefinition surveyDefinition)

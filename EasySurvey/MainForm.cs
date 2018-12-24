@@ -296,6 +296,18 @@ namespace EasySurvey
 
         #endregion
 
+        private bool IsEmpty(string text)
+        {
+            if (text == String.Empty || text.Trim() == String.Empty)
+                return true;
+            return false;
+        }
+
+        private string TrimmedText(string text)
+        {
+            return text.Trim();
+        }
+
         #region ToolStripMenuItem - Add | Edit | Delete - Questions
 
         private void toolStripMenuItem_AddNewQuestion_Click(object sender, EventArgs e)
@@ -396,7 +408,7 @@ namespace EasySurvey
             string CurrentSurveyName = txt_EditSurveyDetailsName.Text;
             long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
 
-            if (CurrentSurveyName != SelectedSurveyOriginalName && SurveyID != -1)
+            if (CurrentSurveyName != SelectedSurveyOriginalName && SurveyID != -1 && !IsEmpty(CurrentSurveyName))
             {
                 IsSelectedSurveyOriginalNameChanged = true;
                 pic_SaveSurveyChanges.BackgroundImage = Properties.Resources.save_icon_24x24;
@@ -431,6 +443,7 @@ namespace EasySurvey
                     }
                 }
 
+                SelectedSurveyOriginalName = NewSurveyName;
                 IsSelectedSurveyOriginalNameChanged = false;
                 pic_SaveSurveyChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
                 pic_SaveSurveyChanges.Cursor = Cursors.Arrow;
@@ -522,7 +535,7 @@ namespace EasySurvey
             string CurrentAttitudeName = txt_EditAttitudeDetailsName.Text;
             long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
 
-            if (CurrentAttitudeName != SelectedAttitudeOriginalName && AttitudeID != -1)
+            if (CurrentAttitudeName != SelectedAttitudeOriginalName && AttitudeID != -1 && !IsEmpty(CurrentAttitudeName))
             {
                 IsSelectedAttitudeOriginalNameChanged = true;
                 pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_24x24;
@@ -558,6 +571,7 @@ namespace EasySurvey
                     }
                 }
 
+                SelectedAttitudeOriginalName = NewAttitudeName;
                 IsSelectedAttitudeOriginalNameChanged = false;
                 pic_SaveAttitudeChanges.BackgroundImage = Properties.Resources.save_icon_disabled_24x24;
                 pic_SaveAttitudeChanges.Cursor = Cursors.Arrow;
@@ -695,7 +709,7 @@ namespace EasySurvey
 
         private void addNewAttitudeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Ce nume are noua atitudine?", "Easy Survey - Add New Attitude", MaterialMessageInput.MessageBoxButtonsInput.OKCancel);
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Ce nume are noua atitudine?", "Easy Survey - Add New Attitude", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, addAttitude: true);
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
             {
@@ -771,18 +785,19 @@ namespace EasySurvey
 
             long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
 
-            result = MaterialMessageComboBox.Show("Select survey and question.", "Easy Survey - Add New Attitude Definition", MaterialMessageComboBox.MessageBoxButtons.OKCancel, AttitudeID);
+            if (AttitudeID != -1)
+                result = MaterialMessageComboBox.Show("Select survey and question.", "Easy Survey - Add New Attitude Definition", MaterialMessageComboBox.MessageBoxButtons.OKCancel, AttitudeID);
 
             if (result == MaterialMessageComboBox.MessageBoxResult.OK)
             {
-                long NewSurveyID = MaterialMessageComboBox.Answer1;
+                //long NewSurveyID = MaterialMessageComboBox.Answer1;
                 long NewQuestionID = MaterialMessageComboBox.Answer2;
 
                 QuestionController questionController = new QuestionController();
                 string QuestionName = questionController.Get(NewQuestionID).Question1;
                 AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
 
-                if (attitudeDefinitionController.AddRelation(NewSurveyID, NewQuestionID))
+                if (attitudeDefinitionController.AddRelation(AttitudeID, NewQuestionID))
                 {
                     listView_EditAttitudeDefinition.Items.Add(new ListViewItem() { Text = QuestionName, Tag = NewQuestionID });
                 }

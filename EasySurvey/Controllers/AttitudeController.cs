@@ -72,6 +72,11 @@ namespace EasySurvey.Controllers
             DatabaseModel.SaveChanges();
         }
 
+        public bool Exists(string AttitudeName)
+        {
+            return (from attitude in DatabaseModel.Attitude where attitude.AttitudeName == AttitudeName select attitude).Count() == 0 ? false : true;
+        }
+
         public Attitude GetAttitude(long AttitudeID)
         {
             return (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();

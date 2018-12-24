@@ -18,6 +18,7 @@ namespace EasySurvey
 
         private bool AddSurveyMode = false;
         private bool AddQuestionMode = false;
+        private bool AddAttitudeMode = false;
         private bool EditQuestionMode = false;
 
         private string DefaultInputValue = String.Empty;
@@ -54,11 +55,12 @@ namespace EasySurvey
         }
 
         public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons, string defaultValue,
-                        bool addSurvey = false, bool addQuestion = false, bool editQuestion = false)
+                        bool addSurvey = false, bool addQuestion = false, bool addAttitude = false, bool editQuestion = false)
             : this(text, caption, buttons, defaultValue)
         {
             AddSurveyMode = addSurvey;
             AddQuestionMode = addQuestion;
+            AddAttitudeMode = addAttitude;
             EditQuestionMode = editQuestion;
         }
 
@@ -102,6 +104,7 @@ namespace EasySurvey
             {
                 SurveyController surveyController = new SurveyController();
                 QuestionController questionController = new QuestionController();
+                AttitudeController attitudeController = new AttitudeController();
 
                 bool isOK = false;
 
@@ -123,6 +126,15 @@ namespace EasySurvey
                     }
                     else isOK = true;
                 }
+                else if (AddAttitudeMode)
+                {
+                    if (attitudeController.Exists(InputText))
+                    {
+                        SetStatus("An Attitude with the same name already exists");
+                        return;
+                    }
+                    else isOK = true;
+                }
                 else if (EditQuestionMode)
                 {
                     if (DefaultInputValue != InputText)
@@ -137,7 +149,7 @@ namespace EasySurvey
                     else isOK = true;
                 }
 
-                if (isOK || (!AddSurveyMode && !AddQuestionMode && !EditQuestionMode))
+                if (isOK || (!AddSurveyMode && !AddQuestionMode && !AddAttitudeMode && !EditQuestionMode))
                 {
                     MaterialMessageInput.Answer = txt_Answer.Text;
                     MaterialMessageInput._Result = MaterialMessageInput.MessageBoxResultInput.OK;

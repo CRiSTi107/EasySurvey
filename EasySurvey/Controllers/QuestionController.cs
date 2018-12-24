@@ -72,6 +72,7 @@ namespace EasySurvey.Controllers
             surveyDefinitionController.DeleteRelation(SurveyID, QuestionID);
 
             DatabaseModel.Question.Remove(QuestionToDelete);
+            DatabaseModel.SaveChanges();
         }
 
         public void DeleteAll(long SurveyID)
