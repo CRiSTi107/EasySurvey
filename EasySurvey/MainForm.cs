@@ -128,7 +128,10 @@ namespace EasySurvey
 
         private void btn_StartSurvey_Click(object sender, EventArgs e)
         {
-
+            // TODO: Display Make Survey Page.
+            long SurveyID = Convert.ToInt64(txt_ViewSurveyDetailsName.Tag);
+            ConductSurvey surveyPage = new ConductSurvey(LoggedUser, SurveyID);
+            surveyPage.ShowDialog();
         }
 
         #endregion
