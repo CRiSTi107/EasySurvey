@@ -278,7 +278,8 @@ namespace EasySurvey
             panel_Finish.Visible = true;
             panel_Finish.Enabled = true;
 
-
+            ResultController resultController = new ResultController();
+            resultController.Add(FinalResult);
 
         }
 
