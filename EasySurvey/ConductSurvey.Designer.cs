@@ -47,6 +47,9 @@
             this.lbl_SurveyName = new MaterialSkin.Controls.MaterialLabel();
             this.btn_Back = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btn_Next = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txt_CurrentQuestion = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lbl_TotalQuestions = new MaterialSkin.Controls.MaterialLabel();
+            this.btn_Finish = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel_Welcome.SuspendLayout();
             this.panel_ConductSurvey.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +145,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_ConductSurvey.BackColor = System.Drawing.Color.White;
+            this.panel_ConductSurvey.Controls.Add(this.btn_Finish);
+            this.panel_ConductSurvey.Controls.Add(this.lbl_TotalQuestions);
+            this.panel_ConductSurvey.Controls.Add(this.txt_CurrentQuestion);
             this.panel_ConductSurvey.Controls.Add(this.materialDivider_Menu);
             this.panel_ConductSurvey.Controls.Add(this.btn_Answer_5);
             this.panel_ConductSurvey.Controls.Add(this.btn_Answer_4);
@@ -154,34 +160,34 @@
             this.panel_ConductSurvey.Controls.Add(this.lbl_SurveyName);
             this.panel_ConductSurvey.Controls.Add(this.btn_Back);
             this.panel_ConductSurvey.Controls.Add(this.btn_Next);
-            this.panel_ConductSurvey.Location = new System.Drawing.Point(0, 64);
+            this.panel_ConductSurvey.Location = new System.Drawing.Point(1, 64);
             this.panel_ConductSurvey.Name = "panel_ConductSurvey";
-            this.panel_ConductSurvey.Size = new System.Drawing.Size(927, 501);
+            this.panel_ConductSurvey.Size = new System.Drawing.Size(925, 500);
             this.panel_ConductSurvey.TabIndex = 1;
             // 
             // materialDivider_Menu
             // 
             this.materialDivider_Menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialDivider_Menu.AutoSize = true;
             this.materialDivider_Menu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialDivider_Menu.Depth = 0;
             this.materialDivider_Menu.Icon = null;
-            this.materialDivider_Menu.Location = new System.Drawing.Point(0, 403);
+            this.materialDivider_Menu.Location = new System.Drawing.Point(0, 428);
             this.materialDivider_Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider_Menu.Name = "materialDivider_Menu";
             this.materialDivider_Menu.Primary = true;
-            this.materialDivider_Menu.Size = new System.Drawing.Size(16, 36);
+            this.materialDivider_Menu.Size = new System.Drawing.Size(928, 10);
             this.materialDivider_Menu.TabIndex = 12;
             this.materialDivider_Menu.UseVisualStyleBackColor = true;
             // 
             // btn_Answer_5
             // 
+            this.btn_Answer_5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Answer_5.AutoSize = true;
             this.btn_Answer_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Answer_5.Depth = 0;
             this.btn_Answer_5.Font = new System.Drawing.Font("Roboto", 10F);
-            this.btn_Answer_5.Location = new System.Drawing.Point(853, 327);
+            this.btn_Answer_5.Location = new System.Drawing.Point(852, 327);
             this.btn_Answer_5.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Answer_5.MouseLocation = new System.Drawing.Point(-1, -1);
             this.btn_Answer_5.MouseState = MaterialSkin.MouseState.HOVER;
@@ -193,14 +199,16 @@
             this.btn_Answer_5.Text = "5";
             this.btn_Answer_5.UseVisualStyleBackColor = true;
             this.btn_Answer_5.CheckedChanged += new System.EventHandler(this.btn_Answer_CheckedChanged);
+            this.btn_Answer_5.Click += new System.EventHandler(this.btn_Answer_Click);
             // 
             // btn_Answer_4
             // 
+            this.btn_Answer_4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Answer_4.AutoSize = true;
             this.btn_Answer_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Answer_4.Depth = 0;
             this.btn_Answer_4.Font = new System.Drawing.Font("Roboto", 10F);
-            this.btn_Answer_4.Location = new System.Drawing.Point(680, 327);
+            this.btn_Answer_4.Location = new System.Drawing.Point(679, 327);
             this.btn_Answer_4.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Answer_4.MouseLocation = new System.Drawing.Point(-1, -1);
             this.btn_Answer_4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -212,14 +220,16 @@
             this.btn_Answer_4.Text = "4";
             this.btn_Answer_4.UseVisualStyleBackColor = true;
             this.btn_Answer_4.CheckedChanged += new System.EventHandler(this.btn_Answer_CheckedChanged);
+            this.btn_Answer_4.Click += new System.EventHandler(this.btn_Answer_Click);
             // 
             // btn_Answer_3
             // 
+            this.btn_Answer_3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Answer_3.AutoSize = true;
             this.btn_Answer_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Answer_3.Depth = 0;
             this.btn_Answer_3.Font = new System.Drawing.Font("Roboto", 10F);
-            this.btn_Answer_3.Location = new System.Drawing.Point(517, 327);
+            this.btn_Answer_3.Location = new System.Drawing.Point(516, 327);
             this.btn_Answer_3.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Answer_3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.btn_Answer_3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -231,14 +241,16 @@
             this.btn_Answer_3.Text = "3";
             this.btn_Answer_3.UseVisualStyleBackColor = true;
             this.btn_Answer_3.CheckedChanged += new System.EventHandler(this.btn_Answer_CheckedChanged);
+            this.btn_Answer_3.Click += new System.EventHandler(this.btn_Answer_Click);
             // 
             // btn_Answer_2
             // 
+            this.btn_Answer_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Answer_2.AutoSize = true;
             this.btn_Answer_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Answer_2.Depth = 0;
             this.btn_Answer_2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.btn_Answer_2.Location = new System.Drawing.Point(354, 327);
+            this.btn_Answer_2.Location = new System.Drawing.Point(353, 327);
             this.btn_Answer_2.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Answer_2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.btn_Answer_2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -250,14 +262,16 @@
             this.btn_Answer_2.Text = "2";
             this.btn_Answer_2.UseVisualStyleBackColor = true;
             this.btn_Answer_2.CheckedChanged += new System.EventHandler(this.btn_Answer_CheckedChanged);
+            this.btn_Answer_2.Click += new System.EventHandler(this.btn_Answer_Click);
             // 
             // btn_Answer_1
             // 
+            this.btn_Answer_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Answer_1.AutoSize = true;
             this.btn_Answer_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Answer_1.Depth = 0;
             this.btn_Answer_1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.btn_Answer_1.Location = new System.Drawing.Point(191, 327);
+            this.btn_Answer_1.Location = new System.Drawing.Point(190, 327);
             this.btn_Answer_1.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Answer_1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.btn_Answer_1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -269,14 +283,16 @@
             this.btn_Answer_1.Text = "1";
             this.btn_Answer_1.UseVisualStyleBackColor = true;
             this.btn_Answer_1.CheckedChanged += new System.EventHandler(this.btn_Answer_CheckedChanged);
+            this.btn_Answer_1.Click += new System.EventHandler(this.btn_Answer_Click);
             // 
             // btn_Answer_0
             // 
+            this.btn_Answer_0.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Answer_0.AutoSize = true;
             this.btn_Answer_0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Answer_0.Depth = 0;
             this.btn_Answer_0.Font = new System.Drawing.Font("Roboto", 10F);
-            this.btn_Answer_0.Location = new System.Drawing.Point(28, 327);
+            this.btn_Answer_0.Location = new System.Drawing.Point(27, 327);
             this.btn_Answer_0.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Answer_0.MouseLocation = new System.Drawing.Point(-1, -1);
             this.btn_Answer_0.MouseState = MaterialSkin.MouseState.HOVER;
@@ -288,6 +304,7 @@
             this.btn_Answer_0.Text = "0";
             this.btn_Answer_0.UseVisualStyleBackColor = true;
             this.btn_Answer_0.CheckedChanged += new System.EventHandler(this.btn_Answer_CheckedChanged);
+            this.btn_Answer_0.Click += new System.EventHandler(this.btn_Answer_Click);
             // 
             // lbl_Question
             // 
@@ -300,7 +317,7 @@
             this.lbl_Question.Location = new System.Drawing.Point(12, 158);
             this.lbl_Question.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Question.Name = "lbl_Question";
-            this.lbl_Question.Size = new System.Drawing.Size(903, 124);
+            this.lbl_Question.Size = new System.Drawing.Size(901, 124);
             this.lbl_Question.TabIndex = 5;
             this.lbl_Question.Text = "1. Here goes question??";
             this.lbl_Question.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -316,10 +333,10 @@
             this.lbl_QuestionCount.Location = new System.Drawing.Point(767, 11);
             this.lbl_QuestionCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_QuestionCount.Name = "lbl_QuestionCount";
-            this.lbl_QuestionCount.Size = new System.Drawing.Size(148, 91);
+            this.lbl_QuestionCount.Size = new System.Drawing.Size(146, 91);
             this.lbl_QuestionCount.TabIndex = 4;
             this.lbl_QuestionCount.Text = "70 Questions";
-            this.lbl_QuestionCount.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.lbl_QuestionCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl_SurveyName
             // 
@@ -332,7 +349,7 @@
             this.lbl_SurveyName.Location = new System.Drawing.Point(12, 11);
             this.lbl_SurveyName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_SurveyName.Name = "lbl_SurveyName";
-            this.lbl_SurveyName.Size = new System.Drawing.Size(749, 91);
+            this.lbl_SurveyName.Size = new System.Drawing.Size(747, 91);
             this.lbl_SurveyName.TabIndex = 3;
             this.lbl_SurveyName.Text = "Name of Survey here!";
             this.lbl_SurveyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -343,9 +360,10 @@
             this.btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Back.AutoSize = true;
             this.btn_Back.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Back.Depth = 0;
             this.btn_Back.Icon = null;
-            this.btn_Back.Location = new System.Drawing.Point(12, 453);
+            this.btn_Back.Location = new System.Drawing.Point(12, 452);
             this.btn_Back.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Primary = true;
@@ -360,9 +378,10 @@
             this.btn_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Next.AutoSize = true;
             this.btn_Next.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Next.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Next.Depth = 0;
             this.btn_Next.Icon = null;
-            this.btn_Next.Location = new System.Drawing.Point(720, 453);
+            this.btn_Next.Location = new System.Drawing.Point(718, 452);
             this.btn_Next.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Next.Name = "btn_Next";
             this.btn_Next.Primary = true;
@@ -371,6 +390,60 @@
             this.btn_Next.Text = "Next →";
             this.btn_Next.UseVisualStyleBackColor = true;
             this.btn_Next.Click += new System.EventHandler(this.btn_Next_Click);
+            // 
+            // txt_CurrentQuestion
+            // 
+            this.txt_CurrentQuestion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txt_CurrentQuestion.Depth = 0;
+            this.txt_CurrentQuestion.Hint = "";
+            this.txt_CurrentQuestion.Location = new System.Drawing.Point(364, 460);
+            this.txt_CurrentQuestion.MaximumSize = new System.Drawing.Size(88, 23);
+            this.txt_CurrentQuestion.MaxLength = 32767;
+            this.txt_CurrentQuestion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txt_CurrentQuestion.Name = "txt_CurrentQuestion";
+            this.txt_CurrentQuestion.PasswordChar = '\0';
+            this.txt_CurrentQuestion.SelectedText = "";
+            this.txt_CurrentQuestion.SelectionLength = 0;
+            this.txt_CurrentQuestion.SelectionStart = 0;
+            this.txt_CurrentQuestion.Size = new System.Drawing.Size(88, 23);
+            this.txt_CurrentQuestion.TabIndex = 13;
+            this.txt_CurrentQuestion.TabStop = false;
+            this.txt_CurrentQuestion.Text = "0";
+            this.txt_CurrentQuestion.UseSystemPasswordChar = false;
+            this.txt_CurrentQuestion.TextChanged += new System.EventHandler(this.txt_CurrentQuestion_TextChanged);
+            // 
+            // lbl_TotalQuestions
+            // 
+            this.lbl_TotalQuestions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbl_TotalQuestions.AutoSize = true;
+            this.lbl_TotalQuestions.Depth = 0;
+            this.lbl_TotalQuestions.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_TotalQuestions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_TotalQuestions.Location = new System.Drawing.Point(458, 460);
+            this.lbl_TotalQuestions.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_TotalQuestions.Name = "lbl_TotalQuestions";
+            this.lbl_TotalQuestions.Size = new System.Drawing.Size(35, 19);
+            this.lbl_TotalQuestions.TabIndex = 14;
+            this.lbl_TotalQuestions.Text = "/ 70";
+            // 
+            // btn_Finish
+            // 
+            this.btn_Finish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Finish.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Finish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Finish.Depth = 0;
+            this.btn_Finish.Enabled = false;
+            this.btn_Finish.Icon = null;
+            this.btn_Finish.Location = new System.Drawing.Point(517, 452);
+            this.btn_Finish.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_Finish.Name = "btn_Finish";
+            this.btn_Finish.Primary = true;
+            this.btn_Finish.Size = new System.Drawing.Size(195, 36);
+            this.btn_Finish.TabIndex = 15;
+            this.btn_Finish.Text = "Finish";
+            this.btn_Finish.UseVisualStyleBackColor = true;
+            this.btn_Finish.Visible = false;
+            this.btn_Finish.Click += new System.EventHandler(this.btn_Finish_Click);
             // 
             // ConductSurvey
             // 
@@ -413,5 +486,8 @@
         private MaterialSkin.Controls.MaterialRadioButton btn_Answer_1;
         private MaterialSkin.Controls.MaterialRadioButton btn_Answer_0;
         private MaterialSkin.Controls.MaterialRaisedButton materialDivider_Menu;
+        private MaterialSkin.Controls.MaterialLabel lbl_TotalQuestions;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txt_CurrentQuestion;
+        private MaterialSkin.Controls.MaterialRaisedButton btn_Finish;
     }
 }

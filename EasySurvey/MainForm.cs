@@ -131,6 +131,7 @@ namespace EasySurvey
             // TODO: Display Make Survey Page.
             long SurveyID = Convert.ToInt64(txt_ViewSurveyDetailsName.Tag);
             Program.frm_ConductSurvey = new ConductSurvey(LoggedUser, SurveyID);
+            base.Hide();
             Program.frm_ConductSurvey.ShowDialog();
         }
 
