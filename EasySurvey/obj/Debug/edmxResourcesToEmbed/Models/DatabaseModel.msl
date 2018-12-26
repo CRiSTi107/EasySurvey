@@ -36,15 +36,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ResultDefinition">
-      <EntityTypeMapping TypeName="DatabaseEntity.ResultDefinition">
-        <MappingFragment StoreEntitySet="ResultDefinition">
-          <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
-          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
-          <ScalarProperty Name="ResultAnswer" ColumnName="ResultAnswer" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Role">
       <EntityTypeMapping TypeName="DatabaseEntity.Role">
         <MappingFragment StoreEntitySet="Role">
@@ -84,6 +75,16 @@
         <MappingFragment StoreEntitySet="UserRole">
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultDefinition">
+      <EntityTypeMapping TypeName="DatabaseEntity.ResultDefinition">
+        <MappingFragment StoreEntitySet="ResultDefinition">
+          <ScalarProperty Name="ResultAnswer" ColumnName="ResultAnswer" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

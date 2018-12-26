@@ -37,6 +37,7 @@
     </Key>
     <Property Name="ResultDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ResultID" Type="integer" Nullable="false" />
+    <Property Name="QuestionID" Type="integer" Nullable="false" />
     <Property Name="ResultAnswer" Type="integer" Nullable="false" />
   </EntityType>
   <EntityType Name="Role">

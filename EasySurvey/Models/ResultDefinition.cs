@@ -16,6 +16,7 @@ namespace EasySurvey.Models
     {
         public long ResultDefinitionID { get; set; }
         public long ResultID { get; set; }
+        public long QuestionID { get; set; }
         public long ResultAnswer { get; set; }
     }
 }

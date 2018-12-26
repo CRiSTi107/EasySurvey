@@ -31,14 +31,6 @@
     <Property Name="ResultName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
     <Property Name="UserID" Type="Int64" Nullable="false" />
   </EntityType>
-  <EntityType Name="ResultDefinition">
-    <Key>
-      <PropertyRef Name="ResultDefinitionID" />
-    </Key>
-    <Property Name="ResultDefinitionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ResultID" Type="Int64" Nullable="false" />
-    <Property Name="ResultAnswer" Type="Int64" Nullable="false" />
-  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleID" />
@@ -74,12 +66,12 @@
     <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" />
     <EntitySet Name="Question" EntityType="Self.Question" />
     <EntitySet Name="Result" EntityType="Self.Result" />
-    <EntitySet Name="ResultDefinition" EntityType="Self.ResultDefinition" />
     <EntitySet Name="Role" EntityType="Self.Role" />
     <EntitySet Name="Survey" EntityType="Self.Survey" />
     <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" />
     <EntitySet Name="User" EntityType="Self.User" />
     <EntitySet Name="UserRole" EntityType="DatabaseEntity.UserRole" />
+    <EntitySet Name="ResultDefinition" EntityType="DatabaseEntity.ResultDefinition" />
   </EntityContainer>
   <EntityType Name="UserRole">
     <Key>
@@ -87,5 +79,14 @@
     </Key>
     <Property Name="UserID" Type="Int64" Nullable="false" />
     <Property Name="RoleID" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResultDefinition">
+    <Key>
+      <PropertyRef Name="ResultDefinitionID" />
+    </Key>
+    <Property Name="ResultDefinitionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResultID" Type="Int64" Nullable="false" />
+    <Property Name="QuestionID" Type="Int64" Nullable="false" />
+    <Property Name="ResultAnswer" Type="Int64" Nullable="false" />
   </EntityType>
 </Schema>

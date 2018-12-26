@@ -42,6 +42,7 @@
           </Key>
           <Property Name="ResultDefinitionID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ResultID" Type="integer" Nullable="false" />
+          <Property Name="QuestionID" Type="integer" Nullable="false" />
           <Property Name="ResultAnswer" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
@@ -128,14 +129,6 @@
           <Property Name="ResultName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="UserID" Type="Int64" Nullable="false" />
         </EntityType>
-        <EntityType Name="ResultDefinition">
-          <Key>
-            <PropertyRef Name="ResultDefinitionID" />
-          </Key>
-          <Property Name="ResultDefinitionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ResultID" Type="Int64" Nullable="false" />
-          <Property Name="ResultAnswer" Type="Int64" Nullable="false" />
-        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleID" />
@@ -171,12 +164,12 @@
           <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" />
           <EntitySet Name="Question" EntityType="Self.Question" />
           <EntitySet Name="Result" EntityType="Self.Result" />
-          <EntitySet Name="ResultDefinition" EntityType="Self.ResultDefinition" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Survey" EntityType="Self.Survey" />
           <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="UserRole" EntityType="DatabaseEntity.UserRole" />
+          <EntitySet Name="ResultDefinition" EntityType="DatabaseEntity.ResultDefinition" />
         </EntityContainer>
         <EntityType Name="UserRole">
           <Key>
@@ -184,6 +177,15 @@
           </Key>
           <Property Name="UserID" Type="Int64" Nullable="false" />
           <Property Name="RoleID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultDefinition">
+          <Key>
+            <PropertyRef Name="ResultDefinitionID" />
+          </Key>
+          <Property Name="ResultDefinitionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResultID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+          <Property Name="ResultAnswer" Type="Int64" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -226,15 +228,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ResultDefinition">
-            <EntityTypeMapping TypeName="DatabaseEntity.ResultDefinition">
-              <MappingFragment StoreEntitySet="ResultDefinition">
-                <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
-                <ScalarProperty Name="ResultID" ColumnName="ResultID" />
-                <ScalarProperty Name="ResultAnswer" ColumnName="ResultAnswer" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="DatabaseEntity.Role">
               <MappingFragment StoreEntitySet="Role">
@@ -274,6 +267,16 @@
               <MappingFragment StoreEntitySet="UserRole">
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultDefinition">
+            <EntityTypeMapping TypeName="DatabaseEntity.ResultDefinition">
+              <MappingFragment StoreEntitySet="ResultDefinition">
+                <ScalarProperty Name="ResultAnswer" ColumnName="ResultAnswer" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+                <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

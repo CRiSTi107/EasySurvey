@@ -11,7 +11,7 @@ namespace EasySurvey.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Attitude
     {
         public long AttitudeID { get; set; }
