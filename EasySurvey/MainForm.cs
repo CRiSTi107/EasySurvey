@@ -130,8 +130,8 @@ namespace EasySurvey
         {
             // TODO: Display Make Survey Page.
             long SurveyID = Convert.ToInt64(txt_ViewSurveyDetailsName.Tag);
-            ConductSurvey surveyPage = new ConductSurvey(LoggedUser, SurveyID);
-            surveyPage.ShowDialog();
+            Program.frm_ConductSurvey = new ConductSurvey(LoggedUser, SurveyID);
+            Program.frm_ConductSurvey.ShowDialog();
         }
 
         #endregion
