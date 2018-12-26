@@ -267,6 +267,7 @@
     <None Include="Resources\survey_icon_20x20.png" />
     <None Include="Resources\userslogin_icon_24x24.png" />
     <None Include="Resources\userlogin_icon_24x24.png" />
+    <None Include="Resources\tick_green_512x512.png" />
     <Content Include="Survey.ico" />
   </ItemGroup>
   <ItemGroup>

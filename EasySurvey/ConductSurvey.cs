@@ -39,8 +39,8 @@ namespace EasySurvey
             AnswerButtons.Add(btn_Answer_4);
             AnswerButtons.Add(btn_Answer_5);
 
-            panel_ConductSurvey.Enabled = false;
-            panel_ConductSurvey.Visible = false;
+            panel_ConductSurvey.Enabled = panel_Finish.Enabled = false;
+            panel_ConductSurvey.Visible = panel_Finish.Visible = false;
 
             lbl_Welcome_SurveyName.Font = lbl_SurveyName.Font = SurveyNameFont;
             btn_Welcome_Start.AutoSize = false;
@@ -265,6 +265,9 @@ namespace EasySurvey
                 CurrentQuestionIndex = NextQuestionNumber - 1;
                 FillQuestion(NextQuestionNumber - 1);
             }
+
+            btn_Next.Enabled = (CurrentQuestionIndex == Questions.Count - 1) ? false : true;
+            btn_Back.Enabled = (CurrentQuestionIndex == 0) ? false : true;
         }
 
         private void btn_Finish_Click(object sender, EventArgs e)
