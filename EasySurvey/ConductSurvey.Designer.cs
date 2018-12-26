@@ -52,6 +52,8 @@
             this.btn_Next = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel_Finish = new System.Windows.Forms.Panel();
             this.pic_Tick = new System.Windows.Forms.PictureBox();
+            this.lbl_Finish = new MaterialSkin.Controls.MaterialLabel();
+            this.btn_Success_Exit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel_Welcome.SuspendLayout();
             this.panel_ConductSurvey.SuspendLayout();
             this.panel_Finish.SuspendLayout();
@@ -456,6 +458,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_Finish.BackColor = System.Drawing.Color.White;
+            this.panel_Finish.Controls.Add(this.btn_Success_Exit);
+            this.panel_Finish.Controls.Add(this.lbl_Finish);
             this.panel_Finish.Controls.Add(this.pic_Tick);
             this.panel_Finish.Location = new System.Drawing.Point(2, 64);
             this.panel_Finish.Name = "panel_Finish";
@@ -464,13 +468,46 @@
             // 
             // pic_Tick
             // 
-            this.pic_Tick.BackgroundImage = global::EasySurvey.Properties.Resources.tick_green_512x512;
+            this.pic_Tick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pic_Tick.BackgroundImage = global::EasySurvey.Properties.Resources.success_green_512x512;
             this.pic_Tick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_Tick.Location = new System.Drawing.Point(167, 40);
+            this.pic_Tick.Location = new System.Drawing.Point(112, 103);
             this.pic_Tick.Name = "pic_Tick";
             this.pic_Tick.Size = new System.Drawing.Size(180, 180);
             this.pic_Tick.TabIndex = 0;
             this.pic_Tick.TabStop = false;
+            // 
+            // lbl_Finish
+            // 
+            this.lbl_Finish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_Finish.Depth = 0;
+            this.lbl_Finish.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Finish.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Finish.Location = new System.Drawing.Point(322, 103);
+            this.lbl_Finish.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Finish.Name = "lbl_Finish";
+            this.lbl_Finish.Size = new System.Drawing.Size(495, 180);
+            this.lbl_Finish.TabIndex = 1;
+            this.lbl_Finish.Text = "Thank you for this survey!";
+            this.lbl_Finish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_Finish.FontChanged += new System.EventHandler(this.lbl_SurveyName_FontChanged);
+            // 
+            // btn_Success_Exit
+            // 
+            this.btn_Success_Exit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Success_Exit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Success_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Success_Exit.Depth = 0;
+            this.btn_Success_Exit.Icon = null;
+            this.btn_Success_Exit.Location = new System.Drawing.Point(352, 409);
+            this.btn_Success_Exit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_Success_Exit.Name = "btn_Success_Exit";
+            this.btn_Success_Exit.Primary = true;
+            this.btn_Success_Exit.Size = new System.Drawing.Size(193, 36);
+            this.btn_Success_Exit.TabIndex = 2;
+            this.btn_Success_Exit.Text = "Close";
+            this.btn_Success_Exit.UseVisualStyleBackColor = true;
+            this.btn_Success_Exit.Click += new System.EventHandler(this.btn_Success_Exit_Click);
             // 
             // ConductSurvey
             // 
@@ -522,5 +559,7 @@
         private MaterialSkin.Controls.MaterialRaisedButton btn_Finish;
         private System.Windows.Forms.Panel panel_Finish;
         private System.Windows.Forms.PictureBox pic_Tick;
+        private MaterialSkin.Controls.MaterialLabel lbl_Finish;
+        private MaterialSkin.Controls.MaterialRaisedButton btn_Success_Exit;
     }
 }

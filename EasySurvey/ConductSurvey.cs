@@ -43,9 +43,9 @@ namespace EasySurvey
             panel_ConductSurvey.Visible = panel_Finish.Visible = false;
 
             lbl_Welcome_SurveyName.Font = lbl_SurveyName.Font = SurveyNameFont;
-            btn_Welcome_Start.AutoSize = false;
-            btn_Welcome_Start.Size = new Size(190, 36);
-            SetHorizontalMiddle(btn_Welcome_Start);
+            btn_Welcome_Start.AutoSize = btn_Success_Exit.AutoSize = false;
+            btn_Welcome_Start.Size = btn_Success_Exit.Size = new Size(190, 36);
+            SetHorizontalMiddle(btn_Welcome_Start); SetHorizontalMiddle(btn_Success_Exit);
 
             btn_Next.AutoSize = btn_Back.AutoSize = btn_Finish.AutoSize = false;
             btn_Back.Size = btn_Next.Size = btn_Finish.Size = new Size(195, 36);
@@ -63,6 +63,7 @@ namespace EasySurvey
         {
             lbl_Welcome_SurveyName.Font = SurveyNameFont;
             lbl_SurveyName.Font = SurveyNameFont;
+            lbl_Finish.Font = SurveyNameFont;
         }
 
         private void SetHorizontalMiddle(MaterialRaisedButton control)
@@ -272,7 +273,19 @@ namespace EasySurvey
 
         private void btn_Finish_Click(object sender, EventArgs e)
         {
+            panel_ConductSurvey.Visible = false;
+            panel_ConductSurvey.Enabled = false;
+            panel_Finish.Visible = true;
+            panel_Finish.Enabled = true;
 
+
+
+        }
+
+        private void btn_Success_Exit_Click(object sender, EventArgs e)
+        {
+            Program.frm_MainForm.Show();
+            base.Close();
         }
     }
 }
