@@ -133,12 +133,18 @@ namespace EasySurvey
                 Results.Add(new ResultDefinition() { QuestionID = question.QuestionID, ResultAnswer = -1 });
             }
 
+            FinalResult = new Result();
+
+            FinalResult.UserID = LoggedUser.UserID;
+            FinalResult.SurveyID = SurveyID;
+
             FillQuestion(CurrentQuestionIndex);
         }
 
         private void ConductSurvey_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.frm_MainForm.Location = base.Location;
+            Program.frm_MainForm.Size = base.Size;
             Program.frm_MainForm.Show();
         }
 
@@ -278,9 +284,19 @@ namespace EasySurvey
             panel_Finish.Visible = true;
             panel_Finish.Enabled = true;
 
+            SurveyController surveyController = new SurveyController();
+            string SurveyName = surveyController.Get(SurveyID).SurveyName;
+
             ResultController resultController = new ResultController();
+            string DateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            FinalResult.ResultName = "[" + DateNow + "] " + SurveyName;
             resultController.Add(FinalResult);
 
+            foreach (ResultDefinition resultDefinition in Results)
+                resultDefinition.ResultID = FinalResult.ResultID;
+
+            ResultDefinitionController resultDefinitionController = new ResultDefinitionController();
+            resultDefinitionController.Add(Results);
         }
 
         private void btn_Success_Exit_Click(object sender, EventArgs e)
