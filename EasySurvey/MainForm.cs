@@ -158,6 +158,15 @@ namespace EasySurvey
                 grb_SelectedSurveyAdmin.Visible = true;
                 listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurvey_Admin;
                 listView_EditSurveyQuestions.ContextMenuStrip = materialContextMenuStripQuestion_Admin;
+
+                UserController userController = new UserController();
+                List<UserModelDataTransferObject> users = userController.GetUsers();
+                cmb_SelectUserReport.Items.Clear();
+                cmb_SelectUserReport.Items.Add("*");
+                foreach (UserModelDataTransferObject user in users)
+                    if (!user.IsAdministrator())
+                        cmb_SelectUserReport.Items.Add(user.UserName);
+                cmb_SelectUserReport.Text = "*";
             }
             else
             {
@@ -167,6 +176,9 @@ namespace EasySurvey
                 listView_EditSurveyQuestions.ContextMenuStrip = null;
 
                 materialTabControl.TabPages.Remove(tabPage_Attitudes);
+
+                cmb_SelectUserReport.Items.Add(LoggedUser.UserName);
+                cmb_SelectUserReport.Text = LoggedUser.UserName;
             }
 
             lbl_AboutUser.Text = LoggedUser.UserName;
@@ -924,6 +936,31 @@ namespace EasySurvey
                     listView_AllAttitudes.Items[ItemIndex].Selected = true;
                 }
             }
+        }
+
+        private void tabPage_Reports_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_SelectUserReport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Username = cmb_SelectUserReport.Text;
+
+            if (Username == "*") return;
+
+            UserController userController = new UserController();
+            UserModelDataTransferObject SelectedUser = userController.GetUserByName(Username);
+            long UserID = SelectedUser.UserID;
+
+            ResultController resultController = new ResultController();
+            List<Result> UserResults = resultController.GetForUser(UserID);
+
+            listView_Reports.Items.Clear();
+
+            foreach (Result result in UserResults)
+                listView_Reports.Items.Add(new ListViewItem() { Text = result.ResultName, Tag = result.ResultID });
+
         }
     }
 }

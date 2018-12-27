@@ -68,6 +68,32 @@ namespace EasySurvey.Controllers
             };
         }
 
+        public UserModelDataTransferObject GetUserByName(string Username)
+        {
+            var user = from usr in DatabaseModel.User
+                       join usrRole in DatabaseModel.UserRole on usr.UserID equals usrRole.UserID
+                       where usr.UserName == Username
+                       select new
+                       {
+                           usr.UserID,
+                           usr.UserName,
+                           usr.UserPassword,
+                           usrRole.RoleID
+                       };
+            var firstUser = user.First();
+
+            RoleController roleController = new RoleController();
+
+            return new UserModelDataTransferObject()
+            {
+                UserID = firstUser.UserID,
+                UserName = firstUser.UserName,
+                UserPassword = firstUser.UserPassword,
+                RoleID = firstUser.RoleID,
+                RoleName = roleController.GetRoleName(firstUser.RoleID)
+            };
+        }
+
         public IEnumerable<UserModelDataTransferObject> Search(List<UserModelDataTransferObject> all_users, string search_in, bool caseSensitive = false, int limit = 4)
         {
             IEnumerable<UserModelDataTransferObject> result;
