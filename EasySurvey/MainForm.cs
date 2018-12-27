@@ -958,8 +958,13 @@ namespace EasySurvey
 
             listView_Reports.Items.Clear();
 
+            SurveyController surveyController = new SurveyController();
+
             foreach (Result result in UserResults)
-                listView_Reports.Items.Add(new ListViewItem() { Text = result.ResultName, Tag = result.ResultID });
+            {
+                string SurveyName = surveyController.Get(result.SurveyID).SurveyName;
+                listView_Reports.Items.Add(new ListViewItem() { Text = "[" + result.Date + "] " + SurveyName, Tag = result.ResultID });
+            }
 
         }
     }

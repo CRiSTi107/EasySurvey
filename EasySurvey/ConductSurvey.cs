@@ -300,8 +300,8 @@ namespace EasySurvey
             string SurveyName = surveyController.Get(SurveyID).SurveyName;
 
             ResultController resultController = new ResultController();
-            string DateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-            FinalResult.ResultName = "[" + DateNow + "] " + SurveyName;
+            string DateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            FinalResult.Date = DateNow;
             resultController.Add(FinalResult);
 
             foreach (ResultDefinition resultDefinition in Results)

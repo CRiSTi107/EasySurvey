@@ -22,15 +22,6 @@
     <Property Name="QuestionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Question1" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <EntityType Name="Result">
-    <Key>
-      <PropertyRef Name="ResultID" />
-    </Key>
-    <Property Name="ResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SurveyID" Type="Int64" Nullable="false" />
-    <Property Name="ResultName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="UserID" Type="Int64" Nullable="false" />
-  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleID" />
@@ -65,13 +56,13 @@
     <EntitySet Name="Attitude" EntityType="Self.Attitude" />
     <EntitySet Name="AttitudeDefinition" EntityType="Self.AttitudeDefinition" />
     <EntitySet Name="Question" EntityType="Self.Question" />
-    <EntitySet Name="Result" EntityType="Self.Result" />
     <EntitySet Name="Role" EntityType="Self.Role" />
     <EntitySet Name="Survey" EntityType="Self.Survey" />
     <EntitySet Name="SurveyDefinition" EntityType="Self.SurveyDefinition" />
     <EntitySet Name="User" EntityType="Self.User" />
     <EntitySet Name="UserRole" EntityType="DatabaseEntity.UserRole" />
     <EntitySet Name="ResultDefinition" EntityType="DatabaseEntity.ResultDefinition" />
+    <EntitySet Name="Result" EntityType="DatabaseEntity.Result" />
   </EntityContainer>
   <EntityType Name="UserRole">
     <Key>
@@ -88,5 +79,14 @@
     <Property Name="ResultID" Type="Int64" Nullable="false" />
     <Property Name="QuestionID" Type="Int64" Nullable="false" />
     <Property Name="ResultAnswer" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="ResultID" />
+    </Key>
+    <Property Name="ResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SurveyID" Type="Int64" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
   </EntityType>
 </Schema>

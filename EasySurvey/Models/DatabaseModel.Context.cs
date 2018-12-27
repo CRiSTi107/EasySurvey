@@ -28,12 +28,12 @@ namespace EasySurvey.Models
         public virtual DbSet<Attitude> Attitude { get; set; }
         public virtual DbSet<AttitudeDefinition> AttitudeDefinition { get; set; }
         public virtual DbSet<Question> Question { get; set; }
-        public virtual DbSet<Result> Result { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Survey> Survey { get; set; }
         public virtual DbSet<SurveyDefinition> SurveyDefinition { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<ResultDefinition> ResultDefinition { get; set; }
+        public virtual DbSet<Result> Result { get; set; }
     }
 }

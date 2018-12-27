@@ -28,7 +28,7 @@
     </Key>
     <Property Name="ResultID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SurveyID" Type="integer" Nullable="false" />
-    <Property Name="ResultName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="Date" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
     <Property Name="UserID" Type="integer" Nullable="false" />
   </EntityType>
   <EntityType Name="ResultDefinition">
