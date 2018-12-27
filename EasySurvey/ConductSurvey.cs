@@ -143,6 +143,18 @@ namespace EasySurvey
 
         private void ConductSurvey_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (FinalResult != null)
+                if (FinalResult.ResultID == 0)
+                {
+                    MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+                    result = MaterialMessageBox.Show("Are you sure you want to exit? The Result of Survey will not be saved.", "Easy Survey - Conduct Survey", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+                    if (result != MaterialMessageBox.MessageBoxResult.Yes)
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
+                }
+
             Program.frm_MainForm.Location = base.Location;
             Program.frm_MainForm.Size = base.Size;
             Program.frm_MainForm.Show();
@@ -301,7 +313,6 @@ namespace EasySurvey
 
         private void btn_Success_Exit_Click(object sender, EventArgs e)
         {
-            Program.frm_MainForm.Show();
             base.Close();
         }
     }

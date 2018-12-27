@@ -166,7 +166,7 @@ namespace EasySurvey
                 listView_AllSurveys.ContextMenuStrip = null;
                 listView_EditSurveyQuestions.ContextMenuStrip = null;
 
-                materialTabControl.TabPages.Remove(tabPage_AllAttitudes);
+                materialTabControl.TabPages.Remove(tabPage_Attitudes);
             }
 
             lbl_AboutUser.Text = LoggedUser.UserName;

@@ -45,3 +45,7 @@ https://www.iconfinder.com/icons/513928/document_draw_edit_pen_pencil_text_write
 
 tick_green_512x512.png
 https://www.iconfinder.com/icons/1398911/check_correct_mark_success_tick_valid_yes_icon
+
+success_green.png
+https://www.iconfinder.com/icons/1646004/accept_mark_ok_success_tick_icon
+

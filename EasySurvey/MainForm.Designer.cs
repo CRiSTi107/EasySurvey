@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Surveys", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("asbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbca" +
         "sbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcasbcv");
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("afvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvda" +
         "fvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdafvdvvsdsds");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("adsgfasd");
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("asdfds");
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("listView_ViewSurveyQuestions.Items"));
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("adsgfasd");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("asdfds");
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,7 +45,7 @@
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage_AllSurveys = new System.Windows.Forms.TabPage();
+            this.tabPage_Surveys = new System.Windows.Forms.TabPage();
             this.splitContainer_AllSurveys = new System.Windows.Forms.SplitContainer();
             this.panel_AllSurveys = new System.Windows.Forms.Panel();
             this.pic_SearchAllSurveys = new System.Windows.Forms.PictureBox();
@@ -66,8 +66,8 @@
             this.lbl_ViewSurveyQuestions = new MaterialSkin.Controls.MaterialLabel();
             this.txt_ViewSurveyDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_ViewSurveyDetailsName = new MaterialSkin.Controls.MaterialLabel();
-            this.tabPage_AllAttitudes = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabPage_Attitudes = new System.Windows.Forms.TabPage();
+            this.splitContainer_AllAttitudes = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pic_SearchAllAttitudes = new System.Windows.Forms.PictureBox();
             this.txt_AllAttitudesSearchBar = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -89,6 +89,7 @@
             this.lbl_EditAttitudeDefinition = new MaterialSkin.Controls.MaterialLabel();
             this.txt_EditAttitudeDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_EditAttituddeDetailsName = new MaterialSkin.Controls.MaterialLabel();
+            this.tabPage_Reports = new System.Windows.Forms.TabPage();
             this.materialTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.lbl_AboutUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -98,9 +99,10 @@
             this.toolStripMenuItem_AddNewQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem_EditQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DeleteQuestions = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer_AllReports = new System.Windows.Forms.SplitContainer();
             this.materialContextMenuStripSurvey_Admin.SuspendLayout();
             this.materialTabControl.SuspendLayout();
-            this.tabPage_AllSurveys.SuspendLayout();
+            this.tabPage_Surveys.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllSurveys)).BeginInit();
             this.splitContainer_AllSurveys.Panel1.SuspendLayout();
             this.splitContainer_AllSurveys.Panel2.SuspendLayout();
@@ -114,11 +116,11 @@
             this.grb_SelectedSurveyUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SurveyView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_QuestionsView)).BeginInit();
-            this.tabPage_AllAttitudes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.tabPage_Attitudes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllAttitudes)).BeginInit();
+            this.splitContainer_AllAttitudes.Panel1.SuspendLayout();
+            this.splitContainer_AllAttitudes.Panel2.SuspendLayout();
+            this.splitContainer_AllAttitudes.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllAttitudes)).BeginInit();
             this.materialContextMenuStripAttitude_Admin.SuspendLayout();
@@ -127,9 +129,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_EditAttitudeDefinition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SaveAttitudeChanges)).BeginInit();
             this.materialContextMenuStripAttitudeDefinition_Admin.SuspendLayout();
+            this.tabPage_Reports.SuspendLayout();
             this.panel_AboutUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).BeginInit();
             this.materialContextMenuStripQuestion_Admin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllReports)).BeginInit();
+            this.splitContainer_AllReports.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView_AllSurveys
@@ -142,10 +147,10 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView_AllSurveys.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup4.Header = "Surveys";
-            listViewGroup4.Name = "default";
+            listViewGroup1.Header = "Surveys";
+            listViewGroup1.Name = "default";
             this.listView_AllSurveys.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4});
+            listViewGroup1});
             this.listView_AllSurveys.Location = new System.Drawing.Point(6, 34);
             this.listView_AllSurveys.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllSurveys.Name = "listView_AllSurveys";
@@ -200,8 +205,9 @@
             this.materialTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialTabControl.Controls.Add(this.tabPage_AllSurveys);
-            this.materialTabControl.Controls.Add(this.tabPage_AllAttitudes);
+            this.materialTabControl.Controls.Add(this.tabPage_Surveys);
+            this.materialTabControl.Controls.Add(this.tabPage_Attitudes);
+            this.materialTabControl.Controls.Add(this.tabPage_Reports);
             this.materialTabControl.Depth = 0;
             this.materialTabControl.Location = new System.Drawing.Point(12, 106);
             this.materialTabControl.MouseState = MaterialSkin.MouseState.HOVER;
@@ -211,16 +217,16 @@
             this.materialTabControl.TabIndex = 2;
             this.materialTabControl.SelectedIndexChanged += new System.EventHandler(this.materialTabControl_SelectedIndexChanged);
             // 
-            // tabPage_AllSurveys
+            // tabPage_Surveys
             // 
-            this.tabPage_AllSurveys.Controls.Add(this.splitContainer_AllSurveys);
-            this.tabPage_AllSurveys.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_AllSurveys.Name = "tabPage_AllSurveys";
-            this.tabPage_AllSurveys.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_AllSurveys.Size = new System.Drawing.Size(895, 421);
-            this.tabPage_AllSurveys.TabIndex = 0;
-            this.tabPage_AllSurveys.Text = "Surveys";
-            this.tabPage_AllSurveys.Click += new System.EventHandler(this.tabPage_AllSurveys_Click);
+            this.tabPage_Surveys.Controls.Add(this.splitContainer_AllSurveys);
+            this.tabPage_Surveys.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Surveys.Name = "tabPage_Surveys";
+            this.tabPage_Surveys.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Surveys.Size = new System.Drawing.Size(1178, 463);
+            this.tabPage_Surveys.TabIndex = 0;
+            this.tabPage_Surveys.Text = "Surveys";
+            this.tabPage_Surveys.Click += new System.EventHandler(this.tabPage_AllSurveys_Click);
             // 
             // splitContainer_AllSurveys
             // 
@@ -460,11 +466,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem16,
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5});
             this.listView_ViewSurveyQuestions.Location = new System.Drawing.Point(36, 144);
             this.listView_ViewSurveyQuestions.Name = "listView_ViewSurveyQuestions";
             this.listView_ViewSurveyQuestions.Size = new System.Drawing.Size(431, 216);
@@ -514,32 +520,32 @@
             this.lbl_ViewSurveyDetailsName.TabIndex = 2;
             this.lbl_ViewSurveyDetailsName.Text = "Nume";
             // 
-            // tabPage_AllAttitudes
+            // tabPage_Attitudes
             // 
-            this.tabPage_AllAttitudes.Controls.Add(this.splitContainer1);
-            this.tabPage_AllAttitudes.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_AllAttitudes.Name = "tabPage_AllAttitudes";
-            this.tabPage_AllAttitudes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_AllAttitudes.Size = new System.Drawing.Size(895, 421);
-            this.tabPage_AllAttitudes.TabIndex = 1;
-            this.tabPage_AllAttitudes.Text = "Attitudes";
+            this.tabPage_Attitudes.Controls.Add(this.splitContainer_AllAttitudes);
+            this.tabPage_Attitudes.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Attitudes.Name = "tabPage_Attitudes";
+            this.tabPage_Attitudes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Attitudes.Size = new System.Drawing.Size(1178, 463);
+            this.tabPage_Attitudes.TabIndex = 1;
+            this.tabPage_Attitudes.Text = "Attitudes";
             // 
-            // splitContainer1
+            // splitContainer_AllAttitudes
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer_AllAttitudes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_AllAttitudes.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer_AllAttitudes.Name = "splitContainer_AllAttitudes";
             // 
-            // splitContainer1.Panel1
+            // splitContainer_AllAttitudes.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            this.splitContainer_AllAttitudes.Panel1.Controls.Add(this.panel1);
             // 
-            // splitContainer1.Panel2
+            // splitContainer_AllAttitudes.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(889, 415);
-            this.splitContainer1.SplitterDistance = 401;
-            this.splitContainer1.TabIndex = 9;
+            this.splitContainer_AllAttitudes.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer_AllAttitudes.Size = new System.Drawing.Size(889, 415);
+            this.splitContainer_AllAttitudes.SplitterDistance = 401;
+            this.splitContainer_AllAttitudes.TabIndex = 9;
             // 
             // panel1
             // 
@@ -596,10 +602,10 @@
             this.columnHeader4});
             this.listView_AllAttitudes.ContextMenuStrip = this.materialContextMenuStripAttitude_Admin;
             this.listView_AllAttitudes.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup6.Header = "Attitudes";
-            listViewGroup6.Name = "default";
+            listViewGroup2.Header = "Attitudes";
+            listViewGroup2.Name = "default";
             this.listView_AllAttitudes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6});
+            listViewGroup2});
             this.listView_AllAttitudes.Location = new System.Drawing.Point(6, 34);
             this.listView_AllAttitudes.MinimumSize = new System.Drawing.Size(100, 100);
             this.listView_AllAttitudes.Name = "listView_AllAttitudes";
@@ -799,6 +805,16 @@
             this.lbl_EditAttituddeDetailsName.TabIndex = 0;
             this.lbl_EditAttituddeDetailsName.Text = "Attitude";
             // 
+            // tabPage_Reports
+            // 
+            this.tabPage_Reports.Controls.Add(this.splitContainer_AllReports);
+            this.tabPage_Reports.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Reports.Name = "tabPage_Reports";
+            this.tabPage_Reports.Size = new System.Drawing.Size(895, 421);
+            this.tabPage_Reports.TabIndex = 2;
+            this.tabPage_Reports.Text = "Reports";
+            this.tabPage_Reports.UseVisualStyleBackColor = true;
+            // 
             // materialTabSelector
             // 
             this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -920,6 +936,15 @@
             this.toolStripMenuItem_DeleteQuestions.Text = "Delete selected Question(s)";
             this.toolStripMenuItem_DeleteQuestions.Click += new System.EventHandler(this.toolStripMenuItem_DeleteQuestions_Click);
             // 
+            // splitContainer_AllReports
+            // 
+            this.splitContainer_AllReports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_AllReports.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer_AllReports.Name = "splitContainer_AllReports";
+            this.splitContainer_AllReports.Size = new System.Drawing.Size(895, 421);
+            this.splitContainer_AllReports.SplitterDistance = 401;
+            this.splitContainer_AllReports.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -938,7 +963,7 @@
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
             this.materialContextMenuStripSurvey_Admin.ResumeLayout(false);
             this.materialTabControl.ResumeLayout(false);
-            this.tabPage_AllSurveys.ResumeLayout(false);
+            this.tabPage_Surveys.ResumeLayout(false);
             this.splitContainer_AllSurveys.Panel1.ResumeLayout(false);
             this.splitContainer_AllSurveys.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllSurveys)).EndInit();
@@ -954,11 +979,11 @@
             this.grb_SelectedSurveyUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SurveyView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_QuestionsView)).EndInit();
-            this.tabPage_AllAttitudes.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.tabPage_Attitudes.ResumeLayout(false);
+            this.splitContainer_AllAttitudes.Panel1.ResumeLayout(false);
+            this.splitContainer_AllAttitudes.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllAttitudes)).EndInit();
+            this.splitContainer_AllAttitudes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_SearchAllAttitudes)).EndInit();
             this.materialContextMenuStripAttitude_Admin.ResumeLayout(false);
@@ -968,9 +993,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_EditAttitudeDefinition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SaveAttitudeChanges)).EndInit();
             this.materialContextMenuStripAttitudeDefinition_Admin.ResumeLayout(false);
+            this.tabPage_Reports.ResumeLayout(false);
             this.panel_AboutUser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).EndInit();
             this.materialContextMenuStripQuestion_Admin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllReports)).EndInit();
+            this.splitContainer_AllReports.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -983,8 +1011,8 @@
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStripSurvey_Admin;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl;
-        private System.Windows.Forms.TabPage tabPage_AllSurveys;
-        private System.Windows.Forms.TabPage tabPage_AllAttitudes;
+        private System.Windows.Forms.TabPage tabPage_Surveys;
+        private System.Windows.Forms.TabPage tabPage_Attitudes;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector;
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_AllSurveysSearchBar;
         private System.Windows.Forms.PictureBox pic_SearchAllSurveys;
@@ -1007,7 +1035,7 @@
         private System.Windows.Forms.PictureBox pic_SaveSurveyChanges;
         private System.Windows.Forms.PictureBox pic_QuestionsEdit;
         private System.Windows.Forms.PictureBox pic_SurveyEdit;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer_AllAttitudes;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pic_SearchAllAttitudes;
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_AllAttitudesSearchBar;
@@ -1037,5 +1065,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_AddAttitudeDefinitions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_EditAttitudeDefinitions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_DeleteAttitudeDefinitions;
+        private System.Windows.Forms.TabPage tabPage_Reports;
+        private System.Windows.Forms.SplitContainer splitContainer_AllReports;
     }
 }

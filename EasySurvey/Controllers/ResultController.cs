@@ -10,6 +10,16 @@ namespace EasySurvey.Controllers
     {
         private DatabaseEntity DatabaseModel = new DatabaseEntity();
 
+        public List<Result> Get()
+        {
+            return (from result in DatabaseModel.Result select result).ToList();
+        }
+
+        public Result Get(long ResultID)
+        {
+            return (from result in DatabaseModel.Result where result.ResultID == ResultID select result).First();
+        }
+
         public void Add(Result NewResult)
         {
             DatabaseModel.Result.Add(NewResult);
