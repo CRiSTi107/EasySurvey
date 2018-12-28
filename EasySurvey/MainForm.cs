@@ -940,14 +940,24 @@ namespace EasySurvey
 
         private void tabPage_Reports_Enter(object sender, EventArgs e)
         {
+            // Update
+            // string SelectedUser = cmb_SelectUserReport.Text;
+            // cmb_SelectUserReport.Text = "*";
+            // cmb_SelectUserReport.Text = SelectedUser;
 
+            int SelectedIndex = cmb_SelectUserReport.SelectedIndex;
+            cmb_SelectUserReport.SelectedIndex = -1;
+            cmb_SelectUserReport.SelectedIndex = SelectedIndex;
         }
 
         private void cmb_SelectUserReport_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Username = cmb_SelectUserReport.Text;
+            int SelectedIndex = cmb_SelectUserReport.SelectedIndex;
 
-            if (Username == "*") return;
+            listView_UserReports.Items.Clear();
+
+            if (Username == "*" || SelectedIndex == -1) return;
 
             UserController userController = new UserController();
             UserModelDataTransferObject SelectedUser = userController.GetUserByName(Username);
@@ -956,16 +966,81 @@ namespace EasySurvey
             ResultController resultController = new ResultController();
             List<Result> UserResults = resultController.GetForUser(UserID);
 
-            listView_Reports.Items.Clear();
+            UserResults = UserResults.OrderBy(r => r.SurveyID).ThenByDescending(r => r.Date).ToList();
 
             SurveyController surveyController = new SurveyController();
 
             foreach (Result result in UserResults)
             {
                 string SurveyName = surveyController.Get(result.SurveyID).SurveyName;
-                listView_Reports.Items.Add(new ListViewItem() { Text = "[" + result.Date + "] " + SurveyName, Tag = result.ResultID });
+                listView_UserReports.Items.Add(new ListViewItem(listView_UserReports.Groups["default"]) { Text = result.ToString(), Tag = result.ResultID });
             }
 
+            //Get list of lastest User Reports
+            List<long> UsedSurveyID = new List<long>();
+            List<Result> LastUserReports = new List<Result>();
+            foreach (Result result in UserResults)
+                if (!UsedSurveyID.Contains(result.SurveyID))
+                {
+                    UsedSurveyID.Add(result.SurveyID);
+                    LastUserReports.Add(result);
+                }
+            UsedSurveyID = null;
+
+            //Calculate Attitude Score
+            AttitudeController attitudeController = new AttitudeController();
+            AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
+            ResultDefinitionController resultDefinitionController = new ResultDefinitionController();
+            List<Attitude> attitudes = attitudeController.GetAttitudes();
+
+            listView_AttitudeReports.Items.Clear();
+
+            foreach (Attitude attitude in attitudes)
+            {
+                long AttitudeSum = 0;
+
+                List<AttitudeDefinition> attitudeDefinitions = attitudeDefinitionController.GetRelation(attitude.AttitudeID);
+                foreach (AttitudeDefinition attitudeDefinition in attitudeDefinitions)
+                {
+                    long QuestionID = attitudeDefinition.QuestionID;
+                    bool Found = false;
+
+                    foreach (Result result in LastUserReports)
+                    {
+                        List<ResultDefinition> resultDefinitions = resultDefinitionController.Get(result.ResultID);
+                        Found = false;
+                        foreach (ResultDefinition resultDefinition in resultDefinitions)
+                            if (resultDefinition.QuestionID == QuestionID)
+                            {
+                                AttitudeSum += resultDefinition.ResultAnswer;
+                                Found = true;
+                                break;
+                            }
+                        string SurveyName = surveyController.GetByQuestion(QuestionID).SurveyName;
+                        if (!Found)
+                        {
+                            listView_AttitudeReports.Items.Add(
+                                new ListViewItem(listView_AttitudeReports.Groups["default"])
+                                {
+                                    ForeColor = Color.Red,
+                                    Text = attitude.AttitudeName + " - requires '" + SurveyName + "'",
+                                    Tag = attitude.AttitudeID
+                                });
+                            break;
+                        }
+                    }
+
+                    if (!Found)
+                        break;
+                    else
+                        listView_AttitudeReports.Items.Add(
+                                new ListViewItem(listView_AttitudeReports.Groups["default"])
+                                {
+                                    Text = attitude.AttitudeName + " - " + AttitudeSum,
+                                    Tag = attitude.AttitudeID
+                                });
+                }
+            }
         }
     }
 }

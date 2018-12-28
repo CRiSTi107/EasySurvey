@@ -11,12 +11,19 @@ namespace EasySurvey.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class Result
     {
         public long ResultID { get; set; }
         public long SurveyID { get; set; }
         public string Date { get; set; }
         public long UserID { get; set; }
+
+        public override string ToString()
+        {
+            string SurveyName = (new DatabaseEntity()).Survey.Where(item => item.SurveyID == SurveyID).First().SurveyName;
+            return "[" + Date + "] " + SurveyName;
+        }
     }
 }

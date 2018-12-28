@@ -21,5 +21,10 @@ namespace EasySurvey.Controllers
             foreach (ResultDefinition resultDefinition in resultDefinitionList)
                 Add(resultDefinition);
         }
+
+        public List<ResultDefinition> Get(long ResultID)
+        {
+            return (from resultDefinition in DatabaseModel.ResultDefinition where resultDefinition.ResultID == ResultID select resultDefinition).ToList();
+        }
     }
 }

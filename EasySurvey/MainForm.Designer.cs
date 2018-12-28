@@ -38,7 +38,23 @@
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("adsgfasd");
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("asdfds");
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Attitudes", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Results", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Results", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("sdgsdfg");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("sddfgdfg");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("sdgsdfgsdf");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("dsgdsfgfd");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            "sdgsdfg"}, -1, System.Drawing.Color.Red, System.Drawing.Color.Empty, null);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            "sdgsdfgdf"}, -1, System.Drawing.Color.Green, System.Drawing.Color.Empty, null);
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            "sdfgsdgf"}, -1, System.Drawing.Color.MediumBlue, System.Drawing.Color.Empty, null);
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("wertewrter");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("wertwet");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("ewrtewrtwer");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("wertwreter");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("wertwertwer");
             this.listView_AllSurveys = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -91,6 +107,12 @@
             this.txt_EditAttitudeDetailsName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_EditAttituddeDetailsName = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage_Reports = new System.Windows.Forms.TabPage();
+            this.splitContainer_AllReports = new System.Windows.Forms.SplitContainer();
+            this.listView_UserReports = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbl_SelectUserReport = new MaterialSkin.Controls.MaterialLabel();
+            this.cmb_SelectUserReport = new System.Windows.Forms.ComboBox();
             this.materialTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.lbl_AboutUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -100,12 +122,7 @@
             this.toolStripMenuItem_AddNewQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem_EditQuestion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DeleteQuestions = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer_AllReports = new System.Windows.Forms.SplitContainer();
-            this.cmb_SelectUserReport = new System.Windows.Forms.ComboBox();
-            this.lbl_SelectUserReport = new MaterialSkin.Controls.MaterialLabel();
-            this.listView_Reports = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView_AttitudeReports = new System.Windows.Forms.ListView();
             this.materialContextMenuStripSurvey_Admin.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPage_Surveys.SuspendLayout();
@@ -136,12 +153,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_SaveAttitudeChanges)).BeginInit();
             this.materialContextMenuStripAttitudeDefinition_Admin.SuspendLayout();
             this.tabPage_Reports.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllReports)).BeginInit();
+            this.splitContainer_AllReports.Panel1.SuspendLayout();
+            this.splitContainer_AllReports.Panel2.SuspendLayout();
+            this.splitContainer_AllReports.SuspendLayout();
             this.panel_AboutUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).BeginInit();
             this.materialContextMenuStripQuestion_Admin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllReports)).BeginInit();
-            this.splitContainer_AllReports.Panel1.SuspendLayout();
-            this.splitContainer_AllReports.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView_AllSurveys
@@ -823,6 +841,84 @@
             this.tabPage_Reports.UseVisualStyleBackColor = true;
             this.tabPage_Reports.Enter += new System.EventHandler(this.tabPage_Reports_Enter);
             // 
+            // splitContainer_AllReports
+            // 
+            this.splitContainer_AllReports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_AllReports.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer_AllReports.Name = "splitContainer_AllReports";
+            // 
+            // splitContainer_AllReports.Panel1
+            // 
+            this.splitContainer_AllReports.Panel1.Controls.Add(this.listView_UserReports);
+            this.splitContainer_AllReports.Panel1.Controls.Add(this.lbl_SelectUserReport);
+            this.splitContainer_AllReports.Panel1.Controls.Add(this.cmb_SelectUserReport);
+            // 
+            // splitContainer_AllReports.Panel2
+            // 
+            this.splitContainer_AllReports.Panel2.Controls.Add(this.listView_AttitudeReports);
+            this.splitContainer_AllReports.Size = new System.Drawing.Size(895, 421);
+            this.splitContainer_AllReports.SplitterDistance = 401;
+            this.splitContainer_AllReports.TabIndex = 0;
+            // 
+            // listView_UserReports
+            // 
+            this.listView_UserReports.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listView_UserReports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView_UserReports.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listView_UserReports.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            listViewGroup3.Header = "Results";
+            listViewGroup3.Name = "default";
+            this.listView_UserReports.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup3});
+            this.listView_UserReports.Location = new System.Drawing.Point(17, 86);
+            this.listView_UserReports.MinimumSize = new System.Drawing.Size(100, 100);
+            this.listView_UserReports.Name = "listView_UserReports";
+            this.listView_UserReports.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listView_UserReports.Size = new System.Drawing.Size(368, 326);
+            this.listView_UserReports.TabIndex = 2;
+            this.listView_UserReports.TileSize = new System.Drawing.Size(120, 40);
+            this.listView_UserReports.UseCompatibleStateImageBehavior = false;
+            this.listView_UserReports.View = System.Windows.Forms.View.Tile;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Width = 102;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Width = 122;
+            // 
+            // lbl_SelectUserReport
+            // 
+            this.lbl_SelectUserReport.AutoSize = true;
+            this.lbl_SelectUserReport.Depth = 0;
+            this.lbl_SelectUserReport.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_SelectUserReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_SelectUserReport.Location = new System.Drawing.Point(13, 20);
+            this.lbl_SelectUserReport.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_SelectUserReport.Name = "lbl_SelectUserReport";
+            this.lbl_SelectUserReport.Size = new System.Drawing.Size(77, 19);
+            this.lbl_SelectUserReport.TabIndex = 1;
+            this.lbl_SelectUserReport.Text = "Username";
+            // 
+            // cmb_SelectUserReport
+            // 
+            this.cmb_SelectUserReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_SelectUserReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmb_SelectUserReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_SelectUserReport.Font = new System.Drawing.Font("Roboto Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmb_SelectUserReport.FormattingEnabled = true;
+            this.cmb_SelectUserReport.Location = new System.Drawing.Point(17, 42);
+            this.cmb_SelectUserReport.Name = "cmb_SelectUserReport";
+            this.cmb_SelectUserReport.Size = new System.Drawing.Size(368, 33);
+            this.cmb_SelectUserReport.TabIndex = 0;
+            this.cmb_SelectUserReport.SelectedIndexChanged += new System.EventHandler(this.cmb_SelectUserReport_SelectedIndexChanged);
+            // 
             // materialTabSelector
             // 
             this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -944,80 +1040,36 @@
             this.toolStripMenuItem_DeleteQuestions.Text = "Delete selected Question(s)";
             this.toolStripMenuItem_DeleteQuestions.Click += new System.EventHandler(this.toolStripMenuItem_DeleteQuestions_Click);
             // 
-            // splitContainer_AllReports
+            // listView_AttitudeReports
             // 
-            this.splitContainer_AllReports.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_AllReports.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer_AllReports.Name = "splitContainer_AllReports";
-            // 
-            // splitContainer_AllReports.Panel1
-            // 
-            this.splitContainer_AllReports.Panel1.Controls.Add(this.listView_Reports);
-            this.splitContainer_AllReports.Panel1.Controls.Add(this.lbl_SelectUserReport);
-            this.splitContainer_AllReports.Panel1.Controls.Add(this.cmb_SelectUserReport);
-            this.splitContainer_AllReports.Size = new System.Drawing.Size(895, 421);
-            this.splitContainer_AllReports.SplitterDistance = 401;
-            this.splitContainer_AllReports.TabIndex = 0;
-            // 
-            // cmb_SelectUserReport
-            // 
-            this.cmb_SelectUserReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_SelectUserReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmb_SelectUserReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_SelectUserReport.Font = new System.Drawing.Font("Roboto Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmb_SelectUserReport.FormattingEnabled = true;
-            this.cmb_SelectUserReport.Location = new System.Drawing.Point(17, 42);
-            this.cmb_SelectUserReport.Name = "cmb_SelectUserReport";
-            this.cmb_SelectUserReport.Size = new System.Drawing.Size(368, 33);
-            this.cmb_SelectUserReport.TabIndex = 0;
-            this.cmb_SelectUserReport.SelectedIndexChanged += new System.EventHandler(this.cmb_SelectUserReport_SelectedIndexChanged);
-            // 
-            // lbl_SelectUserReport
-            // 
-            this.lbl_SelectUserReport.AutoSize = true;
-            this.lbl_SelectUserReport.Depth = 0;
-            this.lbl_SelectUserReport.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_SelectUserReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_SelectUserReport.Location = new System.Drawing.Point(13, 20);
-            this.lbl_SelectUserReport.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_SelectUserReport.Name = "lbl_SelectUserReport";
-            this.lbl_SelectUserReport.Size = new System.Drawing.Size(77, 19);
-            this.lbl_SelectUserReport.TabIndex = 1;
-            this.lbl_SelectUserReport.Text = "Username";
-            // 
-            // listView_Reports
-            // 
-            this.listView_Reports.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView_Reports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView_Reports.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6});
-            this.listView_Reports.ContextMenuStrip = this.materialContextMenuStripAttitude_Admin;
-            this.listView_Reports.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup3.Header = "Attitudes";
-            listViewGroup3.Name = "default";
-            this.listView_Reports.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
-            this.listView_Reports.Location = new System.Drawing.Point(17, 86);
-            this.listView_Reports.MinimumSize = new System.Drawing.Size(100, 100);
-            this.listView_Reports.Name = "listView_Reports";
-            this.listView_Reports.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listView_Reports.Size = new System.Drawing.Size(368, 326);
-            this.listView_Reports.TabIndex = 2;
-            this.listView_Reports.TileSize = new System.Drawing.Size(120, 40);
-            this.listView_Reports.UseCompatibleStateImageBehavior = false;
-            this.listView_Reports.View = System.Windows.Forms.View.Tile;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Width = 102;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Width = 122;
+            this.listView_AttitudeReports.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listView_AttitudeReports.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            listViewGroup4.Header = "Results";
+            listViewGroup4.Name = "default";
+            this.listView_AttitudeReports.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup4});
+            this.listView_AttitudeReports.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17});
+            this.listView_AttitudeReports.Location = new System.Drawing.Point(3, 42);
+            this.listView_AttitudeReports.MinimumSize = new System.Drawing.Size(100, 100);
+            this.listView_AttitudeReports.Name = "listView_AttitudeReports";
+            this.listView_AttitudeReports.ShowItemToolTips = true;
+            this.listView_AttitudeReports.Size = new System.Drawing.Size(484, 370);
+            this.listView_AttitudeReports.TabIndex = 3;
+            this.listView_AttitudeReports.TileSize = new System.Drawing.Size(200, 40);
+            this.listView_AttitudeReports.UseCompatibleStateImageBehavior = false;
+            this.listView_AttitudeReports.View = System.Windows.Forms.View.Tile;
             // 
             // MainForm
             // 
@@ -1068,13 +1120,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_SaveAttitudeChanges)).EndInit();
             this.materialContextMenuStripAttitudeDefinition_Admin.ResumeLayout(false);
             this.tabPage_Reports.ResumeLayout(false);
+            this.splitContainer_AllReports.Panel1.ResumeLayout(false);
+            this.splitContainer_AllReports.Panel1.PerformLayout();
+            this.splitContainer_AllReports.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllReports)).EndInit();
+            this.splitContainer_AllReports.ResumeLayout(false);
             this.panel_AboutUser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_AboutUser)).EndInit();
             this.materialContextMenuStripQuestion_Admin.ResumeLayout(false);
-            this.splitContainer_AllReports.Panel1.ResumeLayout(false);
-            this.splitContainer_AllReports.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_AllReports)).EndInit();
-            this.splitContainer_AllReports.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1145,8 +1198,9 @@
         private System.Windows.Forms.SplitContainer splitContainer_AllReports;
         private System.Windows.Forms.ComboBox cmb_SelectUserReport;
         private MaterialSkin.Controls.MaterialLabel lbl_SelectUserReport;
-        public System.Windows.Forms.ListView listView_Reports;
+        public System.Windows.Forms.ListView listView_UserReports;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        public System.Windows.Forms.ListView listView_AttitudeReports;
     }
 }
