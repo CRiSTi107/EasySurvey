@@ -22,3 +22,4 @@ C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.csprojResolveAssemblyReference.cache
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.MsgComboBox.resources
 C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.ConductSurvey.resources
+C:\Users\CRiSTi\documents\visual studio 2015\Projects\EasySurvey\EasySurvey\obj\Debug\EasySurvey.Settings.resources

@@ -49,3 +49,14 @@ https://www.iconfinder.com/icons/1398911/check_correct_mark_success_tick_valid_y
 success_green.png
 https://www.iconfinder.com/icons/1646004/accept_mark_ok_success_tick_icon
 
+info_20x20.png
+https://www.iconfinder.com/icons/299086/info_sign_icon
+
+database_icon_20x20.png
+https://www.iconfinder.com/icons/299089/database_icon
+
+user_orange_icon_20x20.png
+https://www.iconfinder.com/icons/285655/user_icon
+
+github_icon_512x512.png
+https://www.iconfinder.com/icons/298818/github_logo_icon

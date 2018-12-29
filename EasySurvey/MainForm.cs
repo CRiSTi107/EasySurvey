@@ -243,6 +243,10 @@ namespace EasySurvey
         private void AboutUser_Click(object sender, EventArgs e)
         {
             // TODO: Open - About User Dialog here
+            base.Hide();
+            Settings frm_Settings = new Settings(LoggedUser);
+            frm_Settings.ShowDialog();
+            base.Show();
         }
 
 

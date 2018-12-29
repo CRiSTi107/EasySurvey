@@ -263,6 +263,8 @@
     <None Include="Resources\edit_icon_24x24.png" />
     <None Include="Resources\attitude_icon_20x20.png" />
     <None Include="Resources\correct_green_512x512.png" />
+    <None Include="Resources\EasySurveyLogo_512x512.png" />
+    <None Include="Resources\github_icon_512x512.png" />
     <Content Include="Resources\Icons\icon_error_64x64.png" />
     <Content Include="Resources\Icons\icon_information_64x64.png" />
     <Content Include="Resources\Icons\icon_question_64x64.png" />

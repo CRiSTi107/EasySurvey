@@ -13,9 +13,10 @@ namespace EasySurvey
     {
         private const string VERSION_URL_GIT = @"https://raw.githubusercontent.com/CRiSTi107/EasySurvey/master/VERSION";
         private Version lastVersion;
-
-        public void CheckForUpdates()
+        private bool AutoStartCheck = true;
+        public void CheckForUpdates(bool autoStartCheck = true)
         {
+            AutoStartCheck = autoStartCheck;
             try
             {
                 Task task = new Task(new Action(Update));
@@ -45,10 +46,17 @@ namespace EasySurvey
                 Version currentVersion = GetCurrentVersion();
 
                 if (lastVersion > currentVersion)
+                {
                     if (MessageBox.Show("A new update is avabile - " + lastVersion.ToString() + Environment.NewLine + "Would you like to download it now?", "EasySurvey - " + currentVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         // Download from an URL or open easysurvey.github.io page.
                     }
+                }
+                else if (!AutoStartCheck)
+                {
+                    MessageBox.Show("Software is up to date!", "EasySurvey - Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             catch (WebException we)
             {
