@@ -276,6 +276,7 @@
     <None Include="Resources\password_icon_24x24.png" />
     <None Include="Resources\modify_icon_20x20.png" />
     <None Include="Resources\pencil_icon_20x20.png" />
+    <None Include="Resources\lock_icon_32x32.png" />
     <Content Include="Resources\search_icon_24x24.png" />
     <None Include="Resources\user_icon_48x48.png" />
     <None Include="Resources\survey_icon_20x20.png" />
@@ -283,6 +284,8 @@
     <None Include="Resources\userlogin_icon_24x24.png" />
     <None Include="Resources\tick_green_512x512.png" />
     <None Include="Resources\success_green_512x512.png" />
+    <None Include="Resources\user_icon_512x512.png" />
+    <None Include="Resources\unlock_icon_32x32.png" />
     <Content Include="Survey.ico" />
   </ItemGroup>
   <ItemGroup>

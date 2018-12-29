@@ -60,3 +60,12 @@ https://www.iconfinder.com/icons/285655/user_icon
 
 github_icon_512x512.png
 https://www.iconfinder.com/icons/298818/github_logo_icon
+
+unlock_icon_32x32.png
+https://www.iconfinder.com/icons/285637/lock_open_icon
+
+lock_icon_32x32.png
+https://www.iconfinder.com/icons/285646/lock_icon
+
+
+

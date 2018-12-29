@@ -183,6 +183,16 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lock_icon_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("lock_icon_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap modify_icon_20x20 {
             get {
                 object obj = ResourceManager.GetObject("modify_icon_20x20", resourceCulture);
@@ -283,9 +293,29 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap unlock_icon_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("unlock_icon_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_icon_48x48 {
             get {
                 object obj = ResourceManager.GetObject("user_icon_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_icon_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("user_icon_512x512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

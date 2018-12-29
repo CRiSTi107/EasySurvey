@@ -45,14 +45,15 @@ namespace EasySurvey
         private void Settings_Load(object sender, EventArgs e)
         {
             SetCurrentVersion();
+            SetMeUsername();
 
             if (LoggedUser.IsAdministrator())
             {
-                AddManyTo(MenuPanels, panel_About);
+                AddManyTo(MenuPanels, panel_About, panel_Me);
             }
             else
             {
-                AddManyTo(MenuPanels, panel_About);
+                AddManyTo(MenuPanels, panel_About, panel_Me);
             }
         }
 
@@ -127,33 +128,69 @@ namespace EasySurvey
 
         #endregion
 
-        private const string ABOUT = "About";
-        private const string ME = "Me";
-        private const string USERS = "Users";
-        private const string DATABASE = "Database";
+        public struct MenuPanelsEnum
+        {
+            public const string ABOUT = "About";
+            public const string ME = "Me";
+            public const string USERS = "Users";
+            public const string DATABASE = "Database";
+        }
+
 
         private List<Panel> MenuPanels = new List<Panel>();
 
-        private void treeView_Menu_Click(object sender, EventArgs e)
+        #region Me
+
+        private void SetMeUsername()
+        {
+            lbl_Username.Text = LoggedUser.UserName;
+        }
+
+        private void pic_UnlockPassword_Click(object sender, EventArgs e)
+        {
+            rdb_UnlockPassword.Checked = true;
+        }
+
+        private void pic_LockPassword_Click(object sender, EventArgs e)
+        {
+            rdb_LockPassword.Checked = true;
+        }
+
+        private void rdb_UnlockPassword_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdb_LockPassword_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private void treeView_Menu_AfterSelect(object sender, TreeViewEventArgs e)
         {
             switch (treeView_Menu.SelectedNode.Name)
             {
-                case ABOUT:
+                case MenuPanelsEnum.ABOUT:
                     DisplayMenuPanel(panel_About);
                     break;
 
-                case ME:
+                case MenuPanelsEnum.ME:
+                    DisplayMenuPanel(panel_Me);
                     break;
 
-                case USERS:
+                case MenuPanelsEnum.USERS:
                     break;
 
-                case DATABASE:
+                case MenuPanelsEnum.DATABASE:
                     break;
 
                 default:
                     break;
             }
         }
+
+
     }
 }
