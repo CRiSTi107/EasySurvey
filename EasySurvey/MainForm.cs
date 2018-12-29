@@ -30,6 +30,7 @@ namespace EasySurvey
 
             lbl_AboutUser.ForeColor = AboutUser_ForeColor;
             lbl_AboutUser.Font = AboutUser_FontDefault;
+            lbl_AttitudeReportsInfo.Font = AttitudeReportsInfoFont;
 
             grb_SelectedSurveyAdmin.Location = new Point(472, 6);
             grb_SelectedSurveyUser.Location = new Point(472, 6);
@@ -189,12 +190,13 @@ namespace EasySurvey
             Program.frm_Login.Show();
         }
 
-        private void materialFlatButton1_Click(object sender, EventArgs e)
-        {
-            Surveys = GetSurveys();
-
-            UpdateListView(Surveys, listView_AllSurveys);
-        }
+        // Used to refresh.
+        // private void materialFlatButton1_Click(object sender, EventArgs e)
+        // {
+        //     Surveys = GetSurveys();
+        // 
+        //     UpdateListView(Surveys, listView_AllSurveys);
+        // }
 
         #region About User - FontChanged and ForeColorChanged Events
 
@@ -956,6 +958,7 @@ namespace EasySurvey
             int SelectedIndex = cmb_SelectUserReport.SelectedIndex;
 
             listView_UserReports.Items.Clear();
+            listView_AttitudeReports.Items.Clear();
 
             if (Username == "*" || SelectedIndex == -1) return;
 
@@ -1043,6 +1046,13 @@ namespace EasySurvey
                             Tag = attitude.AttitudeID
                         });
             }
+        }
+
+        private Font AttitudeReportsInfoFont = (new FontConverter().ConvertFromString("Roboto Condensed; 9pt") as Font);
+
+        private void lbl_AttitudeReportsInfo_FontChanged(object sender, EventArgs e)
+        {
+            lbl_AttitudeReportsInfo.Font = AttitudeReportsInfoFont;
         }
     }
 }
