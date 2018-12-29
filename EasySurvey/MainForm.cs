@@ -998,12 +998,13 @@ namespace EasySurvey
             foreach (Attitude attitude in attitudes)
             {
                 long AttitudeSum = 0;
+                bool Found = false;
 
                 List<AttitudeDefinition> attitudeDefinitions = attitudeDefinitionController.GetRelation(attitude.AttitudeID);
                 foreach (AttitudeDefinition attitudeDefinition in attitudeDefinitions)
                 {
                     long QuestionID = attitudeDefinition.QuestionID;
-                    bool Found = false;
+
 
                     foreach (Result result in LastUserReports)
                     {
@@ -1016,30 +1017,31 @@ namespace EasySurvey
                                 Found = true;
                                 break;
                             }
-                        string SurveyName = surveyController.GetByQuestion(QuestionID).SurveyName;
-                        if (!Found)
-                        {
-                            listView_AttitudeReports.Items.Add(
-                                new ListViewItem(listView_AttitudeReports.Groups["default"])
-                                {
-                                    ForeColor = Color.Red,
-                                    Text = attitude.AttitudeName + " - requires '" + SurveyName + "'",
-                                    Tag = attitude.AttitudeID
-                                });
-                            break;
-                        }
+                        if (Found) break;
                     }
 
+                    string SurveyName = surveyController.GetByQuestion(QuestionID).SurveyName;
+
                     if (!Found)
-                        break;
-                    else
+                    {
                         listView_AttitudeReports.Items.Add(
-                                new ListViewItem(listView_AttitudeReports.Groups["default"])
-                                {
-                                    Text = attitude.AttitudeName + " - " + AttitudeSum,
-                                    Tag = attitude.AttitudeID
-                                });
+                                  new ListViewItem(listView_AttitudeReports.Groups["default"])
+                                  {
+                                      ForeColor = Color.Red,
+                                      Text = attitude.AttitudeName + " - requires '" + SurveyName + "'",
+                                      Tag = attitude.AttitudeID
+                                  });
+                        break;
+                    }
                 }
+
+                if (Found)
+                    listView_AttitudeReports.Items.Add(
+                        new ListViewItem(listView_AttitudeReports.Groups["default"])
+                        {
+                            Text = attitude.AttitudeName + " - " + AttitudeSum,
+                            Tag = attitude.AttitudeID
+                        });
             }
         }
     }
