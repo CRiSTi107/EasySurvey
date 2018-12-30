@@ -1,4 +1,5 @@
-﻿using EasySurvey.Models;
+﻿using EasySurvey.Controllers;
+using EasySurvey.Models;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
@@ -34,19 +35,19 @@ namespace EasySurvey
             // Initialize Fonts (Material Skin is buggy)
             lbl_EasySurvey.Font = EasySurveyFont;
             lbl_Owner.Font = OwnerFont;
+            lbl_Username.Font = UsernameFont;
+            lbl_UserRole.Font = UserRoleFont;
 
             //Setting App Logo in middle.
             SetHorizontalMiddle(pic_EasySurveyLogo);
             SetHorizontalMiddle(pic_GitHub);
+            SetHorizontalMiddle(btn_MeSaveChanges);
         }
 
 
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            SetCurrentVersion();
-            SetMeUsername();
-
             if (LoggedUser.IsAdministrator())
             {
                 AddManyTo(MenuPanels, panel_About, panel_Me);
@@ -55,6 +56,8 @@ namespace EasySurvey
             {
                 AddManyTo(MenuPanels, panel_About, panel_Me);
             }
+
+            treeView_Menu.SelectedNode = treeView_Menu.Nodes[MenuPanelsEnum.ABOUT];
         }
 
         private void DisplayMenuPanel(Panel PanelToDisplay)
@@ -74,12 +77,18 @@ namespace EasySurvey
                 ListToAdd.Add(Panels[PanelIndex]);
         }
 
+        private void RemoveManyFrom<T>()
+        {
+
+        }
+
         #region About
 
-        private void SetHorizontalMiddle<T>(T control) where T : PictureBox
+        private void SetHorizontalMiddle<T>(T control) where T : Control
         {
             control.Location = new Point(control.Parent.Width / 2 - control.Size.Width / 2, control.Location.Y);
         }
+
 
         private Font EasySurveyFont = new Font("Roboto", 21.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238)));
         private Color EasySurveyColor = Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -144,6 +153,13 @@ namespace EasySurvey
         private void SetMeUsername()
         {
             lbl_Username.Text = LoggedUser.UserName;
+            lbl_UserRole.Text = LoggedUser.RoleName;
+        }
+
+        private void PasswordSetStatus(string StatusText, bool IsError = true)
+        {
+            lbl_PasswordStatus.Text = StatusText;
+            lbl_PasswordStatus.ForeColor = (IsError) ? Color.Red : Color.Green;
         }
 
         private void pic_UnlockPassword_Click(object sender, EventArgs e)
@@ -156,14 +172,119 @@ namespace EasySurvey
             rdb_LockPassword.Checked = true;
         }
 
+        private bool ProtectUserByPassword;
+
         private void rdb_UnlockPassword_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (rdb_UnlockPassword.Checked)
+            {
+                ProtectUserByPassword = false;
+                lbl_UnlockPassword.ForeColor = Color.Black;
+                panel_NewPassword.Enabled = false;
+            }
+            else
+            {
+                lbl_UnlockPassword.ForeColor = Color.Gray;
+                panel_NewPassword.Enabled = true;
+            }
         }
 
         private void rdb_LockPassword_CheckedChanged(object sender, EventArgs e)
         {
+            if (rdb_LockPassword.Checked)
+            {
+                ProtectUserByPassword = true;
+                panel_NewPassword.Enabled = true;
+                if (LoggedUser.UserPassword == null)
+                {
+                    lbl_CurrentPassword.Enabled = lbl_CurrentPassword.Visible = false;
+                    txt_CurrentPassword.Enabled = txt_CurrentPassword.Visible = false;
+                }
+                else
+                {
+                    lbl_CurrentPassword.Enabled = lbl_CurrentPassword.Visible = true;
+                    txt_CurrentPassword.Enabled = txt_CurrentPassword.Visible = true;
+                }
+                lbl_UnlockPassword.ForeColor = Color.Gray;
+            }
+            else
+            {
+                panel_NewPassword.Enabled = false;
+                lbl_UnlockPassword.ForeColor = Color.Black;
+            }
+        }
 
+        private void btn_MeSaveChanges_Click(object sender, EventArgs e)
+        {
+            UserController userController = new UserController();
+            long UserID = LoggedUser.UserID;
+            string ErrorMessage = String.Empty;
+
+            if (!ProtectUserByPassword)
+            {
+                userController.UpdatePassword(LoggedUser.UserID, null);
+                LoggedUser = userController.GetUserByID(UserID);
+            }
+            else
+            {
+                string CurrentPassword = SHA256.Hash(txt_CurrentPassword.Text);
+                string NewPassword = txt_NewPassword.Text;
+                string ReTypeNewPassword = txt_ReTypeNewPassword.Text;
+
+                if (CurrentPassword != String.Empty || LoggedUser.UserPassword == null)
+                    if (CurrentPassword == LoggedUser.UserPassword || LoggedUser.UserPassword == null)
+                        if (NewPassword != String.Empty)
+                            if (NewPassword.Equals(ReTypeNewPassword))
+                            {
+                                NewPassword = SHA256.Hash(NewPassword);
+                                userController.UpdatePassword(LoggedUser.UserID, NewPassword);
+                                LoggedUser = userController.GetUserByID(UserID);
+                            }
+                            else ErrorMessage = "The new passwords are not the same";
+                        else ErrorMessage = "New password cannot be empty";
+                    else ErrorMessage = "Current password do not match";
+                else ErrorMessage = "Current password cannot be empty";
+            }
+
+
+
+            if (ErrorMessage == String.Empty)
+            {
+                txt_CurrentPassword.Clear();
+                txt_NewPassword.Clear();
+                txt_ReTypeNewPassword.Clear();
+                PasswordSetStatus("You password has been successfully changed", false);
+            }
+            else
+                PasswordSetStatus(ErrorMessage);
+        }
+
+        private void LoadPasswordSettings()
+        {
+            string UserPassword = LoggedUser.UserPassword;
+
+            if (UserPassword == null) // No Password protection
+            {
+                rdb_UnlockPassword.Checked = true;
+            }
+            else // Password protected
+            {
+                rdb_LockPassword.Checked = true;
+            }
+        }
+
+        private Font UsernameFont = new FontConverter().ConvertFromString("Roboto; 20,25pt") as Font;
+        private void lbl_Username_FontChanged(object sender, EventArgs e)
+        {
+            lbl_Username.Font = UsernameFont;
+        }
+
+        private Font UserRoleFont = new Font("Roboto", 11F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238)));
+        private Color UserRoleColor = Color.Gray;
+        private void lbl_UserRole_FontChanged(object sender, EventArgs e)
+        {
+            lbl_UserRole.Font = UserRoleFont;
+            lbl_UserRole.ForeColor = UserRoleColor;
         }
 
         #endregion
@@ -173,10 +294,14 @@ namespace EasySurvey
             switch (treeView_Menu.SelectedNode.Name)
             {
                 case MenuPanelsEnum.ABOUT:
+                    SetCurrentVersion();
                     DisplayMenuPanel(panel_About);
                     break;
 
                 case MenuPanelsEnum.ME:
+                    SetMeUsername();
+                    PasswordSetStatus(String.Empty);
+                    LoadPasswordSettings();
                     DisplayMenuPanel(panel_Me);
                     break;
 
@@ -190,7 +315,5 @@ namespace EasySurvey
                     break;
             }
         }
-
-
     }
 }

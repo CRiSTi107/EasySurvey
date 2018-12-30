@@ -180,5 +180,15 @@ namespace EasySurvey.Controllers
             return true;
         }
 
+        /// <summary>
+        /// Update User's Password
+        /// </summary>
+        /// <param name="UserID">User ID that password will be changed.</param>
+        /// <param name="NewPassword">New hashed password.</param>
+        public void UpdatePassword(long UserID, string NewPassword)
+        {
+            DatabaseModel.User.Where(user => user.UserID == UserID).ToList().ForEach(user => user.UserPassword = NewPassword);
+            DatabaseModel.SaveChanges();
+        }
     }
 }
