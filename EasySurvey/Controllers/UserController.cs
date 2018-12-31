@@ -236,6 +236,12 @@ namespace EasySurvey.Controllers
 
         public void Delete(User UserToDelete)
         {
+            long UserID = UserToDelete.UserID;
+
+            //Delete everything that is linked to this UserID: Reports and ReportDefinitions
+            ResultController resultController = new ResultController();
+            resultController.DeleteAll(UserID);
+
             DatabaseModel.User.Remove(UserToDelete);
             DatabaseModel.SaveChanges();
         }

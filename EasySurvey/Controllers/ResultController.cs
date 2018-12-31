@@ -34,15 +34,29 @@ namespace EasySurvey.Controllers
         public void Delete(long ResultID)
         {
             Result ResultToDelete = Get(ResultID);
+            Delete(ResultToDelete);
+        }
 
+        public void Delete(Result ResultToDelete)
+        {
             //Delete Result Definitions first
-
             ResultDefinitionController resultDefinitionController = new ResultDefinitionController();
-
-            resultDefinitionController.Delete(ResultID);
+            resultDefinitionController.Delete(ResultToDelete.ResultID);
 
             DatabaseModel.Result.Remove(ResultToDelete);
             DatabaseModel.SaveChanges();
+        }
+
+        /// <summary>
+        /// Delete all Results for a user.
+        /// Use with caution.
+        /// </summary>
+        /// <param name="UserID"></param>
+        public void DeleteAll(long UserID)
+        {
+            List<Result> ResultsToDelete = GetForUser(UserID);
+            foreach (Result ResultToDelete in ResultsToDelete)
+                Delete(ResultToDelete);
         }
     }
 }
