@@ -48,7 +48,7 @@ namespace EasySurvey
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            AddManyTo(MenuPanels, panel_About, panel_Me, panel_Users);
+            AddManyTo(MenuPanels, panel_About, panel_Me, panel_Users, panel_Database);
 
             if (!LoggedUser.IsAdministrator())
             {
@@ -306,6 +306,9 @@ namespace EasySurvey
                 else
                     GroupName = "User";
 
+                if (user.UserPassword == null)
+                    itemToAdd.ForeColor = Color.Gold;
+
                 itemToAdd.Group = listView_Users.Groups[GroupName];
                 listView_Users.Items.Add(itemToAdd);
             }
@@ -340,6 +343,31 @@ namespace EasySurvey
 
                 default:
                     break;
+            }
+        }
+
+        private void materialContextMenuStrip_Users_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedUsers = listView_Users.SelectedItems.Count;
+
+            if (SelectedUsers == 0) return;
+
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+            result = MaterialMessageBox.Show("Are you sure you want to delete all " + SelectedUsers + " selected users?", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+
+            if (result == MaterialMessageBox.MessageBoxResult.Yes)
+            {
+                UserController userController = new UserController();
+
+                foreach (ListViewItem item in listView_Users.SelectedItems)
+                {
+
+                }
             }
         }
     }

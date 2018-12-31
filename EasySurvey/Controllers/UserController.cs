@@ -10,6 +10,11 @@ namespace EasySurvey.Controllers
     {
         private DatabaseEntity DatabaseModel = new DatabaseEntity();
 
+        public User Get(long UserID)
+        {
+            return (from user in DatabaseModel.User where user.UserID == UserID select user).First();
+        }
+
         public List<UserModelDataTransferObject> GetUsers()
         {
             List<UserModelDataTransferObject> Users = new List<UserModelDataTransferObject>();
@@ -188,6 +193,14 @@ namespace EasySurvey.Controllers
         public void UpdatePassword(long UserID, string NewPassword)
         {
             DatabaseModel.User.Where(user => user.UserID == UserID).ToList().ForEach(user => user.UserPassword = NewPassword);
+            DatabaseModel.SaveChanges();
+        }
+
+        public void Delete(long UserID)
+        {
+            User UserToDelete = Get(UserID);
+
+            DatabaseModel.User.Remove(UserToDelete);
             DatabaseModel.SaveChanges();
         }
     }

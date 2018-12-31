@@ -30,5 +30,19 @@ namespace EasySurvey.Controllers
             DatabaseModel.Result.Add(NewResult);
             DatabaseModel.SaveChanges();
         }
+
+        public void Delete(long ResultID)
+        {
+            Result ResultToDelete = Get(ResultID);
+
+            //Delete Result Definitions first
+
+            ResultDefinitionController resultDefinitionController = new ResultDefinitionController();
+
+            resultDefinitionController.Delete(ResultID);
+
+            DatabaseModel.Result.Remove(ResultToDelete);
+            DatabaseModel.SaveChanges();
+        }
     }
 }

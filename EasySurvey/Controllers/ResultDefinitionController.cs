@@ -26,5 +26,18 @@ namespace EasySurvey.Controllers
         {
             return (from resultDefinition in DatabaseModel.ResultDefinition where resultDefinition.ResultID == ResultID select resultDefinition).ToList();
         }
+
+        public void Delete(long ResultID)
+        {
+            List<ResultDefinition> ResultDefinitionsToDelete = Get(ResultID);
+            Delete(ResultDefinitionsToDelete);
+        }
+
+        public void Delete(List<ResultDefinition> ResultDefinitions)
+        {
+            foreach (ResultDefinition ResultDefinition in ResultDefinitions)
+                DatabaseModel.ResultDefinition.Remove(ResultDefinition);
+            DatabaseModel.SaveChanges();
+        }
     }
 }

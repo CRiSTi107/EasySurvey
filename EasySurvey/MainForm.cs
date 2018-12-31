@@ -951,6 +951,11 @@ namespace EasySurvey
             // cmb_SelectUserReport.Text = "*";
             // cmb_SelectUserReport.Text = SelectedUser;
 
+            RefreshReports();
+        }
+
+        private void RefreshReports()
+        {
             int SelectedIndex = cmb_SelectUserReport.SelectedIndex;
             cmb_SelectUserReport.SelectedIndex = -1;
             cmb_SelectUserReport.SelectedIndex = SelectedIndex;
@@ -1057,6 +1062,31 @@ namespace EasySurvey
         private void lbl_AttitudeReportsInfo_FontChanged(object sender, EventArgs e)
         {
             lbl_AttitudeReportsInfo.Font = AttitudeReportsInfoFont;
+        }
+
+        private void deleteToolStripMenuItem_Delete_Click(object sender, EventArgs e)
+        {
+            int SelectedResults = listView_UserReports.SelectedItems.Count;
+
+            if (SelectedResults == 0) return;
+
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+            result = MaterialMessageBox.Show("Are you sure you want to delete " + SelectedResults + " selected reports?", "Easy Survey - Delete Reports", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+
+            IEnumerable<ListViewItem> SelectedUserReports = listView_UserReports.SelectedItems.Cast<ListViewItem>();
+
+            if (result == MaterialMessageBox.MessageBoxResult.Yes)
+            {
+                ResultController resultController = new ResultController();
+
+                foreach (ListViewItem reportItem in SelectedUserReports)
+                {
+                    long ResultID = Convert.ToInt64(reportItem.Tag);
+                    resultController.Delete(ResultID);
+                    listView_UserReports.Items.Remove(reportItem);
+                }
+                RefreshReports();
+            }
         }
     }
 }
