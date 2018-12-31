@@ -46,6 +46,38 @@ namespace EasySurvey.Controllers
             return Users;
         }
 
+        public List<UserModelDataTransferObject> GetUsersByRoleID(long RoleID)
+        {
+            List<UserModelDataTransferObject> Users = new List<UserModelDataTransferObject>();
+
+            var list = from user in DatabaseModel.User
+                       join userRole in DatabaseModel.UserRole on user.UserID equals userRole.UserID
+                       where userRole.RoleID == RoleID
+                       select new
+                       {
+                           user.UserID,
+                           user.UserName,
+                           user.UserPassword,
+                           userRole.RoleID
+                       };
+
+            RoleController roleController = new RoleController();
+
+            foreach (var elem in list)
+            {
+                Users.Add(new UserModelDataTransferObject()
+                {
+                    UserID = elem.UserID,
+                    UserName = elem.UserName,
+                    UserPassword = elem.UserPassword,
+                    RoleID = elem.RoleID,
+                    RoleName = roleController.GetRoleName(elem.RoleID)
+                });
+            }
+
+            return Users;
+        }
+
         public UserModelDataTransferObject GetUserByID(long ID)
         {
             var user = from usr in DatabaseModel.User
@@ -199,7 +231,11 @@ namespace EasySurvey.Controllers
         public void Delete(long UserID)
         {
             User UserToDelete = Get(UserID);
+            Delete(UserToDelete);
+        }
 
+        public void Delete(User UserToDelete)
+        {
             DatabaseModel.User.Remove(UserToDelete);
             DatabaseModel.SaveChanges();
         }

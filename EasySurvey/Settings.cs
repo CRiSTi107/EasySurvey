@@ -37,6 +37,7 @@ namespace EasySurvey
             lbl_Owner.Font = OwnerFont;
             lbl_Username.Font = UsernameFont;
             lbl_UserRole.Font = UserRoleFont;
+            lbl_Info.ForeColor = Color.Red;
 
             //Setting App Logo in middle.
             SetHorizontalMiddle(pic_EasySurveyLogo);
@@ -142,7 +143,6 @@ namespace EasySurvey
         public const string ME = "Me";
         public const string USERS = "Users";
         public const string DATABASE = "Database";
-
 
         private List<Panel> MenuPanels = new List<Panel>();
 
@@ -307,12 +307,17 @@ namespace EasySurvey
                     GroupName = "User";
 
                 if (user.UserPassword == null)
-                    itemToAdd.ForeColor = Color.Gold;
+                    itemToAdd.ForeColor = Color.Red;
 
                 itemToAdd.Group = listView_Users.Groups[GroupName];
                 listView_Users.Items.Add(itemToAdd);
             }
 
+        }
+
+        private void lbl_Info_ForeColorChanged(object sender, EventArgs e)
+        {
+            lbl_Info.ForeColor = Color.Red;
         }
 
         #endregion
@@ -346,29 +351,74 @@ namespace EasySurvey
             }
         }
 
-        private void materialContextMenuStrip_Users_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int SelectedUsers = listView_Users.SelectedItems.Count;
+            int SelectedUsersCount = listView_Users.SelectedItems.Count;
+            if (SelectedUsersCount == 0) return;
 
-            if (SelectedUsers == 0) return;
+            IEnumerable<ListViewItem> SelectedUsers = listView_Users.SelectedItems.Cast<ListViewItem>();
+            UserController userController = new UserController();
+            RoleController roleController = new RoleController();
 
+            // Check if Admin selected all Admins to be deleted.
+            long AdminRoleID = roleController.GetRoleID("Admin");
+            List<UserModelDataTransferObject> AdminsList = userController.GetUsersByRoleID(AdminRoleID);
+            long AdminCount = AdminsList.Count;
+            long SelectedAdminCount = 0;
+            foreach (ListViewItem item in SelectedUsers)
+            {
+                long UserID = Convert.ToInt64(item.Tag);
+                UserModelDataTransferObject SelectedUser = userController.GetUserByID(UserID);
+                if (SelectedUser.IsAdministrator())
+                    ++SelectedAdminCount;
+            }
+            if (AdminCount == SelectedAdminCount)
+            {
+                MaterialMessageBox.Show("You cannot delete all Administrators.", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check if Admin selected his account to de deleted.
+            bool SelectedSelfAccount = false;
+            foreach (ListViewItem item in SelectedUsers)
+            {
+                long UserID = Convert.ToInt64(item.Tag);
+                if (LoggedUser.UserID == UserID)
+                { SelectedSelfAccount = true; break; }
+            }
+            if (SelectedSelfAccount)
+            {
+                MaterialMessageBox.Show("You cannot delete your own account.", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                return;
+            }
+
+            // Delete selected users.
             MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
-            result = MaterialMessageBox.Show("Are you sure you want to delete all " + SelectedUsers + " selected users?", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+            result = MaterialMessageBox.Show("Are you sure you want to delete all " + SelectedUsersCount + " selected users?", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
-                UserController userController = new UserController();
-
-                foreach (ListViewItem item in listView_Users.SelectedItems)
+                foreach (ListViewItem item in SelectedUsers)
                 {
+                    long UserID = Convert.ToInt64(item.Tag);
 
+                    // Delete from Database
+                    userController.Delete(UserID);
+
+                    // Delete from ListView
+                    foreach (ListViewItem listViewItemToDelete in listView_Users.SelectedItems)
+                    {
+                        long ListViewUserID = Convert.ToInt64(listViewItemToDelete.Tag);
+                        if (UserID == ListViewUserID)
+                            listView_Users.Items.Remove(listViewItemToDelete);
+                    }
                 }
             }
+        }
+
+        private void materialContextMenuStrip_Users_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
