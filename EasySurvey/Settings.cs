@@ -48,16 +48,14 @@ namespace EasySurvey
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            if (LoggedUser.IsAdministrator())
+            AddManyTo(MenuPanels, panel_About, panel_Me, panel_Users);
+
+            if (!LoggedUser.IsAdministrator())
             {
-                AddManyTo(MenuPanels, panel_About, panel_Me);
-            }
-            else
-            {
-                AddManyTo(MenuPanels, panel_About, panel_Me);
+                RemoveManyFrom(treeView_Menu.Nodes, USERS, DATABASE);
             }
 
-            treeView_Menu.SelectedNode = treeView_Menu.Nodes[MenuPanelsEnum.ABOUT];
+            treeView_Menu.SelectedNode = treeView_Menu.Nodes[ABOUT];
         }
 
         private void DisplayMenuPanel(Panel PanelToDisplay)
@@ -77,9 +75,11 @@ namespace EasySurvey
                 ListToAdd.Add(Panels[PanelIndex]);
         }
 
-        private void RemoveManyFrom<T>()
+        private void RemoveManyFrom<T>(T collection, params string[] Nodes) where T : TreeNodeCollection
         {
-
+            foreach (TreeNode tn in collection.Cast<TreeNode>().ToList())
+                if (Nodes.Contains(tn.Text))
+                    collection.Remove(tn);
         }
 
         #region About
@@ -137,13 +137,11 @@ namespace EasySurvey
 
         #endregion
 
-        public struct MenuPanelsEnum
-        {
-            public const string ABOUT = "About";
-            public const string ME = "Me";
-            public const string USERS = "Users";
-            public const string DATABASE = "Database";
-        }
+
+        public const string ABOUT = "About";
+        public const string ME = "Me";
+        public const string USERS = "Users";
+        public const string DATABASE = "Database";
 
 
         private List<Panel> MenuPanels = new List<Panel>();
@@ -289,26 +287,55 @@ namespace EasySurvey
 
         #endregion
 
+        #region Users
+
+        private void SetUsers()
+        {
+            listView_Users.Items.Clear();
+
+            UserController userController = new UserController();
+            List<UserModelDataTransferObject> users = userController.GetUsers();
+
+            foreach (UserModelDataTransferObject user in users)
+            {
+                ListViewItem itemToAdd = new ListViewItem() { Text = user.UserName, Tag = user.UserID };
+                string GroupName = String.Empty;
+
+                if (user.IsAdministrator())
+                    GroupName = "Administrator";
+                else
+                    GroupName = "User";
+
+                itemToAdd.Group = listView_Users.Groups[GroupName];
+                listView_Users.Items.Add(itemToAdd);
+            }
+
+        }
+
+        #endregion
+
         private void treeView_Menu_AfterSelect(object sender, TreeViewEventArgs e)
         {
             switch (treeView_Menu.SelectedNode.Name)
             {
-                case MenuPanelsEnum.ABOUT:
+                case ABOUT:
                     SetCurrentVersion();
                     DisplayMenuPanel(panel_About);
                     break;
 
-                case MenuPanelsEnum.ME:
+                case ME:
                     SetMeUsername();
                     PasswordSetStatus(String.Empty);
                     LoadPasswordSettings();
                     DisplayMenuPanel(panel_Me);
                     break;
 
-                case MenuPanelsEnum.USERS:
+                case USERS:
+                    SetUsers();
+                    DisplayMenuPanel(panel_Users);
                     break;
 
-                case MenuPanelsEnum.DATABASE:
+                case DATABASE:
                     break;
 
                 default:

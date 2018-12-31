@@ -34,6 +34,13 @@
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Users");
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Database");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Administrator", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("User", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("admin 1");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("admin 2");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("user 1");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("user 2");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("user 3");
             this.treeView_Menu = new System.Windows.Forms.TreeView();
             this.imageList_Menu = new System.Windows.Forms.ImageList(this.components);
             this.panel_About = new System.Windows.Forms.Panel();
@@ -45,6 +52,7 @@
             this.lbl_EasySurvey = new MaterialSkin.Controls.MaterialLabel();
             this.pic_EasySurveyLogo = new System.Windows.Forms.PictureBox();
             this.panel_Me = new System.Windows.Forms.Panel();
+            this.lbl_PasswordStatus = new MaterialSkin.Controls.MaterialLabel();
             this.rdb_UnlockPassword = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdb_LockPassword = new MaterialSkin.Controls.MaterialRadioButton();
             this.lbl_UserRole = new MaterialSkin.Controls.MaterialLabel();
@@ -62,7 +70,9 @@
             this.lbl_NewPassword = new MaterialSkin.Controls.MaterialLabel();
             this.txt_CurrentPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_ReTypeNewPassword = new MaterialSkin.Controls.MaterialLabel();
-            this.lbl_PasswordStatus = new MaterialSkin.Controls.MaterialLabel();
+            this.panel_Users = new System.Windows.Forms.Panel();
+            this.listView_Users = new System.Windows.Forms.ListView();
+            this.lbl_Users = new MaterialSkin.Controls.MaterialLabel();
             this.panel_About.SuspendLayout();
             this.panel_GitHub.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_GitHub)).BeginInit();
@@ -72,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_UnlockPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_UserCard)).BeginInit();
             this.panel_NewPassword.SuspendLayout();
+            this.panel_Users.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView_Menu
@@ -83,6 +94,7 @@
             this.treeView_Menu.ImageIndex = 0;
             this.treeView_Menu.ImageList = this.imageList_Menu;
             this.treeView_Menu.Location = new System.Drawing.Point(12, 73);
+            this.treeView_Menu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.treeView_Menu.Name = "treeView_Menu";
             treeNode5.ImageKey = "info_20x20.png";
             treeNode5.Name = "About";
@@ -132,6 +144,7 @@
             this.panel_About.Controls.Add(this.lbl_EasySurvey);
             this.panel_About.Controls.Add(this.pic_EasySurveyLogo);
             this.panel_About.Location = new System.Drawing.Point(210, 73);
+            this.panel_About.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel_About.Name = "panel_About";
             this.panel_About.Size = new System.Drawing.Size(456, 348);
             this.panel_About.TabIndex = 1;
@@ -144,6 +157,7 @@
             this.lbl_CheckForUpdates.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_CheckForUpdates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_CheckForUpdates.Location = new System.Drawing.Point(317, 318);
+            this.lbl_CheckForUpdates.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CheckForUpdates.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_CheckForUpdates.Name = "lbl_CheckForUpdates";
             this.lbl_CheckForUpdates.Size = new System.Drawing.Size(136, 30);
@@ -159,7 +173,8 @@
             this.panel_GitHub.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_GitHub.Controls.Add(this.pic_GitHub);
-            this.panel_GitHub.Location = new System.Drawing.Point(3, 202);
+            this.panel_GitHub.Location = new System.Drawing.Point(2, 202);
+            this.panel_GitHub.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel_GitHub.Name = "panel_GitHub";
             this.panel_GitHub.Size = new System.Drawing.Size(450, 27);
             this.panel_GitHub.TabIndex = 7;
@@ -171,6 +186,7 @@
             this.pic_GitHub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pic_GitHub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_GitHub.Location = new System.Drawing.Point(191, 4);
+            this.pic_GitHub.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pic_GitHub.Name = "pic_GitHub";
             this.pic_GitHub.Size = new System.Drawing.Size(66, 20);
             this.pic_GitHub.TabIndex = 0;
@@ -183,7 +199,8 @@
             this.lbl_CurrentVersion.Depth = 0;
             this.lbl_CurrentVersion.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_CurrentVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_CurrentVersion.Location = new System.Drawing.Point(3, 318);
+            this.lbl_CurrentVersion.Location = new System.Drawing.Point(2, 318);
+            this.lbl_CurrentVersion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CurrentVersion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_CurrentVersion.Name = "lbl_CurrentVersion";
             this.lbl_CurrentVersion.Size = new System.Drawing.Size(190, 30);
@@ -198,7 +215,8 @@
             this.lbl_Owner.Depth = 0;
             this.lbl_Owner.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Owner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Owner.Location = new System.Drawing.Point(3, 178);
+            this.lbl_Owner.Location = new System.Drawing.Point(2, 178);
+            this.lbl_Owner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Owner.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Owner.Name = "lbl_Owner";
             this.lbl_Owner.Size = new System.Drawing.Size(450, 21);
@@ -214,7 +232,8 @@
             this.lbl_EasySurvey.Depth = 0;
             this.lbl_EasySurvey.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_EasySurvey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_EasySurvey.Location = new System.Drawing.Point(3, 134);
+            this.lbl_EasySurvey.Location = new System.Drawing.Point(2, 134);
+            this.lbl_EasySurvey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_EasySurvey.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_EasySurvey.Name = "lbl_EasySurvey";
             this.lbl_EasySurvey.Size = new System.Drawing.Size(450, 44);
@@ -229,6 +248,7 @@
             this.pic_EasySurveyLogo.BackgroundImage = global::EasySurvey.Properties.Resources.EasySurveyLogo_512x512;
             this.pic_EasySurveyLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pic_EasySurveyLogo.Location = new System.Drawing.Point(163, 3);
+            this.pic_EasySurveyLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pic_EasySurveyLogo.Name = "pic_EasySurveyLogo";
             this.pic_EasySurveyLogo.Size = new System.Drawing.Size(128, 128);
             this.pic_EasySurveyLogo.TabIndex = 2;
@@ -252,9 +272,25 @@
             this.panel_Me.Controls.Add(this.pic_UserCard);
             this.panel_Me.Controls.Add(this.panel_NewPassword);
             this.panel_Me.Location = new System.Drawing.Point(210, 73);
+            this.panel_Me.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel_Me.Name = "panel_Me";
             this.panel_Me.Size = new System.Drawing.Size(456, 348);
             this.panel_Me.TabIndex = 2;
+            // 
+            // lbl_PasswordStatus
+            // 
+            this.lbl_PasswordStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_PasswordStatus.Depth = 0;
+            this.lbl_PasswordStatus.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_PasswordStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_PasswordStatus.Location = new System.Drawing.Point(53, 318);
+            this.lbl_PasswordStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_PasswordStatus.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_PasswordStatus.Name = "lbl_PasswordStatus";
+            this.lbl_PasswordStatus.Size = new System.Drawing.Size(373, 26);
+            this.lbl_PasswordStatus.TabIndex = 15;
+            this.lbl_PasswordStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rdb_UnlockPassword
             // 
@@ -298,14 +334,14 @@
             // 
             // lbl_UserRole
             // 
-            this.lbl_UserRole.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_UserRole.Depth = 0;
             this.lbl_UserRole.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_UserRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_UserRole.Location = new System.Drawing.Point(89, 62);
+            this.lbl_UserRole.Location = new System.Drawing.Point(100, 62);
+            this.lbl_UserRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_UserRole.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_UserRole.Name = "lbl_UserRole";
-            this.lbl_UserRole.Size = new System.Drawing.Size(342, 19);
+            this.lbl_UserRole.Size = new System.Drawing.Size(331, 19);
             this.lbl_UserRole.TabIndex = 15;
             this.lbl_UserRole.Text = "Administrator";
             this.lbl_UserRole.FontChanged += new System.EventHandler(this.lbl_UserRole_FontChanged);
@@ -317,7 +353,8 @@
             this.lbl_UnlockPassword.Depth = 0;
             this.lbl_UnlockPassword.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_UnlockPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_UnlockPassword.Location = new System.Drawing.Point(81, 112);
+            this.lbl_UnlockPassword.Location = new System.Drawing.Point(80, 112);
+            this.lbl_UnlockPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_UnlockPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_UnlockPassword.Name = "lbl_UnlockPassword";
             this.lbl_UnlockPassword.Size = new System.Drawing.Size(319, 19);
@@ -330,7 +367,8 @@
             this.pic_LockPassword.BackgroundImage = global::EasySurvey.Properties.Resources.lock_icon_32x32;
             this.pic_LockPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pic_LockPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_LockPassword.Location = new System.Drawing.Point(45, 148);
+            this.pic_LockPassword.Location = new System.Drawing.Point(44, 148);
+            this.pic_LockPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pic_LockPassword.Name = "pic_LockPassword";
             this.pic_LockPassword.Size = new System.Drawing.Size(30, 30);
             this.pic_LockPassword.TabIndex = 6;
@@ -343,7 +381,8 @@
             this.pic_UnlockPassword.BackgroundImage = global::EasySurvey.Properties.Resources.unlock_icon_32x32;
             this.pic_UnlockPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pic_UnlockPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_UnlockPassword.Location = new System.Drawing.Point(45, 107);
+            this.pic_UnlockPassword.Location = new System.Drawing.Point(44, 107);
+            this.pic_UnlockPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pic_UnlockPassword.Name = "pic_UnlockPassword";
             this.pic_UnlockPassword.Size = new System.Drawing.Size(30, 30);
             this.pic_UnlockPassword.TabIndex = 5;
@@ -359,6 +398,7 @@
             this.btn_MeSaveChanges.Depth = 0;
             this.btn_MeSaveChanges.Icon = null;
             this.btn_MeSaveChanges.Location = new System.Drawing.Point(173, 279);
+            this.btn_MeSaveChanges.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_MeSaveChanges.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_MeSaveChanges.Name = "btn_MeSaveChanges";
             this.btn_MeSaveChanges.Primary = true;
@@ -375,10 +415,11 @@
             this.lbl_Username.Depth = 0;
             this.lbl_Username.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Username.Location = new System.Drawing.Point(87, 17);
+            this.lbl_Username.Location = new System.Drawing.Point(100, 17);
+            this.lbl_Username.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Username.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_Username.Name = "lbl_Username";
-            this.lbl_Username.Size = new System.Drawing.Size(344, 45);
+            this.lbl_Username.Size = new System.Drawing.Size(330, 45);
             this.lbl_Username.TabIndex = 1;
             this.lbl_Username.Text = "root";
             this.lbl_Username.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,8 +430,9 @@
             this.pic_UserCard.BackgroundImage = global::EasySurvey.Properties.Resources.user_icon_512x512;
             this.pic_UserCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pic_UserCard.Location = new System.Drawing.Point(17, 17);
+            this.pic_UserCard.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pic_UserCard.Name = "pic_UserCard";
-            this.pic_UserCard.Size = new System.Drawing.Size(64, 64);
+            this.pic_UserCard.Size = new System.Drawing.Size(79, 79);
             this.pic_UserCard.TabIndex = 0;
             this.pic_UserCard.TabStop = false;
             // 
@@ -404,9 +446,10 @@
             this.panel_NewPassword.Controls.Add(this.lbl_NewPassword);
             this.panel_NewPassword.Controls.Add(this.txt_CurrentPassword);
             this.panel_NewPassword.Controls.Add(this.lbl_ReTypeNewPassword);
-            this.panel_NewPassword.Location = new System.Drawing.Point(57, 148);
+            this.panel_NewPassword.Location = new System.Drawing.Point(56, 148);
+            this.panel_NewPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel_NewPassword.Name = "panel_NewPassword";
-            this.panel_NewPassword.Size = new System.Drawing.Size(369, 124);
+            this.panel_NewPassword.Size = new System.Drawing.Size(368, 124);
             this.panel_NewPassword.TabIndex = 14;
             // 
             // lbl_LockPassword
@@ -416,6 +459,7 @@
             this.lbl_LockPassword.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_LockPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_LockPassword.Location = new System.Drawing.Point(24, 5);
+            this.lbl_LockPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_LockPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_LockPassword.Name = "lbl_LockPassword";
             this.lbl_LockPassword.Size = new System.Drawing.Size(143, 19);
@@ -427,6 +471,7 @@
             this.txt_ReTypeNewPassword.Depth = 0;
             this.txt_ReTypeNewPassword.Hint = "";
             this.txt_ReTypeNewPassword.Location = new System.Drawing.Point(174, 95);
+            this.txt_ReTypeNewPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_ReTypeNewPassword.MaxLength = 32767;
             this.txt_ReTypeNewPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_ReTypeNewPassword.Name = "txt_ReTypeNewPassword";
@@ -446,6 +491,7 @@
             this.lbl_CurrentPassword.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_CurrentPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_CurrentPassword.Location = new System.Drawing.Point(40, 41);
+            this.lbl_CurrentPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_CurrentPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_CurrentPassword.Name = "lbl_CurrentPassword";
             this.lbl_CurrentPassword.Size = new System.Drawing.Size(128, 19);
@@ -457,6 +503,7 @@
             this.txt_NewPassword.Depth = 0;
             this.txt_NewPassword.Hint = "";
             this.txt_NewPassword.Location = new System.Drawing.Point(174, 66);
+            this.txt_NewPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_NewPassword.MaxLength = 32767;
             this.txt_NewPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_NewPassword.Name = "txt_NewPassword";
@@ -476,6 +523,7 @@
             this.lbl_NewPassword.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_NewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_NewPassword.Location = new System.Drawing.Point(59, 70);
+            this.lbl_NewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_NewPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_NewPassword.Name = "lbl_NewPassword";
             this.lbl_NewPassword.Size = new System.Drawing.Size(109, 19);
@@ -487,6 +535,7 @@
             this.txt_CurrentPassword.Depth = 0;
             this.txt_CurrentPassword.Hint = "";
             this.txt_CurrentPassword.Location = new System.Drawing.Point(174, 37);
+            this.txt_CurrentPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_CurrentPassword.MaxLength = 32767;
             this.txt_CurrentPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_CurrentPassword.Name = "txt_CurrentPassword";
@@ -506,25 +555,72 @@
             this.lbl_ReTypeNewPassword.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_ReTypeNewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_ReTypeNewPassword.Location = new System.Drawing.Point(2, 99);
+            this.lbl_ReTypeNewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_ReTypeNewPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbl_ReTypeNewPassword.Name = "lbl_ReTypeNewPassword";
             this.lbl_ReTypeNewPassword.Size = new System.Drawing.Size(166, 19);
             this.lbl_ReTypeNewPassword.TabIndex = 10;
             this.lbl_ReTypeNewPassword.Text = "Re-Type New Password";
             // 
-            // lbl_PasswordStatus
+            // panel_Users
             // 
-            this.lbl_PasswordStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel_Users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_PasswordStatus.Depth = 0;
-            this.lbl_PasswordStatus.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_PasswordStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_PasswordStatus.Location = new System.Drawing.Point(53, 318);
-            this.lbl_PasswordStatus.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_PasswordStatus.Name = "lbl_PasswordStatus";
-            this.lbl_PasswordStatus.Size = new System.Drawing.Size(373, 26);
-            this.lbl_PasswordStatus.TabIndex = 15;
-            this.lbl_PasswordStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel_Users.BackColor = System.Drawing.Color.White;
+            this.panel_Users.Controls.Add(this.lbl_Users);
+            this.panel_Users.Controls.Add(this.listView_Users);
+            this.panel_Users.Location = new System.Drawing.Point(210, 73);
+            this.panel_Users.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel_Users.Name = "panel_Users";
+            this.panel_Users.Size = new System.Drawing.Size(456, 348);
+            this.panel_Users.TabIndex = 3;
+            // 
+            // listView_Users
+            // 
+            this.listView_Users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView_Users.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            listViewGroup3.Header = "Administrator";
+            listViewGroup3.Name = "Administrator";
+            listViewGroup4.Header = "User";
+            listViewGroup4.Name = "User";
+            this.listView_Users.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup3,
+            listViewGroup4});
+            listViewItem6.Group = listViewGroup3;
+            listViewItem7.Group = listViewGroup3;
+            listViewItem8.Group = listViewGroup4;
+            listViewItem9.Group = listViewGroup4;
+            listViewItem10.Group = listViewGroup4;
+            this.listView_Users.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10});
+            this.listView_Users.Location = new System.Drawing.Point(17, 40);
+            this.listView_Users.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.listView_Users.Name = "listView_Users";
+            this.listView_Users.Size = new System.Drawing.Size(414, 286);
+            this.listView_Users.TabIndex = 4;
+            this.listView_Users.UseCompatibleStateImageBehavior = false;
+            this.listView_Users.View = System.Windows.Forms.View.Tile;
+            // 
+            // lbl_Users
+            // 
+            this.lbl_Users.AutoSize = true;
+            this.lbl_Users.Depth = 0;
+            this.lbl_Users.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Users.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Users.Location = new System.Drawing.Point(13, 18);
+            this.lbl_Users.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Users.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Users.Name = "lbl_Users";
+            this.lbl_Users.Size = new System.Drawing.Size(73, 19);
+            this.lbl_Users.TabIndex = 6;
+            this.lbl_Users.Text = "Users list";
             // 
             // Settings
             // 
@@ -534,7 +630,9 @@
             this.Controls.Add(this.treeView_Menu);
             this.Controls.Add(this.panel_Me);
             this.Controls.Add(this.panel_About);
+            this.Controls.Add(this.panel_Users);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(678, 433);
@@ -553,6 +651,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_UserCard)).EndInit();
             this.panel_NewPassword.ResumeLayout(false);
             this.panel_NewPassword.PerformLayout();
+            this.panel_Users.ResumeLayout(false);
+            this.panel_Users.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -587,5 +687,8 @@
         private MaterialSkin.Controls.MaterialLabel lbl_UserRole;
         private MaterialSkin.Controls.MaterialLabel lbl_LockPassword;
         private MaterialSkin.Controls.MaterialLabel lbl_PasswordStatus;
+        private System.Windows.Forms.Panel panel_Users;
+        private System.Windows.Forms.ListView listView_Users;
+        private MaterialSkin.Controls.MaterialLabel lbl_Users;
     }
 }
