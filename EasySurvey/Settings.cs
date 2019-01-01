@@ -59,6 +59,11 @@ namespace EasySurvey
             treeView_Menu.SelectedNode = treeView_Menu.Nodes[ABOUT];
         }
 
+        private void SetHorizontalMiddle<T>(T control) where T : Control
+        {
+            control.Location = new Point(control.Parent.Width / 2 - control.Size.Width / 2, control.Location.Y);
+        }
+
         private void DisplayMenuPanel(Panel PanelToDisplay)
         {
             foreach (Panel panel in MenuPanels)
@@ -83,13 +88,44 @@ namespace EasySurvey
                     collection.Remove(tn);
         }
 
-        #region About
+        public const string ABOUT = "About";
+        public const string ME = "Me";
+        public const string USERS = "Users";
+        public const string DATABASE = "Database";
 
-        private void SetHorizontalMiddle<T>(T control) where T : Control
+        private List<Panel> MenuPanels = new List<Panel>();
+
+        private void treeView_Menu_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            control.Location = new Point(control.Parent.Width / 2 - control.Size.Width / 2, control.Location.Y);
+            switch (treeView_Menu.SelectedNode.Name)
+            {
+                case ABOUT:
+                    SetCurrentVersion();
+                    DisplayMenuPanel(panel_About);
+                    break;
+
+                case ME:
+                    SetMeUsername();
+                    PasswordSetStatus(String.Empty);
+                    LoadPasswordSettings();
+                    DisplayMenuPanel(panel_Me);
+                    break;
+
+                case USERS:
+                    SetUsers();
+                    DisplayMenuPanel(panel_Users);
+                    break;
+
+                case DATABASE:
+                    break;
+
+                default:
+                    break;
+            }
         }
 
+
+        #region About
 
         private Font EasySurveyFont = new Font("Roboto", 21.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238)));
         private Color EasySurveyColor = Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -137,14 +173,6 @@ namespace EasySurvey
         }
 
         #endregion
-
-
-        public const string ABOUT = "About";
-        public const string ME = "Me";
-        public const string USERS = "Users";
-        public const string DATABASE = "Database";
-
-        private List<Panel> MenuPanels = new List<Panel>();
 
         #region Me
 
@@ -320,37 +348,6 @@ namespace EasySurvey
             lbl_Info.ForeColor = Color.Red;
         }
 
-        #endregion
-
-        private void treeView_Menu_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            switch (treeView_Menu.SelectedNode.Name)
-            {
-                case ABOUT:
-                    SetCurrentVersion();
-                    DisplayMenuPanel(panel_About);
-                    break;
-
-                case ME:
-                    SetMeUsername();
-                    PasswordSetStatus(String.Empty);
-                    LoadPasswordSettings();
-                    DisplayMenuPanel(panel_Me);
-                    break;
-
-                case USERS:
-                    SetUsers();
-                    DisplayMenuPanel(panel_Users);
-                    break;
-
-                case DATABASE:
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int SelectedUsersCount = listView_Users.SelectedItems.Count;
@@ -418,9 +415,35 @@ namespace EasySurvey
 
         private void materialContextMenuStrip_Users_Opening(object sender, CancelEventArgs e)
         {
+            long SelectedUsers = listView_Users.SelectedItems.Count;
+
+            if (SelectedUsers == 0) return;
+
+            bool Change = false;
+            bool New = false;
+
+            UserController userController = new UserController();
+
+            foreach (ListViewItem item in listView_Users.SelectedItems)
+            {
+                long UserID = Convert.ToInt64(item.Tag);
+                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                if (CurrentUser.UserPassword == null)
+                    New = true;
+                else
+                    Change = true;
+            }
+
+            if (Change && New)
+                newToolStripMenuItem.Text = "Change / New...";
+            else if (Change)
+                newToolStripMenuItem.Text = "Change...";
+            else if (New)
+                newToolStripMenuItem.Text = "New...";
 
         }
 
+        // Remove password protection
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int SelectedUsersCount = listView_Users.SelectedItems.Count;
@@ -442,5 +465,37 @@ namespace EasySurvey
                 }
             }
         }
+
+        // Change / New password protection
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            long SelectedUsers = listView_Users.SelectedItems.Count;
+
+            if (SelectedUsers == 0) return;
+
+            MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.MessageBoxResultInput.None;
+            result = MaterialMessageInput.Show("New password for " + SelectedUsers + " selected users is:",
+                                               "Easy Survey - Change Users Password",
+                                               MaterialMessageInput.MessageBoxButtonsInput.OKCancel,
+                                               isPassword: true);
+
+            if (result == MaterialMessageInput.MessageBoxResultInput.OK)
+            {
+                UserController userController = new UserController();
+
+                string NewPlainPassword = MaterialMessageInput.Answer;
+                string NewPassword = SHA256.Hash(NewPlainPassword);
+
+                foreach (ListViewItem item in listView_Users.SelectedItems)
+                {
+                    long UserID = Convert.ToInt64(item.Tag);
+                    userController.UpdatePassword(UserID, NewPassword);
+                    item.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        #endregion
+
     }
 }

@@ -71,16 +71,16 @@
             this.txt_CurrentPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbl_ReTypeNewPassword = new MaterialSkin.Controls.MaterialLabel();
             this.panel_Users = new System.Windows.Forms.Panel();
-            this.listView_Users = new System.Windows.Forms.ListView();
-            this.lbl_Users = new MaterialSkin.Controls.MaterialLabel();
-            this.panel_Database = new System.Windows.Forms.Panel();
-            this.materialContextMenuStrip_Users = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_Info = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_Info2 = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl_Users = new MaterialSkin.Controls.MaterialLabel();
+            this.listView_Users = new System.Windows.Forms.ListView();
+            this.materialContextMenuStrip_Users = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel_Database = new System.Windows.Forms.Panel();
             this.panel_About.SuspendLayout();
             this.panel_GitHub.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_GitHub)).BeginInit();
@@ -587,6 +587,49 @@
             this.panel_Users.Size = new System.Drawing.Size(456, 348);
             this.panel_Users.TabIndex = 3;
             // 
+            // lbl_Info
+            // 
+            this.lbl_Info.AutoSize = true;
+            this.lbl_Info.Depth = 0;
+            this.lbl_Info.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Info.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Info.Location = new System.Drawing.Point(13, 318);
+            this.lbl_Info.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Info.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Info.Name = "lbl_Info";
+            this.lbl_Info.Size = new System.Drawing.Size(34, 19);
+            this.lbl_Info.TabIndex = 7;
+            this.lbl_Info.Text = "Red";
+            this.lbl_Info.ForeColorChanged += new System.EventHandler(this.lbl_Info_ForeColorChanged);
+            // 
+            // lbl_Info2
+            // 
+            this.lbl_Info2.AutoSize = true;
+            this.lbl_Info2.Depth = 0;
+            this.lbl_Info2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Info2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Info2.Location = new System.Drawing.Point(43, 318);
+            this.lbl_Info2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Info2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Info2.Name = "lbl_Info2";
+            this.lbl_Info2.Size = new System.Drawing.Size(166, 19);
+            this.lbl_Info2.TabIndex = 8;
+            this.lbl_Info2.Text = "- User has no password";
+            // 
+            // lbl_Users
+            // 
+            this.lbl_Users.AutoSize = true;
+            this.lbl_Users.Depth = 0;
+            this.lbl_Users.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Users.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Users.Location = new System.Drawing.Point(13, 18);
+            this.lbl_Users.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Users.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Users.Name = "lbl_Users";
+            this.lbl_Users.Size = new System.Drawing.Size(73, 19);
+            this.lbl_Users.TabIndex = 6;
+            this.lbl_Users.Text = "Users list";
+            // 
             // listView_Users
             // 
             this.listView_Users.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -620,32 +663,6 @@
             this.listView_Users.UseCompatibleStateImageBehavior = false;
             this.listView_Users.View = System.Windows.Forms.View.Tile;
             // 
-            // lbl_Users
-            // 
-            this.lbl_Users.AutoSize = true;
-            this.lbl_Users.Depth = 0;
-            this.lbl_Users.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_Users.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Users.Location = new System.Drawing.Point(13, 18);
-            this.lbl_Users.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Users.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_Users.Name = "lbl_Users";
-            this.lbl_Users.Size = new System.Drawing.Size(73, 19);
-            this.lbl_Users.TabIndex = 6;
-            this.lbl_Users.Text = "Users list";
-            // 
-            // panel_Database
-            // 
-            this.panel_Database.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Database.BackColor = System.Drawing.Color.White;
-            this.panel_Database.Location = new System.Drawing.Point(210, 73);
-            this.panel_Database.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panel_Database.Name = "panel_Database";
-            this.panel_Database.Size = new System.Drawing.Size(456, 348);
-            this.panel_Database.TabIndex = 4;
-            // 
             // materialContextMenuStrip_Users
             // 
             this.materialContextMenuStrip_Users.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -668,18 +685,19 @@
             this.passwordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.passwordToolStripMenuItem.Text = "Password";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.newToolStripMenuItem.Text = "Change / New...";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.removeToolStripMenuItem.Text = "Remove...";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.newToolStripMenuItem.Text = "Change / New...";
             // 
             // deleteToolStripMenuItem
             // 
@@ -689,34 +707,17 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // lbl_Info
+            // panel_Database
             // 
-            this.lbl_Info.AutoSize = true;
-            this.lbl_Info.Depth = 0;
-            this.lbl_Info.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_Info.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Info.Location = new System.Drawing.Point(13, 318);
-            this.lbl_Info.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Info.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_Info.Name = "lbl_Info";
-            this.lbl_Info.Size = new System.Drawing.Size(34, 19);
-            this.lbl_Info.TabIndex = 7;
-            this.lbl_Info.Text = "Red";
-            this.lbl_Info.ForeColorChanged += new System.EventHandler(this.lbl_Info_ForeColorChanged);
-            // 
-            // lbl_Info2
-            // 
-            this.lbl_Info2.AutoSize = true;
-            this.lbl_Info2.Depth = 0;
-            this.lbl_Info2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_Info2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl_Info2.Location = new System.Drawing.Point(43, 318);
-            this.lbl_Info2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Info2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl_Info2.Name = "lbl_Info2";
-            this.lbl_Info2.Size = new System.Drawing.Size(166, 19);
-            this.lbl_Info2.TabIndex = 8;
-            this.lbl_Info2.Text = "- User has no password";
+            this.panel_Database.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Database.BackColor = System.Drawing.Color.White;
+            this.panel_Database.Location = new System.Drawing.Point(210, 73);
+            this.panel_Database.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel_Database.Name = "panel_Database";
+            this.panel_Database.Size = new System.Drawing.Size(456, 348);
+            this.panel_Database.TabIndex = 4;
             // 
             // Settings
             // 

@@ -23,7 +23,7 @@ namespace EasySurvey
 
         private string DefaultInputValue = String.Empty;
 
-        public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons, string defaultValue = "")
+        public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons, string defaultValue = "", bool isPassword = false)
         {
             InitializeComponent();
 
@@ -51,12 +51,15 @@ namespace EasySurvey
                     break;
             }
 
+            if (isPassword)
+                txt_Answer.UseSystemPasswordChar = true;
+
             Divider_Menu.AutoSize = false;
         }
 
         public MsgInput(string text, string caption, MaterialMessageInput.MessageBoxButtonsInput buttons, string defaultValue,
-                        bool addSurvey = false, bool addQuestion = false, bool addAttitude = false, bool editQuestion = false)
-            : this(text, caption, buttons, defaultValue)
+                        bool isPassword = false, bool addSurvey = false, bool addQuestion = false, bool addAttitude = false, bool editQuestion = false)
+            : this(text, caption, buttons, defaultValue, isPassword)
         {
             AddSurveyMode = addSurvey;
             AddQuestionMode = addQuestion;
