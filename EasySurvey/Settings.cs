@@ -117,6 +117,7 @@ namespace EasySurvey
                     break;
 
                 case DATABASE:
+                    DisplayMenuPanel(panel_Database);
                     break;
 
                 default:

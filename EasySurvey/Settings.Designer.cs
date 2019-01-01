@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("About");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Me");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Users");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Database");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("About");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Me");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Users");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Database");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Administrator", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("User", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("admin 1");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("admin 2");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("user 1");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("user 2");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("user 3");
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Administrator", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("User", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("admin 1");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("admin 2");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("user 1");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("user 2");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("user 3");
             this.treeView_Menu = new System.Windows.Forms.TreeView();
             this.imageList_Menu = new System.Windows.Forms.ImageList(this.components);
             this.panel_About = new System.Windows.Forms.Panel();
@@ -107,27 +107,27 @@
             this.treeView_Menu.Location = new System.Drawing.Point(12, 73);
             this.treeView_Menu.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.treeView_Menu.Name = "treeView_Menu";
-            treeNode1.ImageKey = "info_20x20.png";
-            treeNode1.Name = "About";
-            treeNode1.SelectedImageKey = "info_20x20.png";
-            treeNode1.Text = "About";
-            treeNode2.ImageKey = "user_icon_20x20.png";
-            treeNode2.Name = "Me";
-            treeNode2.SelectedImageKey = "user_icon_20x20.png";
-            treeNode2.Text = "Me";
-            treeNode3.ImageKey = "userslogin_icon_20x20.png";
-            treeNode3.Name = "Users";
-            treeNode3.SelectedImageKey = "userslogin_icon_20x20.png";
-            treeNode3.Text = "Users";
-            treeNode4.ImageKey = "database_icon_20x20.png";
-            treeNode4.Name = "Database";
-            treeNode4.SelectedImageKey = "database_icon_20x20.png";
-            treeNode4.Text = "Database";
+            treeNode5.ImageKey = "info_20x20.png";
+            treeNode5.Name = "About";
+            treeNode5.SelectedImageKey = "info_20x20.png";
+            treeNode5.Text = "About";
+            treeNode6.ImageKey = "user_icon_20x20.png";
+            treeNode6.Name = "Me";
+            treeNode6.SelectedImageKey = "user_icon_20x20.png";
+            treeNode6.Text = "Me";
+            treeNode7.ImageKey = "userslogin_icon_20x20.png";
+            treeNode7.Name = "Users";
+            treeNode7.SelectedImageKey = "userslogin_icon_20x20.png";
+            treeNode7.Text = "Users";
+            treeNode8.ImageKey = "database_icon_20x20.png";
+            treeNode8.Name = "Database";
+            treeNode8.SelectedImageKey = "database_icon_20x20.png";
+            treeNode8.Text = "Database";
             this.treeView_Menu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.treeView_Menu.SelectedImageIndex = 0;
             this.treeView_Menu.Size = new System.Drawing.Size(192, 348);
             this.treeView_Menu.TabIndex = 0;
@@ -641,24 +641,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_Users.ContextMenuStrip = this.materialContextMenuStrip_Users;
             this.listView_Users.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            listViewGroup1.Header = "Administrator";
-            listViewGroup1.Name = "Administrator";
-            listViewGroup2.Header = "User";
-            listViewGroup2.Name = "User";
+            listViewGroup3.Header = "Administrator";
+            listViewGroup3.Name = "Administrator";
+            listViewGroup4.Header = "User";
+            listViewGroup4.Name = "User";
             this.listView_Users.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
-            listViewItem1.Group = listViewGroup1;
-            listViewItem2.Group = listViewGroup1;
-            listViewItem3.Group = listViewGroup2;
-            listViewItem4.Group = listViewGroup2;
-            listViewItem5.Group = listViewGroup2;
+            listViewGroup3,
+            listViewGroup4});
+            listViewItem6.Group = listViewGroup3;
+            listViewItem7.Group = listViewGroup3;
+            listViewItem8.Group = listViewGroup4;
+            listViewItem9.Group = listViewGroup4;
+            listViewItem10.Group = listViewGroup4;
             this.listView_Users.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5});
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10});
             this.listView_Users.Location = new System.Drawing.Point(17, 40);
             this.listView_Users.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.listView_Users.Name = "listView_Users";
@@ -744,10 +744,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 433);
             this.Controls.Add(this.treeView_Menu);
-            this.Controls.Add(this.panel_Users);
             this.Controls.Add(this.panel_Database);
             this.Controls.Add(this.panel_Me);
             this.Controls.Add(this.panel_About);
+            this.Controls.Add(this.panel_Users);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
