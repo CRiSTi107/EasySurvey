@@ -76,6 +76,8 @@
             this.lbl_Users = new MaterialSkin.Controls.MaterialLabel();
             this.listView_Users = new System.Windows.Forms.ListView();
             this.materialContextMenuStrip_Users = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.promoteDemoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -589,6 +591,7 @@
             // 
             // lbl_Info
             // 
+            this.lbl_Info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Info.AutoSize = true;
             this.lbl_Info.Depth = 0;
             this.lbl_Info.Font = new System.Drawing.Font("Roboto", 11F);
@@ -604,6 +607,7 @@
             // 
             // lbl_Info2
             // 
+            this.lbl_Info2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Info2.AutoSize = true;
             this.lbl_Info2.Depth = 0;
             this.lbl_Info2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -668,12 +672,27 @@
             this.materialContextMenuStrip_Users.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialContextMenuStrip_Users.Depth = 0;
             this.materialContextMenuStrip_Users.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.promoteDemoteToolStripMenuItem,
+            this.toolStripSeparator1,
             this.passwordToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.materialContextMenuStrip_Users.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStrip_Users.Name = "materialContextMenuStrip_Users";
-            this.materialContextMenuStrip_Users.Size = new System.Drawing.Size(153, 70);
+            this.materialContextMenuStrip_Users.Size = new System.Drawing.Size(183, 76);
             this.materialContextMenuStrip_Users.Opening += new System.ComponentModel.CancelEventHandler(this.materialContextMenuStrip_Users_Opening);
+            // 
+            // promoteDemoteToolStripMenuItem
+            // 
+            this.promoteDemoteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("promoteDemoteToolStripMenuItem.Image")));
+            this.promoteDemoteToolStripMenuItem.Name = "promoteDemoteToolStripMenuItem";
+            this.promoteDemoteToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.promoteDemoteToolStripMenuItem.Text = "Promote / Demote...";
+            this.promoteDemoteToolStripMenuItem.Click += new System.EventHandler(this.promoteDemoteToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
             // 
             // passwordToolStripMenuItem
             // 
@@ -682,7 +701,7 @@
             this.removeToolStripMenuItem});
             this.passwordToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.lock_icon_32x32;
             this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
-            this.passwordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.passwordToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.passwordToolStripMenuItem.Text = "Password";
             // 
             // newToolStripMenuItem
@@ -703,8 +722,8 @@
             // 
             this.deleteToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.delete_icon_24x24;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.deleteToolStripMenuItem.Text = "Delete...";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // panel_Database
@@ -797,5 +816,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private MaterialSkin.Controls.MaterialLabel lbl_Info2;
         private MaterialSkin.Controls.MaterialLabel lbl_Info;
+        private System.Windows.Forms.ToolStripMenuItem promoteDemoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

@@ -67,5 +67,8 @@ https://www.iconfinder.com/icons/285637/lock_open_icon
 lock_icon_32x32.png
 https://www.iconfinder.com/icons/285646/lock_icon
 
+promote_icon.png
+https://www.iconfinder.com/icons/2835256/arrow_up_icon
 
-
+demote_icon.png
+https://www.iconfinder.com/icons/2835254/arrow_down_icon

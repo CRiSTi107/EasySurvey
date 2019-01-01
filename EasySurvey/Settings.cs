@@ -417,12 +417,47 @@ namespace EasySurvey
         {
             long SelectedUsers = listView_Users.SelectedItems.Count;
 
-            if (SelectedUsers == 0) return;
+            UserController userController = new UserController();
 
+            // Promote / Demote ...
+            bool Promote = false;
+            bool Demote = false;
+
+            foreach (ListViewItem item in listView_Users.SelectedItems)
+            {
+                long UserID = Convert.ToInt64(item.Tag);
+                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                if (CurrentUser.IsAdministrator())
+                    Demote = true;
+                else
+                    Promote = true;
+            }
+
+            if (Promote == Demote)
+            {
+                promoteDemoteToolStripMenuItem.Enabled = false;
+                promoteDemoteToolStripMenuItem.Text = "Promote / Demote...";
+            }
+            else
+            {
+                promoteDemoteToolStripMenuItem.Enabled = true;
+                if (Promote)
+                {
+                    promoteDemoteToolStripMenuItem.Image = Properties.Resources.promote_icon_16x16;
+                    promoteDemoteToolStripMenuItem.Text = "Promote...";
+                }
+                else if (Demote)
+                {
+                    promoteDemoteToolStripMenuItem.Image = Properties.Resources.demote_icon_16x16;
+                    promoteDemoteToolStripMenuItem.Text = "Demote...";
+                }
+            }
+
+            // Change / New ...
             bool Change = false;
             bool New = false;
 
-            UserController userController = new UserController();
+            if (SelectedUsers == 0) return;
 
             foreach (ListViewItem item in listView_Users.SelectedItems)
             {
@@ -495,7 +530,75 @@ namespace EasySurvey
             }
         }
 
-        #endregion
+        // Promote / Demote users
+        private void promoteDemoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedUsersCount = listView_Users.SelectedItems.Count;
+            if (SelectedUsersCount == 0) return;
 
+
+            UserController userController = new UserController();
+            RoleController roleController = new RoleController();
+
+            long AdminRoleID = roleController.GetRoleID("Admin");
+            long UserRoleID = roleController.GetRoleID("User");
+
+
+            // Check if Admin want to demote all Admins
+            List<UserModelDataTransferObject> AdminsList = userController.GetUsersByRoleID(AdminRoleID);
+            long AdminCount = AdminsList.Count;
+            long SelectedAdminCount = 0;
+
+            foreach (ListViewItem item in listView_Users.SelectedItems)
+            {
+                long UserID = Convert.ToInt64(item.Tag);
+                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                if (CurrentUser.IsAdministrator())
+                    ++SelectedAdminCount;
+            }
+
+            if (AdminCount == SelectedAdminCount && AdminCount == listView_Users.SelectedItems.Count)
+            {
+                MaterialMessageBox.Show("You cannot demote all Administrators.", "Easy Survey - Demote Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                return;
+            }
+
+
+            // Check if Admin wants to demote himself
+            bool AdminSelectedHimself = false;
+            foreach (ListViewItem item in listView_Users.SelectedItems)
+            {
+                long UserID = Convert.ToInt64(item.Tag);
+                if (LoggedUser.UserID == UserID)
+                { AdminSelectedHimself = true; break; }
+            }
+            if (AdminSelectedHimself)
+            {
+                MaterialMessageBox.Show("You cannot demote yourself.", "Easy Survey - Demote Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                return;
+            }
+
+            // Demote / Promote selected users.
+            UserRoleController userRoleController = new UserRoleController();
+
+            foreach (ListViewItem item in listView_Users.SelectedItems)
+            {
+                long UserID = Convert.ToInt64(item.Tag);
+                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                if (CurrentUser.IsAdministrator()) // Demote to standard user.
+                {
+                    userRoleController.SetUserRole(UserID, UserRoleID);
+                    item.Group = listView_Users.Groups["User"];
+                }
+                else if (!CurrentUser.IsAdministrator()) // Promote to admin.
+                {
+                    userRoleController.SetUserRole(UserID, AdminRoleID);
+                    item.Group = listView_Users.Groups["Administrator"];
+                }
+
+            }
+        }
+
+        #endregion
     }
 }

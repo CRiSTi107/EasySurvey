@@ -103,6 +103,16 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap demote_icon_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("demote_icon_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EasySurveyLogo_512x512 {
             get {
                 object obj = ResourceManager.GetObject("EasySurveyLogo_512x512", resourceCulture);
@@ -216,6 +226,16 @@ namespace EasySurvey.Properties {
         internal static System.Drawing.Bitmap pencil_icon_20x20 {
             get {
                 object obj = ResourceManager.GetObject("pencil_icon_20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap promote_icon_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("promote_icon_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
