@@ -95,6 +95,7 @@
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\SurveyDefinitionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRoleController.cs" />
     <Compile Include="GUID.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

@@ -207,11 +207,12 @@ namespace EasySurvey.Controllers
             User user = DatabaseModel.User.Add(new User() { UserName = Username, UserPassword = null });
             DatabaseModel.SaveChanges();
 
+            UserRoleController userRoleController = new UserRoleController();
             RoleController roleController = new RoleController();
 
             if (roleController.GetUserRole(user.UserID) == null)
             {
-                roleController.SetUserRole(user.UserID, roleController.GetRoleID("User"));
+                userRoleController.SetUserRole(user.UserID, roleController.GetRoleID("User"));
             }
 
             return true;
@@ -238,8 +239,10 @@ namespace EasySurvey.Controllers
         {
             long UserID = UserToDelete.UserID;
 
-            //Delete everything that is linked to this UserID: Reports and ReportDefinitions
+            //Delete everything that is linked to this UserID: UserRole, Reports and ReportDefinitions
+            UserRoleController userRoleController = new UserRoleController();
             ResultController resultController = new ResultController();
+            userRoleController.Delete(UserID);
             resultController.DeleteAll(UserID);
 
             DatabaseModel.User.Remove(UserToDelete);

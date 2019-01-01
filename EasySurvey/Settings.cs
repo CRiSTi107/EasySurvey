@@ -420,5 +420,27 @@ namespace EasySurvey
         {
 
         }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedUsersCount = listView_Users.SelectedItems.Count;
+
+            if (SelectedUsersCount == 0) return;
+
+            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+            result = MaterialMessageBox.Show("Are you sure you want to remove password protection for all selected users?", "Easy Survey - Manage Users", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Information);
+
+            UserController userController = new UserController();
+
+            if (result == MaterialMessageBox.MessageBoxResult.Yes)
+            {
+                foreach (ListViewItem item in listView_Users.SelectedItems)
+                {
+                    long UserID = Convert.ToInt64(item.Tag);
+                    userController.UpdatePassword(UserID, null);
+                    item.ForeColor = Color.Red;
+                }
+            }
+        }
     }
 }
