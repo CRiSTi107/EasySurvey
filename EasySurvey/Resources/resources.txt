@@ -72,3 +72,15 @@ https://www.iconfinder.com/icons/2835256/arrow_up_icon
 
 demote_icon.png
 https://www.iconfinder.com/icons/2835254/arrow_down_icon
+
+export_icon_512x512.png
+https://www.iconfinder.com/icons/299067/box_out_icon
+
+import_icon_512x512.png
+https://www.iconfinder.com/icons/299102/box_in_icon
+
+database_icon_512x512.png
+https://www.iconfinder.com/icons/299089/database_icon
+
+clock_512x512.png
+https://www.iconfinder.com/icons/299080/clock_icon

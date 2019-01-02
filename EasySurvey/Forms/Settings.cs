@@ -601,5 +601,75 @@ namespace EasySurvey
         }
 
         #endregion
+
+        #region Database
+
+        private const string BACKUP = "Backup";
+        private const string RESTORE = "Restore";
+        private const string EXPORT = "Export";
+        private const string IMPORT = "Import";
+
+        private void pic_DatabaseMenu_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox SenderControl = (sender as PictureBox);
+            string SenderTag = SenderControl.Tag.ToString();
+            switch (SenderTag)
+            {
+                case BACKUP:
+                    SenderControl.BackgroundImage = Properties.Resources.backup_icon_mouse_enter_512x512;
+                    break;
+
+                case RESTORE:
+                    SenderControl.BackgroundImage = Properties.Resources.restore_icon_mouse_enter_512x512;
+                    break;
+
+                case EXPORT:
+                    SenderControl.BackgroundImage = Properties.Resources.export_icon_mouse_enter_512x512;
+                    break;
+
+                case IMPORT:
+                    SenderControl.BackgroundImage = Properties.Resources.import_icon_mouse_enter_512x512;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void pic_DatabaseMenu_MouseLeave(object sender, EventArgs e)
+        {
+            Control SenderControl = (sender as PictureBox);
+            string SenderTag = SenderControl.Tag.ToString();
+            switch (SenderTag)
+            {
+                case BACKUP:
+                    SenderControl.BackgroundImage = Properties.Resources.backup_icon_512x512;
+                    break;
+
+                case RESTORE:
+                    SenderControl.BackgroundImage = Properties.Resources.restore_icon_512x512;
+                    break;
+
+                case EXPORT:
+                    SenderControl.BackgroundImage = Properties.Resources.export_icon_512x512;
+                    break;
+
+                case IMPORT:
+                    SenderControl.BackgroundImage = Properties.Resources.import_icon_512x512;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void pic_Backup_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+
     }
 }

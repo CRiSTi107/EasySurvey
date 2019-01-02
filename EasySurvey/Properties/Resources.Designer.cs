@@ -83,6 +83,26 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backup_icon_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("backup_icon_512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap backup_icon_mouse_enter_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("backup_icon_mouse_enter_512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap correct_green_512x512 {
             get {
                 object obj = ResourceManager.GetObject("correct_green_512x512", resourceCulture);
@@ -126,6 +146,26 @@ namespace EasySurvey.Properties {
         internal static System.Drawing.Bitmap edit_icon_24x24 {
             get {
                 object obj = ResourceManager.GetObject("edit_icon_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap export_icon_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("export_icon_512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap export_icon_mouse_enter_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("export_icon_mouse_enter_512x512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +233,26 @@ namespace EasySurvey.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap import_icon_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("import_icon_512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap import_icon_mouse_enter_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("import_icon_mouse_enter_512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lock_icon_32x32 {
             get {
                 object obj = ResourceManager.GetObject("lock_icon_32x32", resourceCulture);
@@ -246,6 +306,26 @@ namespace EasySurvey.Properties {
         internal static System.Drawing.Bitmap question_icon_20x20 {
             get {
                 object obj = ResourceManager.GetObject("question_icon_20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore_icon_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("restore_icon_512x512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore_icon_mouse_enter_512x512 {
+            get {
+                object obj = ResourceManager.GetObject("restore_icon_mouse_enter_512x512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

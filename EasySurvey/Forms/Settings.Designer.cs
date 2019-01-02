@@ -46,22 +46,17 @@
             this.panel_About = new System.Windows.Forms.Panel();
             this.lbl_CheckForUpdates = new MaterialSkin.Controls.MaterialLabel();
             this.panel_GitHub = new System.Windows.Forms.Panel();
-            this.pic_GitHub = new System.Windows.Forms.PictureBox();
             this.lbl_CurrentVersion = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_Owner = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_EasySurvey = new MaterialSkin.Controls.MaterialLabel();
-            this.pic_EasySurveyLogo = new System.Windows.Forms.PictureBox();
             this.panel_Me = new System.Windows.Forms.Panel();
             this.lbl_PasswordStatus = new MaterialSkin.Controls.MaterialLabel();
             this.rdb_UnlockPassword = new MaterialSkin.Controls.MaterialRadioButton();
             this.rdb_LockPassword = new MaterialSkin.Controls.MaterialRadioButton();
             this.lbl_UserRole = new MaterialSkin.Controls.MaterialLabel();
             this.lbl_UnlockPassword = new MaterialSkin.Controls.MaterialLabel();
-            this.pic_LockPassword = new System.Windows.Forms.PictureBox();
-            this.pic_UnlockPassword = new System.Windows.Forms.PictureBox();
             this.btn_MeSaveChanges = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbl_Username = new MaterialSkin.Controls.MaterialLabel();
-            this.pic_UserCard = new System.Windows.Forms.PictureBox();
             this.panel_NewPassword = new System.Windows.Forms.Panel();
             this.lbl_LockPassword = new MaterialSkin.Controls.MaterialLabel();
             this.txt_ReTypeNewPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -76,24 +71,52 @@
             this.lbl_Users = new MaterialSkin.Controls.MaterialLabel();
             this.listView_Users = new System.Windows.Forms.ListView();
             this.materialContextMenuStrip_Users = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.promoteDemoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.panel_Database = new System.Windows.Forms.Panel();
+            this.lbl_Backup = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl_Export = new MaterialSkin.Controls.MaterialLabel();
+            this.lbl_Import = new MaterialSkin.Controls.MaterialLabel();
+            this.panel_Backup = new System.Windows.Forms.Panel();
+            this.panel_Restore = new System.Windows.Forms.Panel();
+            this.lbl_Restore = new MaterialSkin.Controls.MaterialLabel();
+            this.panel_Export = new System.Windows.Forms.Panel();
+            this.panel_Import = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel_DatabaseOptions = new System.Windows.Forms.TableLayoutPanel();
+            this.pic_Backup = new System.Windows.Forms.PictureBox();
+            this.pic_Import = new System.Windows.Forms.PictureBox();
+            this.pic_Restore = new System.Windows.Forms.PictureBox();
+            this.pic_Export = new System.Windows.Forms.PictureBox();
+            this.pic_LockPassword = new System.Windows.Forms.PictureBox();
+            this.pic_UnlockPassword = new System.Windows.Forms.PictureBox();
+            this.pic_UserCard = new System.Windows.Forms.PictureBox();
+            this.pic_GitHub = new System.Windows.Forms.PictureBox();
+            this.pic_EasySurveyLogo = new System.Windows.Forms.PictureBox();
+            this.promoteDemoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel_Database = new System.Windows.Forms.Panel();
             this.panel_About.SuspendLayout();
             this.panel_GitHub.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_GitHub)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_EasySurveyLogo)).BeginInit();
             this.panel_Me.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_LockPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_UnlockPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_UserCard)).BeginInit();
             this.panel_NewPassword.SuspendLayout();
             this.panel_Users.SuspendLayout();
             this.materialContextMenuStrip_Users.SuspendLayout();
+            this.panel_Database.SuspendLayout();
+            this.panel_Backup.SuspendLayout();
+            this.panel_Restore.SuspendLayout();
+            this.panel_Export.SuspendLayout();
+            this.panel_Import.SuspendLayout();
+            this.tableLayoutPanel_DatabaseOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Backup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Import)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Restore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Export)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LockPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_UnlockPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_UserCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_GitHub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_EasySurveyLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView_Menu
@@ -190,20 +213,6 @@
             this.panel_GitHub.Size = new System.Drawing.Size(450, 27);
             this.panel_GitHub.TabIndex = 7;
             // 
-            // pic_GitHub
-            // 
-            this.pic_GitHub.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pic_GitHub.BackgroundImage = global::EasySurvey.Properties.Resources.github_icon_512x512;
-            this.pic_GitHub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_GitHub.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_GitHub.Location = new System.Drawing.Point(191, 4);
-            this.pic_GitHub.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pic_GitHub.Name = "pic_GitHub";
-            this.pic_GitHub.Size = new System.Drawing.Size(66, 20);
-            this.pic_GitHub.TabIndex = 0;
-            this.pic_GitHub.TabStop = false;
-            this.pic_GitHub.Click += new System.EventHandler(this.pic_GitHub_Click);
-            // 
             // lbl_CurrentVersion
             // 
             this.lbl_CurrentVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -252,18 +261,6 @@
             this.lbl_EasySurvey.Text = "Easy Survey";
             this.lbl_EasySurvey.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbl_EasySurvey.FontChanged += new System.EventHandler(this.lbl_EasySurvey_FontChanged);
-            // 
-            // pic_EasySurveyLogo
-            // 
-            this.pic_EasySurveyLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pic_EasySurveyLogo.BackgroundImage = global::EasySurvey.Properties.Resources.EasySurveyLogo_512x512;
-            this.pic_EasySurveyLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_EasySurveyLogo.Location = new System.Drawing.Point(163, 3);
-            this.pic_EasySurveyLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pic_EasySurveyLogo.Name = "pic_EasySurveyLogo";
-            this.pic_EasySurveyLogo.Size = new System.Drawing.Size(128, 128);
-            this.pic_EasySurveyLogo.TabIndex = 2;
-            this.pic_EasySurveyLogo.TabStop = false;
             // 
             // panel_Me
             // 
@@ -372,34 +369,6 @@
             this.lbl_UnlockPassword.TabIndex = 7;
             this.lbl_UnlockPassword.Text = "Your accout will not be protected by password";
             // 
-            // pic_LockPassword
-            // 
-            this.pic_LockPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pic_LockPassword.BackgroundImage = global::EasySurvey.Properties.Resources.lock_icon_32x32;
-            this.pic_LockPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_LockPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_LockPassword.Location = new System.Drawing.Point(44, 148);
-            this.pic_LockPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pic_LockPassword.Name = "pic_LockPassword";
-            this.pic_LockPassword.Size = new System.Drawing.Size(30, 30);
-            this.pic_LockPassword.TabIndex = 6;
-            this.pic_LockPassword.TabStop = false;
-            this.pic_LockPassword.Click += new System.EventHandler(this.pic_LockPassword_Click);
-            // 
-            // pic_UnlockPassword
-            // 
-            this.pic_UnlockPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pic_UnlockPassword.BackgroundImage = global::EasySurvey.Properties.Resources.unlock_icon_32x32;
-            this.pic_UnlockPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_UnlockPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_UnlockPassword.Location = new System.Drawing.Point(44, 107);
-            this.pic_UnlockPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pic_UnlockPassword.Name = "pic_UnlockPassword";
-            this.pic_UnlockPassword.Size = new System.Drawing.Size(30, 30);
-            this.pic_UnlockPassword.TabIndex = 5;
-            this.pic_UnlockPassword.TabStop = false;
-            this.pic_UnlockPassword.Click += new System.EventHandler(this.pic_UnlockPassword_Click);
-            // 
             // btn_MeSaveChanges
             // 
             this.btn_MeSaveChanges.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -435,17 +404,6 @@
             this.lbl_Username.Text = "root";
             this.lbl_Username.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Username.FontChanged += new System.EventHandler(this.lbl_Username_FontChanged);
-            // 
-            // pic_UserCard
-            // 
-            this.pic_UserCard.BackgroundImage = global::EasySurvey.Properties.Resources.user_icon_512x512;
-            this.pic_UserCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_UserCard.Location = new System.Drawing.Point(17, 17);
-            this.pic_UserCard.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pic_UserCard.Name = "pic_UserCard";
-            this.pic_UserCard.Size = new System.Drawing.Size(79, 79);
-            this.pic_UserCard.TabIndex = 0;
-            this.pic_UserCard.TabStop = false;
             // 
             // panel_NewPassword
             // 
@@ -681,6 +639,279 @@
             this.materialContextMenuStrip_Users.Size = new System.Drawing.Size(183, 76);
             this.materialContextMenuStrip_Users.Opening += new System.ComponentModel.CancelEventHandler(this.materialContextMenuStrip_Users_Opening);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
+            // 
+            // panel_Database
+            // 
+            this.panel_Database.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Database.BackColor = System.Drawing.Color.White;
+            this.panel_Database.Controls.Add(this.tableLayoutPanel_DatabaseOptions);
+            this.panel_Database.Location = new System.Drawing.Point(210, 73);
+            this.panel_Database.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel_Database.Name = "panel_Database";
+            this.panel_Database.Size = new System.Drawing.Size(456, 348);
+            this.panel_Database.TabIndex = 4;
+            // 
+            // lbl_Backup
+            // 
+            this.lbl_Backup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Backup.Depth = 0;
+            this.lbl_Backup.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Backup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Backup.Location = new System.Drawing.Point(0, 105);
+            this.lbl_Backup.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Backup.Name = "lbl_Backup";
+            this.lbl_Backup.Size = new System.Drawing.Size(105, 22);
+            this.lbl_Backup.TabIndex = 5;
+            this.lbl_Backup.Text = "Backup";
+            this.lbl_Backup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_Export
+            // 
+            this.lbl_Export.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Export.Depth = 0;
+            this.lbl_Export.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Export.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Export.Location = new System.Drawing.Point(0, 105);
+            this.lbl_Export.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Export.Name = "lbl_Export";
+            this.lbl_Export.Size = new System.Drawing.Size(105, 22);
+            this.lbl_Export.TabIndex = 7;
+            this.lbl_Export.Text = "Export";
+            this.lbl_Export.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_Import
+            // 
+            this.lbl_Import.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Import.Depth = 0;
+            this.lbl_Import.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Import.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Import.Location = new System.Drawing.Point(0, 105);
+            this.lbl_Import.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Import.Name = "lbl_Import";
+            this.lbl_Import.Size = new System.Drawing.Size(106, 22);
+            this.lbl_Import.TabIndex = 8;
+            this.lbl_Import.Text = "Import";
+            this.lbl_Import.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel_Backup
+            // 
+            this.panel_Backup.Controls.Add(this.pic_Backup);
+            this.panel_Backup.Controls.Add(this.lbl_Backup);
+            this.panel_Backup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Backup.Location = new System.Drawing.Point(3, 3);
+            this.panel_Backup.Name = "panel_Backup";
+            this.panel_Backup.Size = new System.Drawing.Size(105, 127);
+            this.panel_Backup.TabIndex = 9;
+            // 
+            // panel_Restore
+            // 
+            this.panel_Restore.Controls.Add(this.pic_Restore);
+            this.panel_Restore.Controls.Add(this.lbl_Restore);
+            this.panel_Restore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Restore.Location = new System.Drawing.Point(114, 3);
+            this.panel_Restore.Name = "panel_Restore";
+            this.panel_Restore.Size = new System.Drawing.Size(105, 127);
+            this.panel_Restore.TabIndex = 10;
+            // 
+            // lbl_Restore
+            // 
+            this.lbl_Restore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Restore.Depth = 0;
+            this.lbl_Restore.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_Restore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl_Restore.Location = new System.Drawing.Point(0, 105);
+            this.lbl_Restore.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl_Restore.Name = "lbl_Restore";
+            this.lbl_Restore.Size = new System.Drawing.Size(105, 22);
+            this.lbl_Restore.TabIndex = 5;
+            this.lbl_Restore.Text = "Restore";
+            this.lbl_Restore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel_Export
+            // 
+            this.panel_Export.Controls.Add(this.pic_Export);
+            this.panel_Export.Controls.Add(this.lbl_Export);
+            this.panel_Export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Export.Location = new System.Drawing.Point(225, 3);
+            this.panel_Export.Name = "panel_Export";
+            this.panel_Export.Size = new System.Drawing.Size(105, 127);
+            this.panel_Export.TabIndex = 11;
+            // 
+            // panel_Import
+            // 
+            this.panel_Import.Controls.Add(this.pic_Import);
+            this.panel_Import.Controls.Add(this.lbl_Import);
+            this.panel_Import.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Import.Location = new System.Drawing.Point(336, 3);
+            this.panel_Import.Name = "panel_Import";
+            this.panel_Import.Size = new System.Drawing.Size(106, 127);
+            this.panel_Import.TabIndex = 12;
+            // 
+            // tableLayoutPanel_DatabaseOptions
+            // 
+            this.tableLayoutPanel_DatabaseOptions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel_DatabaseOptions.ColumnCount = 4;
+            this.tableLayoutPanel_DatabaseOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_DatabaseOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_DatabaseOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_DatabaseOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_DatabaseOptions.Controls.Add(this.panel_Backup, 0, 0);
+            this.tableLayoutPanel_DatabaseOptions.Controls.Add(this.panel_Import, 3, 0);
+            this.tableLayoutPanel_DatabaseOptions.Controls.Add(this.panel_Restore, 1, 0);
+            this.tableLayoutPanel_DatabaseOptions.Controls.Add(this.panel_Export, 2, 0);
+            this.tableLayoutPanel_DatabaseOptions.Location = new System.Drawing.Point(7, 7);
+            this.tableLayoutPanel_DatabaseOptions.Name = "tableLayoutPanel_DatabaseOptions";
+            this.tableLayoutPanel_DatabaseOptions.RowCount = 1;
+            this.tableLayoutPanel_DatabaseOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_DatabaseOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel_DatabaseOptions.Size = new System.Drawing.Size(445, 133);
+            this.tableLayoutPanel_DatabaseOptions.TabIndex = 13;
+            // 
+            // pic_Backup
+            // 
+            this.pic_Backup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Backup.BackgroundImage = global::EasySurvey.Properties.Resources.backup_icon_512x512;
+            this.pic_Backup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_Backup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_Backup.Location = new System.Drawing.Point(0, 0);
+            this.pic_Backup.Name = "pic_Backup";
+            this.pic_Backup.Size = new System.Drawing.Size(105, 102);
+            this.pic_Backup.TabIndex = 0;
+            this.pic_Backup.TabStop = false;
+            this.pic_Backup.Tag = "Backup";
+            this.pic_Backup.Click += new System.EventHandler(this.pic_Backup_Click);
+            this.pic_Backup.MouseEnter += new System.EventHandler(this.pic_DatabaseMenu_MouseEnter);
+            this.pic_Backup.MouseLeave += new System.EventHandler(this.pic_DatabaseMenu_MouseLeave);
+            // 
+            // pic_Import
+            // 
+            this.pic_Import.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Import.BackgroundImage = global::EasySurvey.Properties.Resources.import_icon_512x512;
+            this.pic_Import.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_Import.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_Import.Location = new System.Drawing.Point(0, 0);
+            this.pic_Import.Name = "pic_Import";
+            this.pic_Import.Size = new System.Drawing.Size(106, 102);
+            this.pic_Import.TabIndex = 3;
+            this.pic_Import.TabStop = false;
+            this.pic_Import.Tag = "Import";
+            this.pic_Import.MouseEnter += new System.EventHandler(this.pic_DatabaseMenu_MouseEnter);
+            this.pic_Import.MouseLeave += new System.EventHandler(this.pic_DatabaseMenu_MouseLeave);
+            // 
+            // pic_Restore
+            // 
+            this.pic_Restore.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Restore.BackgroundImage = global::EasySurvey.Properties.Resources.restore_icon_512x512;
+            this.pic_Restore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_Restore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_Restore.Location = new System.Drawing.Point(0, 0);
+            this.pic_Restore.Name = "pic_Restore";
+            this.pic_Restore.Size = new System.Drawing.Size(105, 102);
+            this.pic_Restore.TabIndex = 0;
+            this.pic_Restore.TabStop = false;
+            this.pic_Restore.Tag = "Restore";
+            this.pic_Restore.MouseEnter += new System.EventHandler(this.pic_DatabaseMenu_MouseEnter);
+            this.pic_Restore.MouseLeave += new System.EventHandler(this.pic_DatabaseMenu_MouseLeave);
+            // 
+            // pic_Export
+            // 
+            this.pic_Export.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_Export.BackgroundImage = global::EasySurvey.Properties.Resources.export_icon_512x512;
+            this.pic_Export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_Export.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_Export.Location = new System.Drawing.Point(0, 0);
+            this.pic_Export.Name = "pic_Export";
+            this.pic_Export.Size = new System.Drawing.Size(105, 102);
+            this.pic_Export.TabIndex = 2;
+            this.pic_Export.TabStop = false;
+            this.pic_Export.Tag = "Export";
+            this.pic_Export.MouseEnter += new System.EventHandler(this.pic_DatabaseMenu_MouseEnter);
+            this.pic_Export.MouseLeave += new System.EventHandler(this.pic_DatabaseMenu_MouseLeave);
+            // 
+            // pic_LockPassword
+            // 
+            this.pic_LockPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pic_LockPassword.BackgroundImage = global::EasySurvey.Properties.Resources.lock_icon_32x32;
+            this.pic_LockPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_LockPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_LockPassword.Location = new System.Drawing.Point(44, 148);
+            this.pic_LockPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pic_LockPassword.Name = "pic_LockPassword";
+            this.pic_LockPassword.Size = new System.Drawing.Size(30, 30);
+            this.pic_LockPassword.TabIndex = 6;
+            this.pic_LockPassword.TabStop = false;
+            this.pic_LockPassword.Click += new System.EventHandler(this.pic_LockPassword_Click);
+            // 
+            // pic_UnlockPassword
+            // 
+            this.pic_UnlockPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pic_UnlockPassword.BackgroundImage = global::EasySurvey.Properties.Resources.unlock_icon_32x32;
+            this.pic_UnlockPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_UnlockPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_UnlockPassword.Location = new System.Drawing.Point(44, 107);
+            this.pic_UnlockPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pic_UnlockPassword.Name = "pic_UnlockPassword";
+            this.pic_UnlockPassword.Size = new System.Drawing.Size(30, 30);
+            this.pic_UnlockPassword.TabIndex = 5;
+            this.pic_UnlockPassword.TabStop = false;
+            this.pic_UnlockPassword.Click += new System.EventHandler(this.pic_UnlockPassword_Click);
+            // 
+            // pic_UserCard
+            // 
+            this.pic_UserCard.BackgroundImage = global::EasySurvey.Properties.Resources.user_icon_512x512;
+            this.pic_UserCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_UserCard.Location = new System.Drawing.Point(17, 17);
+            this.pic_UserCard.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pic_UserCard.Name = "pic_UserCard";
+            this.pic_UserCard.Size = new System.Drawing.Size(79, 79);
+            this.pic_UserCard.TabIndex = 0;
+            this.pic_UserCard.TabStop = false;
+            // 
+            // pic_GitHub
+            // 
+            this.pic_GitHub.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pic_GitHub.BackgroundImage = global::EasySurvey.Properties.Resources.github_icon_512x512;
+            this.pic_GitHub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_GitHub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pic_GitHub.Location = new System.Drawing.Point(191, 4);
+            this.pic_GitHub.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pic_GitHub.Name = "pic_GitHub";
+            this.pic_GitHub.Size = new System.Drawing.Size(66, 20);
+            this.pic_GitHub.TabIndex = 0;
+            this.pic_GitHub.TabStop = false;
+            this.pic_GitHub.Click += new System.EventHandler(this.pic_GitHub_Click);
+            // 
+            // pic_EasySurveyLogo
+            // 
+            this.pic_EasySurveyLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pic_EasySurveyLogo.BackgroundImage = global::EasySurvey.Properties.Resources.EasySurveyLogo_512x512;
+            this.pic_EasySurveyLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_EasySurveyLogo.Location = new System.Drawing.Point(163, 3);
+            this.pic_EasySurveyLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pic_EasySurveyLogo.Name = "pic_EasySurveyLogo";
+            this.pic_EasySurveyLogo.Size = new System.Drawing.Size(128, 128);
+            this.pic_EasySurveyLogo.TabIndex = 2;
+            this.pic_EasySurveyLogo.TabStop = false;
+            // 
             // promoteDemoteToolStripMenuItem
             // 
             this.promoteDemoteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("promoteDemoteToolStripMenuItem.Image")));
@@ -688,11 +919,6 @@
             this.promoteDemoteToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.promoteDemoteToolStripMenuItem.Text = "Promote / Demote...";
             this.promoteDemoteToolStripMenuItem.Click += new System.EventHandler(this.promoteDemoteToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
             // 
             // passwordToolStripMenuItem
             // 
@@ -726,18 +952,6 @@
             this.deleteToolStripMenuItem.Text = "Delete...";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // panel_Database
-            // 
-            this.panel_Database.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Database.BackColor = System.Drawing.Color.White;
-            this.panel_Database.Location = new System.Drawing.Point(210, 73);
-            this.panel_Database.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.panel_Database.Name = "panel_Database";
-            this.panel_Database.Size = new System.Drawing.Size(456, 348);
-            this.panel_Database.TabIndex = 4;
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,18 +973,28 @@
             this.Load += new System.EventHandler(this.Settings_Load);
             this.panel_About.ResumeLayout(false);
             this.panel_GitHub.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_GitHub)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_EasySurveyLogo)).EndInit();
             this.panel_Me.ResumeLayout(false);
             this.panel_Me.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_LockPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_UnlockPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_UserCard)).EndInit();
             this.panel_NewPassword.ResumeLayout(false);
             this.panel_NewPassword.PerformLayout();
             this.panel_Users.ResumeLayout(false);
             this.panel_Users.PerformLayout();
             this.materialContextMenuStrip_Users.ResumeLayout(false);
+            this.panel_Database.ResumeLayout(false);
+            this.panel_Backup.ResumeLayout(false);
+            this.panel_Restore.ResumeLayout(false);
+            this.panel_Export.ResumeLayout(false);
+            this.panel_Import.ResumeLayout(false);
+            this.tableLayoutPanel_DatabaseOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Backup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Import)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Restore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Export)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LockPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_UnlockPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_UserCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_GitHub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_EasySurveyLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -818,5 +1042,18 @@
         private MaterialSkin.Controls.MaterialLabel lbl_Info;
         private System.Windows.Forms.ToolStripMenuItem promoteDemoteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.PictureBox pic_Import;
+        private System.Windows.Forms.PictureBox pic_Export;
+        private System.Windows.Forms.PictureBox pic_Backup;
+        private MaterialSkin.Controls.MaterialLabel lbl_Backup;
+        private MaterialSkin.Controls.MaterialLabel lbl_Import;
+        private MaterialSkin.Controls.MaterialLabel lbl_Export;
+        private System.Windows.Forms.Panel panel_Import;
+        private System.Windows.Forms.Panel panel_Export;
+        private System.Windows.Forms.Panel panel_Restore;
+        private System.Windows.Forms.PictureBox pic_Restore;
+        private MaterialSkin.Controls.MaterialLabel lbl_Restore;
+        private System.Windows.Forms.Panel panel_Backup;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_DatabaseOptions;
     }
 }

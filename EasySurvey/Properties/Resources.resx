@@ -136,6 +136,9 @@
   <data name="tick_green_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tick_green_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="userslogin_icon_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\userslogin_icon_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="modify_icon_20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\modify_icon_20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -144,6 +147,9 @@
   </data>
   <data name="correct_green_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\correct_green_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="promote_icon_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\promote_icon_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="save_icon_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_icon_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +166,14 @@
   <data name="userlogin_icon_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\userlogin_icon_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="export_icon_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export_icon_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pencil_icon_20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pencil_icon_20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="import_icon_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\import_icon_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="survey_icon_20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\survey_icon_20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +193,14 @@
   <data name="icon_information_64x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\icon_information_64x64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="backup_icon_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backup_icon_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="password_icon_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\password_icon_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="userslogin_icon_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\userslogin_icon_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="demote_icon_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\demote_icon_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="success_green_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success_green_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,10 +217,19 @@
   <data name="lock_icon_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock_icon_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="demote_icon_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\demote_icon_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="restore_icon_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restore_icon_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="promote_icon_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\promote_icon_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backup_icon_mouse_enter_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backup_icon_mouse_enter_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="export_icon_mouse_enter_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export_icon_mouse_enter_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="import_icon_mouse_enter_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\import_icon_mouse_enter_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="restore_icon_mouse_enter_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restore_icon_mouse_enter_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -31,9 +31,15 @@ namespace EasySurvey.Models
         public virtual DbSet<ResultDefinition> ResultDefinition { get; set; }
         public virtual DbSet<Result> Result { get; set; }
 
-        ~DatabaseEntity()
+        public override int SaveChanges()
         {
+            int ReturnCode = base.SaveChanges();
 
+            // Save backup
+            EasySurvey.Database DB = new EasySurvey.Database();
+            DB.Backup();
+
+            return ReturnCode;
         }
     }
 }

@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database.cs" />
     <Compile Include="Forms\ConductSurvey.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +268,10 @@
     <None Include="Resources\EasySurveyLogo_512x512.png" />
     <None Include="Resources\github_icon_512x512.png" />
     <None Include="Resources\demote_icon_16x16.png" />
+    <None Include="Resources\export_icon_512x512.png" />
+    <None Include="Resources\backup_icon_512x512.png" />
+    <None Include="Resources\backup_icon_mouse_enter_512x512.png" />
+    <None Include="Resources\export_icon_mouse_enter_512x512.png" />
     <Content Include="Resources\Icons\icon_error_64x64.png" />
     <Content Include="Resources\Icons\icon_information_64x64.png" />
     <Content Include="Resources\Icons\icon_question_64x64.png" />
@@ -280,6 +285,10 @@
     <None Include="Resources\pencil_icon_20x20.png" />
     <None Include="Resources\lock_icon_32x32.png" />
     <None Include="Resources\promote_icon_16x16.png" />
+    <None Include="Resources\import_icon_512x512.png" />
+    <None Include="Resources\restore_icon_512x512.png" />
+    <None Include="Resources\import_icon_mouse_enter_512x512.png" />
+    <None Include="Resources\restore_icon_mouse_enter_512x512.png" />
     <Content Include="Resources\search_icon_24x24.png" />
     <None Include="Resources\user_icon_48x48.png" />
     <None Include="Resources\survey_icon_20x20.png" />
