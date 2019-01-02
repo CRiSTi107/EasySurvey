@@ -20,11 +20,6 @@ namespace EasySurvey.Models
         {
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-
         public virtual DbSet<Attitude> Attitude { get; set; }
         public virtual DbSet<AttitudeDefinition> AttitudeDefinition { get; set; }
         public virtual DbSet<Question> Question { get; set; }
@@ -35,5 +30,10 @@ namespace EasySurvey.Models
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<ResultDefinition> ResultDefinition { get; set; }
         public virtual DbSet<Result> Result { get; set; }
+
+        ~DatabaseEntity()
+        {
+
+        }
     }
 }
