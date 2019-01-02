@@ -665,7 +665,10 @@ namespace EasySurvey
 
         private void pic_Backup_Click(object sender, EventArgs e)
         {
+            Database DB = new Database();
+            string DatabaseBackupName = DB.Backup();
 
+            MaterialMessageBox.Show("Backup has been saved with name " + DatabaseBackupName, "Easy Survey - Database backup", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
         }
 
         #endregion
