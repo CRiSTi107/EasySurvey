@@ -61,7 +61,21 @@ namespace EasySurvey
             Backup();
 
             if (File.Exists(DATABASE_PATH))
-                File.Delete(DATABASE_PATH);
+            {
+                DatabaseEntity db = new DatabaseEntity();
+
+                // TODO: Fix here bug.
+                bool isDone = false;
+                while (!isDone)
+                    try
+                    {
+                        db.Close();
+                        File.Delete(DATABASE_PATH);
+                        isDone = true;
+                    }
+                    catch { }
+
+            }
 
             File.Copy(DatabaseBackupPath, DATABASE_PATH);
         }

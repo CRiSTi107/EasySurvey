@@ -12,6 +12,7 @@ namespace EasySurvey
         public static MaterialForm frm_Register;
         public static MaterialForm frm_MainForm;
         public static MaterialForm frm_ConductSurvey;
+        public static MaterialForm frm_Settings;
 
         /// <summary>
         /// The main entry point for the application.

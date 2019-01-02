@@ -244,9 +244,8 @@ namespace EasySurvey
         {
             // TODO: Open - About User Dialog here
             base.Hide();
-            Settings frm_Settings = new Settings(LoggedUser);
-            frm_Settings.ShowDialog();
-            base.Show();
+            Program.frm_Settings = new Settings(LoggedUser);
+            Program.frm_Settings.Show();
         }
 
 

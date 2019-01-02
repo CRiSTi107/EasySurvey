@@ -11,6 +11,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace EasySurvey
 {
@@ -671,8 +673,34 @@ namespace EasySurvey
             MaterialMessageBox.Show("Backup has been saved with name " + DatabaseBackupName, "Easy Survey - Database backup", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
         }
 
+        private void pic_Restore_Click(object sender, EventArgs e)
+        {
+            string AppPath = Assembly.GetExecutingAssembly().Location;
+            string DirectoryApp = Path.GetDirectoryName(AppPath);
+            string BackupDirectory = DirectoryApp + "\\backup";
+
+            openFileDialog_Restore.InitialDirectory = BackupDirectory;
+
+            DialogResult Result = openFileDialog_Restore.ShowDialog();
+
+            Database DB = new Database();
+
+            if (Result == DialogResult.OK)
+            {
+                string RestoreBackupPath = openFileDialog_Restore.FileName;
+                DB.Restore(RestoreBackupPath);
+                MaterialMessageBox.Show("Database Backup has been restored successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Restore", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
+                Program.frm_MainForm.Close();
+                base.Close();
+            }
+        }
+
         #endregion
 
-
+        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!Program.frm_MainForm.IsDisposed)
+                Program.frm_MainForm.Show();
+        }
     }
 }

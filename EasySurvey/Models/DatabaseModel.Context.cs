@@ -31,6 +31,12 @@ namespace EasySurvey.Models
         public virtual DbSet<ResultDefinition> ResultDefinition { get; set; }
         public virtual DbSet<Result> Result { get; set; }
 
+        public void Close()
+        {
+            base.Dispose(true);
+            this.Dispose();
+        }
+
         public override int SaveChanges()
         {
             int ReturnCode = base.SaveChanges();
