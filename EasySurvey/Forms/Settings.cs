@@ -714,6 +714,7 @@ namespace EasySurvey
             if (Result == DialogResult.OK)
             {
                 string ImportDatabasePath = openFileDialog_Import.FileName;
+                ImportDatabasePath = Path.GetFullPath(ImportDatabasePath);
                 DB.Import(ImportDatabasePath);
                 MaterialMessageBox.Show("Database has been imported successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
                 Program.frm_MainForm.Close();
