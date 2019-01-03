@@ -668,7 +668,7 @@ namespace EasySurvey
         private void pic_Backup_Click(object sender, EventArgs e)
         {
             Database DB = new Database();
-            string DatabaseBackupName = DB.Backup();
+            string DatabaseBackupName = DB.Backup(Database.BackupReason.User);
 
             MaterialMessageBox.Show("Backup has been saved with name " + DatabaseBackupName, "Easy Survey - Database backup", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
         }
@@ -695,6 +695,32 @@ namespace EasySurvey
             }
         }
 
+        private void pic_Export_Click(object sender, EventArgs e)
+        {
+            Database DB = new Database();
+            string DatabaseExportName = DB.Export();
+
+            MaterialMessageBox.Show("Database has been exported with name " + DatabaseExportName, "Easy Survey - Database export", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
+        }
+
+        private void pic_Import_Click(object sender, EventArgs e)
+        {
+            openFileDialog_Import.InitialDirectory = SpecialDirectories.MyComputer;
+
+            DialogResult Result = openFileDialog_Import.ShowDialog();
+
+            Database DB = new Database();
+
+            if (Result == DialogResult.OK)
+            {
+                string ImportDatabasePath = openFileDialog_Import.FileName;
+                DB.Import(ImportDatabasePath);
+                MaterialMessageBox.Show("Database has been imported successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
+                Program.frm_MainForm.Close();
+                base.Close();
+            }
+        }
+
         #endregion
 
         private void Settings_FormClosing(object sender, FormClosingEventArgs e)
@@ -702,5 +728,7 @@ namespace EasySurvey
             if (!Program.frm_MainForm.IsDisposed)
                 Program.frm_MainForm.Show();
         }
+
+
     }
 }

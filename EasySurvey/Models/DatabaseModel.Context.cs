@@ -43,9 +43,17 @@ namespace EasySurvey.Models
 
             // Save backup
             EasySurvey.Database DB = new EasySurvey.Database();
-            DB.Backup();
+            DB.Backup(EasySurvey.Database.BackupReason.Automatic);
 
             return ReturnCode;
+        }
+
+        // https://stackoverflow.com/questions/12532729/sqlite-keeps-the-database-locked-even-after-the-connection-is-closed
+        ~DatabaseEntity()
+        {
+            // base.Database.Connection.Close();
+            // if (base.Database.Connection.State == System.Data.ConnectionState.Open)
+            //     base.Dispose(true);
         }
     }
 }

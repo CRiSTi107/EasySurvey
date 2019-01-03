@@ -192,6 +192,7 @@
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="SHA256.cs" />
+    <Compile Include="SpecialDirectories.cs" />
     <Compile Include="Updater.cs" />
     <Compile Include="Version.cs" />
     <EmbeddedResource Include="Forms\ConductSurvey.resx">
