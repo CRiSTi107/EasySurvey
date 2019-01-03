@@ -8,7 +8,17 @@ namespace EasySurvey.Controllers
 {
     public class SurveyDefinitionController
     {
-        private DatabaseEntity DatabaseModel = new DatabaseEntity();
+        private Database DatabaseModel;
+
+        public SurveyDefinitionController()
+        {
+            DatabaseModel = new Database();
+        }
+
+        public SurveyDefinitionController(Database DBEntity)
+        {
+            DatabaseModel = DBEntity;
+        }
 
         public void AddRelation(long SurveyID, long QuestionID)
         {

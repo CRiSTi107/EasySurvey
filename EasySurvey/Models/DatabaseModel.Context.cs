@@ -20,6 +20,12 @@ namespace EasySurvey.Models
         {
         }
 
+        public DatabaseEntity(string DBConnectionString)
+            : base(DBConnectionString)
+        {
+
+        }
+
         public virtual DbSet<Attitude> Attitude { get; set; }
         public virtual DbSet<AttitudeDefinition> AttitudeDefinition { get; set; }
         public virtual DbSet<Question> Question { get; set; }

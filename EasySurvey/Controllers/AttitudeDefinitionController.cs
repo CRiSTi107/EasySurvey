@@ -8,7 +8,17 @@ namespace EasySurvey.Controllers
 {
     public class AttitudeDefinitionController
     {
-        private DatabaseEntity DatabaseModel = new DatabaseEntity();
+        private Database DatabaseModel;
+
+        public AttitudeDefinitionController()
+        {
+            DatabaseModel = new Database();
+        }
+
+        public AttitudeDefinitionController(Database DBEntity)
+        {
+            DatabaseModel = DBEntity;
+        }
 
         public AttitudeDefinition GetRelation(long AttitudeID, long QuestionID)
         {

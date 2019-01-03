@@ -8,7 +8,17 @@ namespace EasySurvey.Controllers
 {
     public class SurveyController
     {
-        private DatabaseEntity DatabaseModel = new DatabaseEntity();
+        private Database DatabaseModel;
+
+        public SurveyController()
+        {
+            DatabaseModel = new Database();
+        }
+
+        public SurveyController(Database DBEntity)
+        {
+            DatabaseModel = DBEntity;
+        }
 
         public List<Survey> GetAll()
         {

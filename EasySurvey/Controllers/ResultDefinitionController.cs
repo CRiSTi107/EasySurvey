@@ -8,7 +8,17 @@ namespace EasySurvey.Controllers
 {
     public class ResultDefinitionController
     {
-        private DatabaseEntity DatabaseModel = new DatabaseEntity();
+        private Database DatabaseModel;
+
+        public ResultDefinitionController()
+        {
+            DatabaseModel = new Database();
+        }
+
+        public ResultDefinitionController(Database DBEntity)
+        {
+            DatabaseModel = DBEntity;
+        }
 
         public void Add(ResultDefinition resultDefinition)
         {

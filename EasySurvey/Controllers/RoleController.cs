@@ -8,7 +8,17 @@ namespace EasySurvey.Controllers
 {
     public class RoleController
     {
-        private DatabaseEntity DatabaseModel = new DatabaseEntity();
+        private Database DatabaseModel;
+
+        public RoleController()
+        {
+            DatabaseModel = new Database();
+        }
+
+        public RoleController(Database DBEntity)
+        {
+            DatabaseModel = DBEntity;
+        }
 
         public string GetRoleName(long RoleID)
         {

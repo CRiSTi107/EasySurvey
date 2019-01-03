@@ -8,7 +8,17 @@ namespace EasySurvey.Controllers
 {
     public class ResultController
     {
-        private DatabaseEntity DatabaseModel = new DatabaseEntity();
+        private Database DatabaseModel;
+
+        public ResultController()
+        {
+            DatabaseModel = new Database();
+        }
+
+        public ResultController(Database DBEntity)
+        {
+            DatabaseModel = DBEntity;
+        }
 
         public List<Result> Get()
         {

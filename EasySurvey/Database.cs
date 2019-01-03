@@ -7,39 +7,26 @@ using System.IO;
 
 namespace EasySurvey
 {
-    public class Database // : DatabaseEntity
+    public class Database : DatabaseEntity
     {
         public Database()
+            : base()
+        {
+            CreateDirectories();
+        }
+
+        public Database(string DatabaseConnetion)
+            : base(DatabaseConnetion)
+        {
+            CreateDirectories();
+        }
+
+        private void CreateDirectories()
         {
             if (!Directory.Exists(BACKUP_FOLDER)) Directory.CreateDirectory(BACKUP_FOLDER);
             if (!Directory.Exists(BACKUP_AUTO_FOLDER)) Directory.CreateDirectory(BACKUP_AUTO_FOLDER);
             if (!Directory.Exists(EXPORT_FOLDER)) Directory.CreateDirectory(EXPORT_FOLDER);
         }
-
-        // public Database()
-        //     : base()
-        // {
-        //     Path = "database.db";
-        // }
-        // 
-        // private string _Path;
-        // public string Path
-        // {
-        //     get
-        //     {
-        //         return _Path;
-        //     }
-        // 
-        //     private set
-        //     {
-        //         _Path = value;
-        //     }
-        // }
-        // 
-        // public override int SaveChanges()
-        // {
-        //     return base.SaveChanges();
-        // }
 
         public const string BACKUP_FOLDER = "backup\\";
         public const string BACKUP_AUTO_FOLDER = "backup\\auto\\";
@@ -119,6 +106,11 @@ namespace EasySurvey
 
         public void Import(string DatabaseExportPath)
         {
+            const string QUOT = "\"";
+            string DatabaseConnetionString = "metadata=res://*/Models.DatabaseModel.csdl|res://*/Models.DatabaseModel.ssdl|res://*/Models.DatabaseModel.msl;provider=System.Data.SQLite.EF6;provider connection string='data source=" + QUOT + DatabaseExportPath + QUOT + "'";
+            Database DB = new Database(DatabaseConnetionString);
+
+            //Copy data from Export Database to Current Database.
 
         }
     }
