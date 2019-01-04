@@ -39,8 +39,8 @@ namespace EasySurvey
 
         private List<UserModelDataTransferObject> GetUsers()
         {
-            UserController userController = new UserController();
-            return userController.GetUsers();
+            using (UserController userController = new UserController())
+                return userController.GetUsers();
         }
 
         private void ClearCredentials(bool clearStatus = true)
@@ -92,34 +92,35 @@ namespace EasySurvey
 
         private void txt_Username_TextChanged(object sender, EventArgs e)
         {
-            UserController userController = new UserController();
-
-            string Username = txt_Username.Text;
-            SearchUsers = new List<UserModelDataTransferObject>(userController.Search(Users, Username));
-
-            int index = 0;
-            foreach (var elem in SearchUsers)
+            using (UserController userController = new UserController())
             {
-                AutocompleteLabels[index++].Text = elem.UserName;
+                string Username = txt_Username.Text;
+                SearchUsers = new List<UserModelDataTransferObject>(userController.Search(Users, Username));
+
+                int index = 0;
+                foreach (var elem in SearchUsers)
+                {
+                    AutocompleteLabels[index++].Text = elem.UserName;
+                }
+                for (; index <= AutocompleteLabels.Count - 1; index++)
+                    AutocompleteLabels[index].Text = String.Empty;
+
+                HidePasswordField();
+
+                if (SearchUsers.Count == 1 && SearchUsers.First().UserName.ToLower() == Username.ToLower())
+                {
+                    txt_Password.Clear();
+                }
+
+                if (userController.Exists(Username) != null)
+                {
+                    if (SearchUsers.First().UserPassword != null)
+                    { RequiresPassword = true; }
+                    else
+                    { RequiresPassword = false; }
+                }
+
             }
-            for (; index <= AutocompleteLabels.Count - 1; index++)
-                AutocompleteLabels[index].Text = String.Empty;
-
-            HidePasswordField();
-
-            if (SearchUsers.Count == 1 && SearchUsers.First().UserName.ToLower() == Username.ToLower())
-            {
-                txt_Password.Clear();
-            }
-
-            if (userController.Exists(Username) != null)
-            {
-                if (SearchUsers.First().UserPassword != null)
-                { RequiresPassword = true; }
-                else
-                { RequiresPassword = false; }
-            }
-
         }
 
         private void lbl_AutoComplete_MouseEnter(object sender, EventArgs e)
@@ -153,37 +154,38 @@ namespace EasySurvey
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            UserController userController = new UserController();
-
-            string Username = txt_Username.Text;
-            string Password = txt_Password.Text;
-
-            User user = userController.Login(Username, (RequiresPassword) ? Password : null);
-
-            if (user != null)
+            using (UserController userController = new UserController())
             {
-                ClearCredentials();
+                string Username = txt_Username.Text;
+                string Password = txt_Password.Text;
 
-                lbl_Password.Visible = false;
-                txt_Password.Visible = false;
+                User user = userController.Login(Username, (RequiresPassword) ? Password : null);
 
-                lbl_Status.Text = String.Empty;
+                if (user != null)
+                {
+                    ClearCredentials();
 
-                UserModelDataTransferObject User = userController.GetUserByID(user.UserID);
+                    lbl_Password.Visible = false;
+                    txt_Password.Visible = false;
 
-                // Move to MainForm
-                Program.frm_Login.Hide();
-                Program.frm_MainForm = new MainForm(User);
-                Program.frm_MainForm.Show();
+                    lbl_Status.Text = String.Empty;
+
+                    UserModelDataTransferObject User = userController.GetUserByID(user.UserID);
+
+                    // Move to MainForm
+                    Program.frm_Login.Hide();
+                    Program.frm_MainForm = new MainForm(User);
+                    Program.frm_MainForm.Show();
+                }
+                else
+                {
+                    lbl_Status.Text = "Utilizatorul si parola nu se potrivesc.";
+                    lbl_Status.ForeColor = Color.Red;
+
+                    txt_Password.Clear();
+                }
+
             }
-            else
-            {
-                lbl_Status.Text = "Utilizatorul si parola nu se potrivesc.";
-                lbl_Status.ForeColor = Color.Red;
-
-                txt_Password.Clear();
-            }
-
         }
 
         private void txt_Username_Enter(object sender, EventArgs e)
@@ -199,19 +201,18 @@ namespace EasySurvey
         {
             panel_Autocomplete.Visible = false;
 
-            UserController userController = new UserController();
+            using (UserController userController = new UserController())
+                if (userController.Exists(txt_Username.Text) != null)
 
-            if (userController.Exists(txt_Username.Text) != null)
-
-                if (RequiresPassword)
-                {
-                    ShowPasswordField();
-                    txt_Password.Focus();
-                }
-                else if (!RequiresPassword)
-                {
-                    HidePasswordField();
-                }
+                    if (RequiresPassword)
+                    {
+                        ShowPasswordField();
+                        txt_Password.Focus();
+                    }
+                    else if (!RequiresPassword)
+                    {
+                        HidePasswordField();
+                    }
         }
 
         private void txt_Password_KeyDown(object sender, KeyEventArgs e)

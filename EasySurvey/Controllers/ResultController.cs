@@ -6,18 +6,16 @@ using System.Text;
 
 namespace EasySurvey.Controllers
 {
-    public class ResultController
+    public class ResultController : BaseController
     {
-        private Database DatabaseModel;
-
         public ResultController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public ResultController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public List<Result> Get()
@@ -50,8 +48,8 @@ namespace EasySurvey.Controllers
         public void Delete(Result ResultToDelete)
         {
             //Delete Result Definitions first
-            ResultDefinitionController resultDefinitionController = new ResultDefinitionController();
-            resultDefinitionController.Delete(ResultToDelete.ResultID);
+            using (ResultDefinitionController resultDefinitionController = new ResultDefinitionController(DatabaseModel))
+                resultDefinitionController.Delete(ResultToDelete.ResultID);
 
             DatabaseModel.Result.Remove(ResultToDelete);
             DatabaseModel.SaveChanges();

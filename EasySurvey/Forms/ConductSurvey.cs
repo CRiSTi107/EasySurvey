@@ -89,11 +89,11 @@ namespace EasySurvey
 
         private void ConductSurvey_Load(object sender, EventArgs e)
         {
-            SurveyController surveyController = new SurveyController();
-            CurrentSurvey = surveyController.Get(SurveyID);
+            using (SurveyController surveyController = new SurveyController())
+                CurrentSurvey = surveyController.Get(SurveyID);
 
-            QuestionController questionController = new QuestionController();
-            Questions = questionController.GetQuestionsForSurvey(SurveyID);
+            using (QuestionController questionController = new QuestionController())
+                Questions = questionController.GetQuestionsForSurvey(SurveyID);
 
             lbl_Welcome_SurveyName.Text = lbl_SurveyName.Text = CurrentSurvey.SurveyName;
             lbl_Welcome_QuestionCount.Text = lbl_QuestionCount.Text = Questions.Count + " Questions";
@@ -296,19 +296,21 @@ namespace EasySurvey
             panel_Finish.Visible = true;
             panel_Finish.Enabled = true;
 
-            SurveyController surveyController = new SurveyController();
-            string SurveyName = surveyController.Get(SurveyID).SurveyName;
-
-            ResultController resultController = new ResultController();
-            string DateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            FinalResult.Date = DateNow;
-            resultController.Add(FinalResult);
+            using (SurveyController surveyController = new SurveyController())
+            using (ResultController resultController = new ResultController())
+            {
+                string SurveyName = surveyController.Get(SurveyID).SurveyName;
+                string DateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                FinalResult.Date = DateNow;
+                resultController.Add(FinalResult);
+            }
 
             foreach (ResultDefinition resultDefinition in Results)
                 resultDefinition.ResultID = FinalResult.ResultID;
 
-            ResultDefinitionController resultDefinitionController = new ResultDefinitionController();
-            resultDefinitionController.Add(Results);
+
+            using (ResultDefinitionController resultDefinitionController = new ResultDefinitionController())
+                resultDefinitionController.Add(Results);
         }
 
         private void btn_Success_Exit_Click(object sender, EventArgs e)

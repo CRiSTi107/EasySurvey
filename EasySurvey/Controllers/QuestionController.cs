@@ -6,18 +6,16 @@ using System.Text;
 
 namespace EasySurvey.Controllers
 {
-    public class QuestionController
+    public class QuestionController : BaseController
     {
-        private Database DatabaseModel;
-
         public QuestionController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public QuestionController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public List<Question> GetQuestionsForSurvey(long SurveyID)
@@ -69,17 +67,16 @@ namespace EasySurvey.Controllers
             DatabaseModel.Question.Add(question);
             DatabaseModel.SaveChanges();
 
-            SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController();
-
-            surveyDefinitionController.AddRelation(SurveyID, question.QuestionID);
+            using (SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController())
+                surveyDefinitionController.AddRelation(SurveyID, question.QuestionID);
         }
 
         public void Delete(long QuestionID, long SurveyID)
         {
             Question QuestionToDelete = (from question in DatabaseModel.Question where question.QuestionID == QuestionID select question).First();
 
-            SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController();
-            surveyDefinitionController.DeleteRelation(SurveyID, QuestionID);
+            using (SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController())
+                surveyDefinitionController.DeleteRelation(SurveyID, QuestionID);
 
             DatabaseModel.Question.Remove(QuestionToDelete);
             DatabaseModel.SaveChanges();
@@ -87,13 +84,15 @@ namespace EasySurvey.Controllers
 
         public void DeleteAll(long SurveyID)
         {
-            AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
-            List<Question> Questions = GetQuestionsForSurvey(SurveyID);
-
-            foreach (Question question in Questions)
+            using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController())
             {
-                Delete(question.QuestionID, SurveyID);
-                attitudeDefinitionController.Delete(question.QuestionID);
+                List<Question> Questions = GetQuestionsForSurvey(SurveyID);
+
+                foreach (Question question in Questions)
+                {
+                    Delete(question.QuestionID, SurveyID);
+                    attitudeDefinitionController.Delete(question.QuestionID);
+                }
             }
         }
 

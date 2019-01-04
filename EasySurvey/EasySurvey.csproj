@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Forms\ConductSurvey.cs">
       <SubType>Form</SubType>

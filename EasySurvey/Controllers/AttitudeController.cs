@@ -6,18 +6,16 @@ using System.Text;
 
 namespace EasySurvey.Controllers
 {
-    public class AttitudeController
+    public class AttitudeController : BaseController
     {
-        private Database DatabaseModel;
-
         public AttitudeController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public AttitudeController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public List<Attitude> GetAttitudes()
@@ -97,16 +95,18 @@ namespace EasySurvey.Controllers
             List<AttitudeDefinition> attitudeDefinition;
             attitudeDefinition = (from attitudedefinition in DatabaseModel.AttitudeDefinition where attitudedefinition.AttitudeID == AttitudeID select attitudedefinition).ToList();
 
-            QuestionController questionController = new QuestionController();
-            List<Question> questions = new List<Question>();
-
-            foreach (AttitudeDefinition currentAttitudeDefinition in attitudeDefinition)
+            using (QuestionController questionController = new QuestionController(DatabaseModel))
             {
-                Question questionToAdd = questionController.Get(currentAttitudeDefinition.QuestionID);
-                questions.Add(questionToAdd);
-            }
+                List<Question> questions = new List<Question>();
 
-            return questions;
+                foreach (AttitudeDefinition currentAttitudeDefinition in attitudeDefinition)
+                {
+                    Question questionToAdd = questionController.Get(currentAttitudeDefinition.QuestionID);
+                    questions.Add(questionToAdd);
+                }
+
+                return questions;
+            }
         }
 
         public bool Contains(long QuestionID)
@@ -130,8 +130,8 @@ namespace EasySurvey.Controllers
             Attitude attitudeToDelete = (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();
 
             //Delete Attitude Definitions
-            AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
-            attitudeDefinitionController.DeleteAll(AttitudeID);
+            using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController(DatabaseModel))
+                attitudeDefinitionController.DeleteAll(AttitudeID);
 
             DatabaseModel.Attitude.Remove(attitudeToDelete);
             DatabaseModel.SaveChanges();

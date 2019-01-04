@@ -6,18 +6,16 @@ using System.Text;
 
 namespace EasySurvey.Controllers
 {
-    public class SurveyDefinitionController
+    public class SurveyDefinitionController : BaseController
     {
-        private Database DatabaseModel;
-
         public SurveyDefinitionController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public SurveyDefinitionController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public void AddRelation(long SurveyID, long QuestionID)

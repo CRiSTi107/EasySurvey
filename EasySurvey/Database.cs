@@ -15,10 +15,17 @@ namespace EasySurvey
             CreateDirectories();
         }
 
-        public Database(string DatabaseConnetion)
-            : base(DatabaseConnetion)
+        public Database(string DatabasePath)
+            : base(GetConnectionString(DatabasePath))
         {
             CreateDirectories();
+        }
+
+        public static string GetConnectionString(string DatabasePath)
+        {
+            const string QUOT = "\"";
+            string DatabaseConnetionString = "metadata=res://*/Models.DatabaseModel.csdl|res://*/Models.DatabaseModel.ssdl|res://*/Models.DatabaseModel.msl;provider=System.Data.SQLite.EF6;provider connection string='data source=" + QUOT + DatabasePath + QUOT + "'";
+            return DatabaseConnetionString;
         }
 
         private void CreateDirectories()
@@ -82,35 +89,33 @@ namespace EasySurvey
 
         public void Restore(string DatabaseBackupPath)
         {
-            Backup(BackupReason.Automatic);
-
             if (File.Exists(DATABASE_PATH))
             {
-                DatabaseEntity db = new DatabaseEntity();
-
-                // TODO: Fix here bug.
-                bool isDone = false;
-                while (!isDone)
+                using (DatabaseEntity DBRestore = new DatabaseEntity(GetConnectionString(DatabaseBackupPath)))
+                using (DatabaseEntity DBCurrent = new DatabaseEntity())
                     try
                     {
-                        db.Close();
-                        File.Delete(DATABASE_PATH);
-                        isDone = true;
-                    }
-                    catch { }
 
+
+                        DBCurrent.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                // File.Delete(DATABASE_PATH);
+                // File.Copy(DatabaseBackupPath, DATABASE_PATH);
             }
 
-            File.Copy(DatabaseBackupPath, DATABASE_PATH);
+
         }
 
-        public void Import(string DatabaseExportPath)
+        public void Import(string DatabaseImportPath)
         {
-            const string QUOT = "\"";
-            string DatabaseConnetionString = "metadata=res://*/Models.DatabaseModel.csdl|res://*/Models.DatabaseModel.ssdl|res://*/Models.DatabaseModel.msl;provider=System.Data.SQLite.EF6;provider connection string='data source=" + QUOT + DatabaseExportPath + QUOT + "'";
-            Database DB = new Database(DatabaseConnetionString);
-
-            //Copy data from Export Database to Current Database.
+            using (Database DB = new Database(DatabaseImportPath))
+            {
+                //Copy data from Export Database to Current Database.
+            }
 
         }
     }

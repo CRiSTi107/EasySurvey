@@ -18,12 +18,13 @@ namespace EasySurvey.Models
         public DatabaseEntity()
             : base("name=DatabaseConnectionString")
         {
+            ++Program.InitDBCount1;
         }
 
         public DatabaseEntity(string DBConnectionString)
             : base(DBConnectionString)
         {
-
+            ++Program.InitDBCount2;
         }
 
         public virtual DbSet<Attitude> Attitude { get; set; }
@@ -39,8 +40,16 @@ namespace EasySurvey.Models
 
         public void Close()
         {
-            base.Dispose(true);
-            this.Dispose();
+            ++Program.DestructorDBCount2;
+            Database.Connection.Dispose();
+            //EDIT Dispose(true);
+            //EDIT Dispose();
+        }
+
+        public new void Dispose()
+        {
+            ++Program.DestructorDBCount2;
+            base.Dispose();
         }
 
         public override int SaveChanges()
@@ -48,8 +57,8 @@ namespace EasySurvey.Models
             int ReturnCode = base.SaveChanges();
 
             // Save backup
-            EasySurvey.Database DB = new EasySurvey.Database();
-            DB.Backup(EasySurvey.Database.BackupReason.Automatic);
+            using (EasySurvey.Database DB = new EasySurvey.Database())
+                DB.Backup(EasySurvey.Database.BackupReason.Automatic);
 
             return ReturnCode;
         }
@@ -57,6 +66,7 @@ namespace EasySurvey.Models
         // https://stackoverflow.com/questions/12532729/sqlite-keeps-the-database-locked-even-after-the-connection-is-closed
         ~DatabaseEntity()
         {
+            //++Program.DestructorDBCount1;
             // base.Database.Connection.Close();
             // if (base.Database.Connection.State == System.Data.ConnectionState.Open)
             //     base.Dispose(true);

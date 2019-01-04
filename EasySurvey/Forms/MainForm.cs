@@ -47,8 +47,8 @@ namespace EasySurvey
 
         private List<Survey> GetSurveys()
         {
-            SurveyController surveyController = new SurveyController();
-            return surveyController.GetAll();
+            using (SurveyController surveyController = new SurveyController())
+                return surveyController.GetAll();
         }
 
         #region Select Survey
@@ -117,8 +117,8 @@ namespace EasySurvey
 
             SearchSurveys = new List<Survey>();
 
-            SurveyController surveyController = new SurveyController();
-            SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref SearchSurvey));
+            using (SurveyController surveyController = new SurveyController())
+                SearchSurveys = new List<Survey>(surveyController.Search(Surveys, Query, ref SearchSurvey));
 
             UpdateListView(SearchSurveys, listView_AllSurveys);
         }
@@ -159,9 +159,9 @@ namespace EasySurvey
                 grb_SelectedSurveyAdmin.Visible = true;
                 listView_AllSurveys.ContextMenuStrip = materialContextMenuStripSurvey_Admin;
                 listView_EditSurveyQuestions.ContextMenuStrip = materialContextMenuStripQuestion_Admin;
-
-                UserController userController = new UserController();
-                List<UserModelDataTransferObject> users = userController.GetUsers();
+                List<UserModelDataTransferObject> users;
+                using (UserController userController = new UserController())
+                    users = userController.GetUsers();
                 cmb_SelectUserReport.Items.Clear();
                 cmb_SelectUserReport.Items.Add("*");
                 foreach (UserModelDataTransferObject user in users)
@@ -276,17 +276,19 @@ namespace EasySurvey
             MaterialMessageBox.MessageBoxIcon IconMessage = MaterialMessageBox.MessageBoxIcon.Warning;
 
             //Check if any Question from Surveys are contained into Attitudes
-            AttitudeController attitudeController = new AttitudeController();
-            QuestionController questionController = new QuestionController();
             long QuestionsCount = 0;
-            foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
+            using (AttitudeController attitudeController = new AttitudeController())
+            using (QuestionController questionController = new QuestionController())
             {
-                long SurveyID = Convert.ToInt64(selectedItem.Tag);
-                List<Question> Questions = questionController.GetQuestionsForSurvey(SurveyID);
+                foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
+                {
+                    long SurveyID = Convert.ToInt64(selectedItem.Tag);
+                    List<Question> Questions = questionController.GetQuestionsForSurvey(SurveyID);
 
-                foreach (Question question in Questions)
-                    if (attitudeController.Contains(question.QuestionID))
-                        ++QuestionsCount;
+                    foreach (Question question in Questions)
+                        if (attitudeController.Contains(question.QuestionID))
+                            ++QuestionsCount;
+                }
             }
 
             if (QuestionsCount > 0)
@@ -299,18 +301,15 @@ namespace EasySurvey
                 result = MaterialMessageBox.Show(TextMessage, "Easy Survey - Delete Surveys", MaterialMessageBox.MessageBoxButtons.YesNo, IconMessage);
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
-            {
-                SurveyController surveyController = new SurveyController();
+                using (SurveyController surveyController = new SurveyController())
+                    foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
+                    {
+                        long SurveyID = Convert.ToInt64(selectedItem.Tag);
 
-                foreach (ListViewItem selectedItem in listView_AllSurveys.SelectedItems)
-                {
-                    long SurveyID = Convert.ToInt64(selectedItem.Tag);
-
-                    Surveys.Remove(Surveys.Find(i => i.SurveyID == SurveyID));
-                    surveyController.Delete(SurveyID);
-                    listView_AllSurveys.Items.Remove(selectedItem);
-                }
-            }
+                        Surveys.Remove(Surveys.Find(i => i.SurveyID == SurveyID));
+                        surveyController.Delete(SurveyID);
+                        listView_AllSurveys.Items.Remove(selectedItem);
+                    }
         }
 
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -318,20 +317,20 @@ namespace EasySurvey
             MaterialMessageInput.MessageBoxResultInput result = MaterialMessageInput.Show("Ce nume are noul chestionar?", "Easy Survey - Add New Survey", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, addSurvey: true);
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
-            {
-                SurveyController surveyController = new SurveyController();
-                string SurveyName = MaterialMessageInput.Answer;
+                using (SurveyController surveyController = new SurveyController())
+                {
+                    string SurveyName = MaterialMessageInput.Answer;
 
-                Survey newSurvey = new Survey { SurveyName = SurveyName };
-                surveyController.Add(ref newSurvey);
-                Surveys.Add(newSurvey);
-                ListViewItem newSurveyItem = new ListViewItem(listView_AllSurveys.Groups["default"]) { Tag = newSurvey.SurveyID.ToString(), Text = newSurvey.SurveyName };
-                listView_AllSurveys.Items.Add(newSurveyItem);
-                int SurveyIndex = listView_AllSurveys.Items.Count - 1;
-                listView_AllSurveys.Items[SurveyIndex].Selected = true;
-                listView_AllSurveys.Items[SurveyIndex].Focused = true;
-                listView_AllSurveys.Items[SurveyIndex].EnsureVisible();
-            }
+                    Survey newSurvey = new Survey { SurveyName = SurveyName };
+                    surveyController.Add(ref newSurvey);
+                    Surveys.Add(newSurvey);
+                    ListViewItem newSurveyItem = new ListViewItem(listView_AllSurveys.Groups["default"]) { Tag = newSurvey.SurveyID.ToString(), Text = newSurvey.SurveyName };
+                    listView_AllSurveys.Items.Add(newSurveyItem);
+                    int SurveyIndex = listView_AllSurveys.Items.Count - 1;
+                    listView_AllSurveys.Items[SurveyIndex].Selected = true;
+                    listView_AllSurveys.Items[SurveyIndex].Focused = true;
+                    listView_AllSurveys.Items[SurveyIndex].EnsureVisible();
+                }
 
         }
 
@@ -360,20 +359,20 @@ namespace EasySurvey
                 result = MaterialMessageInput.Show("Noua intrebare care sa fie adaugata in chestionar:", "Easy Survey - Add New Question", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, addQuestion: true);
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
-            {
-                QuestionController questionController = new QuestionController();
-                string QuestionName = MaterialMessageInput.Answer;
-                // long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
-                Question newQuestion = new Question { Question1 = QuestionName };
-                questionController.Add(ref newQuestion, SurveyID);
+                using (QuestionController questionController = new QuestionController())
+                {
+                    string QuestionName = MaterialMessageInput.Answer;
+                    // long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
+                    Question newQuestion = new Question { Question1 = QuestionName };
+                    questionController.Add(ref newQuestion, SurveyID);
 
-                ListViewItem newQuestionItem = new ListViewItem() { Tag = newQuestion.QuestionID.ToString(), Text = newQuestion.Question1 };
-                listView_EditSurveyQuestions.Items.Add(newQuestionItem);
-                int QuestionIndex = listView_EditSurveyQuestions.Items.Count - 1;
-                listView_EditSurveyQuestions.Items[QuestionIndex].Selected = true;
-                listView_EditSurveyQuestions.Items[QuestionIndex].Focused = true;
-                listView_EditSurveyQuestions.Items[QuestionIndex].EnsureVisible();
-            }
+                    ListViewItem newQuestionItem = new ListViewItem() { Tag = newQuestion.QuestionID.ToString(), Text = newQuestion.Question1 };
+                    listView_EditSurveyQuestions.Items.Add(newQuestionItem);
+                    int QuestionIndex = listView_EditSurveyQuestions.Items.Count - 1;
+                    listView_EditSurveyQuestions.Items[QuestionIndex].Selected = true;
+                    listView_EditSurveyQuestions.Items[QuestionIndex].Focused = true;
+                    listView_EditSurveyQuestions.Items[QuestionIndex].EnsureVisible();
+                }
         }
 
         private void toolStripMenuItem_DeleteQuestions_Click(object sender, EventArgs e)
@@ -385,15 +384,14 @@ namespace EasySurvey
 
             long QuestionCount = 0;
 
-            AttitudeController attitudeController = new AttitudeController();
+            using (AttitudeController attitudeController = new AttitudeController())
+                foreach (ListViewItem selectedItem in listView_EditSurveyQuestions.SelectedItems)
+                {
+                    long QuestionID = Convert.ToInt64(selectedItem.Tag);
 
-            foreach (ListViewItem selectedItem in listView_EditSurveyQuestions.SelectedItems)
-            {
-                long QuestionID = Convert.ToInt64(selectedItem.Tag);
-
-                if (attitudeController.Contains(QuestionID))
-                    QuestionCount++;
-            }
+                    if (attitudeController.Contains(QuestionID))
+                        QuestionCount++;
+                }
 
             if (QuestionCount > 0)
             {
@@ -406,16 +404,15 @@ namespace EasySurvey
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
-                QuestionController questionController = new QuestionController();
+                using (QuestionController questionController = new QuestionController())
+                    foreach (ListViewItem selectedItem in listView_EditSurveyQuestions.SelectedItems)
+                    {
+                        long QuestionID = Convert.ToInt64(selectedItem.Tag);
+                        long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
 
-                foreach (ListViewItem selectedItem in listView_EditSurveyQuestions.SelectedItems)
-                {
-                    long QuestionID = Convert.ToInt64(selectedItem.Tag);
-                    long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag);
-
-                    questionController.Delete(QuestionID, SurveyID);
-                    listView_EditSurveyQuestions.Items.Remove(selectedItem);
-                }
+                        questionController.Delete(QuestionID, SurveyID);
+                        listView_EditSurveyQuestions.Items.Remove(selectedItem);
+                    }
 
             }
         }
@@ -437,16 +434,16 @@ namespace EasySurvey
                 result = MaterialMessageInput.Show("Editeaza intrebarea:", "Easy Survey - Edit Question (" + ++CurrentQuestion + "/" + SelectedQuestionsCount + ")", MaterialMessageInput.MessageBoxButtonsInput.OKCancel, SelectedQuestion.Text, editQuestion: true);
 
                 if (result == MaterialMessageInput.MessageBoxResultInput.OK)
-                {
-                    QuestionController questionController = new QuestionController();
-                    string NewQuestionName = MaterialMessageInput.Answer;
-                    long QuestionID = Convert.ToInt64(SelectedQuestion.Tag.ToString());
+                    using (QuestionController questionController = new QuestionController())
+                    {
+                        string NewQuestionName = MaterialMessageInput.Answer;
+                        long QuestionID = Convert.ToInt64(SelectedQuestion.Tag.ToString());
 
-                    questionController.Update(QuestionID, NewQuestionName);
+                        questionController.Update(QuestionID, NewQuestionName);
 
-                    int QuestionIndex = listView_EditSurveyQuestions.Items.IndexOf(SelectedQuestion);
-                    listView_EditSurveyQuestions.Items[QuestionIndex].Text = NewQuestionName;
-                }
+                        int QuestionIndex = listView_EditSurveyQuestions.Items.IndexOf(SelectedQuestion);
+                        listView_EditSurveyQuestions.Items[QuestionIndex].Text = NewQuestionName;
+                    }
                 else if (result == MaterialMessageInput.MessageBoxResultInput.None)
                 {
                     break;
@@ -487,12 +484,12 @@ namespace EasySurvey
         {
             if (IsSelectedSurveyOriginalNameChanged)
             {
-                SurveyController surveyController = new SurveyController();
-
                 long SurveyID = Convert.ToInt64(txt_EditSurveyDetailsName.Tag.ToString());
                 string NewSurveyName = txt_EditSurveyDetailsName.Text;
 
-                surveyController.UpdateSurveyName(SurveyID, NewSurveyName);
+                using (SurveyController surveyController = new SurveyController())
+                    surveyController.UpdateSurveyName(SurveyID, NewSurveyName);
+
                 int SurveyListItemIndex = -1;
                 foreach (ListViewItem SurveyListItem in listView_AllSurveys.SelectedItems)
                 {
@@ -522,8 +519,8 @@ namespace EasySurvey
 
         private List<Attitude> GetAttitudes()
         {
-            AttitudeController attitudeController = new AttitudeController();
-            return attitudeController.GetAttitudes();
+            using (AttitudeController attitudeController = new AttitudeController())
+                return attitudeController.GetAttitudes();
         }
 
         #region Search Attitude
@@ -548,8 +545,8 @@ namespace EasySurvey
 
             SearchAttitudes = new List<Attitude>();
 
-            AttitudeController attitudeController = new AttitudeController();
-            SearchAttitudes = new List<Attitude>(attitudeController.Search(Attitudes, Query, ref SearchAttitude));
+            using (AttitudeController attitudeController = new AttitudeController())
+                SearchAttitudes = new List<Attitude>(attitudeController.Search(Attitudes, Query, ref SearchAttitude));
 
             UpdateListView(SearchAttitudes, listView_AllAttitudes);
         }
@@ -614,12 +611,11 @@ namespace EasySurvey
         {
             if (IsSelectedAttitudeOriginalNameChanged)
             {
-                AttitudeController attitudeController = new AttitudeController();
-
                 long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
                 string NewAttitudeName = txt_EditAttitudeDetailsName.Text;
 
-                attitudeController.UpdateAttitudeName(AttitudeID, NewAttitudeName);
+                using (AttitudeController attitudeController = new AttitudeController())
+                    attitudeController.UpdateAttitudeName(AttitudeID, NewAttitudeName);
 
                 int AttitudeListItemIndex = -1;
                 foreach (ListViewItem AttitudeListItem in listView_AllAttitudes.SelectedItems)
@@ -686,56 +682,57 @@ namespace EasySurvey
         // START - Update Selected Survey | Attitude
         private void UpdateSelectedSurvey(long SurveyID, ListView listView)
         {
-            SurveyController surveyController = new SurveyController();
-            Survey selectedSurvey = surveyController.Get(SurveyID);
-
-            if (LoggedUser.IsAdministrator())
+            using (SurveyController surveyController = new SurveyController())
             {
-                txt_EditSurveyDetailsName.Text = selectedSurvey.SurveyName;
-                txt_EditSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
+                Survey selectedSurvey = surveyController.Get(SurveyID);
 
-                SelectedSurveyOriginalName = selectedSurvey.SurveyName;
-                IsSelectedSurveyOriginalNameChanged = false;
-            }
-            else
-            {
-                txt_ViewSurveyDetailsName.Text = selectedSurvey.SurveyName;
-                txt_ViewSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
+                if (LoggedUser.IsAdministrator())
+                {
+                    txt_EditSurveyDetailsName.Text = selectedSurvey.SurveyName;
+                    txt_EditSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
+
+                    SelectedSurveyOriginalName = selectedSurvey.SurveyName;
+                    IsSelectedSurveyOriginalNameChanged = false;
+                }
+                else
+                {
+                    txt_ViewSurveyDetailsName.Text = selectedSurvey.SurveyName;
+                    txt_ViewSurveyDetailsName.Tag = selectedSurvey.SurveyID.ToString();
+                }
             }
 
             listView.Clear();
 
-            QuestionController questionController = new QuestionController();
-
-            List<Question> Questions = questionController.GetQuestionsForSurvey(SurveyID);
-            foreach (Question question in Questions)
+            using (QuestionController questionController = new QuestionController())
             {
-                listView.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
+                List<Question> Questions = questionController.GetQuestionsForSurvey(SurveyID);
+                foreach (Question question in Questions)
+                    listView.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
             }
         }
 
         private void UpdateSelectedAttitude(long AttitudeID, ListView listView)
         {
-            AttitudeController attitudeController = new AttitudeController();
-            Attitude selectedAttitude = attitudeController.GetAttitude(AttitudeID);
-
-            if (LoggedUser.IsAdministrator())
+            using (AttitudeController attitudeController = new AttitudeController())
             {
-                txt_EditAttitudeDetailsName.Text = selectedAttitude.AttitudeName;
-                txt_EditAttitudeDetailsName.Tag = selectedAttitude.AttitudeID.ToString();
+                Attitude selectedAttitude = attitudeController.GetAttitude(AttitudeID);
+                if (LoggedUser.IsAdministrator())
+                {
+                    txt_EditAttitudeDetailsName.Text = selectedAttitude.AttitudeName;
+                    txt_EditAttitudeDetailsName.Tag = selectedAttitude.AttitudeID.ToString();
 
-                SelectedAttitudeOriginalName = selectedAttitude.AttitudeName;
-                IsSelectedAttitudeOriginalNameChanged = false;
+                    SelectedAttitudeOriginalName = selectedAttitude.AttitudeName;
+                    IsSelectedAttitudeOriginalNameChanged = false;
+                }
             }
 
             listView.Clear();
 
-            QuestionController questionController = new QuestionController();
-
-            List<Question> Questions = questionController.GetQuestionsForAttitude(AttitudeID);
-            foreach (Question question in Questions)
+            using (QuestionController questionController = new QuestionController())
             {
-                listView.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
+                List<Question> Questions = questionController.GetQuestionsForAttitude(AttitudeID);
+                foreach (Question question in Questions)
+                    listView.Items.Add(new ListViewItem(question.Question1) { Tag = question.QuestionID });
             }
         }
         // END - Update Selected Survey | Attitude
@@ -774,11 +771,11 @@ namespace EasySurvey
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
             {
-                AttitudeController attitudeController = new AttitudeController();
                 string AttitudeName = MaterialMessageInput.Answer;
 
                 Attitude newAttitude = new Attitude { AttitudeName = AttitudeName };
-                attitudeController.Add(ref newAttitude);
+                using (AttitudeController attitudeController = new AttitudeController())
+                    attitudeController.Add(ref newAttitude);
                 Attitudes.Add(newAttitude);
 
                 ListViewItem newAttitudeItem = new ListViewItem(listView_AllAttitudes.Groups["default"]) { Tag = newAttitude.AttitudeID.ToString(), Text = newAttitude.AttitudeName };
@@ -801,18 +798,15 @@ namespace EasySurvey
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
-                AttitudeController attitudeController = new AttitudeController();
+                using (AttitudeController attitudeController = new AttitudeController())
+                    foreach (ListViewItem selectedItem in listView_AllAttitudes.SelectedItems)
+                    {
+                        long AttitudeID = Convert.ToInt64(selectedItem.Tag);
 
-                foreach (ListViewItem selectedItem in listView_AllAttitudes.SelectedItems)
-                {
-                    long AttitudeID = Convert.ToInt64(selectedItem.Tag);
-
-                    Attitudes.Remove(Attitudes.Find(i => i.AttitudeID == AttitudeID));
-                    attitudeController.Delete(AttitudeID);
-                    listView_AllAttitudes.Items.Remove(selectedItem);
-                }
-
-
+                        Attitudes.Remove(Attitudes.Find(i => i.AttitudeID == AttitudeID));
+                        attitudeController.Delete(AttitudeID);
+                        listView_AllAttitudes.Items.Remove(selectedItem);
+                    }
             }
         }
 
@@ -826,16 +820,15 @@ namespace EasySurvey
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
-                AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
+                using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController())
+                    foreach (ListViewItem selectedItem in listView_EditAttitudeDefinition.SelectedItems)
+                    {
+                        long QuestionID = Convert.ToInt64(selectedItem.Tag);
+                        long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
 
-                foreach (ListViewItem selectedItem in listView_EditAttitudeDefinition.SelectedItems)
-                {
-                    long QuestionID = Convert.ToInt64(selectedItem.Tag);
-                    long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
-
-                    attitudeDefinitionController.Delete(QuestionID, AttitudeID);
-                    listView_EditAttitudeDefinition.Items.Remove(selectedItem);
-                }
+                        attitudeDefinitionController.Delete(QuestionID, AttitudeID);
+                        listView_EditAttitudeDefinition.Items.Remove(selectedItem);
+                    }
 
             }
         }
@@ -854,13 +847,14 @@ namespace EasySurvey
                 //long NewSurveyID = MaterialMessageComboBox.Answer1;
                 long NewQuestionID = MaterialMessageComboBox.Answer2;
 
-                QuestionController questionController = new QuestionController();
-                string QuestionName = questionController.Get(NewQuestionID).Question1;
-                AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
-
-                if (attitudeDefinitionController.AddRelation(AttitudeID, NewQuestionID))
+                using (QuestionController questionController = new QuestionController())
+                using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController())
                 {
-                    listView_EditAttitudeDefinition.Items.Add(new ListViewItem() { Text = QuestionName, Tag = NewQuestionID });
+                    string QuestionName = questionController.Get(NewQuestionID).Question1;
+                    if (attitudeDefinitionController.AddRelation(AttitudeID, NewQuestionID))
+                    {
+                        listView_EditAttitudeDefinition.Items.Add(new ListViewItem() { Text = QuestionName, Tag = NewQuestionID });
+                    }
                 }
             }
 
@@ -876,39 +870,41 @@ namespace EasySurvey
 
             int CurrentAttitudeDefinition = 0;
 
-            SurveyController surveyController = new SurveyController();
-            QuestionController questionController = new QuestionController();
-
-            long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
-            long SurveyID = -1;
-            long QuestionID = -1;
-
-            foreach (ListViewItem SelectedAttitudeDefinition in listView_EditAttitudeDefinition.SelectedItems)
+            using (SurveyController surveyController = new SurveyController())
+            using (QuestionController questionController = new QuestionController())
             {
-                QuestionID = Convert.ToInt64(SelectedAttitudeDefinition.Tag);
-                SurveyID = surveyController.GetByQuestion(QuestionID).SurveyID;
 
-                result = MaterialMessageComboBox.MessageBoxResult.None;
-                result = MaterialMessageComboBox.Show("Editeaza definitia atitudinii:", "Easy Survey - Edit Attitude Definition (" + ++CurrentAttitudeDefinition + "/" + SelectedAttitudeDefinitionCount + ")", MaterialMessageComboBox.MessageBoxButtons.OKCancel, AttitudeID, SurveyID, QuestionID);
+                long AttitudeID = Convert.ToInt64(txt_EditAttitudeDetailsName.Tag);
+                long SurveyID = -1;
+                long QuestionID = -1;
 
-                if (result == MaterialMessageComboBox.MessageBoxResult.OK)
+                foreach (ListViewItem SelectedAttitudeDefinition in listView_EditAttitudeDefinition.SelectedItems)
                 {
-                    AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
+                    QuestionID = Convert.ToInt64(SelectedAttitudeDefinition.Tag);
+                    SurveyID = surveyController.GetByQuestion(QuestionID).SurveyID;
 
-                    long NewSurveyID = MaterialMessageComboBox.Answer1;
-                    long NewQuestionID = MaterialMessageComboBox.Answer2;
+                    result = MaterialMessageComboBox.MessageBoxResult.None;
+                    result = MaterialMessageComboBox.Show("Editeaza definitia atitudinii:", "Easy Survey - Edit Attitude Definition (" + ++CurrentAttitudeDefinition + "/" + SelectedAttitudeDefinitionCount + ")", MaterialMessageComboBox.MessageBoxButtons.OKCancel, AttitudeID, SurveyID, QuestionID);
 
-                    attitudeDefinitionController.Update(AttitudeID, QuestionID, NewQuestionID);
+                    if (result == MaterialMessageComboBox.MessageBoxResult.OK)
+                    {
+                        AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
 
-                    string NewQuestionName = questionController.Get(NewQuestionID).Question1;
+                        long NewSurveyID = MaterialMessageComboBox.Answer1;
+                        long NewQuestionID = MaterialMessageComboBox.Answer2;
 
-                    int AttitudeDefinitionIndex = listView_EditAttitudeDefinition.Items.IndexOf(SelectedAttitudeDefinition);
-                    listView_EditAttitudeDefinition.Items[AttitudeDefinitionIndex].Text = NewQuestionName;
-                    listView_EditAttitudeDefinition.Items[AttitudeDefinitionIndex].Tag = NewQuestionID;
-                }
-                else if (result == MaterialMessageComboBox.MessageBoxResult.None)
-                {
-                    break;
+                        attitudeDefinitionController.Update(AttitudeID, QuestionID, NewQuestionID);
+
+                        string NewQuestionName = questionController.Get(NewQuestionID).Question1;
+
+                        int AttitudeDefinitionIndex = listView_EditAttitudeDefinition.Items.IndexOf(SelectedAttitudeDefinition);
+                        listView_EditAttitudeDefinition.Items[AttitudeDefinitionIndex].Text = NewQuestionName;
+                        listView_EditAttitudeDefinition.Items[AttitudeDefinitionIndex].Tag = NewQuestionID;
+                    }
+                    else if (result == MaterialMessageComboBox.MessageBoxResult.None)
+                    {
+                        break;
+                    }
                 }
             }
         }
@@ -970,12 +966,14 @@ namespace EasySurvey
 
             if (Username == "*" || SelectedIndex == -1) return;
 
-            UserController userController = new UserController();
-            UserModelDataTransferObject SelectedUser = userController.GetUserByName(Username);
+            UserModelDataTransferObject SelectedUser;
+            using (UserController userController = new UserController())
+                SelectedUser = userController.GetUserByName(Username);
             long UserID = SelectedUser.UserID;
 
-            ResultController resultController = new ResultController();
-            List<Result> UserResults = resultController.GetForUser(UserID);
+            List<Result> UserResults;
+            using (ResultController resultController = new ResultController())
+                UserResults = resultController.GetForUser(UserID);
 
             UserResults = UserResults.OrderBy(r => r.SurveyID).ThenByDescending(r => r.Date).ToList();
 
@@ -999,60 +997,62 @@ namespace EasySurvey
             UsedSurveyID = null;
 
             //Calculate Attitude Score
-            AttitudeController attitudeController = new AttitudeController();
-            AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController();
-            ResultDefinitionController resultDefinitionController = new ResultDefinitionController();
-            List<Attitude> attitudes = attitudeController.GetAttitudes();
-
-            listView_AttitudeReports.Items.Clear();
-
-            foreach (Attitude attitude in attitudes)
+            using (AttitudeController attitudeController = new AttitudeController())
+            using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController())
+            using (ResultDefinitionController resultDefinitionController = new ResultDefinitionController())
             {
-                long AttitudeSum = 0;
-                bool Found = false;
+                List<Attitude> attitudes = attitudeController.GetAttitudes();
 
-                List<AttitudeDefinition> attitudeDefinitions = attitudeDefinitionController.GetRelation(attitude.AttitudeID);
-                foreach (AttitudeDefinition attitudeDefinition in attitudeDefinitions)
+                listView_AttitudeReports.Items.Clear();
+
+                foreach (Attitude attitude in attitudes)
                 {
-                    long QuestionID = attitudeDefinition.QuestionID;
+                    long AttitudeSum = 0;
+                    bool Found = false;
 
-
-                    foreach (Result result in LastUserReports)
+                    List<AttitudeDefinition> attitudeDefinitions = attitudeDefinitionController.GetRelation(attitude.AttitudeID);
+                    foreach (AttitudeDefinition attitudeDefinition in attitudeDefinitions)
                     {
-                        List<ResultDefinition> resultDefinitions = resultDefinitionController.Get(result.ResultID);
-                        Found = false;
-                        foreach (ResultDefinition resultDefinition in resultDefinitions)
-                            if (resultDefinition.QuestionID == QuestionID)
-                            {
-                                AttitudeSum += resultDefinition.ResultAnswer;
-                                Found = true;
-                                break;
-                            }
-                        if (Found) break;
-                    }
+                        long QuestionID = attitudeDefinition.QuestionID;
 
-                    string SurveyName = surveyController.GetByQuestion(QuestionID).SurveyName;
 
-                    if (!Found)
-                    {
-                        listView_AttitudeReports.Items.Add(
-                                  new ListViewItem(listView_AttitudeReports.Groups["default"])
-                                  {
-                                      ForeColor = Color.Red,
-                                      Text = attitude.AttitudeName + " - requires '" + SurveyName + "'",
-                                      Tag = attitude.AttitudeID
-                                  });
-                        break;
-                    }
-                }
-
-                if (Found)
-                    listView_AttitudeReports.Items.Add(
-                        new ListViewItem(listView_AttitudeReports.Groups["default"])
+                        foreach (Result result in LastUserReports)
                         {
-                            Text = attitude.AttitudeName + " - " + AttitudeSum,
-                            Tag = attitude.AttitudeID
-                        });
+                            List<ResultDefinition> resultDefinitions = resultDefinitionController.Get(result.ResultID);
+                            Found = false;
+                            foreach (ResultDefinition resultDefinition in resultDefinitions)
+                                if (resultDefinition.QuestionID == QuestionID)
+                                {
+                                    AttitudeSum += resultDefinition.ResultAnswer;
+                                    Found = true;
+                                    break;
+                                }
+                            if (Found) break;
+                        }
+
+                        string SurveyName = surveyController.GetByQuestion(QuestionID).SurveyName;
+
+                        if (!Found)
+                        {
+                            listView_AttitudeReports.Items.Add(
+                                      new ListViewItem(listView_AttitudeReports.Groups["default"])
+                                      {
+                                          ForeColor = Color.Red,
+                                          Text = attitude.AttitudeName + " - requires '" + SurveyName + "'",
+                                          Tag = attitude.AttitudeID
+                                      });
+                            break;
+                        }
+                    }
+
+                    if (Found)
+                        listView_AttitudeReports.Items.Add(
+                            new ListViewItem(listView_AttitudeReports.Groups["default"])
+                            {
+                                Text = attitude.AttitudeName + " - " + AttitudeSum,
+                                Tag = attitude.AttitudeID
+                            });
+                }
             }
         }
 
@@ -1076,14 +1076,13 @@ namespace EasySurvey
 
             if (result == MaterialMessageBox.MessageBoxResult.Yes)
             {
-                ResultController resultController = new ResultController();
-
-                foreach (ListViewItem reportItem in SelectedUserReports)
-                {
-                    long ResultID = Convert.ToInt64(reportItem.Tag);
-                    resultController.Delete(ResultID);
-                    listView_UserReports.Items.Remove(reportItem);
-                }
+                using (ResultController resultController = new ResultController())
+                    foreach (ListViewItem reportItem in SelectedUserReports)
+                    {
+                        long ResultID = Convert.ToInt64(reportItem.Tag);
+                        resultController.Delete(ResultID);
+                        listView_UserReports.Items.Remove(reportItem);
+                    }
                 RefreshReports();
             }
         }

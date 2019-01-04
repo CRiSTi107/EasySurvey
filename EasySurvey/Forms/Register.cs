@@ -57,18 +57,18 @@ namespace EasySurvey
         private KeyValuePair<bool, string> Validate(string Username)
         {
             KeyValuePair<bool, string> validation = new KeyValuePair<bool, string>(false, "Username is avabile");
-            UserController userController = new UserController();
 
-            if (Username == String.Empty || Username.Trim() == String.Empty)
-                validation = new KeyValuePair<bool, string>(true, "Username cannot be empty");
-            else if (Username.Length <= 2)
-                validation = new KeyValuePair<bool, string>(true, "Username must be atleast 3 characters long");
-            else if (Username.First() == ' ' || Username.Last() == ' ')
-                validation = new KeyValuePair<bool, string>(true, "Username cannot start/end with a space");
-            else if (new Regex(@"\s{2,}").IsMatch(Username))
-                validation = new KeyValuePair<bool, string>(true, "Username cannot contain more than 2 consecutive spaces");
-            else if (userController.Exists(Username) != null)
-                validation = new KeyValuePair<bool, string>(true, "Username already exists");
+            using (UserController userController = new UserController())
+                if (Username == String.Empty || Username.Trim() == String.Empty)
+                    validation = new KeyValuePair<bool, string>(true, "Username cannot be empty");
+                else if (Username.Length <= 2)
+                    validation = new KeyValuePair<bool, string>(true, "Username must be atleast 3 characters long");
+                else if (Username.First() == ' ' || Username.Last() == ' ')
+                    validation = new KeyValuePair<bool, string>(true, "Username cannot start/end with a space");
+                else if (new Regex(@"\s{2,}").IsMatch(Username))
+                    validation = new KeyValuePair<bool, string>(true, "Username cannot contain more than 2 consecutive spaces");
+                else if (userController.Exists(Username) != null)
+                    validation = new KeyValuePair<bool, string>(true, "Username already exists");
 
             return validation;
         }
@@ -84,12 +84,11 @@ namespace EasySurvey
 
             //txt_Username_TextChanged(sender, e);
 
-            UserController userController = new UserController();
-
-            if (userController.AddUser(Username))
-            { MessageBox.Show("Account succesfully created!", "Easy Survey - Register", MessageBoxButtons.OK, MessageBoxIcon.Information); base.Close(); }
-            else
-            { MessageBox.Show("Could not create user", "Easy Survey - Register", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            using (UserController userController = new UserController())
+                if (userController.AddUser(Username))
+                { MessageBox.Show("Account succesfully created!", "Easy Survey - Register", MessageBoxButtons.OK, MessageBoxIcon.Information); base.Close(); }
+                else
+                { MessageBox.Show("Could not create user", "Easy Survey - Register", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         private void txt_Username_TextChanged(object sender, EventArgs e)

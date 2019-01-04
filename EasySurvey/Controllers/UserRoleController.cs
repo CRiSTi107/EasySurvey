@@ -6,18 +6,16 @@ using System.Text;
 
 namespace EasySurvey.Controllers
 {
-    public class UserRoleController
+    public class UserRoleController : BaseController
     {
-        private Database DatabaseModel;
-
         public UserRoleController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public UserRoleController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public UserRole Get(long UserID)

@@ -245,34 +245,38 @@ namespace EasySurvey
 
         private void btn_MeSaveChanges_Click(object sender, EventArgs e)
         {
-            UserController userController = new UserController();
-            long UserID = LoggedUser.UserID;
             string ErrorMessage = String.Empty;
 
-            if (!ProtectUserByPassword)
+            using (UserController userController = new UserController())
             {
-                userController.UpdatePassword(LoggedUser.UserID, null);
-                LoggedUser = userController.GetUserByID(UserID);
-            }
-            else
-            {
-                string CurrentPassword = SHA256.Hash(txt_CurrentPassword.Text);
-                string NewPassword = txt_NewPassword.Text;
-                string ReTypeNewPassword = txt_ReTypeNewPassword.Text;
+                long UserID = LoggedUser.UserID;
+                ErrorMessage = String.Empty;
 
-                if (CurrentPassword != String.Empty || LoggedUser.UserPassword == null)
-                    if (CurrentPassword == LoggedUser.UserPassword || LoggedUser.UserPassword == null)
-                        if (NewPassword != String.Empty)
-                            if (NewPassword.Equals(ReTypeNewPassword))
-                            {
-                                NewPassword = SHA256.Hash(NewPassword);
-                                userController.UpdatePassword(LoggedUser.UserID, NewPassword);
-                                LoggedUser = userController.GetUserByID(UserID);
-                            }
-                            else ErrorMessage = "The new passwords are not the same";
-                        else ErrorMessage = "New password cannot be empty";
-                    else ErrorMessage = "Current password do not match";
-                else ErrorMessage = "Current password cannot be empty";
+                if (!ProtectUserByPassword)
+                {
+                    userController.UpdatePassword(LoggedUser.UserID, null);
+                    LoggedUser = userController.GetUserByID(UserID);
+                }
+                else
+                {
+                    string CurrentPassword = SHA256.Hash(txt_CurrentPassword.Text);
+                    string NewPassword = txt_NewPassword.Text;
+                    string ReTypeNewPassword = txt_ReTypeNewPassword.Text;
+
+                    if (CurrentPassword != String.Empty || LoggedUser.UserPassword == null)
+                        if (CurrentPassword == LoggedUser.UserPassword || LoggedUser.UserPassword == null)
+                            if (NewPassword != String.Empty)
+                                if (NewPassword.Equals(ReTypeNewPassword))
+                                {
+                                    NewPassword = SHA256.Hash(NewPassword);
+                                    userController.UpdatePassword(LoggedUser.UserID, NewPassword);
+                                    LoggedUser = userController.GetUserByID(UserID);
+                                }
+                                else ErrorMessage = "The new passwords are not the same";
+                            else ErrorMessage = "New password cannot be empty";
+                        else ErrorMessage = "Current password do not match";
+                    else ErrorMessage = "Current password cannot be empty";
+                }
             }
 
 
@@ -324,8 +328,9 @@ namespace EasySurvey
         {
             listView_Users.Items.Clear();
 
-            UserController userController = new UserController();
-            List<UserModelDataTransferObject> users = userController.GetUsers();
+            List<UserModelDataTransferObject> users;
+            using (UserController userController = new UserController())
+                users = userController.GetUsers();
 
             foreach (UserModelDataTransferObject user in users)
             {
@@ -357,60 +362,61 @@ namespace EasySurvey
             if (SelectedUsersCount == 0) return;
 
             IEnumerable<ListViewItem> SelectedUsers = listView_Users.SelectedItems.Cast<ListViewItem>();
-            UserController userController = new UserController();
-            RoleController roleController = new RoleController();
-
-            // Check if Admin selected all Admins to be deleted.
-            long AdminRoleID = roleController.GetRoleID("Admin");
-            List<UserModelDataTransferObject> AdminsList = userController.GetUsersByRoleID(AdminRoleID);
-            long AdminCount = AdminsList.Count;
-            long SelectedAdminCount = 0;
-            foreach (ListViewItem item in SelectedUsers)
+            using (UserController userController = new UserController())
+            using (RoleController roleController = new RoleController())
             {
-                long UserID = Convert.ToInt64(item.Tag);
-                UserModelDataTransferObject SelectedUser = userController.GetUserByID(UserID);
-                if (SelectedUser.IsAdministrator())
-                    ++SelectedAdminCount;
-            }
-            if (AdminCount == SelectedAdminCount)
-            {
-                MaterialMessageBox.Show("You cannot delete all Administrators.", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
-                return;
-            }
-
-            // Check if Admin selected his account to de deleted.
-            bool SelectedSelfAccount = false;
-            foreach (ListViewItem item in SelectedUsers)
-            {
-                long UserID = Convert.ToInt64(item.Tag);
-                if (LoggedUser.UserID == UserID)
-                { SelectedSelfAccount = true; break; }
-            }
-            if (SelectedSelfAccount)
-            {
-                MaterialMessageBox.Show("You cannot delete your own account.", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
-                return;
-            }
-
-            // Delete selected users.
-            MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
-            result = MaterialMessageBox.Show("Are you sure you want to delete all " + SelectedUsersCount + " selected users?", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
-
-            if (result == MaterialMessageBox.MessageBoxResult.Yes)
-            {
+                // Check if Admin selected all Admins to be deleted.
+                long AdminRoleID = roleController.GetRoleID("Admin");
+                List<UserModelDataTransferObject> AdminsList = userController.GetUsersByRoleID(AdminRoleID);
+                long AdminCount = AdminsList.Count;
+                long SelectedAdminCount = 0;
                 foreach (ListViewItem item in SelectedUsers)
                 {
                     long UserID = Convert.ToInt64(item.Tag);
+                    UserModelDataTransferObject SelectedUser = userController.GetUserByID(UserID);
+                    if (SelectedUser.IsAdministrator())
+                        ++SelectedAdminCount;
+                }
+                if (AdminCount == SelectedAdminCount)
+                {
+                    MaterialMessageBox.Show("You cannot delete all Administrators.", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                    return;
+                }
 
-                    // Delete from Database
-                    userController.Delete(UserID);
+                // Check if Admin selected his account to de deleted.
+                bool SelectedSelfAccount = false;
+                foreach (ListViewItem item in SelectedUsers)
+                {
+                    long UserID = Convert.ToInt64(item.Tag);
+                    if (LoggedUser.UserID == UserID)
+                    { SelectedSelfAccount = true; break; }
+                }
+                if (SelectedSelfAccount)
+                {
+                    MaterialMessageBox.Show("You cannot delete your own account.", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                    return;
+                }
 
-                    // Delete from ListView
-                    foreach (ListViewItem listViewItemToDelete in listView_Users.SelectedItems)
+                // Delete selected users.
+                MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
+                result = MaterialMessageBox.Show("Are you sure you want to delete all " + SelectedUsersCount + " selected users?", "Easy Survey - Delete Users", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Warning);
+
+                if (result == MaterialMessageBox.MessageBoxResult.Yes)
+                {
+                    foreach (ListViewItem item in SelectedUsers)
                     {
-                        long ListViewUserID = Convert.ToInt64(listViewItemToDelete.Tag);
-                        if (UserID == ListViewUserID)
-                            listView_Users.Items.Remove(listViewItemToDelete);
+                        long UserID = Convert.ToInt64(item.Tag);
+
+                        // Delete from Database
+                        userController.Delete(UserID);
+
+                        // Delete from ListView
+                        foreach (ListViewItem listViewItemToDelete in listView_Users.SelectedItems)
+                        {
+                            long ListViewUserID = Convert.ToInt64(listViewItemToDelete.Tag);
+                            if (UserID == ListViewUserID)
+                                listView_Users.Items.Remove(listViewItemToDelete);
+                        }
                     }
                 }
             }
@@ -420,21 +426,20 @@ namespace EasySurvey
         {
             long SelectedUsers = listView_Users.SelectedItems.Count;
 
-            UserController userController = new UserController();
-
             // Promote / Demote ...
             bool Promote = false;
             bool Demote = false;
 
-            foreach (ListViewItem item in listView_Users.SelectedItems)
-            {
-                long UserID = Convert.ToInt64(item.Tag);
-                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
-                if (CurrentUser.IsAdministrator())
-                    Demote = true;
-                else
-                    Promote = true;
-            }
+            using (UserController userController = new UserController())
+                foreach (ListViewItem item in listView_Users.SelectedItems)
+                {
+                    long UserID = Convert.ToInt64(item.Tag);
+                    UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                    if (CurrentUser.IsAdministrator())
+                        Demote = true;
+                    else
+                        Promote = true;
+                }
 
             if (Promote == Demote)
             {
@@ -465,7 +470,9 @@ namespace EasySurvey
             foreach (ListViewItem item in listView_Users.SelectedItems)
             {
                 long UserID = Convert.ToInt64(item.Tag);
-                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                UserModelDataTransferObject CurrentUser;
+                using (UserController userController = new UserController())
+                    CurrentUser = userController.GetUserByID(UserID);
                 if (CurrentUser.UserPassword == null)
                     New = true;
                 else
@@ -491,17 +498,16 @@ namespace EasySurvey
             MaterialMessageBox.MessageBoxResult result = MaterialMessageBox.MessageBoxResult.None;
             result = MaterialMessageBox.Show("Are you sure you want to remove password protection for all selected users?", "Easy Survey - Manage Users", MaterialMessageBox.MessageBoxButtons.YesNo, MaterialMessageBox.MessageBoxIcon.Information);
 
-            UserController userController = new UserController();
-
-            if (result == MaterialMessageBox.MessageBoxResult.Yes)
-            {
-                foreach (ListViewItem item in listView_Users.SelectedItems)
+            using (UserController userController = new UserController())
+                if (result == MaterialMessageBox.MessageBoxResult.Yes)
                 {
-                    long UserID = Convert.ToInt64(item.Tag);
-                    userController.UpdatePassword(UserID, null);
-                    item.ForeColor = Color.Red;
+                    foreach (ListViewItem item in listView_Users.SelectedItems)
+                    {
+                        long UserID = Convert.ToInt64(item.Tag);
+                        userController.UpdatePassword(UserID, null);
+                        item.ForeColor = Color.Red;
+                    }
                 }
-            }
         }
 
         // Change / New password protection
@@ -519,17 +525,16 @@ namespace EasySurvey
 
             if (result == MaterialMessageInput.MessageBoxResultInput.OK)
             {
-                UserController userController = new UserController();
-
                 string NewPlainPassword = MaterialMessageInput.Answer;
                 string NewPassword = SHA256.Hash(NewPlainPassword);
 
-                foreach (ListViewItem item in listView_Users.SelectedItems)
-                {
-                    long UserID = Convert.ToInt64(item.Tag);
-                    userController.UpdatePassword(UserID, NewPassword);
-                    item.ForeColor = Color.Black;
-                }
+                using (UserController userController = new UserController())
+                    foreach (ListViewItem item in listView_Users.SelectedItems)
+                    {
+                        long UserID = Convert.ToInt64(item.Tag);
+                        userController.UpdatePassword(UserID, NewPassword);
+                        item.ForeColor = Color.Black;
+                    }
             }
         }
 
@@ -539,25 +544,30 @@ namespace EasySurvey
             int SelectedUsersCount = listView_Users.SelectedItems.Count;
             if (SelectedUsersCount == 0) return;
 
+            long AdminCount;
+            long SelectedAdminCount;
 
-            UserController userController = new UserController();
-            RoleController roleController = new RoleController();
+            long AdminRoleID;
+            long UserRoleID;
 
-            long AdminRoleID = roleController.GetRoleID("Admin");
-            long UserRoleID = roleController.GetRoleID("User");
-
-
-            // Check if Admin want to demote all Admins
-            List<UserModelDataTransferObject> AdminsList = userController.GetUsersByRoleID(AdminRoleID);
-            long AdminCount = AdminsList.Count;
-            long SelectedAdminCount = 0;
-
-            foreach (ListViewItem item in listView_Users.SelectedItems)
+            using (UserController userController = new UserController())
+            using (RoleController roleController = new RoleController())
             {
-                long UserID = Convert.ToInt64(item.Tag);
-                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
-                if (CurrentUser.IsAdministrator())
-                    ++SelectedAdminCount;
+                AdminRoleID = roleController.GetRoleID("Admin");
+                UserRoleID = roleController.GetRoleID("User");
+
+                // Check if Admin want to demote all Admins
+                List<UserModelDataTransferObject> AdminsList = userController.GetUsersByRoleID(AdminRoleID);
+                AdminCount = AdminsList.Count;
+                SelectedAdminCount = 0;
+
+                foreach (ListViewItem item in listView_Users.SelectedItems)
+                {
+                    long UserID = Convert.ToInt64(item.Tag);
+                    UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                    if (CurrentUser.IsAdministrator())
+                        ++SelectedAdminCount;
+                }
             }
 
             if (AdminCount == SelectedAdminCount && AdminCount == listView_Users.SelectedItems.Count)
@@ -582,24 +592,24 @@ namespace EasySurvey
             }
 
             // Demote / Promote selected users.
-            UserRoleController userRoleController = new UserRoleController();
-
-            foreach (ListViewItem item in listView_Users.SelectedItems)
-            {
-                long UserID = Convert.ToInt64(item.Tag);
-                UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
-                if (CurrentUser.IsAdministrator()) // Demote to standard user.
+            using (UserController userController = new UserController())
+            using (UserRoleController userRoleController = new UserRoleController())
+                foreach (ListViewItem item in listView_Users.SelectedItems)
                 {
-                    userRoleController.SetUserRole(UserID, UserRoleID);
-                    item.Group = listView_Users.Groups["User"];
-                }
-                else if (!CurrentUser.IsAdministrator()) // Promote to admin.
-                {
-                    userRoleController.SetUserRole(UserID, AdminRoleID);
-                    item.Group = listView_Users.Groups["Administrator"];
-                }
+                    long UserID = Convert.ToInt64(item.Tag);
+                    UserModelDataTransferObject CurrentUser = userController.GetUserByID(UserID);
+                    if (CurrentUser.IsAdministrator()) // Demote to standard user.
+                    {
+                        userRoleController.SetUserRole(UserID, UserRoleID);
+                        item.Group = listView_Users.Groups["User"];
+                    }
+                    else if (!CurrentUser.IsAdministrator()) // Promote to admin.
+                    {
+                        userRoleController.SetUserRole(UserID, AdminRoleID);
+                        item.Group = listView_Users.Groups["Administrator"];
+                    }
 
-            }
+                }
         }
 
         #endregion
@@ -667,8 +677,9 @@ namespace EasySurvey
 
         private void pic_Backup_Click(object sender, EventArgs e)
         {
-            Database DB = new Database();
-            string DatabaseBackupName = DB.Backup(Database.BackupReason.User);
+            string DatabaseBackupName;
+            using (Database DB = new Database())
+                DatabaseBackupName = DB.Backup(Database.BackupReason.User);
 
             MaterialMessageBox.Show("Backup has been saved with name " + DatabaseBackupName, "Easy Survey - Database backup", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
         }
@@ -683,23 +694,30 @@ namespace EasySurvey
 
             DialogResult Result = openFileDialog_Restore.ShowDialog();
 
-            Database DB = new Database();
 
             if (Result == DialogResult.OK)
             {
                 string RestoreBackupPath = openFileDialog_Restore.FileName;
-                DB.Restore(RestoreBackupPath);
-                MaterialMessageBox.Show("Database Backup has been restored successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Restore", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
-                Program.frm_MainForm.Close();
-                base.Close();
+                try
+                {
+                    using (Database DB = new Database())
+                        DB.Restore(RestoreBackupPath);
+                    MaterialMessageBox.Show("Database Backup has been restored successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Restore", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
+                    Program.frm_MainForm.Close();
+                    base.Close();
+                }
+                catch (Exception ex)
+                {
+                    MaterialMessageBox.Show(ex.ToString(), "Easy Survey - Database Restore", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                }
             }
         }
 
         private void pic_Export_Click(object sender, EventArgs e)
         {
-            Database DB = new Database();
-            string DatabaseExportName = DB.Export();
-
+            string DatabaseExportName;
+            using (Database DB = new Database())
+                DatabaseExportName = DB.Export();
             MaterialMessageBox.Show("Database has been exported with name " + DatabaseExportName, "Easy Survey - Database export", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
         }
 
@@ -709,17 +727,16 @@ namespace EasySurvey
 
             DialogResult Result = openFileDialog_Import.ShowDialog();
 
-            Database DB = new Database();
-
-            if (Result == DialogResult.OK)
-            {
-                string ImportDatabasePath = openFileDialog_Import.FileName;
-                ImportDatabasePath = Path.GetFullPath(ImportDatabasePath);
-                DB.Import(ImportDatabasePath);
-                MaterialMessageBox.Show("Database has been imported successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
-                Program.frm_MainForm.Close();
-                base.Close();
-            }
+            using (Database DB = new Database())
+                if (Result == DialogResult.OK)
+                {
+                    string ImportDatabasePath = openFileDialog_Import.FileName;
+                    ImportDatabasePath = Path.GetFullPath(ImportDatabasePath);
+                    DB.Import(ImportDatabasePath);
+                    MaterialMessageBox.Show("Database has been imported successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
+                    Program.frm_MainForm.Close();
+                    base.Close();
+                }
         }
 
         #endregion

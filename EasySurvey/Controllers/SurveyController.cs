@@ -6,18 +6,16 @@ using System.Text;
 
 namespace EasySurvey.Controllers
 {
-    public class SurveyController
+    public class SurveyController : BaseController
     {
-        private Database DatabaseModel;
-
         public SurveyController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public SurveyController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public List<Survey> GetAll()
@@ -103,8 +101,8 @@ namespace EasySurvey.Controllers
         {
             Survey surveyToDelete = (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();
 
-            QuestionController questionController = new QuestionController();
-            questionController.DeleteAll(SurveyID);
+            using (QuestionController questionController = new QuestionController(DatabaseModel))
+                questionController.DeleteAll(SurveyID);
 
             DatabaseModel.Survey.Remove(surveyToDelete);
             DatabaseModel.SaveChanges();

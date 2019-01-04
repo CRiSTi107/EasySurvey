@@ -6,18 +6,16 @@ using System.Text;
 
 namespace EasySurvey.Controllers
 {
-    public class ResultDefinitionController
+    public class ResultDefinitionController : BaseController
     {
-        private Database DatabaseModel;
-
         public ResultDefinitionController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public ResultDefinitionController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public void Add(ResultDefinition resultDefinition)

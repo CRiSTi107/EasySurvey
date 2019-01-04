@@ -22,8 +22,11 @@ namespace EasySurvey.Models
 
         public override string ToString()
         {
-            string SurveyName = (new DatabaseEntity()).Survey.Where(item => item.SurveyID == SurveyID).First().SurveyName;
-            return "[" + Date + "] " + SurveyName;
+            using (Database DB = new Database())
+            {
+                string SurveyName = DB.Survey.Where(item => item.SurveyID == SurveyID).First().SurveyName;
+                return "[" + Date + "] " + SurveyName;
+            }
         }
     }
 }

@@ -16,8 +16,9 @@ namespace EasySurvey.Models
 
         public bool IsAdministrator()
         {
-            RoleController roleController = new RoleController();
-            long AdminRoleID = roleController.GetRoleID("Admin");
+            long AdminRoleID;
+            using (RoleController roleController = new RoleController())
+                AdminRoleID = roleController.GetRoleID("Admin");
             return (this.RoleID == AdminRoleID) ? true : false;
         }
     }

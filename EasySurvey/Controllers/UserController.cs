@@ -6,18 +6,16 @@ using EasySurvey.Models;
 
 namespace EasySurvey.Controllers
 {
-    public class UserController
+    public class UserController : BaseController
     {
-        private Database DatabaseModel;
-
         public UserController()
+            : base()
         {
-            DatabaseModel = new Database();
         }
 
         public UserController(Database DBEntity)
+            : base(DBEntity)
         {
-            DatabaseModel = DBEntity;
         }
 
         public User Get(long UserID)
@@ -39,19 +37,18 @@ namespace EasySurvey.Controllers
                            userRole.RoleID
                        };
 
-            RoleController roleController = new RoleController();
-
-            foreach (var elem in list)
-            {
-                Users.Add(new UserModelDataTransferObject()
+            using (RoleController roleController = new RoleController(DatabaseModel))
+                foreach (var elem in list)
                 {
-                    UserID = elem.UserID,
-                    UserName = elem.UserName,
-                    UserPassword = elem.UserPassword,
-                    RoleID = elem.RoleID,
-                    RoleName = roleController.GetRoleName(elem.RoleID)
-                });
-            }
+                    Users.Add(new UserModelDataTransferObject()
+                    {
+                        UserID = elem.UserID,
+                        UserName = elem.UserName,
+                        UserPassword = elem.UserPassword,
+                        RoleID = elem.RoleID,
+                        RoleName = roleController.GetRoleName(elem.RoleID)
+                    });
+                }
 
             return Users;
         }
@@ -71,19 +68,18 @@ namespace EasySurvey.Controllers
                            userRole.RoleID
                        };
 
-            RoleController roleController = new RoleController();
-
-            foreach (var elem in list)
-            {
-                Users.Add(new UserModelDataTransferObject()
+            using (RoleController roleController = new RoleController(DatabaseModel))
+                foreach (var elem in list)
                 {
-                    UserID = elem.UserID,
-                    UserName = elem.UserName,
-                    UserPassword = elem.UserPassword,
-                    RoleID = elem.RoleID,
-                    RoleName = roleController.GetRoleName(elem.RoleID)
-                });
-            }
+                    Users.Add(new UserModelDataTransferObject()
+                    {
+                        UserID = elem.UserID,
+                        UserName = elem.UserName,
+                        UserPassword = elem.UserPassword,
+                        RoleID = elem.RoleID,
+                        RoleName = roleController.GetRoleName(elem.RoleID)
+                    });
+                }
 
             return Users;
         }
@@ -103,16 +99,15 @@ namespace EasySurvey.Controllers
 
             var firstUser = user.First();
 
-            RoleController roleController = new RoleController();
-
-            return new UserModelDataTransferObject()
-            {
-                UserID = firstUser.UserID,
-                UserName = firstUser.UserName,
-                UserPassword = firstUser.UserPassword,
-                RoleID = firstUser.RoleID,
-                RoleName = roleController.GetRoleName(firstUser.RoleID)
-            };
+            using (RoleController roleController = new RoleController(DatabaseModel))
+                return new UserModelDataTransferObject()
+                {
+                    UserID = firstUser.UserID,
+                    UserName = firstUser.UserName,
+                    UserPassword = firstUser.UserPassword,
+                    RoleID = firstUser.RoleID,
+                    RoleName = roleController.GetRoleName(firstUser.RoleID)
+                };
         }
 
         public UserModelDataTransferObject GetUserByName(string Username)
@@ -129,16 +124,15 @@ namespace EasySurvey.Controllers
                        };
             var firstUser = user.First();
 
-            RoleController roleController = new RoleController();
-
-            return new UserModelDataTransferObject()
-            {
-                UserID = firstUser.UserID,
-                UserName = firstUser.UserName,
-                UserPassword = firstUser.UserPassword,
-                RoleID = firstUser.RoleID,
-                RoleName = roleController.GetRoleName(firstUser.RoleID)
-            };
+            using (RoleController roleController = new RoleController(DatabaseModel))
+                return new UserModelDataTransferObject()
+                {
+                    UserID = firstUser.UserID,
+                    UserName = firstUser.UserName,
+                    UserPassword = firstUser.UserPassword,
+                    RoleID = firstUser.RoleID,
+                    RoleName = roleController.GetRoleName(firstUser.RoleID)
+                };
         }
 
         public IEnumerable<UserModelDataTransferObject> Search(List<UserModelDataTransferObject> all_users, string search_in, bool caseSensitive = false, int limit = 4)
@@ -217,13 +211,12 @@ namespace EasySurvey.Controllers
             User user = DatabaseModel.User.Add(new User() { UserName = Username, UserPassword = null });
             DatabaseModel.SaveChanges();
 
-            UserRoleController userRoleController = new UserRoleController();
-            RoleController roleController = new RoleController();
-
-            if (roleController.GetUserRole(user.UserID) == null)
-            {
-                userRoleController.SetUserRole(user.UserID, roleController.GetRoleID("User"));
-            }
+            using (UserRoleController userRoleController = new UserRoleController(DatabaseModel))
+            using (RoleController roleController = new RoleController(DatabaseModel))
+                if (roleController.GetUserRole(user.UserID) == null)
+                {
+                    userRoleController.SetUserRole(user.UserID, roleController.GetRoleID("User"));
+                }
 
             return true;
         }
@@ -250,10 +243,12 @@ namespace EasySurvey.Controllers
             long UserID = UserToDelete.UserID;
 
             //Delete everything that is linked to this UserID: UserRole, Reports and ReportDefinitions
-            UserRoleController userRoleController = new UserRoleController();
-            ResultController resultController = new ResultController();
-            userRoleController.Delete(UserID);
-            resultController.DeleteAll(UserID);
+            using (UserRoleController userRoleController = new UserRoleController(DatabaseModel))
+            using (ResultController resultController = new ResultController(DatabaseModel))
+            {
+                userRoleController.Delete(UserID);
+                resultController.DeleteAll(UserID);
+            }
 
             DatabaseModel.User.Remove(UserToDelete);
             DatabaseModel.SaveChanges();
