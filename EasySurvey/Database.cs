@@ -149,7 +149,20 @@ namespace EasySurvey
                     if (CurrentUsers[UserIndex] != RestoreUsers[UserIndex])
                         throw new Exception("Selected database does not have the same Users.");
 
-                // TODO : Check for same Questions & Attitudes
+                // Check if there are the same Questions
+                List<Question> RestoreQuestions, CurrentQuestions;
+                using (QuestionController questionControllerRestore = new QuestionController(DatabaseImportPath))
+                    RestoreQuestions = questionControllerRestore.GetAll();
+                using (QuestionController questionControllerCurrent = new QuestionController())
+                    CurrentQuestions = questionControllerCurrent.GetAll();
+                if (CurrentQuestions.Count != RestoreQuestions.Count)
+                    throw new Exception("Selected database does not have the same Questions.");
+                foreach (Question CurrentQuestion in CurrentQuestions)
+                    if (!RestoreQuestions.Any(q => q.QuestionID == CurrentQuestion.QuestionID &&
+                                                  q.Question1 == CurrentQuestion.Question1))
+                        throw new Exception("Selected database does not have the same Questions.");
+
+                // TODO: Check if Surveys & Attitudes are the same
 
                 // Actually import new data from Result Table
                 using (ResultController resultControllerRestore = new ResultController(DatabaseImportPath))
@@ -162,7 +175,7 @@ namespace EasySurvey
                         if (!CurrentResults.Any(r => r.ResultID == RestoreResult.ResultID &&
                                                      r.SurveyID == RestoreResult.SurveyID &&
                                                      r.Date == RestoreResult.Date &&
-                                                     r.UserID == RestoreResult.UserID)
+                                                     r.UserID == RestoreResult.UserID))
                         {
                             // Add to result table
                             long OldResultID = RestoreResult.ResultID;
