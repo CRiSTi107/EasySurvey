@@ -8,15 +8,18 @@ namespace EasySurvey.Controllers
     public class BaseController : IDisposable
     {
         protected Database DatabaseModel;
+        protected string DatabasePath;
 
         public BaseController()
         {
             DatabaseModel = new Database();
+            DatabasePath = Database.GetDatabasePath(DatabaseModel.Database.Connection.ConnectionString);
         }
 
-        public BaseController(Database DBEntity)
+        public BaseController(string DatabasePath)
         {
-            DatabaseModel = DBEntity;
+            DatabaseModel = new Database(DatabasePath);
+            this.DatabasePath = DatabasePath;
         }
 
         public void Dispose()

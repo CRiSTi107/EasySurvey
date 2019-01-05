@@ -13,8 +13,8 @@ namespace EasySurvey.Controllers
         {
         }
 
-        public AttitudeController(Database DBEntity)
-            : base(DBEntity)
+        public AttitudeController(string DatabasePath)
+            : base(DatabasePath)
         {
         }
 
@@ -95,7 +95,7 @@ namespace EasySurvey.Controllers
             List<AttitudeDefinition> attitudeDefinition;
             attitudeDefinition = (from attitudedefinition in DatabaseModel.AttitudeDefinition where attitudedefinition.AttitudeID == AttitudeID select attitudedefinition).ToList();
 
-            using (QuestionController questionController = new QuestionController(DatabaseModel))
+            using (QuestionController questionController = new QuestionController(DatabasePath))
             {
                 List<Question> questions = new List<Question>();
 
@@ -130,7 +130,7 @@ namespace EasySurvey.Controllers
             Attitude attitudeToDelete = (from attitude in DatabaseModel.Attitude where attitude.AttitudeID == AttitudeID select attitude).First();
 
             //Delete Attitude Definitions
-            using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController(DatabaseModel))
+            using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController(DatabasePath))
                 attitudeDefinitionController.DeleteAll(AttitudeID);
 
             DatabaseModel.Attitude.Remove(attitudeToDelete);

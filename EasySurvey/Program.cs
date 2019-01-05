@@ -14,11 +14,6 @@ namespace EasySurvey
         public static MaterialForm frm_ConductSurvey;
         public static MaterialForm frm_Settings;
 
-        public static long InitDBCount1 = 0;
-        public static long InitDBCount2 = 0;
-        public static long DestructorDBCount1 = 0;
-        public static long DestructorDBCount2 = 0;
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

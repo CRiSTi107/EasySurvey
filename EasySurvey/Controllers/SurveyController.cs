@@ -13,8 +13,8 @@ namespace EasySurvey.Controllers
         {
         }
 
-        public SurveyController(Database DBEntity)
-            : base(DBEntity)
+        public SurveyController(string DatabasePath)
+            : base(DatabasePath)
         {
         }
 
@@ -101,7 +101,7 @@ namespace EasySurvey.Controllers
         {
             Survey surveyToDelete = (from survey in DatabaseModel.Survey where survey.SurveyID == SurveyID select survey).First();
 
-            using (QuestionController questionController = new QuestionController(DatabaseModel))
+            using (QuestionController questionController = new QuestionController(DatabasePath))
                 questionController.DeleteAll(SurveyID);
 
             DatabaseModel.Survey.Remove(surveyToDelete);

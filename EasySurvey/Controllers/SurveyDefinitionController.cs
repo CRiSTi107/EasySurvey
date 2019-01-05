@@ -13,8 +13,8 @@ namespace EasySurvey.Controllers
         {
         }
 
-        public SurveyDefinitionController(Database DBEntity)
-            : base(DBEntity)
+        public SurveyDefinitionController(string DatabasePath)
+            : base(DatabasePath)
         {
         }
 

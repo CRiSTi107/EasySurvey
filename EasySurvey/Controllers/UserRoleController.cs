@@ -13,8 +13,8 @@ namespace EasySurvey.Controllers
         {
         }
 
-        public UserRoleController(Database DBEntity)
-            : base(DBEntity)
+        public UserRoleController(string DatabasePath)
+            : base(DatabasePath)
         {
         }
 

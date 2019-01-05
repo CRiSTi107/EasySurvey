@@ -12,13 +12,11 @@ namespace EasySurvey
         public Database()
             : base()
         {
-            CreateDirectories();
         }
 
         public Database(string DatabasePath)
             : base(GetConnectionString(DatabasePath))
         {
-            CreateDirectories();
         }
 
         public static string GetConnectionString(string DatabasePath)
@@ -26,6 +24,11 @@ namespace EasySurvey
             const string QUOT = "\"";
             string DatabaseConnetionString = "metadata=res://*/Models.DatabaseModel.csdl|res://*/Models.DatabaseModel.ssdl|res://*/Models.DatabaseModel.msl;provider=System.Data.SQLite.EF6;provider connection string='data source=" + QUOT + DatabasePath + QUOT + "'";
             return DatabaseConnetionString;
+        }
+
+        public static string GetDatabasePath(string ConnectionString)
+        {
+            return ConnectionString.Split('"')[1];
         }
 
         private void CreateDirectories()
@@ -55,6 +58,8 @@ namespace EasySurvey
 
         private void Save(string DirectoryPath, string FileName)
         {
+            CreateDirectories();
+
             if (!Directory.Exists(DirectoryPath))
                 Directory.CreateDirectory(DirectoryPath);
 
@@ -126,6 +131,7 @@ namespace EasySurvey
             using (Database DB = new Database(DatabaseImportPath))
             {
                 //Copy data from Export Database to Current Database.
+
             }
 
         }

@@ -13,8 +13,8 @@ namespace EasySurvey.Controllers
         {
         }
 
-        public ResultController(Database DBEntity)
-            : base(DBEntity)
+        public ResultController(string DatabasePath)
+            : base(DatabasePath)
         {
         }
 
@@ -48,7 +48,7 @@ namespace EasySurvey.Controllers
         public void Delete(Result ResultToDelete)
         {
             //Delete Result Definitions first
-            using (ResultDefinitionController resultDefinitionController = new ResultDefinitionController(DatabaseModel))
+            using (ResultDefinitionController resultDefinitionController = new ResultDefinitionController(DatabasePath))
                 resultDefinitionController.Delete(ResultToDelete.ResultID);
 
             DatabaseModel.Result.Remove(ResultToDelete);

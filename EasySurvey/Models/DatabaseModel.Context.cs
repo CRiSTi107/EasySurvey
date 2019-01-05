@@ -18,13 +18,11 @@ namespace EasySurvey.Models
         public DatabaseEntity()
             : base("name=DatabaseConnectionString")
         {
-            ++Program.InitDBCount1;
         }
 
         public DatabaseEntity(string DBConnectionString)
             : base(DBConnectionString)
         {
-            ++Program.InitDBCount2;
         }
 
         public virtual DbSet<Attitude> Attitude { get; set; }
@@ -40,7 +38,6 @@ namespace EasySurvey.Models
 
         public void Close()
         {
-            ++Program.DestructorDBCount2;
             Database.Connection.Dispose();
             //EDIT Dispose(true);
             //EDIT Dispose();
