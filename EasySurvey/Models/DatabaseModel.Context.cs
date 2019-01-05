@@ -46,11 +46,11 @@ namespace EasySurvey.Models
             //EDIT Dispose();
         }
 
-        public new void Dispose()
-        {
-            ++Program.DestructorDBCount2;
-            base.Dispose();
-        }
+        // public new void Dispose()
+        // {
+        //     ++Program.DestructorDBCount2;
+        //     base.Dispose();
+        // }
 
         public override int SaveChanges()
         {

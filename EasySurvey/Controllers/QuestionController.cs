@@ -67,7 +67,7 @@ namespace EasySurvey.Controllers
             DatabaseModel.Question.Add(question);
             DatabaseModel.SaveChanges();
 
-            using (SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController())
+            using (SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController(DatabaseModel))
                 surveyDefinitionController.AddRelation(SurveyID, question.QuestionID);
         }
 
@@ -75,7 +75,7 @@ namespace EasySurvey.Controllers
         {
             Question QuestionToDelete = (from question in DatabaseModel.Question where question.QuestionID == QuestionID select question).First();
 
-            using (SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController())
+            using (SurveyDefinitionController surveyDefinitionController = new SurveyDefinitionController(DatabaseModel))
                 surveyDefinitionController.DeleteRelation(SurveyID, QuestionID);
 
             DatabaseModel.Question.Remove(QuestionToDelete);
@@ -84,7 +84,7 @@ namespace EasySurvey.Controllers
 
         public void DeleteAll(long SurveyID)
         {
-            using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController())
+            using (AttitudeDefinitionController attitudeDefinitionController = new AttitudeDefinitionController(DatabaseModel))
             {
                 List<Question> Questions = GetQuestionsForSurvey(SurveyID);
 

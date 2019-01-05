@@ -91,22 +91,33 @@ namespace EasySurvey
         {
             if (File.Exists(DATABASE_PATH))
             {
-                using (DatabaseEntity DBRestore = new DatabaseEntity(GetConnectionString(DatabaseBackupPath)))
-                using (DatabaseEntity DBCurrent = new DatabaseEntity())
-                    try
-                    {
-
-
-                        DBCurrent.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
+                // using (DatabaseEntity DBRestore = new DatabaseEntity(GetConnectionString(DatabaseBackupPath)))
+                // using (DatabaseEntity DBCurrent = new DatabaseEntity())
+                //     try
+                //     {
+                //         DBCurrent.User.ToList().ForEach(item => DBCurrent.User.Remove(item));
+                //         DBCurrent.UserRole.ToList().ForEach(item => DBCurrent.UserRole.Remove(item));
+                // 
+                //         DBCurrent.SaveChanges();
+                // 
+                //         var users = DBRestore.User.ToList();
+                // 
+                //         DBRestore.User.ToList().ForEach(item => DBCurrent.User.Add(item));
+                //         DBRestore.UserRole.ToList().ForEach(item => DBCurrent.UserRole.Add(item));
+                // 
+                //         DBCurrent.SaveChanges();
+                //     }
+                //     catch (Exception ex)
+                //     {
+                //         throw ex;
+                //     }
                 // File.Delete(DATABASE_PATH);
                 // File.Copy(DatabaseBackupPath, DATABASE_PATH);
             }
+            base.Dispose();
 
+            //File.Delete(DATABASE_PATH);
+            File.Copy(DatabaseBackupPath, DATABASE_PATH, true);
 
         }
 

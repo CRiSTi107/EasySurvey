@@ -97,7 +97,7 @@ namespace EasySurvey.Controllers
                            usrRole.RoleID
                        };
 
-            var firstUser = user.First();
+            var firstUser = user.FirstOrDefault();
 
             using (RoleController roleController = new RoleController(DatabaseModel))
                 return new UserModelDataTransferObject()
@@ -122,7 +122,7 @@ namespace EasySurvey.Controllers
                            usr.UserPassword,
                            usrRole.RoleID
                        };
-            var firstUser = user.First();
+            var firstUser = user.FirstOrDefault();
 
             using (RoleController roleController = new RoleController(DatabaseModel))
                 return new UserModelDataTransferObject()
