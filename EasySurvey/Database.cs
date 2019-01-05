@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using EasySurvey.Controllers;
 
 namespace EasySurvey
 {
@@ -128,9 +129,57 @@ namespace EasySurvey
 
         public void Import(string DatabaseImportPath)
         {
-            using (Database DB = new Database(DatabaseImportPath))
+            // Copy data from Export Database to Current Database.
+            using (Database DBRestore = new Database(DatabaseImportPath))
             {
-                //Copy data from Export Database to Current Database.
+                List<UserModelDataTransferObject> RestoreUsers;
+                List<UserModelDataTransferObject> CurrentUsers;
+
+                using (UserController userController = new UserController(DatabaseImportPath))
+                    RestoreUsers = userController.GetUsers().OrderBy(u => u.UserID).ToList();
+
+                using (UserController userController = new UserController())
+                    CurrentUsers = userController.GetUsers().OrderBy(u => u.UserID).ToList();
+
+                // Checking if there are same users.
+                if (CurrentUsers.Count != RestoreUsers.Count)
+                    throw new Exception("Selected database does not have the same Users.");
+
+                for (int UserIndex = 0; UserIndex <= RestoreUsers.Count - 1; ++UserIndex)
+                    if (CurrentUsers[UserIndex] != RestoreUsers[UserIndex])
+                        throw new Exception("Selected database does not have the same Users.");
+
+                // TODO : Check for same Questions & Attitudes
+
+                // Actually import new data from Result Table
+                using (ResultController resultControllerRestore = new ResultController(DatabaseImportPath))
+                using (ResultController resultControllerCurrent = new ResultController())
+                {
+                    List<Result> RestoreResults = resultControllerRestore.Get();
+                    List<Result> CurrentResults = resultControllerCurrent.Get();
+
+                    foreach (Result RestoreResult in RestoreResults)
+                        if (!CurrentResults.Any(r => r.ResultID == RestoreResult.ResultID &&
+                                                     r.SurveyID == RestoreResult.SurveyID &&
+                                                     r.Date == RestoreResult.Date &&
+                                                     r.UserID == RestoreResult.UserID)
+                        {
+                            // Add to result table
+                            long OldResultID = RestoreResult.ResultID;
+                            resultControllerCurrent.Add(RestoreResult); // ID may change during adding.
+                            long NewResultID = RestoreResult.ResultID;
+
+                            // Get all Result definitions
+                            using (ResultDefinitionController resultDefinitionControllerRestore = new ResultDefinitionController(DatabaseImportPath))
+                            using (ResultDefinitionController resultDefinitionControllerCurrent = new ResultDefinitionController())
+                            {
+                                List<ResultDefinition> RestoreResultDefinitions = resultDefinitionControllerRestore.Get(OldResultID);
+                                RestoreResultDefinitions.ForEach(rd => rd.ResultID = NewResultID); // Update with new ResultID
+                                resultDefinitionControllerCurrent.Add(RestoreResultDefinitions);
+                            }
+                        }
+                }
+
 
             }
 

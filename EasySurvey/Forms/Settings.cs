@@ -116,6 +116,7 @@ namespace EasySurvey
                 case USERS:
                     SetUsers();
                     DisplayMenuPanel(panel_Users);
+                    FocusUsersListView();
                     break;
 
                 case DATABASE:
@@ -349,6 +350,11 @@ namespace EasySurvey
                 listView_Users.Items.Add(itemToAdd);
             }
 
+        }
+
+        private void FocusUsersListView()
+        {
+            listView_Users.Focus();
         }
 
         private void lbl_Info_ForeColorChanged(object sender, EventArgs e)
@@ -730,12 +736,19 @@ namespace EasySurvey
             using (Database DB = new Database())
                 if (Result == DialogResult.OK)
                 {
-                    string ImportDatabasePath = openFileDialog_Import.FileName;
-                    ImportDatabasePath = Path.GetFullPath(ImportDatabasePath);
-                    DB.Import(ImportDatabasePath);
-                    MaterialMessageBox.Show("Database has been imported successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
-                    Program.frm_MainForm.Close();
-                    base.Close();
+                    try
+                    {
+                        string ImportDatabasePath = openFileDialog_Import.FileName;
+                        ImportDatabasePath = Path.GetFullPath(ImportDatabasePath);
+                        DB.Import(ImportDatabasePath);
+                        MaterialMessageBox.Show("Database has been imported successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
+                        Program.frm_MainForm.Close();
+                        base.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MaterialMessageBox.Show(ex.ToString(), "Easy Survey - Import Database", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                    }
                 }
         }
 
