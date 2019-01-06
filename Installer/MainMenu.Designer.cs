@@ -50,7 +50,12 @@
             this.panel_InstalationPath = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_Logo = new System.Windows.Forms.Label();
+            this.txt_PathInstallation = new System.Windows.Forms.TextBox();
+            this.btn_PathInstallation = new System.Windows.Forms.Button();
+            this.folderBrowserDialog_ChoosePath = new System.Windows.Forms.FolderBrowserDialog();
+            this.grb_PathInstallation = new System.Windows.Forms.GroupBox();
+            this.lbl_ChoosePath = new System.Windows.Forms.Label();
             this.panel_Welcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
             this.tableLayoutPanel_Welcome.SuspendLayout();
@@ -62,6 +67,7 @@
             this.panel_InstalationPath.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.grb_PathInstallation.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Back
@@ -271,6 +277,8 @@
             // 
             // panel_InstalationPath
             // 
+            this.panel_InstalationPath.Controls.Add(this.lbl_ChoosePath);
+            this.panel_InstalationPath.Controls.Add(this.grb_PathInstallation);
             this.panel_InstalationPath.Controls.Add(this.tableLayoutPanel1);
             this.panel_InstalationPath.Location = new System.Drawing.Point(0, 0);
             this.panel_InstalationPath.Name = "panel_InstalationPath";
@@ -295,7 +303,7 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lbl_Logo, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(133, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -305,16 +313,60 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(348, 41);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // label3
+            // lbl_Logo
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(342, 45);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Easy Survey Installer";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Logo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_Logo.Location = new System.Drawing.Point(3, 0);
+            this.lbl_Logo.Name = "lbl_Logo";
+            this.lbl_Logo.Size = new System.Drawing.Size(342, 45);
+            this.lbl_Logo.TabIndex = 0;
+            this.lbl_Logo.Text = "Easy Survey Installer";
+            this.lbl_Logo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_PathInstallation
+            // 
+            this.txt_PathInstallation.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_PathInstallation.Location = new System.Drawing.Point(19, 39);
+            this.txt_PathInstallation.Name = "txt_PathInstallation";
+            this.txt_PathInstallation.ReadOnly = true;
+            this.txt_PathInstallation.Size = new System.Drawing.Size(389, 22);
+            this.txt_PathInstallation.TabIndex = 4;
+            // 
+            // btn_PathInstallation
+            // 
+            this.btn_PathInstallation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PathInstallation.Location = new System.Drawing.Point(414, 39);
+            this.btn_PathInstallation.Name = "btn_PathInstallation";
+            this.btn_PathInstallation.Size = new System.Drawing.Size(37, 23);
+            this.btn_PathInstallation.TabIndex = 5;
+            this.btn_PathInstallation.Text = "...";
+            this.btn_PathInstallation.UseVisualStyleBackColor = true;
+            this.btn_PathInstallation.Click += new System.EventHandler(this.btn_PathInstallation_Click);
+            // 
+            // folderBrowserDialog_ChoosePath
+            // 
+            this.folderBrowserDialog_ChoosePath.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            // 
+            // grb_PathInstallation
+            // 
+            this.grb_PathInstallation.Controls.Add(this.txt_PathInstallation);
+            this.grb_PathInstallation.Controls.Add(this.btn_PathInstallation);
+            this.grb_PathInstallation.Location = new System.Drawing.Point(6, 254);
+            this.grb_PathInstallation.Name = "grb_PathInstallation";
+            this.grb_PathInstallation.Size = new System.Drawing.Size(469, 86);
+            this.grb_PathInstallation.TabIndex = 6;
+            this.grb_PathInstallation.TabStop = false;
+            this.grb_PathInstallation.Text = "Path to install required components";
+            // 
+            // lbl_ChoosePath
+            // 
+            this.lbl_ChoosePath.Location = new System.Drawing.Point(6, 124);
+            this.lbl_ChoosePath.Name = "lbl_ChoosePath";
+            this.lbl_ChoosePath.Size = new System.Drawing.Size(472, 55);
+            this.lbl_ChoosePath.TabIndex = 7;
+            this.lbl_ChoosePath.Text = "Please choose a path where to install all components";
+            this.lbl_ChoosePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainMenu
             // 
@@ -327,9 +379,9 @@
             this.Controls.Add(this.btn_Next);
             this.Controls.Add(this.grb_MenuButtons);
             this.Controls.Add(this.btn_Back);
+            this.Controls.Add(this.panel_InstalationPath);
             this.Controls.Add(this.panel_License);
             this.Controls.Add(this.panel_Welcome);
-            this.Controls.Add(this.panel_InstalationPath);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -339,6 +391,7 @@
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Easy Survey - Installer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.panel_Welcome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).EndInit();
@@ -352,6 +405,8 @@
             this.panel_InstalationPath.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.grb_PathInstallation.ResumeLayout(false);
+            this.grb_PathInstallation.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,7 +435,12 @@
         private System.Windows.Forms.Panel panel_InstalationPath;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_Logo;
+        private System.Windows.Forms.Button btn_PathInstallation;
+        private System.Windows.Forms.TextBox txt_PathInstallation;
+        public System.Windows.Forms.FolderBrowserDialog folderBrowserDialog_ChoosePath;
+        private System.Windows.Forms.GroupBox grb_PathInstallation;
+        private System.Windows.Forms.Label lbl_ChoosePath;
     }
 }
 

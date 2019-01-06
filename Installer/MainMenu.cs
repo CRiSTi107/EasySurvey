@@ -17,6 +17,7 @@ namespace Installer
             AddManyTo(MenuPanels, panel_Welcome, panel_License, panel_InstalationPath);
         }
 
+        private bool IsInstallationDone = false;
         private List<Panel> MenuPanels = new List<Panel>();
         private int _PanelIndex = 0;
         private int PanelIndex
@@ -84,6 +85,16 @@ namespace Installer
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
+            if (PanelIndex == MenuPanels.IndexOf(panel_InstalationPath))
+            {
+                if (txt_PathInstallation.Text == String.Empty)
+                {
+                    MessageBox.Show("Please choose a path where to install.", "Easy Survey - Choose path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+            }
+
             DisplayMenuPanel(MenuPanels[++PanelIndex]);
         }
 
@@ -92,5 +103,20 @@ namespace Installer
             this.Close();
         }
 
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!IsInstallationDone)
+                if (MessageBox.Show("Are you sure you want to exit Easy Survey Installation?", "Easy Survey - Installer", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    e.Cancel = true;
+        }
+
+        private void btn_PathInstallation_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog_ChoosePath.ShowDialog() == DialogResult.OK)
+            {
+                txt_PathInstallation.Text = folderBrowserDialog_ChoosePath.SelectedPath + "\\EasySurvey";
+                txt_PathInstallation.Text = txt_PathInstallation.Text.Replace("\\\\", "\\");
+            }
+        }
     }
 }
