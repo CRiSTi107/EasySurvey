@@ -47,8 +47,6 @@ namespace EasySurvey
             SetHorizontalMiddle(btn_MeSaveChanges);
         }
 
-
-
         private void Settings_Load(object sender, EventArgs e)
         {
             AddManyTo(MenuPanels, panel_About, panel_Me, panel_Users, panel_Database);
@@ -740,10 +738,10 @@ namespace EasySurvey
                     {
                         string ImportDatabasePath = openFileDialog_Import.FileName;
                         ImportDatabasePath = Path.GetFullPath(ImportDatabasePath);
-                        DB.Import(ImportDatabasePath);
-                        MaterialMessageBox.Show("Database has been imported successfully!" + Environment.NewLine + "You will be redirecte to Login Page.", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
-                        Program.frm_MainForm.Close();
-                        base.Close();
+                        long ImportedResults = DB.Import(ImportDatabasePath);
+                        MaterialMessageBox.Show("Database has been imported " + ImportedResults + " results successfully!", "Easy Survey - Database Import", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Information);
+                        // Program.frm_MainForm.Close();
+                        // base.Close();
                     }
                     catch (Exception ex)
                     {

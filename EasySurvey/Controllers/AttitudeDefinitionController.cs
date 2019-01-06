@@ -18,6 +18,11 @@ namespace EasySurvey.Controllers
         {
         }
 
+        public List<AttitudeDefinition> Get()
+        {
+            return (from attitudeDefinition in DatabaseModel.AttitudeDefinition select attitudeDefinition).ToList();
+        }
+
         public AttitudeDefinition GetRelation(long AttitudeID, long QuestionID)
         {
             return (from attitudeDefinition in DatabaseModel.AttitudeDefinition

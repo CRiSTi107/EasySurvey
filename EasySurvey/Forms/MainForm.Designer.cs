@@ -892,7 +892,7 @@
             this.deleteToolStripMenuItem_Delete});
             this.materialContextMenuStrip_Reports.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialContextMenuStrip_Reports.Name = "materialContextMenuStrip_Reports";
-            this.materialContextMenuStrip_Reports.Size = new System.Drawing.Size(154, 48);
+            this.materialContextMenuStrip_Reports.Size = new System.Drawing.Size(154, 26);
             // 
             // deleteToolStripMenuItem_Delete
             // 
@@ -1098,6 +1098,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
+            this.VisibleChanged += new System.EventHandler(this.MainForm_VisibleChanged);
             this.materialContextMenuStripSurvey_Admin.ResumeLayout(false);
             this.materialTabControl.ResumeLayout(false);
             this.tabPage_Surveys.ResumeLayout(false);

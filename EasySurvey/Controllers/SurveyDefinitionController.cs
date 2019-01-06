@@ -18,6 +18,11 @@ namespace EasySurvey.Controllers
         {
         }
 
+        public List<SurveyDefinition> Get()
+        {
+            return (from surveyDefinition in DatabaseModel.SurveyDefinition select surveyDefinition).ToList();
+        }
+
         public void AddRelation(long SurveyID, long QuestionID)
         {
             DatabaseModel.SurveyDefinition.Add(new SurveyDefinition() { SurveyID = SurveyID, QuestionID = QuestionID });

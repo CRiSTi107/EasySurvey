@@ -190,14 +190,6 @@ namespace EasySurvey
             Program.frm_Login.Show();
         }
 
-        // Used to refresh.
-        // private void materialFlatButton1_Click(object sender, EventArgs e)
-        // {
-        //     Surveys = GetSurveys();
-        // 
-        //     UpdateListView(Surveys, listView_AllSurveys);
-        // }
-
         #region About User - FontChanged and ForeColorChanged Events
 
         private const string AboutUser_FontStringDefault = @"Roboto Black; 11,25pt; style=Bold";
@@ -242,7 +234,6 @@ namespace EasySurvey
 
         private void AboutUser_Click(object sender, EventArgs e)
         {
-            // TODO: Open - About User Dialog here
             base.Hide();
             Program.frm_Settings = new Settings(LoggedUser);
             Program.frm_Settings.Show();
@@ -941,11 +932,6 @@ namespace EasySurvey
 
         private void tabPage_Reports_Enter(object sender, EventArgs e)
         {
-            // Update
-            // string SelectedUser = cmb_SelectUserReport.Text;
-            // cmb_SelectUserReport.Text = "*";
-            // cmb_SelectUserReport.Text = SelectedUser;
-
             RefreshReports();
         }
 
@@ -1085,6 +1071,11 @@ namespace EasySurvey
                     }
                 RefreshReports();
             }
+        }
+
+        private void MainForm_VisibleChanged(object sender, EventArgs e)
+        {
+            RefreshReports();
         }
     }
 }

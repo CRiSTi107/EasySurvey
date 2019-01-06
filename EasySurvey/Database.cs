@@ -95,76 +95,97 @@ namespace EasySurvey
 
         public void Restore(string DatabaseBackupPath)
         {
-            if (File.Exists(DATABASE_PATH))
-            {
-                // using (DatabaseEntity DBRestore = new DatabaseEntity(GetConnectionString(DatabaseBackupPath)))
-                // using (DatabaseEntity DBCurrent = new DatabaseEntity())
-                //     try
-                //     {
-                //         DBCurrent.User.ToList().ForEach(item => DBCurrent.User.Remove(item));
-                //         DBCurrent.UserRole.ToList().ForEach(item => DBCurrent.UserRole.Remove(item));
-                // 
-                //         DBCurrent.SaveChanges();
-                // 
-                //         var users = DBRestore.User.ToList();
-                // 
-                //         DBRestore.User.ToList().ForEach(item => DBCurrent.User.Add(item));
-                //         DBRestore.UserRole.ToList().ForEach(item => DBCurrent.UserRole.Add(item));
-                // 
-                //         DBCurrent.SaveChanges();
-                //     }
-                //     catch (Exception ex)
-                //     {
-                //         throw ex;
-                //     }
-                // File.Delete(DATABASE_PATH);
-                // File.Copy(DatabaseBackupPath, DATABASE_PATH);
-            }
             base.Dispose();
-
-            //File.Delete(DATABASE_PATH);
             File.Copy(DatabaseBackupPath, DATABASE_PATH, true);
-
         }
 
-        public void Import(string DatabaseImportPath)
+        public long Import(string DatabaseImportPath)
         {
             // Copy data from Export Database to Current Database.
             using (Database DBRestore = new Database(DatabaseImportPath))
             {
-                List<UserModelDataTransferObject> RestoreUsers;
-                List<UserModelDataTransferObject> CurrentUsers;
-
-                using (UserController userController = new UserController(DatabaseImportPath))
-                    RestoreUsers = userController.GetUsers().OrderBy(u => u.UserID).ToList();
-
-                using (UserController userController = new UserController())
-                    CurrentUsers = userController.GetUsers().OrderBy(u => u.UserID).ToList();
-
-                // Checking if there are same users.
+                // Checking if there are same Users.
+                List<UserModelDataTransferObject> RestoreUsers, CurrentUsers;
+                using (UserController UserController = new UserController(DatabaseImportPath))
+                    RestoreUsers = UserController.GetUsers().OrderBy(u => u.UserID).ToList();
+                using (UserController UserController = new UserController())
+                    CurrentUsers = UserController.GetUsers().OrderBy(u => u.UserID).ToList();
                 if (CurrentUsers.Count != RestoreUsers.Count)
                     throw new Exception("Selected database does not have the same Users.");
-
                 for (int UserIndex = 0; UserIndex <= RestoreUsers.Count - 1; ++UserIndex)
                     if (CurrentUsers[UserIndex] != RestoreUsers[UserIndex])
                         throw new Exception("Selected database does not have the same Users.");
 
                 // Check if there are the same Questions
                 List<Question> RestoreQuestions, CurrentQuestions;
-                using (QuestionController questionControllerRestore = new QuestionController(DatabaseImportPath))
-                    RestoreQuestions = questionControllerRestore.GetAll();
-                using (QuestionController questionControllerCurrent = new QuestionController())
-                    CurrentQuestions = questionControllerCurrent.GetAll();
+                using (QuestionController QuestionControllerRestore = new QuestionController(DatabaseImportPath))
+                    RestoreQuestions = QuestionControllerRestore.GetAll();
+                using (QuestionController QuestionControllerCurrent = new QuestionController())
+                    CurrentQuestions = QuestionControllerCurrent.GetAll();
                 if (CurrentQuestions.Count != RestoreQuestions.Count)
                     throw new Exception("Selected database does not have the same Questions.");
                 foreach (Question CurrentQuestion in CurrentQuestions)
                     if (!RestoreQuestions.Any(q => q.QuestionID == CurrentQuestion.QuestionID &&
-                                                  q.Question1 == CurrentQuestion.Question1))
+                                                   q.Question1 == CurrentQuestion.Question1))
                         throw new Exception("Selected database does not have the same Questions.");
 
-                // TODO: Check if Surveys & Attitudes are the same
+                // Check if there are the same Surveys
+                List<Survey> RestoreSurveys, CurrentSurveys;
+                using (SurveyController SurveyControllerRestore = new SurveyController(DatabaseImportPath))
+                    RestoreSurveys = SurveyControllerRestore.GetAll();
+                using (SurveyController SurveyControllerCurrent = new SurveyController())
+                    CurrentSurveys = SurveyControllerCurrent.GetAll();
+                if (CurrentSurveys.Count != RestoreSurveys.Count)
+                    throw new Exception("Selected database does not have the same Surveys.");
+                foreach (Survey CurrentSurvey in CurrentSurveys)
+                    if (!RestoreSurveys.Any(s => s.SurveyID == CurrentSurvey.SurveyID &&
+                                                 s.SurveyName == CurrentSurvey.SurveyName))
+                        throw new Exception("Selected database does not have the same Surveys.");
+
+                // Check if there are the same Survey Definitions
+                List<SurveyDefinition> RestoreSurveyDefinitions, CurrentSurveyDefinitions;
+                using (SurveyDefinitionController AttitudeDefinitionControllerRestore = new SurveyDefinitionController(DatabaseImportPath))
+                    RestoreSurveyDefinitions = AttitudeDefinitionControllerRestore.Get();
+                using (SurveyDefinitionController AttitudeDefinitionControllerCurrent = new SurveyDefinitionController())
+                    CurrentSurveyDefinitions = AttitudeDefinitionControllerCurrent.Get();
+                if (CurrentSurveyDefinitions.Count != RestoreSurveyDefinitions.Count)
+                    throw new Exception("Selected database does not have the same Survey Definitions.");
+                foreach (SurveyDefinition CurrentSurveyDefinition in CurrentSurveyDefinitions)
+                    if (!RestoreSurveyDefinitions.Any(sd => sd.SurveyDefinitionID == CurrentSurveyDefinition.SurveyDefinitionID &&
+                                                            sd.QuestionID == CurrentSurveyDefinition.QuestionID &&
+                                                            sd.SurveyID == CurrentSurveyDefinition.SurveyID))
+                        throw new Exception("Selected database does not have the same Survey Definitions.");
+
+                // Check if there are the same Attitudes
+                List<Attitude> RestoreAttitudes, CurrentAttitudes;
+                using (AttitudeController AttitudeControllerRestore = new AttitudeController(DatabaseImportPath))
+                    RestoreAttitudes = AttitudeControllerRestore.GetAttitudes();
+                using (AttitudeController AttitudeControllerCurrent = new AttitudeController())
+                    CurrentAttitudes = AttitudeControllerCurrent.GetAttitudes();
+                if (CurrentAttitudes.Count != RestoreAttitudes.Count)
+                    throw new Exception("Selected database does not have the same Attitudes.");
+                foreach (Attitude CurrentAttitude in CurrentAttitudes)
+                    if (!RestoreAttitudes.Any(a => a.AttitudeID == CurrentAttitude.AttitudeID &&
+                                                 a.AttitudeName == CurrentAttitude.AttitudeName))
+                        throw new Exception("Selected database does not have the same Attitudes.");
+
+                // Check if there are the same Attitudes Definitions
+                List<AttitudeDefinition> RestoreAttitudeDefinitions, CurrentAttitudeDefinitions;
+                using (AttitudeDefinitionController AttitudeDefinitionControllerRestore = new AttitudeDefinitionController(DatabaseImportPath))
+                    RestoreAttitudeDefinitions = AttitudeDefinitionControllerRestore.Get();
+                using (AttitudeDefinitionController AttitudeDefinitionControllerCurrent = new AttitudeDefinitionController())
+                    CurrentAttitudeDefinitions = AttitudeDefinitionControllerCurrent.Get();
+                if (CurrentAttitudeDefinitions.Count != RestoreAttitudeDefinitions.Count)
+                    throw new Exception("Selected database does not have the same Attitude Definitions.");
+                foreach (AttitudeDefinition CurrentAttitudeDefinition in CurrentAttitudeDefinitions)
+                    if (!RestoreAttitudeDefinitions.Any(ad => ad.AttitudeDefinitionID == CurrentAttitudeDefinition.AttitudeDefinitionID &&
+                                                              ad.AttitudeID == CurrentAttitudeDefinition.AttitudeID &&
+                                                              ad.QuestionID == CurrentAttitudeDefinition.QuestionID))
+                        throw new Exception("Selected database does not have the same Attitude Definitions.");
+
 
                 // Actually import new data from Result Table
+                long ImportedResultCount = 0;
                 using (ResultController resultControllerRestore = new ResultController(DatabaseImportPath))
                 using (ResultController resultControllerCurrent = new ResultController())
                 {
@@ -172,8 +193,7 @@ namespace EasySurvey
                     List<Result> CurrentResults = resultControllerCurrent.Get();
 
                     foreach (Result RestoreResult in RestoreResults)
-                        if (!CurrentResults.Any(r => r.ResultID == RestoreResult.ResultID &&
-                                                     r.SurveyID == RestoreResult.SurveyID &&
+                        if (!CurrentResults.Any(r => r.SurveyID == RestoreResult.SurveyID &&
                                                      r.Date == RestoreResult.Date &&
                                                      r.UserID == RestoreResult.UserID))
                         {
@@ -181,6 +201,7 @@ namespace EasySurvey
                             long OldResultID = RestoreResult.ResultID;
                             resultControllerCurrent.Add(RestoreResult); // ID may change during adding.
                             long NewResultID = RestoreResult.ResultID;
+                            ++ImportedResultCount;
 
                             // Get all Result definitions
                             using (ResultDefinitionController resultDefinitionControllerRestore = new ResultDefinitionController(DatabaseImportPath))
@@ -192,7 +213,7 @@ namespace EasySurvey
                             }
                         }
                 }
-
+                return ImportedResultCount;
 
             }
 
