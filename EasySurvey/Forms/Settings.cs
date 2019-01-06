@@ -745,7 +745,7 @@ namespace EasySurvey
                     }
                     catch (Exception ex)
                     {
-                        MaterialMessageBox.Show(ex.ToString(), "Easy Survey - Import Database", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
+                        MaterialMessageBox.Show(ex.Message, "Easy Survey - Import Database", MaterialMessageBox.MessageBoxButtons.OK, MaterialMessageBox.MessageBoxIcon.Error);
                     }
                 }
         }
