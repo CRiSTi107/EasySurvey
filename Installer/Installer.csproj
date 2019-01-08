@@ -97,9 +97,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\database.db" />
+    <None Include="Resources\EasySurvey.exe.config" />
     <None Include="Resources\EasySurveyLogo_512x512.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\EasySurvey.exe" />
+    <None Include="Resources\EntityFramework.dll" />
+    <None Include="Resources\EntityFramework.SqlServer.dll" />
+    <None Include="Resources\MaterialSkin.dll" />
+    <None Include="Resources\System.Data.SQLite.dll" />
+    <None Include="Resources\System.Data.SQLite.EF6.dll" />
+    <None Include="Resources\System.Data.SQLite.Linq.dll" />
     <Content Include="Survey.ico" />
   </ItemGroup>
   <ItemGroup>
