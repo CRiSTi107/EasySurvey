@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,7 +16,7 @@ namespace Installer
         {
             InitializeComponent();
 
-            AddManyTo(MenuPanels, panel_Welcome, panel_License, panel_InstalationPath);
+            AddManyTo(MenuPanels, panel_Welcome, panel_License, panel_InstalationPath, panel_Finish);
         }
 
         private bool IsInstallationDone = false;
@@ -44,6 +46,13 @@ namespace Installer
             {
                 btn_Back.Enabled = true;
                 btn_Next.Enabled = false;
+                if (IsInstallationDone)
+                {
+                    btn_Back.Enabled = btn_Back.Visible = false;
+                    btn_Cancel.Enabled = btn_Cancel.Visible = false;
+                    btn_Next.Enabled = btn_Next.Visible = true;
+                    btn_Next.Text = "&Finish";
+                }
             }
             else
             {
@@ -85,12 +94,21 @@ namespace Installer
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
+            if (IsInstallationDone)
+            { base.Close(); return; }
+
             if (PanelIndex == MenuPanels.IndexOf(panel_InstalationPath))
             {
                 if (txt_PathInstallation.Text == String.Empty)
                 {
                     MessageBox.Show("Please choose a path where to install.", "Easy Survey - Choose path", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                }
+                else
+                {
+                    // copy files to installation path
+
+                    IsInstallationDone = true;
                 }
 
             }
