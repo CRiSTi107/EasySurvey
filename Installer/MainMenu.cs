@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Installer.Properties;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -107,6 +110,15 @@ namespace Installer
                 else
                 {
                     // copy files to installation path
+
+                    ResourceSet resources = Resources.ResourceManager.GetResourceSet(new System.Globalization.CultureInfo("en"), false, true);
+
+                    IDictionaryEnumerator resourceList = resources.GetEnumerator();
+                    while (resourceList.MoveNext())
+                    {
+                        string key = (string)resourceList.Key;
+                        object value = resourceList.Value;
+                    }
 
                     IsInstallationDone = true;
                 }
