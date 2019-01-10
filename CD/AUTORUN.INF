@@ -1,0 +1,14 @@
+[AUTORUN]
+
+ACTION=Setup CD
+ICON=icon\survey.ico
+LABEL=Easy Survey Software
+OPEN=SetupCD.exe
+
+shellexecute=SetupCD.exe
+
+shell\netframework40=Install .NET Framework 4.0
+shell\netframework40\command=Redists\dotNetFx40_Full_x86_x64.exe
+
+shell\hkcmdSetup=Install Easy Survey
+shell\hkcmdSetup\command=Setup\EasySurveySetup.exe

@@ -1,0 +1,8 @@
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\bin\Release\SetupCD.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\bin\Release\SetupCD.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\obj\Release\SetupCD.csprojResolveAssemblyReference.cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\obj\Release\SetupCD.MainForm.resources
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\obj\Release\SetupCD.Properties.Resources.resources
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\obj\Release\SetupCD.csproj.GenerateResource.Cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\obj\Release\SetupCD.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\SetupCD\obj\Release\SetupCD.pdb

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySurvey", "EasySurvey\Ea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{759DEAFD-0D1B-43CE-9471-24D817CB3ECB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupCD", "SetupCD\SetupCD.csproj", "{094FF67A-A74B-4F57-BD4C-D0B976067A3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{759DEAFD-0D1B-43CE-9471-24D817CB3ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{759DEAFD-0D1B-43CE-9471-24D817CB3ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{759DEAFD-0D1B-43CE-9471-24D817CB3ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094FF67A-A74B-4F57-BD4C-D0B976067A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094FF67A-A74B-4F57-BD4C-D0B976067A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094FF67A-A74B-4F57-BD4C-D0B976067A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094FF67A-A74B-4F57-BD4C-D0B976067A3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
