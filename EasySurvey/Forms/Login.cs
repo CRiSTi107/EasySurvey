@@ -35,6 +35,9 @@ namespace EasySurvey
 
             //Add Labels to Autocomplete List
             AutocompleteLabels.Add(lbl_AutoComplete1); AutocompleteLabels.Add(lbl_AutoComplete2); AutocompleteLabels.Add(lbl_AutoComplete3); AutocompleteLabels.Add(lbl_AutoComplete4);
+
+            //Create Desktop Shortcut
+            Shortcut.CreateDesktopShortcut();
         }
 
         private List<UserModelDataTransferObject> GetUsers()
