@@ -104,6 +104,9 @@ namespace EasySurvey.Controllers
             using (QuestionController questionController = new QuestionController(DatabasePath))
                 questionController.DeleteAll(SurveyID);
 
+            using (ResultController resultController = new ResultController(DatabasePath))
+                resultController.DeleteAllWithSurveyID(SurveyID);
+
             DatabaseModel.Survey.Remove(surveyToDelete);
             DatabaseModel.SaveChanges();
         }

@@ -293,6 +293,9 @@ namespace EasySurvey
 
         private void LoadPasswordSettings()
         {
+            using (UserController userController = new UserController())
+                LoggedUser = userController.GetUserByID(LoggedUser.UserID);
+
             string UserPassword = LoggedUser.UserPassword;
 
             if (UserPassword == null) // No Password protection

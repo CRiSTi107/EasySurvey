@@ -66,5 +66,12 @@ namespace EasySurvey.Controllers
             foreach (Result ResultToDelete in ResultsToDelete)
                 Delete(ResultToDelete);
         }
+
+        public void DeleteAllWithSurveyID(long SurveyID)
+        {
+            List<Result> ResultsToDelete = DatabaseModel.Result.Where(r => r.SurveyID == SurveyID).ToList();
+            foreach (Result ResultToDelete in ResultsToDelete)
+                Delete(ResultToDelete);
+        }
     }
 }

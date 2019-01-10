@@ -114,7 +114,7 @@ namespace Installer
 
                     // https://stackoverflow.com/questions/1581694/gzipstream-and-decompression
                     ResourceSet resources = Resources.ResourceManager.GetResourceSet(new System.Globalization.CultureInfo("en"), false, true);
-                    GZipStream gzip = new GZipStream(null, CompressionMode.Decompress);
+                    // GZipStream gzip = new GZipStream(null, CompressionMode.Decompress);
 
                     IDictionaryEnumerator resourceList = resources.GetEnumerator();
                     while (resourceList.MoveNext())

@@ -40,6 +40,7 @@
             this.lbl_EasySurvey = new System.Windows.Forms.Label();
             this.panel_Welcome2 = new System.Windows.Forms.Panel();
             this.lbl_Welcome = new System.Windows.Forms.Label();
+            this.pic_Logo = new System.Windows.Forms.PictureBox();
             this.lbl_WelcomeDescription = new System.Windows.Forms.Label();
             this.txt_License = new System.Windows.Forms.TextBox();
             this.panel_License = new System.Windows.Forms.Panel();
@@ -60,11 +61,11 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label_Logo_Finish = new System.Windows.Forms.Label();
-            this.pic_Logo = new System.Windows.Forms.PictureBox();
             this.panel_Welcome.SuspendLayout();
             this.tableLayoutPanel_Welcome.SuspendLayout();
             this.tableLayoutPanel_Welcome2.SuspendLayout();
             this.panel_Welcome2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
             this.panel_License.SuspendLayout();
             this.tableLayoutPanel_License.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -75,7 +76,6 @@
             this.panel_Finish.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Back
@@ -201,6 +201,17 @@
             this.lbl_Welcome.Text = "Click Next to install Easy Survey Software";
             this.lbl_Welcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // pic_Logo
+            // 
+            this.pic_Logo.BackgroundImage = global::Installer.Properties.Resources.EasySurveyLogo_512x512;
+            this.pic_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic_Logo.Location = new System.Drawing.Point(3, 3);
+            this.pic_Logo.Name = "pic_Logo";
+            this.pic_Logo.Size = new System.Drawing.Size(124, 397);
+            this.pic_Logo.TabIndex = 0;
+            this.pic_Logo.TabStop = false;
+            // 
             // lbl_WelcomeDescription
             // 
             this.lbl_WelcomeDescription.Location = new System.Drawing.Point(12, 61);
@@ -213,7 +224,7 @@
             // txt_License
             // 
             this.txt_License.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_License.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_License.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_License.Location = new System.Drawing.Point(12, 98);
             this.txt_License.Multiline = true;
             this.txt_License.Name = "txt_License";
@@ -422,29 +433,18 @@
             this.label_Logo_Finish.Text = "Easy Survey Installer";
             this.label_Logo_Finish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pic_Logo
-            // 
-            this.pic_Logo.BackgroundImage = global::Installer.Properties.Resources.EasySurveyLogo_512x512;
-            this.pic_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pic_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pic_Logo.Location = new System.Drawing.Point(3, 3);
-            this.pic_Logo.Name = "pic_Logo";
-            this.pic_Logo.Size = new System.Drawing.Size(124, 397);
-            this.pic_Logo.TabIndex = 0;
-            this.pic_Logo.TabStop = false;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(484, 462);
-            this.Controls.Add(this.panel_Finish);
             this.Controls.Add(this.lbl_TextGrbMenu);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Next);
             this.Controls.Add(this.grb_MenuButtons);
             this.Controls.Add(this.btn_Back);
+            this.Controls.Add(this.panel_Finish);
             this.Controls.Add(this.panel_InstalationPath);
             this.Controls.Add(this.panel_License);
             this.Controls.Add(this.panel_Welcome);
@@ -463,6 +463,7 @@
             this.tableLayoutPanel_Welcome.ResumeLayout(false);
             this.tableLayoutPanel_Welcome2.ResumeLayout(false);
             this.panel_Welcome2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).EndInit();
             this.panel_License.ResumeLayout(false);
             this.panel_License.PerformLayout();
             this.tableLayoutPanel_License.ResumeLayout(false);
@@ -475,7 +476,6 @@
             this.panel_Finish.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
