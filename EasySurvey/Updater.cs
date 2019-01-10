@@ -6,6 +6,8 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.ComponentModel;
+using System.Drawing;
 
 namespace EasySurvey
 {
@@ -14,6 +16,43 @@ namespace EasySurvey
         private const string VERSION_URL_GIT = @"https://raw.githubusercontent.com/CRiSTi107/EasySurvey/master/VERSION";
         private Version lastVersion;
         private bool AutoStartCheck = true;
+        private bool DownloadingNewUpdate = false;
+        private WebClient webClient = new WebClient();
+        // private NotifyIcon notifyIcon;
+        public Updater()
+        {
+            webClient.DownloadFileCompleted += WebClient_DownloadFileCompleted;
+            webClient.DownloadProgressChanged += WebClient_DownloadProgressChanged;
+
+            // Icon AppIcon = Properties.Resources.Survey;
+
+            // notifyIcon = new NotifyIcon();
+            // notifyIcon.Icon = new Icon(AppIcon, new Size(AppIcon.Width, AppIcon.Height));
+            // notifyIcon.BalloonTipTitle = "Easy Survey - Updater";
+            // notifyIcon.BalloonTipText = "Update x % Downloaded";
+            // notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
+        }
+
+        public void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+
+        }
+
+        public void DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+
+        }
+
+        private void WebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            DownloadProgressChanged(sender, e);
+        }
+
+        private void WebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            DownloadFileCompleted(sender, e);
+        }
+
         public void CheckForUpdates(bool autoStartCheck = true)
         {
             AutoStartCheck = autoStartCheck;
@@ -40,9 +79,7 @@ namespace EasySurvey
         {
             try
             {
-                WebClient wc = new WebClient();
-
-                lastVersion = new Version(wc.DownloadString(VERSION_URL_GIT));
+                lastVersion = new Version(webClient.DownloadString(VERSION_URL_GIT));
                 Version currentVersion = GetCurrentVersion();
 
                 if (lastVersion > currentVersion)
