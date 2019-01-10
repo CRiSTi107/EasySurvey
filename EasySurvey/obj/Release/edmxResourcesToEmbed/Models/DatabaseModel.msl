@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseEntityStoreContainer" CdmEntityContainer="DatabaseConnectionString">
+    <EntitySetMapping Name="Attitude">
+      <EntityTypeMapping TypeName="DatabaseEntity.Attitude">
+        <MappingFragment StoreEntitySet="Attitude">
+          <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
+          <ScalarProperty Name="AttitudeName" ColumnName="AttitudeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttitudeDefinition">
+      <EntityTypeMapping TypeName="DatabaseEntity.AttitudeDefinition">
+        <MappingFragment StoreEntitySet="AttitudeDefinition">
+          <ScalarProperty Name="AttitudeDefinitionID" ColumnName="AttitudeDefinitionID" />
+          <ScalarProperty Name="AttitudeID" ColumnName="AttitudeID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question">
+      <EntityTypeMapping TypeName="DatabaseEntity.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="Question1" ColumnName="Question" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="DatabaseEntity.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Survey">
+      <EntityTypeMapping TypeName="DatabaseEntity.Survey">
+        <MappingFragment StoreEntitySet="Survey">
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyDefinition">
+      <EntityTypeMapping TypeName="DatabaseEntity.SurveyDefinition">
+        <MappingFragment StoreEntitySet="SurveyDefinition">
+          <ScalarProperty Name="SurveyDefinitionID" ColumnName="SurveyDefinitionID" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="DatabaseEntity.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="DatabaseEntity.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultDefinition">
+      <EntityTypeMapping TypeName="DatabaseEntity.ResultDefinition">
+        <MappingFragment StoreEntitySet="ResultDefinition">
+          <ScalarProperty Name="ResultAnswer" ColumnName="ResultAnswer" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+          <ScalarProperty Name="ResultDefinitionID" ColumnName="ResultDefinitionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Result">
+      <EntityTypeMapping TypeName="DatabaseEntity.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

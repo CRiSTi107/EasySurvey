@@ -96,6 +96,14 @@ namespace Installer
             DisplayMenuPanel(MenuPanels[--PanelIndex]);
         }
 
+        public void ByteArrayToFile(string fileName, byte[] byteArray)
+        {
+            using (var fs = new FileStream(fileName, FileMode.Create, FileAccess.Write))
+            {
+                fs.Write(byteArray, 0, byteArray.Length);
+            }
+        }
+
         private void btn_Next_Click(object sender, EventArgs e)
         {
             if (IsInstallationDone)
@@ -110,17 +118,53 @@ namespace Installer
                 }
                 else
                 {
-                    // copy files to installation path
+                    string InstallationFolder = txt_PathInstallation.Text;
+
+                    //check if folder exists
+                    if (!Directory.Exists(InstallationFolder))
+                        Directory.CreateDirectory(InstallationFolder);
+
+                    if (!InstallationFolder.EndsWith("\\"))
+                        InstallationFolder += "\\";
 
                     // https://stackoverflow.com/questions/1581694/gzipstream-and-decompression
-                    ResourceSet resources = Resources.ResourceManager.GetResourceSet(new System.Globalization.CultureInfo("en"), false, true);
                     // GZipStream gzip = new GZipStream(null, CompressionMode.Decompress);
 
+                    // copy files to installation path
+                    ResourceSet resources = Resources.ResourceManager.GetResourceSet(new System.Globalization.CultureInfo("en"), false, true);
                     IDictionaryEnumerator resourceList = resources.GetEnumerator();
                     while (resourceList.MoveNext())
                     {
-                        string key = (string)resourceList.Key;
-                        object value = resourceList.Value;
+                        string file_name = (string)resourceList.Key;
+                        //object value = resourceList.Value;
+                        byte[] file_value = null;
+                        if (resourceList.Value is byte[])
+                            file_value = (byte[])resourceList.Value;
+
+                        if (file_value == null)
+                            continue;
+
+                        if (file_name.StartsWith("instfile_"))
+                            file_name = file_name.Replace("instfile_", "");
+
+                        //Verify if this must be pun in a folder
+                        if (file_name.StartsWith("x64_") || file_name.StartsWith("x86_"))
+                        {
+                            string folder = file_name.Substring(0, 3);
+                            file_name = file_name.Remove(0, 4);
+                            file_name = file_name.Replace("_", ".");
+
+                            if (!Directory.Exists(InstallationFolder + folder))
+                                Directory.CreateDirectory(InstallationFolder + folder);
+
+                            ByteArrayToFile(InstallationFolder + folder + "\\" + file_name, file_value);
+                        }
+                        else // copy in installation directory
+                        {
+                            file_name = file_name.Replace("_", ".");
+                            ByteArrayToFile(InstallationFolder + file_name, file_value);
+                        }
+
                     }
 
                     IsInstallationDone = true;

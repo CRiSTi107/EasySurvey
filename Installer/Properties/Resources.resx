@@ -121,4 +121,37 @@
   <data name="EasySurveyLogo_512x512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EasySurveyLogo_512x512.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="instfile_database_db" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_database_db;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_EasySurvey_exe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_EasySurvey_exe;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_EasySurvey_exe_config" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_EasySurvey_exe_config;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_EntityFramework_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_EntityFramework_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_EntityFramework_SqlServer_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_EntityFramework_SqlServer_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_MaterialSkin_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_MaterialSkin_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_System_Data_SQLite_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_System_Data_SQLite_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_System_Data_SQLite_EF6_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_System_Data_SQLite_EF6_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_System_Data_SQLite_Linq_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_System_Data_SQLite_Linq_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_x64_SQLite_Interop_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_x64_SQLite_Interop_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="instfile_x86_SQLite_Interop_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instfile_x86_SQLite_Interop_dll;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

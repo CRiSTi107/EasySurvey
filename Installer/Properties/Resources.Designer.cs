@@ -69,5 +69,115 @@ namespace Installer.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_database_db {
+            get {
+                object obj = ResourceManager.GetObject("instfile_database_db", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_EasySurvey_exe {
+            get {
+                object obj = ResourceManager.GetObject("instfile_EasySurvey_exe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_EasySurvey_exe_config {
+            get {
+                object obj = ResourceManager.GetObject("instfile_EasySurvey_exe_config", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_EntityFramework_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_EntityFramework_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_EntityFramework_SqlServer_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_EntityFramework_SqlServer_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_MaterialSkin_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_MaterialSkin_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_System_Data_SQLite_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_System_Data_SQLite_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_System_Data_SQLite_EF6_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_System_Data_SQLite_EF6_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_System_Data_SQLite_Linq_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_System_Data_SQLite_Linq_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_x64_SQLite_Interop_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_x64_SQLite_Interop_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] instfile_x86_SQLite_Interop_dll {
+            get {
+                object obj = ResourceManager.GetObject("instfile_x86_SQLite_Interop_dll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

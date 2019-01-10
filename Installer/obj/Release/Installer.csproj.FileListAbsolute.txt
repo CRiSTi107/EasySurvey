@@ -1,0 +1,8 @@
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\bin\Release\Installer.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\bin\Release\Installer.pdb
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\obj\Release\Installer.csprojResolveAssemblyReference.cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\obj\Release\Installer.MainMenu.resources
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\obj\Release\Installer.Properties.Resources.resources
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\obj\Release\Installer.csproj.GenerateResource.Cache
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\obj\Release\Installer.exe
+C:\Users\CRiSTi\Documents\Visual Studio 2015\Projects\EasySurvey\Installer\obj\Release\Installer.pdb

@@ -95,6 +95,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\instfile_database_db" />
+    <None Include="Resources\instfile_EasySurvey_exe" />
+    <None Include="Resources\instfile_EasySurvey_exe_config" />
+    <None Include="Resources\instfile_EntityFramework_dll" />
+    <None Include="Resources\instfile_EntityFramework_SqlServer_dll" />
+    <None Include="Resources\instfile_MaterialSkin_dll" />
+    <None Include="Resources\instfile_System_Data_SQLite_dll" />
+    <None Include="Resources\instfile_System_Data_SQLite_EF6_dll" />
+    <None Include="Resources\instfile_System_Data_SQLite_Linq_dll" />
+    <None Include="Resources\instfile_x64_SQLite_Interop_dll" />
+    <None Include="Resources\instfile_x86_SQLite_Interop_dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EasySurveyLogo_512x512.png" />
