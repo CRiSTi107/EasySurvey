@@ -17,7 +17,7 @@ namespace EasySurvey
         private Version lastVersion;
         private bool AutoStartCheck = true;
         private bool DownloadingNewUpdate = false;
-        private WebClient webClient = new WebClient();
+        public WebClient webClient = new WebClient();
         // private NotifyIcon notifyIcon;
         public Updater()
         {
@@ -33,24 +33,14 @@ namespace EasySurvey
             // notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
         }
 
-        public void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-
-        }
-
-        public void DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-
-        }
-
         private void WebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            DownloadProgressChanged(sender, e);
+
         }
 
         private void WebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            DownloadFileCompleted(sender, e);
+
         }
 
         public void CheckForUpdates(bool autoStartCheck = true)

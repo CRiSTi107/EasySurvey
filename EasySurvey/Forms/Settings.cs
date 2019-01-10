@@ -41,10 +41,14 @@ namespace EasySurvey
             lbl_UserRole.Font = UserRoleFont;
             lbl_Info.ForeColor = Color.Red;
 
-            //Setting App Logo in middle.
+            // Setting App Logo in middle.
             SetHorizontalMiddle(pic_EasySurveyLogo);
             SetHorizontalMiddle(pic_GitHub);
             SetHorizontalMiddle(btn_MeSaveChanges);
+
+            // Initialize Update Class
+            updater = new Updater();
+
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -150,7 +154,7 @@ namespace EasySurvey
             Process.Start(@"https://github.com/CRiSTi107/EasySurvey");
         }
 
-        private Updater updater = new Updater();
+        private Updater updater;
 
         private void SetCurrentVersion()
         {
