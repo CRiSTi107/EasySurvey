@@ -8,12 +8,14 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.ComponentModel;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace EasySurvey
 {
     public class Updater
     {
         private const string VERSION_URL_GIT = @"https://raw.githubusercontent.com/CRiSTi107/EasySurvey/master/VERSION";
+        private const string UPDATER_URL_GIT = @"https://raw.githubusercontent.com/CRiSTi107/EasySurvey/master/Update/Updater.exe";
         private Version lastVersion;
         private bool AutoStartCheck = true;
         private bool DownloadingNewUpdate = false;
@@ -76,7 +78,17 @@ namespace EasySurvey
                 {
                     if (MessageBox.Show("A new update is avabile - " + lastVersion.ToString() + Environment.NewLine + "Would you like to download it now?", "EasySurvey - " + currentVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        // Download from an URL or open easysurvey.github.io page.
+                        string UpdateFileName = "Update-" + lastVersion.ToString() + ".exe";
+                        webClient.DownloadFile(UPDATER_URL_GIT, UpdateFileName);
+
+                        if (MessageBox.Show(UpdateFileName + " has been downloaded in Easy Survey Folder." + Environment.NewLine + "You want to install it right now?", "EasySurvey - " + currentVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            Process proc = new Process();
+                            proc.StartInfo.FileName = UpdateFileName;
+                            proc.StartInfo.UseShellExecute = true;
+                            proc.StartInfo.Verb = "runas";
+                            proc.Start();
+                        }
                     }
                 }
                 else if (!AutoStartCheck)
