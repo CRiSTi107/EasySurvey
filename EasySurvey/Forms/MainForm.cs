@@ -192,15 +192,15 @@ namespace EasySurvey
 
         #region About User - FontChanged and ForeColorChanged Events
 
-        private const string AboutUser_FontStringDefault = @"Roboto Black; 11,25pt; style=Bold";
-        private const string AboutUser_FontStringHover = @"Roboto Black; 11,25pt; style=Bold, Underline";
+        // private const string AboutUser_FontStringDefault = @"Roboto Black; 11,25pt; style=Bold";
+        // private const string AboutUser_FontStringHover = @"Roboto Black; 11,25pt; style=Bold, Underline";
 
         private bool AboutUser_IsMouseEnter = false;
 
         private Color AboutUser_ForeColor = Color.White;
 
-        private Font AboutUser_FontDefault = ((new FontConverter().ConvertFromString(AboutUser_FontStringDefault)) as Font);
-        private Font AboutUser_FontHover = ((new FontConverter().ConvertFromString(AboutUser_FontStringHover)) as Font);
+        private Font AboutUser_FontDefault = new Font("Roboto Black", 11.25F, FontStyle.Bold);
+        private Font AboutUser_FontHover = new System.Drawing.Font("Roboto Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
 
 
         private void lbl_AboutUser_ForeColorChanged(object sender, EventArgs e)

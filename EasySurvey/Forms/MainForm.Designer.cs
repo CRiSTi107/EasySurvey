@@ -154,8 +154,8 @@
             // listView_AllSurveys
             // 
             this.listView_AllSurveys.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView_AllSurveys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView_AllSurveys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_AllSurveys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -199,7 +199,7 @@
             // 
             this.addNewToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
             this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
-            this.addNewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.addNewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.N)));
             this.addNewToolStripMenuItem.ShowShortcutKeys = false;
             this.addNewToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
@@ -216,8 +216,8 @@
             // 
             // materialTabControl
             // 
-            this.materialTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.materialTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl.Controls.Add(this.tabPage_Surveys);
             this.materialTabControl.Controls.Add(this.tabPage_Attitudes);
@@ -283,7 +283,7 @@
             // 
             // txt_AllSurveysSearchBar
             // 
-            this.txt_AllSurveysSearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_AllSurveysSearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_AllSurveysSearchBar.Depth = 0;
             this.txt_AllSurveysSearchBar.Hint = "";
@@ -356,8 +356,8 @@
             // 
             // listView_EditSurveyQuestions
             // 
-            this.listView_EditSurveyQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView_EditSurveyQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_EditSurveyQuestions.Location = new System.Drawing.Point(36, 121);
             this.listView_EditSurveyQuestions.Name = "listView_EditSurveyQuestions";
@@ -382,7 +382,7 @@
             // 
             // txt_EditSurveyDetailsName
             // 
-            this.txt_EditSurveyDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_EditSurveyDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_EditSurveyDetailsName.Depth = 0;
             this.txt_EditSurveyDetailsName.Hint = "";
@@ -476,8 +476,8 @@
             // 
             // listView_ViewSurveyQuestions
             // 
-            this.listView_ViewSurveyQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView_ViewSurveyQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_ViewSurveyQuestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
@@ -508,7 +508,7 @@
             // 
             // txt_ViewSurveyDetailsName
             // 
-            this.txt_ViewSurveyDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_ViewSurveyDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_ViewSurveyDetailsName.Depth = 0;
             this.txt_ViewSurveyDetailsName.Font = new System.Drawing.Font("Roboto", 11F);
@@ -584,7 +584,7 @@
             // 
             // txt_AllAttitudesSearchBar
             // 
-            this.txt_AllAttitudesSearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_AllAttitudesSearchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_AllAttitudesSearchBar.Depth = 0;
             this.txt_AllAttitudesSearchBar.Hint = "";
@@ -608,8 +608,8 @@
             // listView_AllAttitudes
             // 
             this.listView_AllAttitudes.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView_AllAttitudes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView_AllAttitudes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_AllAttitudes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
@@ -654,7 +654,7 @@
             // 
             this.addNewAttitudeToolStripMenuItem.Image = global::EasySurvey.Properties.Resources.add_icon_24x24;
             this.addNewAttitudeToolStripMenuItem.Name = "addNewAttitudeToolStripMenuItem";
-            this.addNewAttitudeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.addNewAttitudeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.N)));
             this.addNewAttitudeToolStripMenuItem.ShowShortcutKeys = false;
             this.addNewAttitudeToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
@@ -721,8 +721,8 @@
             // 
             // listView_EditAttitudeDefinition
             // 
-            this.listView_EditAttitudeDefinition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView_EditAttitudeDefinition.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_EditAttitudeDefinition.ContextMenuStrip = this.materialContextMenuStripAttitudeDefinition_Admin;
             this.listView_EditAttitudeDefinition.Location = new System.Drawing.Point(36, 121);
@@ -787,7 +787,7 @@
             // 
             // txt_EditAttitudeDetailsName
             // 
-            this.txt_EditAttitudeDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_EditAttitudeDetailsName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_EditAttitudeDetailsName.Depth = 0;
             this.txt_EditAttitudeDetailsName.Hint = "";
@@ -854,8 +854,8 @@
             // listView_UserReports
             // 
             this.listView_UserReports.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView_UserReports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView_UserReports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_UserReports.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
@@ -917,7 +917,7 @@
             // 
             // cmb_SelectUserReport
             // 
-            this.cmb_SelectUserReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cmb_SelectUserReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_SelectUserReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmb_SelectUserReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -931,7 +931,7 @@
             // 
             // lbl_AttitudeReportsInfo
             // 
-            this.lbl_AttitudeReportsInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbl_AttitudeReportsInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_AttitudeReportsInfo.Depth = 0;
             this.lbl_AttitudeReportsInfo.Font = new System.Drawing.Font("Roboto", 11F);
@@ -961,8 +961,8 @@
             // listView_AttitudeReports
             // 
             this.listView_AttitudeReports.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView_AttitudeReports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView_AttitudeReports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_AttitudeReports.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             listViewGroup4.Header = "Results";
@@ -981,7 +981,7 @@
             // 
             // materialTabSelector
             // 
-            this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.materialTabSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabSelector.BaseTabControl = this.materialTabControl;
             this.materialTabSelector.Depth = 0;
@@ -998,7 +998,7 @@
             this.lbl_AboutUser.BackColor = System.Drawing.Color.Transparent;
             this.lbl_AboutUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_AboutUser.Depth = 0;
-            this.lbl_AboutUser.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl_AboutUser.Font = new System.Drawing.Font("Roboto Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lbl_AboutUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_AboutUser.Location = new System.Drawing.Point(0, 0);
             this.lbl_AboutUser.MouseState = MaterialSkin.MouseState.HOVER;
